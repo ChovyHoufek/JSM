@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="Ofuk_brusu" Id="{b5d51900-0a57-433d-86c1-353118711eae}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Ofuk_brusu
+VAR CONSTANT
+    leva_pulka_rolen:INT:=29;
+	prava_pulka_rolen:INT:=29;
+    pocet_vstupnich_rolen:INT:=54;	
+END_VAR
+
+VAR
+	pocitadlo:INT;
+	 (* Rising and Falling Edge Detection *)
+    Left_rtrig_sensors : ARRAY[1..30] OF R_TRIG;
+    Left_ftrig_sensors : ARRAY[1..30] OF F_TRIG;
+	Right_rtrig_sensors : ARRAY[1..30] OF R_TRIG;
+    Right_ftrig_sensors : ARRAY[1..30] OF F_TRIG;
+	
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[(* Edge Detection left side*)
+FOR pocitadlo := 1 TO leva_pulka_rolen-1  DO 	
+    Left_rtrig_sensors[pocitadlo](CLK := Machine_Inputs.I_Detekce_vst_desky[pocitadlo]);  // starting from 1
+    Left_ftrig_sensors[pocitadlo](CLK := Machine_Inputs.I_Detekce_vst_desky[pocitadlo]);  // starting from 1
+
+    IF Left_rtrig_sensors[pocitadlo].Q THEN
+        (* Sensor ON: Pripocitani do pocitadla sepnutych rolen *)
+       Machine_Intern.M_Leve_rolny_sepnuty:=Machine_Intern.M_Leve_rolny_sepnuty+1;
+    END_IF
+
+    IF Left_ftrig_sensors[pocitadlo].Q THEN
+        (* Sensor OFF: Write falling edge time to off_memory *)
+        IF Machine_Intern.M_Leve_rolny_sepnuty>0 THEN
+			Machine_Intern.M_Leve_rolny_sepnuty:= Machine_Intern.M_Leve_rolny_sepnuty-1;
+		END_IF
+		
+    END_IF
+END_FOR
+
+(* Edge Detection Right side *)
+FOR pocitadlo := 1 TO prava_pulka_rolen-1  DO 	
+    Right_rtrig_sensors[pocitadlo](CLK := Machine_Inputs.I_Detekce_vst_desky[pocet_vstupnich_rolen-pocitadlo+1]);  // starting from 1
+    Right_ftrig_sensors[pocitadlo](CLK := Machine_Inputs.I_Detekce_vst_desky[pocet_vstupnich_rolen-pocitadlo+1]);  // starting from 1
+
+    IF Right_rtrig_sensors[pocitadlo].Q THEN
+        (* Sensor ON: Pripocitani do pocitadla sepnutych rolen *)
+       Machine_Intern.M_Prave_rolny_sepnuty:=Machine_Intern.M_Prave_rolny_sepnuty+1;
+    END_IF
+
+    IF Right_ftrig_sensors[pocitadlo].Q THEN
+        (* Sensor OFF: Write falling edge time to off_memory *)
+        IF Machine_Intern.M_Prave_rolny_sepnuty>0 THEN
+			Machine_Intern.M_Prave_rolny_sepnuty:= Machine_Intern.M_Prave_rolny_sepnuty-1;
+		END_IF
+    END_IF
+END_FOR]]></ST>
+    </Implementation>
+    <LineIds Name="Ofuk_brusu">
+      <LineId Id="6" Count="7" />
+      <LineId Id="15" Count="4" />
+      <LineId Id="36" Count="1" />
+      <LineId Id="61" Count="0" />
+      <LineId Id="21" Count="1" />
+      <LineId Id="38" Count="16" />
+      <LineId Id="5" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

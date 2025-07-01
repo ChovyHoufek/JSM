@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <DUT Name="DUT_patka" Id="{8e878868-375d-4a8f-9576-d43c1756abde}">
+    <Declaration><![CDATA[TYPE DUT_patka :
+STRUCT
+	Typ_patky:INT; //0= neni patka 1= elektro magneticka segmentova, 2= pevna patka, 3= pneumaticka patka
+	Pocet_vst_segmentu:INT;  // pocet rolen
+	Pocet_segmentu_patky:INT; 
+	Pocet_impulsu_mezi_vst_listou_Apatkou:UINT;
+	Pocet_impulsu_mezi_vst_listou_Apatkou_odpad:UINT;
+	Pocet_impulsu_mezi_vst_listou_Apatkou_jemna_korekce:INT;
+	Pocet_impulsu_mezi_vst_listou_Apatkou_odpad_jemna_korekce:INT;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

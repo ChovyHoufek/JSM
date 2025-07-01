@@ -1,0 +1,357 @@
+<div id="Desktop" data-tchmi-type="TcHmi.Controls.System.TcHmiView" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width-unit="%" data-tchmi-width="100" data-tchmi-height-unit="%" data-tchmi-height="100" data-tchmi-background-image-width-unit="%" data-tchmi-background-image-height-unit="%" data-tchmi-background-image-width="100" data-tchmi-background-image-height="100" data-tchmi-creator-viewport-width="1680" data-tchmi-creator-viewport-height="1080">
+  
+<div id="Navigation_Bottom" data-tchmi-type="TcHmi.Controls.BaseTemplate.TcHmiNavigation" data-tchmi-height="80" data-tchmi-left="23" data-tchmi-bottom="0" data-tchmi-right="300" data-tchmi-target-region="%ctrl%Region_Center%/ctrl%" data-tchmi-navigation-orientation="Horizontal" data-tchmi-keep-lowest-level="true" data-tchmi-show-back-button="false" data-tchmi-text-font-size="15">
+
+<script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+[
+  "divider",
+  "divider-bottom"
+]
+</script><script data-tchmi-target-attribute="data-tchmi-navigation-structure" type="application/json">
+[
+  {
+    "name": "%l%L_StartPage%/l%",
+    "content": "Pages/StartPage.content",
+    "icon_a": "%tr%TR_Icon_StartPage_active%/tr%",
+    "icon_n": "%tr%TR_Icon_StartPage_normal%/tr%",
+    "icon_p": "%tr%TR_Icon_StartPage_pressed%/tr%"
+  },
+  {
+    "name": "%l%L_Events%/l%",
+    "content": "Pages/Events.content",
+    "icon_a": "%tr%TR_Icon_Events_active%/tr%",
+    "icon_n": "%tr%TR_Icon_Events_normal%/tr%",
+    "icon_p": "%tr%TR_Icon_Events_pressed%/tr%"
+  },
+  {
+    "name": "%l%L_Settings%/l%",
+    "content": "Pages/Settings.content",
+    "icon_a": "%tr%TR_Icon_Settings_active%/tr%",
+    "icon_n": "%tr%TR_Icon_Settings_normal%/tr%",
+    "icon_p": "%tr%TR_Icon_Settings_pressed%/tr%"
+  },
+  {
+    "name": "%l%L_Page1%/l%",
+    "content": "Pages/Page1.content",
+    "icon_a": "%tr%TR_Icon_Page1_active%/tr%",
+    "icon_n": "%tr%TR_Icon_Page1_normal%/tr%",
+    "icon_p": "%tr%TR_Icon_Page1_pressed%/tr%"
+  },
+  {
+    "name": "%l%L_Page2%/l%",
+    "content": "Pages/Page2.content"
+  },
+  {
+    "name": "%l%L_Setup%/l%",
+    "content": "Pages/Patka.content"
+  }
+]
+</script></div><div id="Header_Top" data-tchmi-type="TcHmi.Controls.BaseTemplate.TcHmiHeader" data-tchmi-height="80" data-tchmi-left="0" data-tchmi-top="0" data-tchmi-right="0">
+<script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">[
+"divider",
+"divider-top"
+]
+</script><script data-tchmi-target-attribute="data-tchmi-header-items" type="application/json">
+[
+  {
+    "itemType": "Image",
+    "priority": "2",
+    "itemAlign": "Left",
+    "prefWidth": 300.0,
+    "prefWidthUnit": "px",
+    "prefHeight": 60.0,
+    "prefHeightUnit": "px",
+    "minWidth": 275.0,
+    "minWidthUnit": "px",
+    "classList": [],
+    "accessRights": [],
+    "image": "Images/Vlastni/Heesemann Logo_270.png",
+    "altText": "Heesemann",
+    "targetRegion": "%ctrl%Region_Center%/ctrl%",
+    "targetContent": "Pages/StartPage.content"
+  },
+  {
+    "itemType": "EventLine",
+    "priority": "5",
+    "itemAlign": "Right",
+    "prefWidth": 800.0,
+    "prefWidthUnit": "px",
+    "prefHeight": 60.0,
+    "prefHeightUnit": "px",
+    "minWidth": 288.0,
+    "minWidthUnit": "px",
+    "classList": [],
+    "accessRights": [],
+    "messageFormat": [
+      {
+        "name": "timeRaised"
+      },
+      {
+        "text": " | "
+      },
+      {
+        "name": "domain"
+      },
+      {
+        "text": " | "
+      },
+      {
+        "name": "text"
+      }
+    ],
+    "filter": [
+      {
+        "path": "domain",
+        "comparator": "==",
+        "value": "TcHmiAlarm"
+      },
+      {
+        "logic": "AND"
+      },
+      {
+        "path": "isActive",
+        "comparator": "==",
+        "value": true
+      }
+    ],
+    "targetRegion": "%ctrl%Region_Center%/ctrl%",
+    "targetContent": "Pages/Events.content"
+  },
+  {
+    "itemType": "UserManagement",
+    "priority": "3",
+    "itemAlign": "Right",
+    "prefWidth": 288.0,
+    "prefWidthUnit": "px",
+    "prefHeight": 48.0,
+    "prefHeightUnit": "px",
+    "minWidth": 176.0,
+    "minWidthUnit": "px",
+    "classList": [],
+    "accessRights": [],
+    "allowLogout": true,
+    "allowSwitchUser": true
+  },
+  {
+    "itemType": "Time",
+    "priority": "4",
+    "itemAlign": "Right",
+    "prefWidth": 128.0,
+    "prefWidthUnit": "px",
+    "prefHeight": 48.0,
+    "prefHeightUnit": "px",
+    "minWidth": 96.0,
+    "minWidthUnit": "px",
+    "classList": [],
+    "accessRights": [],
+    "timeDisplayLayout": "TimeDateMultiLine"
+  }
+]
+</script></div><div id="Region_Center" data-tchmi-type="TcHmi.Controls.System.TcHmiRegion" data-tchmi-left="0" data-tchmi-top="%ctrl%Header_Top::Height%/ctrl%" data-tchmi-scrolling="Yes" data-tchmi-bottom="%ctrl%Navigation_Bottom::Height%/ctrl%" data-tchmi-right="0">
+
+<script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json"></script></div><script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">[ 
+                {   
+                    "event": "%ctrl%Desktop::RenderedWidth%/ctrl%", 
+                    "actions": [ 
+                        {  
+                            "objectType": "Function",
+                            "active": true,  
+                            "fn":  "TcHmiResponsiveBehaviour", 
+                            "fnParams": [ 
+                                {  
+                                    "objectType": "Symbol",  
+                                    "valueType":  "tchmi:general#/definitions/String",  
+                                    "symbolExpression":  "%i%MediaQueryList%/i%" 
+                                }, 
+                                {  
+                                    "objectType": "Symbol", 
+                                    "valueType": "tchmi:general#/definitions/String", 
+                                    "symbolExpression": "%i%AffectedControls%/i%" 
+                                } 
+                            ], 
+                            "asyncWait": true 
+                        } 
+                    ] 
+                } 
+            ]</script>
+<div id="Btn_Shut_down_PC" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="80" data-tchmi-height-unit="px" data-tchmi-left-unit="px" data-tchmi-text="" data-tchmi-top-unit="px" data-tchmi-width="75" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-bottom="0" data-tchmi-icon="Images/Vlastni/menu_icon_power.png" data-tchmi-right="20">
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "Btn_Shut_down_PC.onPressed",
+    "actions": [
+      {
+        "objectType": "ControlApiFunction",
+        "active": true,
+        "control": "TcHmiPopup",
+        "fn": "open",
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+<div id="Btn_Shut_down_PC_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="80" data-tchmi-height-unit="px" data-tchmi-left-unit="px" data-tchmi-top-unit="px" data-tchmi-width="75" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-bottom="0" data-tchmi-icon="Images/Vlastni/Beleuchtung.png" data-tchmi-right="100">
+</div>
+<div id="Btn_Change_lang" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="80" data-tchmi-height-unit="px" data-tchmi-left-unit="px" data-tchmi-top-unit="px" data-tchmi-width="75" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-bottom="0" data-tchmi-right="185" data-tchmi-icon="Images/Vlastni/United-Kingdom.png">
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "Btn_Change_lang.onPressed",
+    "actions": [
+      {
+        "objectType": "SwitchCase",
+        "active": true,
+        "compare": {
+          "objectType": "Symbol",
+          "valueType": "tchmi:general#/definitions/String",
+          "symbolExpression": "%f%TcHmi.Functions.Beckhoff.GetLocale()%/f%"
+        },
+        "cases": [
+          {
+            "caseValue": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/String",
+              "value": "en"
+            },
+            "actions": [
+              {
+                "objectType": "Function",
+                "active": true,
+                "fn": "TcHmi.Functions.Beckhoff.SetLocale",
+                "fnParams": [
+                  {
+                    "objectType": "StaticValue",
+                    "valueType": "tchmi:general#/definitions/ProjectLocale",
+                    "value": "de"
+                  }
+                ],
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%Btn_Change_lang::Icon%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Path",
+                  "value": "Images/Vlastni/Germany.png"
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "caseValue": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/String",
+              "value": "de"
+            },
+            "actions": [
+              {
+                "objectType": "Function",
+                "active": true,
+                "fn": "TcHmi.Functions.Beckhoff.SetLocale",
+                "fnParams": [
+                  {
+                    "objectType": "StaticValue",
+                    "valueType": "tchmi:general#/definitions/ProjectLocale",
+                    "value": "cs-CZ"
+                  }
+                ],
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%Btn_Change_lang::Icon%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Path",
+                  "value": "Images/Vlastni/Czech-Republic.png"
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "caseValue": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/String",
+              "value": "cs-CZ"
+            },
+            "actions": [
+              {
+                "objectType": "Function",
+                "active": true,
+                "fn": "TcHmi.Functions.Beckhoff.SetLocale",
+                "fnParams": [
+                  {
+                    "objectType": "StaticValue",
+                    "valueType": "tchmi:general#/definitions/ProjectLocale",
+                    "value": "en"
+                  }
+                ],
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%Btn_Change_lang::Icon%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Path",
+                  "value": "Images/Vlastni/United-Kingdom.png"
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "caseDefault": {
+          "actions": [
+            {
+              "objectType": "Function",
+              "active": true,
+              "fn": "TcHmi.Functions.Beckhoff.SetLocale",
+              "fnParams": [
+                {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/ProjectLocale",
+                  "value": "en"
+                }
+              ],
+              "asyncWait": true
+            },
+            {
+              "objectType": "WriteToSymbol",
+              "active": true,
+              "symbolExpression": "%ctrl%Btn_Change_lang::Icon%/ctrl%",
+              "value": {
+                "objectType": "StaticValue",
+                "valueType": "tchmi:framework#/definitions/Path",
+                "value": "Images/Vlastni/United-Kingdom.png"
+              },
+              "asyncWait": true
+            }
+          ]
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+<div id="TcHmiPopup" data-tchmi-type="TcHmi.Controls.System.TcHmiPopup" data-tchmi-height="260" data-tchmi-height-unit="px" data-tchmi-left="800" data-tchmi-left-unit="px" data-tchmi-top="505" data-tchmi-top-unit="px" data-tchmi-width="320" data-tchmi-width-unit="px" data-tchmi-movable="false" data-tchmi-modal="true">
+
+<script data-tchmi-target-attribute="data-tchmi-target-file" type="application/json">
+{
+  "path": "Pages/close_win.content"
+}
+</script>
+</div>
+</div>

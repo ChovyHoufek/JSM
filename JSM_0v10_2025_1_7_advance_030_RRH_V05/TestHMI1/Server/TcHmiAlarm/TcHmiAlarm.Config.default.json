@@ -1,0 +1,556 @@
+{
+    "alarmSymbols": {
+        "PLC1.HMI_prom.HMI_alarms.ALM12_Agreg1_napnuti_pasu": {
+            "alarmSettings": {
+                "ALARMSETTING": {
+                    "alarmTextKey": "Alm12",
+                    "condition": [
+                        {
+                            "comparator": "==",
+                            "path": "",
+                            "value": true
+                        }
+                    ],
+                    "enabled": true,
+                    "notificationType": 2,
+                    "severity": 3
+                }
+            },
+            "enabled": true,
+            "interval": "PT1S",
+            "onError": false
+        },
+        "PLC1.HMI_prom.HMI_alarms.ALM16_Agreg2_napnuti_pasu": {
+            "alarmSettings": {
+                "ALARMSETTING": {
+                    "alarmTextKey": "Alm16",
+                    "condition": [
+                        {
+                            "comparator": "==",
+                            "path": "",
+                            "value": true
+                        }
+                    ],
+                    "enabled": true,
+                    "notificationType": 2,
+                    "severity": 3
+                }
+            },
+            "enabled": true,
+            "interval": "PT1S",
+            "onError": false
+        },
+        "PLC1.HMI_prom.HMI_alarms.ALM17_Pod_pas_Frekv_menic": {
+            "alarmSettings": {
+                "ALARMSETTING": {
+                    "alarmTextKey": "Alm17",
+                    "condition": [
+                        {
+                            "comparator": "==",
+                            "path": "",
+                            "value": true
+                        }
+                    ],
+                    "enabled": true,
+                    "notificationType": 2,
+                    "severity": 3
+                }
+            },
+            "enabled": true,
+            "interval": "PT1S",
+            "onError": false
+        },
+        "PLC1.HMI_prom.HMI_alarms.ALM18_Nadmerna_velikost_obrobku": {
+            "alarmSettings": {
+                "ALARMSETTING": {
+                    "alarmTextKey": "Alm18",
+                    "condition": [
+                        {
+                            "comparator": "==",
+                            "path": "",
+                            "value": true
+                        }
+                    ],
+                    "enabled": true,
+                    "notificationType": 2,
+                    "severity": 3
+                }
+            },
+            "enabled": true,
+            "interval": "PT0.4S",
+            "onError": false
+        },
+        "PLC1.HMI_prom.HMI_alarms.ALM25_agreg3_napnuti_pasu": {
+            "alarmSettings": {
+                "ALARMSETTING": {
+                    "alarmTextKey": "Alm25",
+                    "condition": [
+                        {
+                            "comparator": "==",
+                            "path": "",
+                            "value": true
+                        }
+                    ],
+                    "enabled": true,
+                    "notificationType": 2,
+                    "severity": 3
+                }
+            },
+            "enabled": true,
+            "interval": "PT0.1S",
+            "onError": false
+        },
+        "PLC1.HMI_prom.HMI_alarms.Alm01_Zmacknuto_nouzove_zastaveni": {
+            "alarmSettings": {
+                "ALARMSETTING": {
+                    "alarmTextKey": "Alm01",
+                    "condition": [
+                        {
+                            "comparator": "==",
+                            "path": "",
+                            "value": true
+                        }
+                    ],
+                    "enabled": true,
+                    "notificationType": 2,
+                    "severity": 3
+                }
+            },
+            "enabled": true,
+            "interval": "PT1S",
+            "onError": false
+        },
+        "PLC1.HMI_prom.HMI_alarms.Alm02_Otevreny_dvere_prostoru_brusu": {
+            "alarmSettings": {
+                "ALARMSETTING": {
+                    "alarmTextKey": "Alm02",
+                    "condition": [
+                        {
+                            "comparator": "==",
+                            "path": "",
+                            "value": true
+                        }
+                    ],
+                    "enabled": true,
+                    "notificationType": 2,
+                    "severity": 3
+                }
+            },
+            "enabled": true,
+            "interval": "PT1S",
+            "onError": false
+        },
+        "PLC1.HMI_prom.HMI_alarms.Alm03_Vstupni_lista_sepnuta": {
+            "alarmSettings": {
+                "ALARMSETTING": {
+                    "alarmTextKey": "Alm03",
+                    "condition": [
+                        {
+                            "comparator": "==",
+                            "path": "",
+                            "value": true
+                        }
+                    ],
+                    "enabled": true,
+                    "notificationType": 2,
+                    "severity": 3
+                }
+            },
+            "enabled": true,
+            "interval": "PT1S",
+            "onError": false
+        },
+        "PLC1.HMI_prom.HMI_alarms.Alm04_Nizky_tlak_vzduchu": {
+            "alarmSettings": {
+                "ALARMSETTING": {
+                    "alarmTextKey": "Alm04",
+                    "condition": [
+                        {
+                            "comparator": "==",
+                            "path": "",
+                            "value": true
+                        }
+                    ],
+                    "enabled": true,
+                    "notificationType": 2,
+                    "severity": 3
+                }
+            },
+            "enabled": true,
+            "interval": "PT1S",
+            "onError": false
+        },
+        "PLC1.HMI_prom.HMI_alarms.Alm05_Sled_fazi_spatny": {
+            "alarmSettings": {
+                "ALARMSETTING": {
+                    "alarmTextKey": "Alm05",
+                    "condition": [
+                        {
+                            "comparator": "==",
+                            "path": "",
+                            "value": true
+                        }
+                    ],
+                    "enabled": true,
+                    "notificationType": 2,
+                    "severity": 3
+                }
+            },
+            "enabled": true,
+            "interval": "PT1S",
+            "onError": false
+        },
+        "PLC1.HMI_prom.HMI_alarms.Alm06_Zdvih_horni_limit": {
+            "alarmSettings": {
+                "ALARMSETTING": {
+                    "alarmTextKey": "Alm06",
+                    "condition": [
+                        {
+                            "comparator": "==",
+                            "path": "",
+                            "value": true
+                        }
+                    ],
+                    "enabled": true,
+                    "notificationType": 2,
+                    "severity": 3
+                }
+            },
+            "enabled": true,
+            "interval": "PT1S",
+            "onError": false
+        },
+        "PLC1.HMI_prom.HMI_alarms.Alm07_Zdvih_dolni_limit": {
+            "alarmSettings": {
+                "ALARMSETTING": {
+                    "alarmTextKey": "Alm07",
+                    "condition": [
+                        {
+                            "comparator": "==",
+                            "path": "",
+                            "value": true
+                        }
+                    ],
+                    "enabled": true,
+                    "notificationType": 2,
+                    "severity": 3
+                }
+            },
+            "enabled": true,
+            "interval": "PT1S",
+            "onError": false
+        },
+        "PLC1.HMI_prom.HMI_alarms.Alm08_Vypadly_jistic_motoru_zdvihu": {
+            "alarmSettings": {
+                "ALARMSETTING": {
+                    "alarmTextKey": "Alm08",
+                    "condition": [
+                        {
+                            "comparator": "==",
+                            "path": "",
+                            "value": true
+                        }
+                    ],
+                    "enabled": true,
+                    "notificationType": 2,
+                    "severity": 3
+                }
+            },
+            "enabled": true,
+            "interval": "PT1S",
+            "onError": false
+        },
+        "PLC1.HMI_prom.HMI_alarms.Alm09_Agreg1_krajni_poloha_pasu_vlevo": {
+            "alarmSettings": {
+                "ALARMSETTING": {
+                    "alarmTextKey": "Alm09",
+                    "condition": [
+                        {
+                            "comparator": "==",
+                            "path": "",
+                            "value": true
+                        }
+                    ],
+                    "enabled": true,
+                    "notificationType": 2,
+                    "severity": 3
+                },
+                "ALARMSETTING_1": {
+                    "alarmTextKey": "Alm09",
+                    "condition": [
+                        {
+                            "comparator": "==",
+                            "path": "",
+                            "value": true
+                        }
+                    ],
+                    "enabled": true,
+                    "notificationType": 2,
+                    "severity": 3
+                }
+            },
+            "enabled": true,
+            "interval": "PT1S",
+            "onError": false
+        },
+        "PLC1.HMI_prom.HMI_alarms.Alm10_Agreg1_krajni_poloha_pasu_vpravo": {
+            "alarmSettings": {
+                "ALARMSETTING": {
+                    "alarmTextKey": "Alm10",
+                    "condition": [
+                        {
+                            "comparator": "==",
+                            "path": "",
+                            "value": true
+                        }
+                    ],
+                    "enabled": true,
+                    "notificationType": 2,
+                    "severity": 3
+                }
+            },
+            "enabled": true,
+            "interval": "PT1S",
+            "onError": false
+        },
+        "PLC1.HMI_prom.HMI_alarms.Alm11_Agreg1_frekv_menic": {
+            "alarmSettings": {
+                "ALARMSETTING": {
+                    "alarmTextKey": "Alm11",
+                    "condition": [
+                        {
+                            "comparator": "==",
+                            "path": "",
+                            "value": true
+                        }
+                    ],
+                    "enabled": true,
+                    "notificationType": 2,
+                    "severity": 3
+                }
+            },
+            "enabled": true,
+            "interval": "PT1S",
+            "onError": false
+        },
+        "PLC1.HMI_prom.HMI_alarms.Alm13_Agreg2_krajni_poloha_pasu_vlevo": {
+            "alarmSettings": {
+                "ALARMSETTING": {
+                    "alarmTextKey": "Alm13",
+                    "condition": [
+                        {
+                            "comparator": "==",
+                            "path": "",
+                            "value": true
+                        }
+                    ],
+                    "enabled": true,
+                    "notificationType": 2,
+                    "severity": 3
+                }
+            },
+            "enabled": true,
+            "interval": "PT1S",
+            "onError": false
+        },
+        "PLC1.HMI_prom.HMI_alarms.Alm14_Agreg2_krajni_poloha_pasu_vpravo": {
+            "alarmSettings": {
+                "ALARMSETTING": {
+                    "alarmTextKey": "Alm14",
+                    "condition": [
+                        {
+                            "comparator": "==",
+                            "path": "",
+                            "value": true
+                        }
+                    ],
+                    "enabled": true,
+                    "notificationType": 2,
+                    "severity": 3
+                }
+            },
+            "enabled": true,
+            "interval": "PT1S",
+            "onError": false
+        },
+        "PLC1.HMI_prom.HMI_alarms.Alm15_Agreg2_frekv_menic": {
+            "alarmSettings": {
+                "ALARMSETTING": {
+                    "alarmTextKey": "Alm15",
+                    "condition": [
+                        {
+                            "comparator": "==",
+                            "path": "",
+                            "value": true
+                        }
+                    ],
+                    "enabled": true,
+                    "notificationType": 2,
+                    "severity": 3
+                }
+            },
+            "enabled": true,
+            "interval": "PT1S",
+            "onError": false
+        },
+        "PLC1.HMI_prom.HMI_alarms.Alm19_chlazeni_rozvadec_B": {
+            "alarmSettings": {
+                "ALARMSETTING": {
+                    "alarmTextKey": "Alm19",
+                    "condition": [
+                        {
+                            "comparator": "==",
+                            "path": "",
+                            "value": true
+                        }
+                    ],
+                    "enabled": true,
+                    "notificationType": 2,
+                    "severity": 3
+                }
+            },
+            "enabled": true,
+            "interval": "PT1S",
+            "onError": false
+        },
+        "PLC1.HMI_prom.HMI_alarms.Alm20_chlazeni_rozvadec_L": {
+            "alarmSettings": {
+                "ALARMSETTING": {
+                    "alarmTextKey": "Alm20",
+                    "condition": [
+                        {
+                            "comparator": "==",
+                            "path": "",
+                            "value": true
+                        }
+                    ],
+                    "enabled": true,
+                    "notificationType": 2,
+                    "severity": 3
+                }
+            },
+            "enabled": true,
+            "interval": "PT0.4S",
+            "onError": false
+        },
+        "PLC1.HMI_prom.HMI_alarms.Alm21_vysoka_teplota_rozvadec_B": {
+            "alarmSettings": {
+                "ALARMSETTING": {
+                    "alarmTextKey": "Alm21",
+                    "condition": [
+                        {
+                            "comparator": "==",
+                            "path": "",
+                            "value": true
+                        }
+                    ],
+                    "enabled": true,
+                    "notificationType": 2,
+                    "severity": 3
+                }
+            },
+            "enabled": true,
+            "interval": "PT0.4S",
+            "onError": false
+        },
+        "PLC1.HMI_prom.HMI_alarms.Alm22_vypadly_jistic_osvetleni": {
+            "alarmSettings": {
+                "ALARMSETTING": {
+                    "alarmTextKey": "Alm22",
+                    "condition": [
+                        {
+                            "comparator": "==",
+                            "path": "",
+                            "value": true
+                        }
+                    ],
+                    "enabled": true,
+                    "notificationType": 2,
+                    "severity": 3
+                }
+            },
+            "enabled": true,
+            "interval": "PT0.4S",
+            "onError": false
+        },
+        "PLC1.HMI_prom.HMI_alarms.Alm23_agreg3_krajni_poloha_pasu_vlevo": {
+            "alarmSettings": {
+                "ALARMSETTING": {
+                    "alarmTextKey": "Alm23",
+                    "condition": [
+                        {
+                            "comparator": "==",
+                            "path": "",
+                            "value": true
+                        }
+                    ],
+                    "enabled": true,
+                    "notificationType": 2,
+                    "severity": 3
+                }
+            },
+            "enabled": true,
+            "interval": "PT0.1S",
+            "onError": false
+        },
+        "PLC1.HMI_prom.HMI_alarms.Alm24_agreg3_krajni_poloha_pasu_vpravo": {
+            "alarmSettings": {
+                "ALARMSETTING": {
+                    "alarmTextKey": "Alm24",
+                    "condition": [
+                        {
+                            "comparator": "==",
+                            "path": "",
+                            "value": true
+                        }
+                    ],
+                    "enabled": true,
+                    "notificationType": 2,
+                    "severity": 3
+                }
+            },
+            "enabled": true,
+            "interval": "PT0.1S",
+            "onError": false
+        },
+        "PLC1.HMI_prom.HMI_alarms.Alm26_agreg3_frekv_menic": {
+            "alarmSettings": {
+                "ALARMSETTING": {
+                    "alarmTextKey": "Alm26",
+                    "condition": [
+                        {
+                            "comparator": "==",
+                            "path": "",
+                            "value": true
+                        }
+                    ],
+                    "enabled": true,
+                    "notificationType": 2,
+                    "severity": 3
+                }
+            },
+            "enabled": true,
+            "interval": "PT0.1S",
+            "onError": false
+        },
+        "PLC1.HMI_prom.HMI_alarms.Alm27_agregH_krajni_poloha_pasu_vlevo": {
+            "alarmSettings": {},
+            "enabled": false,
+            "interval": "PT0.1S",
+            "onError": false
+        },
+        "PLC1.HMI_prom.HMI_alarms.Alm28_agregH_krajni_poloha_pasu_vpravo": {
+            "alarmSettings": {},
+            "enabled": false,
+            "interval": "PT0.1S",
+            "onError": false
+        },
+        "PLC1.HMI_prom.HMI_alarms.Alm29_agregH_napnuti_pasu": {
+            "alarmSettings": {},
+            "enabled": false,
+            "interval": "PT1S",
+            "onError": false
+        }
+    },
+    "limitEventCount": 1000
+}

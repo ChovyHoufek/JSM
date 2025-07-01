@@ -1,0 +1,411 @@
+<div id="Patka_tab2" data-tchmi-type="TcHmi.Controls.System.TcHmiContent" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="900" data-tchmi-height="500" data-tchmi-creator-viewport-width="1920" data-tchmi-creator-viewport-height="1080">
+
+<div id="TcHmiImage_27" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="350" data-tchmi-height-unit="px" data-tchmi-left="192" data-tchmi-left-unit="px" data-tchmi-top="119" data-tchmi-top-unit="px" data-tchmi-width="635" data-tchmi-width-unit="px">
+<script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+{
+  "color": "rgba(170, 170, 170, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-width" type="application/json">
+{
+  "left": 1,
+  "right": 1,
+  "top": 1,
+  "bottom": 1,
+  "leftUnit": "px",
+  "rightUnit": "px",
+  "topUnit": "px",
+  "bottomUnit": "px"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-border-style" type="application/json">
+{
+  "left": "Solid",
+  "right": "Solid",
+  "top": "Solid",
+  "bottom": "Solid"
+}
+</script>
+</div>
+<div id="TcHmiImage_28" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="298" data-tchmi-height-unit="px" data-tchmi-left="277" data-tchmi-left-unit="px" data-tchmi-top="145" data-tchmi-top-unit="px" data-tchmi-width="468" data-tchmi-width-unit="px">
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(170, 170, 170, 1)"
+}
+</script>
+</div>
+<div id="TcHmiImage_29" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="239" data-tchmi-left-unit="px" data-tchmi-top="269" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-src="Images/Vlastni/pfeil_rechts.png">
+</div>
+<div id="TcHmiImage_30" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="204" data-tchmi-left-unit="px" data-tchmi-top="269" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-src="Images/Vlastni/pfeil_rechts.png">
+</div>
+<div id="TcHmiImage_31" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="790" data-tchmi-left-unit="px" data-tchmi-top="269" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-src="Images/Vlastni/pfeil_rechts.png">
+</div>
+<div id="TcHmiImage_32" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="755" data-tchmi-left-unit="px" data-tchmi-top="269" data-tchmi-top-unit="px" data-tchmi-width="25" data-tchmi-width-unit="px" data-tchmi-src="Images/Vlastni/pfeil_rechts.png">
+</div>
+<div id="TC_NI_delka_rolna_patka_S1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiNumericInput" data-tchmi-auto-focus-out="true" data-tchmi-decimal-digits="0" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="298" data-tchmi-left-unit="px" data-tchmi-max-value="100" data-tchmi-min-value="-100" data-tchmi-reset-to-last-valid-value="true" data-tchmi-top="274" data-tchmi-top-unit="px" data-tchmi-value="%s%PLC1.HMI_prom.HMI_param_stroje.Stp_Patka.Pocet_impulsu_mezi_vst_listou_Apatkou_odpad_jemna_korekce%/s%" data-tchmi-width="70" data-tchmi-width-unit="px" data-tchmi-value-horizontal-alignment="Center" data-tchmi-value-font-size="28" data-tchmi-value-font-weight="Bold" data-tchmi-zindex="3" data-tchmi-ignore-invalid-values="true" data-tchmi-auto-select-text="true">
+<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+{
+  "top": 3,
+  "right": 3,
+  "bottom": 3,
+  "left": 3
+}
+</script>
+
+
+<script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(255, 255, 255, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-value-color" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "TC_NI_delka_rolna_patka_S1.onUserInteractionFinished",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%s%PLC1.HMI_prom.HMI_param_stroje.Stp_Patka.Pocet_impulsu_mezi_vst_listou_Apatkou_odpad_jemna_korekce%/s%",
+        "value": {
+          "objectType": "Symbol",
+          "valueType": "tchmi:general#/definitions/String",
+          "symbolExpression": "%ctrl%TC_NI_delka_rolna_patka_S1::Value%/ctrl%"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+<div id="TcHmiNumericInput_15" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiNumericInput" data-tchmi-auto-focus-out="true" data-tchmi-decimal-digits="0" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="408" data-tchmi-left-unit="px" data-tchmi-max-value="100" data-tchmi-min-value="-100" data-tchmi-reset-to-last-valid-value="true" data-tchmi-top="274" data-tchmi-top-unit="px" data-tchmi-value="%s%PLC1.HMI_prom.UI_extra_tlak_CB%/s%" data-tchmi-width="70" data-tchmi-width-unit="px" data-tchmi-value-horizontal-alignment="Center" data-tchmi-value-font-size="28" data-tchmi-value-font-weight="Bold" data-tchmi-zindex="4" data-tchmi-ignore-invalid-values="true" data-tchmi-auto-select-text="true">
+<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+{
+  "top": 3,
+  "right": 3,
+  "bottom": 3,
+  "left": 3
+}
+</script>
+
+
+<script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(255, 255, 255, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-value-color" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "TcHmiNumericInput_15.onUserInteractionFinished",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%s%PLC1.HMI_prom.UI_extra_tlak_CB%/s%",
+        "value": {
+          "objectType": "Symbol",
+          "valueType": "tchmi:general#/definitions/String",
+          "symbolExpression": "%ctrl%TcHmiNumericInput_15::Value%/ctrl%"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+<div id="TcHmiNumericInput_16" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiNumericInput" data-tchmi-auto-focus-out="true" data-tchmi-decimal-digits="0" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="518" data-tchmi-left-unit="px" data-tchmi-max-value="100" data-tchmi-min-value="-100" data-tchmi-reset-to-last-valid-value="true" data-tchmi-top="274" data-tchmi-top-unit="px" data-tchmi-value="%s%PLC1.HMI_prom.UI_extra_tlak_CC%/s%" data-tchmi-width="70" data-tchmi-width-unit="px" data-tchmi-value-horizontal-alignment="Center" data-tchmi-value-font-size="28" data-tchmi-value-font-weight="Bold" data-tchmi-zindex="5" data-tchmi-ignore-invalid-values="true" data-tchmi-auto-select-text="true">
+<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+{
+  "top": 3,
+  "right": 3,
+  "bottom": 3,
+  "left": 3
+}
+</script>
+
+
+<script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(255, 255, 255, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-value-color" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "TcHmiNumericInput_16.onUserInteractionFinished",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%s%PLC1.HMI_prom.UI_extra_tlak_CC%/s%",
+        "value": {
+          "objectType": "Symbol",
+          "valueType": "tchmi:general#/definitions/String",
+          "symbolExpression": "%ctrl%TcHmiNumericInput_16::Value%/ctrl%"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+<div id="Tc_NI_delka_rolna_patka_K1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiNumericInput" data-tchmi-auto-focus-out="true" data-tchmi-decimal-digits="0" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="628" data-tchmi-left-unit="px" data-tchmi-max-value="100" data-tchmi-min-value="-100" data-tchmi-reset-to-last-valid-value="true" data-tchmi-top="274" data-tchmi-top-unit="px" data-tchmi-value="%s%PLC1.HMI_prom.HMI_param_stroje.Stp_Patka.Pocet_impulsu_mezi_vst_listou_Apatkou_jemna_korekce%/s%" data-tchmi-width="70" data-tchmi-width-unit="px" data-tchmi-value-horizontal-alignment="Center" data-tchmi-value-font-size="28" data-tchmi-value-font-weight="Bold" data-tchmi-zindex="6" data-tchmi-ignore-invalid-values="true" data-tchmi-auto-select-text="true">
+<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+{
+  "top": 3,
+  "right": 3,
+  "bottom": 3,
+  "left": 3
+}
+</script>
+
+
+<script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(255, 255, 255, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-value-color" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "Tc_NI_delka_rolna_patka_K1.onUserInteractionFinished",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%s%PLC1.HMI_prom.HMI_param_stroje.Stp_Patka.Pocet_impulsu_mezi_vst_listou_Apatkou_jemna_korekce%/s%",
+        "value": {
+          "objectType": "Symbol",
+          "valueType": "tchmi:general#/definitions/String",
+          "symbolExpression": "%ctrl%Tc_NI_delka_rolna_patka_K1::Value%/ctrl%"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+<div id="TcHmiNumericInput_18" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiNumericInput" data-tchmi-auto-focus-out="true" data-tchmi-decimal-digits="0" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="408" data-tchmi-left-unit="px" data-tchmi-max-value="100" data-tchmi-min-value="-100" data-tchmi-reset-to-last-valid-value="true" data-tchmi-top="150" data-tchmi-top-unit="px" data-tchmi-value="%s%PLC1.HMI_prom.UI_extra_tlak_CA%/s%" data-tchmi-width="70" data-tchmi-width-unit="px" data-tchmi-value-horizontal-alignment="Center" data-tchmi-value-font-size="28" data-tchmi-value-font-weight="Bold" data-tchmi-zindex="4" data-tchmi-ignore-invalid-values="true" data-tchmi-auto-select-text="true">
+<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+{
+  "top": 3,
+  "right": 3,
+  "bottom": 3,
+  "left": 3
+}
+</script>
+
+
+<script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(255, 255, 255, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-value-color" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "TcHmiNumericInput_18.onUserInteractionFinished",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%s%PLC1.HMI_prom.UI_extra_tlak_CA%/s%",
+        "value": {
+          "objectType": "Symbol",
+          "valueType": "tchmi:general#/definitions/String",
+          "symbolExpression": "%ctrl%TcHmiNumericInput_18::Value%/ctrl%"
+        },
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "%ctrl%TcHmiNumericInput_18::Value%/ctrl%",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/Number",
+                  "symbolExpression": "%ctrl%TcHmiNumericInput_18::Value%/ctrl%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/Number",
+                  "value": -100.0
+                },
+                "compareOperator": "<",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%s%PLC1.HMI_prom.UI_extra_tlak_CA%/s%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/INT",
+                  "value": -100
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": []
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+<div id="TcHmiNumericInput_19" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiNumericInput" data-tchmi-auto-focus-out="true" data-tchmi-decimal-digits="0" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="518" data-tchmi-left-unit="px" data-tchmi-max-value="100" data-tchmi-min-value="-100" data-tchmi-reset-to-last-valid-value="true" data-tchmi-top="398" data-tchmi-top-unit="px" data-tchmi-value="%s%PLC1.HMI_prom.UI_extra_tlak_CD%/s%" data-tchmi-width="70" data-tchmi-width-unit="px" data-tchmi-value-horizontal-alignment="Center" data-tchmi-value-font-size="28" data-tchmi-value-font-weight="Bold" data-tchmi-zindex="5" data-tchmi-ignore-invalid-values="true" data-tchmi-auto-select-text="true">
+<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+{
+  "top": 3,
+  "right": 3,
+  "bottom": 3,
+  "left": 3
+}
+</script>
+
+
+<script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+{
+  "color": "None"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(255, 255, 255, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-value-color" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "TcHmiNumericInput_19.onUserInteractionFinished",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%s%PLC1.HMI_prom.UI_extra_tlak_CD%/s%",
+        "value": {
+          "objectType": "Symbol",
+          "valueType": "tchmi:general#/definitions/String",
+          "symbolExpression": "%ctrl%TcHmiNumericInput_19::Value%/ctrl%"
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+<div id="TcHmiImage_33" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="64" data-tchmi-height-unit="px" data-tchmi-left="358" data-tchmi-left-unit="px" data-tchmi-top="200" data-tchmi-top-unit="px" data-tchmi-width="170" data-tchmi-width-unit="px">
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(197, 172, 140, 1)"
+}
+</script>
+</div>
+<div id="TcHmiImage_34" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="64" data-tchmi-height-unit="px" data-tchmi-left="468" data-tchmi-left-unit="px" data-tchmi-top="324" data-tchmi-top-unit="px" data-tchmi-width="170" data-tchmi-width-unit="px">
+<script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+{
+  "color": "rgba(197, 172, 140, 1)"
+}
+</script>
+</div>
+<div id="TcHmiImage_35" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="151" data-tchmi-height-unit="px" data-tchmi-left="26" data-tchmi-left-unit="px" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="151" data-tchmi-width-unit="px" data-tchmi-src="Images/Vlastni/17a__icon_aggregat_lk laenger.png">
+</div>
+<div id="TcHmiImage_36" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="115" data-tchmi-height-unit="px" data-tchmi-left="26" data-tchmi-left-unit="px" data-tchmi-top="227" data-tchmi-top-unit="px" data-tchmi-width="151" data-tchmi-width-unit="px" data-tchmi-src="Images/Vlastni/icon_druckbalken_gross.png">
+</div>
+</div>

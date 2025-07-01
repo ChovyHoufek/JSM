@@ -1,0 +1,115 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "properties": {
+    "limitEventCount": {
+      "allOf": [
+        {
+          "$ref": "tchmi:general#/definitions/UINT32"
+        },
+        {
+          "type": "integer",
+          "propertyOrder": 1,
+          "configDescription": "DESC_LIMIT_EVENT_COUNT",
+          "default": 1000,
+          "minimum": 1
+        }
+      ]
+    },
+    "alarmSymbols": {
+      "configDescription": "DESC_ALARM_SYMBOLS",
+      "propertyOrder": 2,
+      "type": "object",
+      "additionalProperties": {
+        "configDescription": "DESC_ALARM_SYMBOL",
+        "optionMethod": {
+          "symbol": "ListSymbolNames"
+        },
+        "properties": {
+          "enabled": {
+            "type": "boolean",
+            "default": true,
+            "propertyOrder": 0
+          },
+          "onError": {
+            "type": "boolean",
+            "default": false,
+            "hidden": true,
+            "configDescription": "DESC_ON_ERROR",
+            "propertyOrder": 1
+          },
+          "interval": {
+            "type": "string",
+            "format": "timespan",
+            "default": "PT1S",
+            "formatMinimum": "PT0.01S",
+            "propertyOrder": 2
+          },
+          "alarmSettings": {
+            "type": "object",
+            "propertyOrder": 3,
+            "additionalProperties": {
+              "type": "object",
+              "configDescription": "alarmSetting",
+              "properties": {
+                "alarmTextKey": {
+                  "type": "string",
+                  "propertyOrder": 9
+                },
+                "severity": {
+                  "$ref": "tchmi:server#/definitions/severity",
+                  "propertyOrder": 3
+                },
+                "enabled": {
+                  "type": "boolean",
+                  "default": true,
+                  "propertyOrder": 1
+                },
+                "condition": {
+                  "allOf": [
+                    {
+                      "$ref": "tchmi:server#/definitions/filter"
+                    },
+                    {
+                      "minItems": 1
+                    },
+                    {
+                      "configDescription": "DESC_CONDITION",
+                      "propertyOrder": 8
+                    }
+                  ]
+                },
+                "notificationType": {
+                  "type": "integer",
+                  "default": 1,
+                  "propertyOrder": 2,
+                  "enum": [ 0, 1, 2 ],
+                  "options": [
+                    {
+                      "label": "enum_0_message",
+                      "value": 0
+                    },
+                    {
+                      "label": "enum_1_alarm_with_confirmation",
+                      "value": 1
+                    },
+                    {
+                      "label": "enum_2_alarm",
+                      "value": 2
+                    }
+                  ]
+                }
+              },
+              "additionalProperties": false,
+              "required": [ "severity", "condition", "notificationType", "enabled" ]
+            }
+          }
+        },
+        "required": [ "alarmSettings", "enabled", "onError", "interval" ],
+        "title": "titleAlarmSymbol",
+        "type": "object"
+      }
+    }
+  },
+  "type": "object",
+  "required": [ "limitEventCount", "alarmSymbols" ]
+}

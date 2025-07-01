@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.15">
+  <DUT Name="DUT_alarm" Id="{fc2e6655-50bf-4195-8609-196f6c0b168d}">
+    <Declaration><![CDATA[TYPE DUT_alarm:
+STRUCT
+	Alm01_Zmacknuto_nouzove_zastaveni:BIT;
+	Alm02_Otevreny_dvere_prostoru_brusu:BIT;
+	Alm03_Vstupni_lista_sepnuta:BIT;
+	Alm04_Nizky_tlak_vzduchu:BIT;
+	Alm05_Sled_fazi_spatny:BIT;
+	Alm06_Zdvih_horni_limit:BIT;
+	Alm07_Zdvih_dolni_limit:BIT;
+	Alm08_Vypadly_jistic_motoru_zdvihu:BIT;
+	Alm09_Agreg1_krajni_poloha_pasu_vlevo:BIT;
+	Alm10_Agreg1_krajni_poloha_pasu_vpravo:BIT;
+	Alm11_Agreg1_frekv_menic:BIT;
+	ALM12_Agreg1_napnuti_pasu:BIT;
+	Alm13_Agreg2_krajni_poloha_pasu_vlevo:BIT;
+	Alm14_Agreg2_krajni_poloha_pasu_vpravo:BIT;
+	Alm15_Agreg2_frekv_menic:BIT;
+	ALM16_Agreg2_napnuti_pasu:BIT;
+	ALM17_Pod_pas_Frekv_menic:BIT;
+	ALM18_Nadmerna_velikost_obrobku:BIT;
+	Alm19_chlazeni_rozvadec_B:BIT;
+	Alm20_chlazeni_rozvadec_L:BIT;
+	Alm21_vysoka_teplota_rozvadec_B:BIT;
+	Alm22_vypadly_jistic_osvetleni:BIT;
+	Alm23_agreg3_krajni_poloha_pasu_vlevo:BIT;
+	Alm24_agreg3_krajni_poloha_pasu_vpravo:BIT;
+	ALM25_agreg3_napnuti_pasu:BIT;
+	Alm26_agreg3_frekv_menic:BIT;
+	
+	// tagy pro alarmy pro agg H
+	Alm27_agregH_krajni_poloha_pasu_vlevo : BIT;
+	Alm28_agregH_krajni_poloha_pasu_vpravo : BIT;
+	Alm29_agregH_napnuti_pasu : BIT;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

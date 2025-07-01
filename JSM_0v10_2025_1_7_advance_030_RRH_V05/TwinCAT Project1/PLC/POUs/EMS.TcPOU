@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.15">
+  <POU Name="EMS" Id="{b5264406-b465-4767-b81c-94d4a92e8474}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM EMS
+VAR
+	EMS_Timer_Rest, EMS_Timer_Rest_Agr1,EMS_Timer_Rest_Agr2,EMS_Timer_Rest_Agr3, EMS_Timer_Sleep,EMS_Timer_Rest_belt :TON;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+HMI_prom.UI_EMS_Time_to_Rest:=DINT_TO_TIME(HMI_prom.UI_EMS_Time_to_Rest_sek*1000);
+HMI_prom.UI_EMS_Time_to_sleep:=DINT_TO_TIME(HMI_prom.UI_EMS_Time_to_sleep_sek*1000);
+
+EMS_Timer_Rest(IN:=NOT Machine_Inputs.I_detekce_obrobku_EMS AND HMI_prom.UI_EMS_active AND HMI_prom.UI_EMS_rest_active , PT:= HMI_prom.UI_EMS_Time_to_Rest, Q=> , ET=> );			
+ 
+EMS_Timer_Sleep(IN:=NOT Machine_Inputs.I_detekce_obrobku_EMS AND HMI_prom.UI_EMS_active AND HMI_prom.UI_EMS_sleep_active  , PT:=  HMI_prom.UI_EMS_Time_to_sleep , Q=> , ET=> );		
+
+EMS_Timer_Rest_Agr1(IN:=NOT Machine_Inputs.I_detekce_obrobku_EMS AND HMI_prom.UI_EMS_active AND HMI_prom.UI_EMS_rest_active AND HMI_prom.UI_EMS_Agr1_active , PT:= HMI_prom.UI_EMS_Time_to_Rest, Q=> , ET=> );
+EMS_Timer_Rest_Agr2(IN:=NOT Machine_Inputs.I_detekce_obrobku_EMS AND HMI_prom.UI_EMS_active AND HMI_prom.UI_EMS_rest_active AND HMI_prom.UI_EMS_Agr2_active , PT:= HMI_prom.UI_EMS_Time_to_Rest, Q=> , ET=> );
+EMS_Timer_Rest_Agr3(IN:=NOT Machine_Inputs.I_detekce_obrobku_EMS AND HMI_prom.UI_EMS_active AND HMI_prom.UI_EMS_rest_active AND HMI_prom.UI_EMS_Agr3_active , PT:= HMI_prom.UI_EMS_Time_to_Rest, Q=> , ET=> );
+
+// EMS pro pas 
+
+EMS_Timer_Rest_belt(IN:=NOT Machine_Inputs.I_detekce_obrobku_EMS AND HMI_prom.UI_EMS_active AND HMI_prom.UI_EMS_rest_active AND HMI_prom.UI_EMS_belt_active , PT:= HMI_prom.UI_EMS_Time_to_Rest, Q=> , ET=> );]]></ST>
+    </Implementation>
+    <LineIds Name="EMS">
+      <LineId Id="15" Count="2" />
+      <LineId Id="5" Count="0" />
+      <LineId Id="7" Count="1" />
+      <LineId Id="32" Count="0" />
+      <LineId Id="28" Count="0" />
+      <LineId Id="21" Count="0" />
+      <LineId Id="37" Count="0" />
+      <LineId Id="42" Count="0" />
+      <LineId Id="48" Count="2" />
+      <LineId Id="47" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

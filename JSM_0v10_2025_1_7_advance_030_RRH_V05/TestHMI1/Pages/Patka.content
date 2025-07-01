@@ -1,0 +1,67 @@
+<div id="Patka" data-tchmi-type="TcHmi.Controls.System.TcHmiContent" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="1000" data-tchmi-height="550" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-right="0" data-tchmi-bottom="0">
+
+<div id="TcHmiTabNavigation" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTabNavigation" data-tchmi-height-unit="px" data-tchmi-left="36" data-tchmi-left-unit="px" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width-unit="px" data-tchmi-bottom="10" data-tchmi-right="34">
+<script data-tchmi-target-attribute="data-tchmi-tabs" type="application/json">
+[
+  {
+    "name": "tab1",
+    "displayName": "1",
+    "targetFile": {
+      "path": "Pages/Patka_tab1.content"
+    },
+    "targetFileHostPreload": false,
+    "targetFileHostPreAttach": false,
+    "targetFileHostKeepAlive": false,
+    "horizontalAlignment": "Left",
+    "verticalAlignment": "Center",
+    "icon": {
+      "iconPath": "Images/Vlastni/icon_druckbalken_tabelle_3.png",
+      "iconWidth": 50.0,
+      "iconWidthUnit": "px",
+      "iconHeight": 50.0,
+      "iconHeightUnit": "px"
+    }
+  },
+  {
+    "name": "tab2",
+    "displayName": "2",
+    "targetFile": {
+      "path": "Pages/Patka_tab2.content"
+    },
+    "targetFileHostPreload": false,
+    "targetFileHostPreAttach": false,
+    "targetFileHostKeepAlive": false,
+    "horizontalAlignment": "Left",
+    "verticalAlignment": "Center",
+    "icon": {
+      "iconPath": "Images/Vlastni/icon_druckbalken_Grafisch.png",
+      "iconWidth": 32.0,
+      "iconWidthUnit": "px",
+      "iconHeight": 32.0,
+      "iconHeightUnit": "px"
+    }
+  },
+  {
+    "name": "tab3",
+    "displayName": "3",
+    "targetFile": {
+      "path": "Pages/Patka_tab3.content"
+    },
+    "targetFileHostPreload": false,
+    "targetFileHostPreAttach": false,
+    "targetFileHostKeepAlive": false,
+    "horizontalAlignment": "Left",
+    "verticalAlignment": "Center",
+    "icon": {
+      "iconPath": "Images/Vlastni/icon_druckbalken_tabelle_5.png",
+      "iconWidth": 32.0,
+      "iconWidthUnit": "px",
+      "iconHeight": 32.0,
+      "iconHeightUnit": "px"
+    }
+  }
+]
+</script>
+
+</div>
+</div>

@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.13">
+  <POU Name="Blikatko" Id="{205df6ac-58cb-42c0-a9d8-090bc94a00d4}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Blikatko
+VAR
+	fb_Tick_100ms, fb_Tick_500ms,fb_Tick_1s :ton;
+	
+	fb_Tick_2s, T1_TickOFF_2s, T2_TickOFF_2s,T3_TickOFF_2s: TON;
+	T7_tickON_4s,T4_tickON_3s,T5_tickON_2s,T6_tickON_1s: TOF;
+	tikatko4s, tikatko3s, tikatko1s:BOOL;
+	
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[// 100 ms blinking
+fb_Tick_100ms(IN:= NOT fb_Tick_100ms.Q, PT:= T#100MS, Q=> , ET=> );               // Positive Edge every 100 ms
+IF fb_Tick_100ms.Q THEN Machine_Intern.Blink_100ms:= NOT Machine_Intern.Blink_100ms ; END_IF                            // Blinking variable 100 ms ON and 100 ms OFF
+
+// 500 ms blinking
+fb_Tick_500ms(IN:= NOT fb_Tick_500ms.Q, PT:= T#500MS, Q=> , ET=> );               // Positive Edge every 500 ms
+IF fb_Tick_500ms.Q THEN Machine_Intern.Blink_500ms := NOT Machine_Intern.Blink_500ms ; END_IF                            // Blinking variable 500 ms ON and 500 ms OFF
+
+// 1s blinking
+fb_Tick_1s(IN:= NOT fb_Tick_1s.Q, PT:= T#1S, Q=> , ET=> );               // Positive Edge every 1s
+IF fb_Tick_1s.Q THEN Machine_Intern.Blink_1s := NOT Machine_Intern.Blink_1s ; END_IF                            // Blinking variable 1s ON and 1s OFF
+
+// 2s blinking
+fb_Tick_2s(IN:= NOT fb_Tick_2s.Q, PT:= T#2S, Q=> , ET=> );               // Positive Edge every 2s
+IF fb_Tick_2s.Q THEN Machine_Intern.Blink_2s := NOT Machine_Intern.Blink_2s ; END_IF                            // Blinking variable 1s ON and 1s OFF
+
+// 4s ON, 2s OFF
+T7_tickON_4s(IN:=NOT tikatko4s , PT:=T#4S , Q=> , ET=> );
+IF T7_tickON_4s.Q THEN
+	tikatko4s:=TRUE;
+END_IF
+T1_TickOFF_2s(IN:=NOT T7_tickON_4s.Q, PT:= T#2S, Q=> , ET=> );
+IF T1_TickOFF_2s.Q THEN tikatko4s:=FALSE; END_IF;
+Machine_Intern.Blink_4sON_2sOFF:=T7_tickON_4s.Q;
+
+// 3s ON, 2s OFF
+T4_tickON_3s(IN:=NOT tikatko3s , PT:=T#3S , Q=> , ET=> );
+IF T4_tickON_3s.Q THEN
+	tikatko3s:=TRUE;
+END_IF
+T2_TickOFF_2s(IN:=NOT T4_tickON_3s.Q, PT:= T#2S, Q=> , ET=> );
+IF T2_TickOFF_2s.Q THEN tikatko3s:=FALSE; END_IF;
+Machine_Intern.Blink_3sON_2sOFF:=T4_tickON_3s.Q;
+
+// 1s ON, 2s OFF
+T6_tickON_1s(IN:=NOT tikatko1s , PT:=T#1S , Q=> , ET=> );
+IF T6_tickON_1s.Q THEN
+	tikatko1s:=TRUE;
+END_IF
+T3_TickOFF_2s(IN:=NOT T6_tickON_1s.Q, PT:= T#2S, Q=> , ET=> );
+IF T3_TickOFF_2s.Q THEN tikatko1s:=FALSE; END_IF;
+Machine_Intern.Blink_1sON_2sOFF:=T6_tickON_1s.Q;
+]]></ST>
+    </Implementation>
+    <LineIds Name="Blikatko">
+      <LineId Id="6" Count="6" />
+      <LineId Id="15" Count="3" />
+      <LineId Id="24" Count="3" />
+      <LineId Id="29" Count="0" />
+      <LineId Id="5" Count="0" />
+      <LineId Id="34" Count="6" />
+      <LineId Id="44" Count="7" />
+      <LineId Id="43" Count="0" />
+      <LineId Id="53" Count="7" />
+      <LineId Id="52" Count="0" />
+      <LineId Id="42" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,961 @@
+<div id="UserControl1" data-tchmi-type="TcHmi.Controls.System.TcHmiUserControl" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width-unit="px" data-tchmi-height-unit="px" data-tchmi-creator-viewport-width="320" data-tchmi-creator-viewport-height="540" data-tchmi-zindex="2" data-tchmi-right="0" data-tchmi-bottom="0" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent">
+
+<div id="TcHmiGrid" data-tchmi-type="TcHmi.Controls.System.TcHmiGrid" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width-unit="px" data-tchmi-right="0" data-tchmi-bottom="0" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-zindex="2">
+
+<script data-tchmi-target-attribute="data-tchmi-row-options" type="application/json">
+[
+  {
+    "height": 1,
+    "heightUnit": "factor",
+    "heightMode": "Value",
+    "maxHeightUnit": "px",
+    "minHeightUnit": "px",
+    "overflow": false
+  },
+  {
+    "height": 1.0,
+    "heightUnit": "factor",
+    "heightMode": "Value",
+    "maxHeightUnit": "px",
+    "minHeightUnit": "px",
+    "overflow": false
+  },
+  {
+    "height": 1.0,
+    "heightUnit": "factor",
+    "heightMode": "Value",
+    "maxHeightUnit": "px",
+    "minHeightUnit": "px",
+    "overflow": false
+  },
+  {
+    "height": 1.0,
+    "heightUnit": "factor",
+    "heightMode": "Value",
+    "maxHeightUnit": "px",
+    "minHeightUnit": "px",
+    "overflow": false
+  },
+  {
+    "height": 1.0,
+    "heightUnit": "factor",
+    "heightMode": "Value",
+    "maxHeightUnit": "px",
+    "minHeightUnit": "px",
+    "overflow": false
+  }
+]
+</script>
+
+<script data-tchmi-target-attribute="data-tchmi-column-options" type="application/json">
+[
+  {
+    "width": 1,
+    "widthUnit": "factor",
+    "widthMode": "Value",
+    "maxWidthUnit": "px",
+    "minWidthUnit": "px",
+    "overflow": false
+  }
+]
+</script>
+<div id="Ampermeter_agregatu" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiLinearGauge" data-tchmi-base-animation-time="1000" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="1" data-tchmi-height="75" data-tchmi-height-unit="px" data-tchmi-label-range="10" data-tchmi-left="10" data-tchmi-left-unit="px" data-tchmi-show-labels="true" data-tchmi-show-ticks="true" data-tchmi-show-value-text="true" data-tchmi-start-from-zero="true" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="500" data-tchmi-width-unit="px" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-right="16" data-tchmi-bottom="0" data-tchmi-value-font-size="%f%%ctrl%Ampermeter_agregatu::RenderedHeight%/ctrl%/5
+%/f%" data-tchmi-unit=" [A]" data-tchmi-value="%pp%proudove_zatizeni%/pp%" data-tchmi-zindex="2" data-tchmi-max-value="80">
+<script data-tchmi-target-attribute="data-tchmi-range" type="application/json">
+[
+  {
+    "color": {
+      "color": "rgba(0, 128, 0, 1)"
+    },
+    "start": 0.0,
+    "end": 15.0
+  },
+  {
+    "color": {
+      "color": "rgba(255, 165, 0, 1)"
+    },
+    "start": 15.0,
+    "end": 35.0
+  },
+  {
+    "color": {
+      "color": "rgba(255, 0, 0, 1)"
+    },
+    "start": 35.0,
+    "end": 80.0
+  }
+]
+</script>
+<script data-tchmi-target-attribute="data-tchmi-value-format" type="application/json">
+{
+  "objectType": "Function",
+  "fn": "GaugeValueFormatter",
+  "fnParams": []
+}
+</script>
+<script data-tchmi-target-attribute="data-tchmi-tick-definition" type="application/json">
+{
+  "mainTickRange": 20,
+  "subTickRange": 5
+}
+</script>
+
+
+
+</div>
+<div id="TcHmiImage_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-top="8" data-tchmi-top-unit="px" data-tchmi-width="50" data-tchmi-width-unit="px" data-tchmi-src="Images/Vlastni/icon_drehzahl.png" data-tchmi-width-mode="Value" data-tchmi-height-mode="Value" data-tchmi-zindex="2">
+</div>
+<div id="TcHmiTextbox_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextbox" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="4" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="80" data-tchmi-left-unit="px" data-tchmi-text="%pp%Drsnost_pasu|BindingMode=TwoWay%/pp%" data-tchmi-top="20" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-font-size="%f%%ctrl%TcHmiTextbox_1::RenderedHeight%/ctrl%%/f%" data-tchmi-width-mode="Value" data-tchmi-height-mode="Value" data-tchmi-zindex="2" data-tchmi-auto-focus-out="true" data-tchmi-auto-select-text="true">
+<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+{
+  "top": 3,
+  "right": 3,
+  "bottom": 3,
+  "left": 3
+}
+</script>
+
+</div>
+<div id="Img_typ_agregatu" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiStateImage" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="3" data-tchmi-height="140" data-tchmi-height-unit="px" data-tchmi-left="130" data-tchmi-left-unit="px" data-tchmi-top="5" data-tchmi-top-unit="px" data-tchmi-width="142" data-tchmi-width-unit="px" data-tchmi-state="%pp%typ_agregatu%/pp%" data-tchmi-fallback-image="Images/Vlastni/10a__icon_aggregat_k300.png" data-tchmi-zindex="2">
+
+<script data-tchmi-target-attribute="data-tchmi-state-list" type="application/json">
+[
+  {
+    "state": 1.0,
+    "stateIcon": "Images/Vlastni/10a__icon_aggregat_k300.png"
+  },
+  {
+    "state": 2.0,
+    "stateIcon": "Images/Vlastni/9a__icon_aggregat_k250.png"
+  },
+  {
+    "state": 3,
+    "stateIcon": "Images/Vlastni/17a__icon_aggregat_lk laenger.png"
+  }
+]
+</script>
+</div>
+<div id="TcHmiTextblock" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="30" data-tchmi-height-unit="px" data-tchmi-left="238" data-tchmi-left-unit="px" data-tchmi-text="m/s" data-tchmi-top="18" data-tchmi-top-unit="px" data-tchmi-width="58" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-font-size="%ctrl%TcHmiTextblock::RenderedHeight%/ctrl%" data-tchmi-right="10" data-tchmi-width-mode="Parent" data-tchmi-zindex="2">
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "%pp%Merne_jednotky%/pp%",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "symbolExpression": "%pp%Merne_jednotky%/pp%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": false
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiTextblock::Text%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "value": "m/s"
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiTextblock::Text%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "value": "ft/s"
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+<div id="TcHmiNumericInput" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiNumericInput" data-tchmi-auto-focus-out="true" data-tchmi-decimal-digits="1" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="80" data-tchmi-left-unit="px" data-tchmi-reset-to-last-valid-value="true" data-tchmi-top="8" data-tchmi-top-unit="px" data-tchmi-value="%pp%rychlost_agregatu|BindingMode=OneWay%/pp%" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-width-mode="Value" data-tchmi-height-mode="Value" data-tchmi-value-horizontal-alignment="Right" data-tchmi-value-font-size="%f%%ctrl%TcHmiNumericInput::RenderedHeight%/ctrl%%/f%" data-tchmi-zindex="2" data-tchmi-ignore-invalid-values="true" data-tchmi-auto-select-text="true">
+<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+{
+  "top": 3,
+  "right": 3,
+  "bottom": 3,
+  "left": 3
+}
+</script>
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "TcHmiNumericInput.onUserInteractionFinished",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%pp%rychlost_agregatu%/pp%",
+        "value": {
+          "objectType": "Symbol",
+          "valueType": "tchmi:general#/definitions/String",
+          "symbolExpression": "%ctrl%TcHmiNumericInput::Value%/ctrl%"
+        },
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "%pp%Merne_jednotky%/pp%",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "symbolExpression": "%pp%Merne_jednotky%/pp%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": false
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiNumericInput::MinValue%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/Number",
+                  "value": 3.0
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiNumericInput::MaxValue%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/Number",
+                  "value": 18.0
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiNumericInput::MinValue%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/Number",
+                  "value": 9.8
+                },
+                "asyncWait": true
+              },
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiNumericInput::MaxValue%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/Number",
+                  "value": 59.1
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+<div id="NumInp_Pritlak_patky" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiNumericInput" data-tchmi-auto-focus-out="true" data-tchmi-decimal-digits="0" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="80" data-tchmi-left-unit="px" data-tchmi-max-value="100" data-tchmi-min-value="0" data-tchmi-reset-to-last-valid-value="true" data-tchmi-top="55" data-tchmi-top-unit="px" data-tchmi-value="%pp%Pritlak_patky|BindingMode=OneWay%/pp%" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-width-mode="Value" data-tchmi-height-mode="Value" data-tchmi-value-horizontal-alignment="Right" data-tchmi-value-font-size="%f%%ctrl%TcHmiNumericInput::RenderedHeight%/ctrl%%/f%" data-tchmi-zindex="2" data-tchmi-ignore-invalid-values="true" data-tchmi-auto-select-text="true">
+<script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
+{
+  "top": 3,
+  "right": 3,
+  "bottom": 3,
+  "left": 3
+}
+</script>
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "%ctrl%Img_typ_agregatu::State%/ctrl%",
+    "actions": [
+      {
+        "objectType": "SwitchCase",
+        "active": true,
+        "compare": {
+          "objectType": "Symbol",
+          "valueType": "tchmi:general#/definitions/Any",
+          "symbolExpression": "%ctrl%Img_typ_agregatu::State%/ctrl%"
+        },
+        "cases": [
+          {
+            "caseValue": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/Any",
+              "value": "3"
+            },
+            "actions": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%NumInp_Pritlak_patky::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "caseDefault": {
+          "actions": [
+            {
+              "objectType": "WriteToSymbol",
+              "active": true,
+              "symbolExpression": "%ctrl%NumInp_Pritlak_patky::Visibility%/ctrl%",
+              "value": {
+                "objectType": "StaticValue",
+                "valueType": "tchmi:framework#/definitions/Visibility",
+                "value": "Collapsed"
+              },
+              "asyncWait": true
+            }
+          ]
+        },
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "NumInp_Pritlak_patky.onUserInteractionFinished",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%pp%Pritlak_patky%/pp%",
+        "value": {
+          "objectType": "Symbol",
+          "valueType": "tchmi:general#/definitions/String",
+          "symbolExpression": "%ctrl%NumInp_Pritlak_patky::Value%/ctrl%"
+        },
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "NumInp_Pritlak_patky.onValueChanged",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/INT",
+                  "symbolExpression": "%ctrl%NumInp_Pritlak_patky::Value%/ctrl%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/Number",
+                  "value": 40.0
+                },
+                "compareOperator": "<",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%NumInp_Pritlak_patky::Value%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/Number",
+                  "value": 0.0
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": []
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+<div id="TcHmiTextblock_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="30" data-tchmi-height-unit="px" data-tchmi-left="238" data-tchmi-left-unit="px" data-tchmi-text="%" data-tchmi-top="65" data-tchmi-top-unit="px" data-tchmi-width="58" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-font-size="%ctrl%TcHmiTextblock::RenderedHeight%/ctrl%" data-tchmi-width-mode="Value" data-tchmi-zindex="2">
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "%ctrl%Img_typ_agregatu::State%/ctrl%",
+    "actions": [
+      {
+        "objectType": "SwitchCase",
+        "active": true,
+        "compare": {
+          "objectType": "Symbol",
+          "valueType": "tchmi:general#/definitions/Any",
+          "symbolExpression": "%ctrl%Img_typ_agregatu::State%/ctrl%"
+        },
+        "cases": [
+          {
+            "caseValue": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/Any",
+              "value": "3"
+            },
+            "actions": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TcHmiTextblock_1::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "caseDefault": {
+          "actions": [
+            {
+              "objectType": "WriteToSymbol",
+              "active": true,
+              "symbolExpression": "%ctrl%TcHmiTextblock_1::Visibility%/ctrl%",
+              "value": {
+                "objectType": "StaticValue",
+                "valueType": "tchmi:framework#/definitions/Visibility",
+                "value": "Collapsed"
+              },
+              "asyncWait": true
+            }
+          ]
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+<div id="Img_patka" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="2" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-top="55" data-tchmi-top-unit="px" data-tchmi-width="50" data-tchmi-width-unit="px" data-tchmi-src="Images/Vlastni/icon_druckschuh.png" data-tchmi-width-mode="Value" data-tchmi-height-mode="Value" data-tchmi-zindex="2">
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "%ctrl%Img_typ_agregatu::State%/ctrl%",
+    "actions": [
+      {
+        "objectType": "SwitchCase",
+        "active": true,
+        "compare": {
+          "objectType": "Symbol",
+          "valueType": "tchmi:general#/definitions/Any",
+          "symbolExpression": "%ctrl%Img_typ_agregatu::State%/ctrl%"
+        },
+        "cases": [
+          {
+            "caseValue": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/Any",
+              "value": 3
+            },
+            "actions": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%Img_patka::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Visible"
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "caseDefault": {
+          "actions": [
+            {
+              "objectType": "WriteToSymbol",
+              "active": true,
+              "symbolExpression": "%ctrl%Img_patka::Visibility%/ctrl%",
+              "value": {
+                "objectType": "StaticValue",
+                "valueType": "tchmi:framework#/definitions/Visibility",
+                "value": "Collapsed"
+              },
+              "asyncWait": true
+            }
+          ]
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+<div id="Btn_Ofuk_brusu" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="3" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-text="" data-tchmi-top="90" data-tchmi-top-unit="px" data-tchmi-width="50" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-width-mode="Value" data-tchmi-height-mode="Value" data-tchmi-zindex="2">
+
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "%pp%ofuk_agregatu%/pp%",
+    "actions": [
+      {
+        "objectType": "SwitchCase",
+        "active": true,
+        "compare": {
+          "objectType": "Symbol",
+          "valueType": "tchmi:general#/definitions/INT",
+          "symbolExpression": "%pp%ofuk_agregatu%/pp%"
+        },
+        "cases": [
+          {
+            "caseValue": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/INT",
+              "value": 1
+            },
+            "actions": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%Btn_Ofuk_brusu::BackgroundImage%/ctrl%",
+                "value": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "symbolExpression": "%tr%TR_Icon_Ofuk1%/tr%"
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "caseValue": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/INT",
+              "value": 2
+            },
+            "actions": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%Btn_Ofuk_brusu::BackgroundImage%/ctrl%",
+                "value": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "symbolExpression": "%tr%TR_Icon_Ofuk2%/tr%"
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "caseValue": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/INT",
+              "value": 3
+            },
+            "actions": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%Btn_Ofuk_brusu::BackgroundImage%/ctrl%",
+                "value": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "symbolExpression": "%tr%TR_Icon_Ofuk3%/tr%"
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "caseValue": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/INT",
+              "value": 4
+            },
+            "actions": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%Btn_Ofuk_brusu::BackgroundImage%/ctrl%",
+                "value": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "symbolExpression": "%tr%TR_Icon_Ofuk4%/tr%"
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "caseValue": {
+              "objectType": "StaticValue",
+              "valueType": "tchmi:general#/definitions/INT",
+              "value": 5
+            },
+            "actions": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%Btn_Ofuk_brusu::BackgroundImage%/ctrl%",
+                "value": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "symbolExpression": "%tr%TR_Icon_Ofuk5%/tr%"
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "caseDefault": {
+          "actions": [
+            {
+              "objectType": "WriteToSymbol",
+              "active": true,
+              "symbolExpression": "%ctrl%Btn_Ofuk_brusu::BackgroundImage%/ctrl%",
+              "value": {
+                "objectType": "Symbol",
+                "valueType": "tchmi:general#/definitions/String",
+                "symbolExpression": "%f%%tr%TR_Icon_Ofuk0%/tr%%/f%"
+              },
+              "asyncWait": true
+            }
+          ]
+        },
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "Btn_Ofuk_brusu.onPressed",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "symbolExpression": "%pp%ofuk_agregatu%/pp%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/INT",
+                  "value": 4
+                },
+                "compareOperator": "<=",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%pp%ofuk_agregatu%/pp%",
+                "value": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "symbolExpression": "%f%%pp%ofuk_agregatu%/pp%+1%/f%"
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%pp%ofuk_agregatu%/pp%",
+                "value": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "symbolExpression": "%f%0%/f%"
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  },
+  {
+    "event": "%pp%Ofuk_agregatu_AnoNe%/pp%",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "symbolExpression": "%pp%Ofuk_agregatu_AnoNe%/pp%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": false
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%Btn_Ofuk_brusu::Visibility%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Collapsed"
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": []
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+<div id="TG_Button_Start_agregatu" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiToggleButton" data-tchmi-height="45" data-tchmi-height-unit="px" data-tchmi-left="80" data-tchmi-left-unit="px" data-tchmi-text="" data-tchmi-top="24" data-tchmi-top-unit="px" data-tchmi-width="146" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-icon="Images/Vlastni/icon_aggregat_on.png" data-tchmi-state-symbol="%pp%start_agregatu%/pp%">
+
+
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "%pp%start_agregatu%/pp%",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:framework#/definitions/TcHmi.Controls.Beckhoff.TcHmiButton.StateSymbol",
+                  "symbolExpression": "%pp%start_agregatu%/pp%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": true
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TG_Button_Start_agregatu::BackgroundColor%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Color",
+                  "value": {
+                    "angle": 0.0,
+                    "stopPoints": [
+                      {
+                        "color": "rgba(0, 0, 0, 1)",
+                        "stop": "0%"
+                      },
+                      {
+                        "color": "rgba(44, 237, 113, 1)",
+                        "stop": "100%"
+                      }
+                    ]
+                  }
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TG_Button_Start_agregatu::BackgroundColor%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Color",
+                  "value": null
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+<div id="TG_Button_priskok_agregatu" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiToggleButton" data-tchmi-grid-column-index="0" data-tchmi-grid-row-index="3" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-text="" data-tchmi-top="30" data-tchmi-top-unit="px" data-tchmi-width="50" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-state-symbol="%pp%Priskok_agregatu%/pp%">
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "%pp%Priskok_agregatu_ikona%/pp%",
+    "actions": [
+      {
+        "objectType": "Condition",
+        "active": true,
+        "parts": [
+          {
+            "if": [
+              {
+                "compare1": {
+                  "objectType": "Symbol",
+                  "valueType": "tchmi:general#/definitions/String",
+                  "symbolExpression": "%pp%Priskok_agregatu_ikona%/pp%"
+                },
+                "compare2": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "value": false
+                },
+                "compareOperator": "==",
+                "logic": null
+              }
+            ],
+            "then": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TG_Button_priskok_agregatu::Icon%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Path",
+                  "value": "Images/Vlastni/icon_hoehe_servo_rot.png"
+                },
+                "asyncWait": true
+              }
+            ]
+          },
+          {
+            "else": [
+              {
+                "objectType": "WriteToSymbol",
+                "active": true,
+                "symbolExpression": "%ctrl%TG_Button_priskok_agregatu::Icon%/ctrl%",
+                "value": {
+                  "objectType": "StaticValue",
+                  "valueType": "tchmi:framework#/definitions/Path",
+                  "value": "Images/Vlastni/icon_hoehe_servo_gruen.png"
+                },
+                "asyncWait": true
+              }
+            ]
+          }
+        ],
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+</div>
+<div id="TcHmiRectangle_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiRectangle" data-tchmi-height="521" data-tchmi-height-unit="px" data-tchmi-left="0" data-tchmi-left-unit="px" data-tchmi-top="0" data-tchmi-top-unit="px" data-tchmi-width="250" data-tchmi-width-unit="px" data-tchmi-zindex="0" data-tchmi-width-mode="Parent" data-tchmi-height-mode="Parent" data-tchmi-right="0" data-tchmi-bottom="0">
+
+<script data-tchmi-target-attribute="data-tchmi-border-color" type="application/json">
+{
+  "color": "rgba(0, 0, 0, 1)"
+}
+</script>
+</div>
+</div>

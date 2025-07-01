@@ -1,0 +1,329 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.15">
+  <POU Name="patkaMemoryz" Id="{76994851-5603-45b5-a67d-2e74e08c2ebb}" SpecialFunc="None">
+    <Declaration><![CDATA[// Ondrej Pistora Ondrej.Pistora@gmail.com 01/2025
+// Program to memorize incoming parts into a belt sander and apply pressure with pads above them.
+
+PROGRAM patkaMemoryz
+VAR CONSTANT
+    SENSOR_COUNT : INT := 54; (* Adjust as needed *)
+    PADS_COUNT : INT := 27; (* Adjust as needed *)
+	MEMORY_LENGTH : UDINT := 10; 
+END_VAR
+VAR
+	
+	// vytvarim zde nebot jinak neufingovalo v HMI zaporne hodnoty
+	korekce_jemna : INT;
+	korekce_jemna_odpad : INT;
+	
+
+	// INTERNAL
+    sensors_state_out_normal : ARRAY[0..SENSOR_COUNT-1] OF INT := [0];
+	sensors_state_out_extra : ARRAY[0..SENSOR_COUNT-1] OF INT := [0];
+    sensors_state_out : ARRAY[0..SENSOR_COUNT-1] OF BOOL := [FALSE];
+    (* Rising and Falling Edge Detection *)
+    rtrig_sensors : ARRAY[0..SENSOR_COUNT-1] OF R_TRIG;
+    ftrig_sensors : ARRAY[0..SENSOR_COUNT-1] OF F_TRIG;
+    (* Ring Buffers *)
+    on_memory : ARRAY[0..SENSOR_COUNT-1] OF FB_MemRingBuffer;
+    off_memory : ARRAY[0..SENSOR_COUNT-1] OF FB_MemRingBuffer;
+    (* Data Storage for Ring Buffers *)
+    on_buffer : ARRAY[0..SENSOR_COUNT-1, 0..MEMORY_LENGTH - 1] OF DWORD;
+    off_buffer : ARRAY[0..SENSOR_COUNT-1, 0..MEMORY_LENGTH - 1] OF DWORD;
+    (* Configuration Variables *)
+    buffer_byte_size : UDINT := SIZEOF(on_buffer[0,0]) * MEMORY_LENGTH ; (* Size of a single buffer in bytes *)
+	isInitialized: BOOL:= FALSE;
+	
+	// sim, replace with HMI vars
+	HMI_korekce_cA, HMI_korekce_cB, HMI_korekce_cC, HMI_korekce_cD : INT;           // Correction values for half edges (1 sensor per pad)
+	
+	// OUTPUT
+	pads_state : ARRAY[0..PADS_COUNT-1] OF INT;  // number of sensors per pad 0,1 or 2
+	pads_out : ARRAY[0..PADS_COUNT-1] OF INT;	 // pads in percent of force
+	pads_state_1 : ARRAY [0..PADS_COUNT-1] OF INT;  // pole pro odebrani jedne rolny / vyrovnani tlaku na 50 procent
+	
+	srovnani_na_pulku: INT := 0;
+	
+END_VAR
+
+
+VAR_TEMP
+	i : INT;  // iterator
+    C : DWORD;  // current pulses from belt
+    U : DWORD;  // UP - rising edge
+    D : DWORD;  // DOWN - falling edge
+	temp : DWORD;
+	size : UDINT;
+	tail : INT;	// stop index when searching from left side¨
+    rising : BOOL;              // State flag for edge detection
+	firstLeftRised : INT;
+	firstRightRised : INT;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[// FUNCTIONALITY
+// 1) Detect rising and falling edges of sensors, and store them in memory with offset
+// 2) Process memory of sensory to get state of sensors at position of pads
+// 3) Add extra sensors to pads
+// 4) Convert sensors to pads (two sensors for one pad -> value 0, 1, 2)
+// 5) Correct sides of parts which have only one sensor turned, add factor
+// 6) Output pad states in Amps
+
+// ***** Povoleni vysunuti patky *****
+IF Machine_Intern.M_Stroj_zapnuty THEN
+	Machine_outputs.Q_patka_enable:=TRUE;
+END_IF
+
+C:= Machine_Intern.M_pocitadlo_imp_behu_pod_pasu;
+(* Initialize Ring Buffers *)
+IF NOT isInitialized THEN
+	FOR i := 0 TO SENSOR_COUNT-1 DO
+		on_memory[i](
+			pBuffer := ADR(on_buffer[i, 0]),
+			cbBuffer := buffer_byte_size
+		);
+		off_memory[i](
+			pBuffer := ADR(off_buffer[i, 0]),
+			cbBuffer := buffer_byte_size
+		);
+	END_FOR
+	isInitialized:= TRUE;
+END_IF
+
+(* Edge Detection and Buffer Updates *)
+FOR i := 0 TO SENSOR_COUNT-1 DO
+    rtrig_sensors[i](CLK := Machine_Inputs.I_Detekce_vst_desky[i+1]);  // starting from 1
+    ftrig_sensors[i](CLK := Machine_Inputs.I_Detekce_vst_desky[i+1]);  // starting from 1
+
+    IF rtrig_sensors[i].Q THEN
+        (* Sensor ON: Write rising edge time to on_memory *)
+        temp := C + HMI_prom.HMI_param_stroje.Stp_Patka.Pocet_impulsu_mezi_vst_listou_Apatkou - HMI_prom.HMI_param_stroje.Stp_Patka.Pocet_impulsu_mezi_vst_listou_Apatkou_jemna_korekce;  // DWORD + INT should be fine
+        on_memory[i].A_AddTail(pWrite := ADR(temp), cbWrite := SIZEOF(temp));
+    END_IF
+
+    IF ftrig_sensors[i].Q THEN
+        (* Sensor OFF: Write falling edge time to off_memory *)
+        temp := C + HMI_prom.HMI_param_stroje.Stp_Patka.Pocet_impulsu_mezi_vst_listou_Apatkou_odpad + HMI_prom.HMI_param_stroje.Stp_Patka.Pocet_impulsu_mezi_vst_listou_Apatkou_odpad_jemna_korekce;  // DWORD + INT should be fine
+        off_memory[i].A_AddTail(pWrite := ADR(temp), cbWrite := SIZEOF(temp));
+    END_IF
+END_FOR
+
+(* Process Sensor Buffers *)
+FOR i := 0 TO SENSOR_COUNT-1 DO
+    sensors_state_out_normal[i] := 0;
+
+    (* Check and Remove Expired Pulses from off_memory *)
+	off_memory[i].A_GetHead(pRead := ADR(D), cbRead := SIZEOF(D), nCount => size);
+    IF size > 0 THEN
+        IF D < C THEN
+            off_memory[i].A_RemoveHead();
+            on_memory[i].A_RemoveHead();
+        END_IF
+    END_IF
+
+    (* Check Active Pulses in on_memory *)
+	on_memory[i].A_GetHead(pRead := ADR(U), cbRead := SIZEOF(U), nCount => size);
+    IF size > 0 THEN
+        IF U < C THEN  // If we are 
+            sensors_state_out_normal[i] := 1;
+        END_IF
+    END_IF
+END_FOR
+
+(* Add Extra Sensors *)
+// Reset 
+FOR i := 0 TO SENSOR_COUNT-1 DO
+    sensors_state_out_extra[i] := 0;
+END_FOR
+
+(* LEFT *)
+FOR i := 0 TO SENSOR_COUNT-2 DO
+    IF (sensors_state_out_normal[i] = 0) AND (sensors_state_out_normal[i+1] = 1) THEN
+        IF HMI_prom.UI_Tlac_extra_sensor_LEFT_PLUS THEN
+            sensors_state_out_extra[i] := sensors_state_out_extra[i] + 1;
+        ELSIF HMI_prom.UI_Tlac_extra_sensor_LEFT_MINUS THEN
+            sensors_state_out_extra[i+1] := sensors_state_out_extra[i+1] - 1;
+        END_IF
+    END_IF
+END_FOR
+
+(* RIGHT *)
+FOR i := SENSOR_COUNT-1 TO 1 BY -1 DO
+    IF (sensors_state_out_normal[i] = 0) AND (sensors_state_out_normal[i-1] = 1) THEN
+        IF HMI_prom.UI_Tlac_extra_sensor_RIGHT_PLUS THEN
+            sensors_state_out_extra[i] := sensors_state_out_extra[i] + 1;
+        ELSIF HMI_prom.UI_Tlac_extra_sensor_RIGHT_MINUS THEN
+            sensors_state_out_extra[i-1] := sensors_state_out_extra[i-1] - 1;
+        END_IF
+    END_IF
+END_FOR
+
+(* Combine Normal and Extra Sensors *)
+FOR i := 0 TO SENSOR_COUNT-1 DO
+    sensors_state_out[i] := (sensors_state_out_normal[i] + sensors_state_out_extra[i]) > 0;
+END_FOR
+
+(* Convert Sensors to Pads, prepare pads_out *)
+FOR i := 0 TO PADS_COUNT-1 DO
+	pads_state[i] := BOOL_TO_INT(sensors_state_out[i * 2]) + BOOL_TO_INT(sensors_state_out[i * 2 + 1]);
+	pads_state_1[i] := pads_state[i];
+	//pads_out[i] := pads_state[i] * 50;
+END_FOR
+// dopleneni scriptu pro korekci 2 senyoru pro 50 tlak 
+
+FOR i := 0 TO PADS_COUNT-1 DO
+	IF (pads_state[i] = 0 AND pads_state[i+1] = 2) THEN
+		pads_state_1[i+1] := 1;   
+	END_IF	
+	pads_out[i] := pads_state_1[i+1] * 50 ;
+END_FOR
+
+FOR i := 0 TO PADS_COUNT-1 DO
+	IF (pads_state[i] = 2 AND pads_state[i+1] = 0) THEN
+		pads_state_1[i] := 1;   
+	END_IF	
+	pads_out[i] := pads_state_1[i] * 50;
+END_FOR
+
+// CORRECT SIDES WHICH HAVE ONLY 1 OUT OF 2 SENSORS with factors
+
+rising := TRUE;
+
+//korekce pro  50 50 50 50 50 50 50 50
+
+
+FOR i := 0 TO PADS_COUNT - 1 DO
+    IF rising THEN
+        IF (pads_state_1[i] = 1) OR (pads_state_1[i] = 2) THEN
+            	IF pads_state_1[i] = 1  THEN
+                	pads_out[i] := pads_out[i] + (HMI_prom.UI_extra_tlak_CA); //  Correct with A
+            	END_IF
+            rising := FALSE;
+			EXIT; // Exit the loop after finding the falling edge
+      END_IF
+	END_IF
+END_FOR
+
+tail := i; // Save the position of the last processed element
+
+
+// Kokekce pro 50 50 50 50 50
+
+FOR i := PADS_COUNT - 1 TO tail + 1 BY -1 DO
+    IF (pads_state_1[i] = 1) OR (pads_state_1[i] = 2) THEN
+        IF pads_state_1[i] = 1  THEN
+            pads_out[i] := pads_out[i] + (HMI_prom.UI_extra_tlak_CD) ; // Correct with D
+        END_IF
+        EXIT; // Exit the loop after finding the rising edge
+      END_IF
+END_FOR
+
+i := i - 1;
+
+// From Right: Process Remaining -> C, B
+rising := FALSE;
+
+
+// korekce pro 50 50 50 50 50 50 50 50
+WHILE tail < i DO
+    IF rising THEN
+        IF (pads_state_1[i] = 1) OR (pads_state_1[i] = 2) THEN
+            IF pads_state_1[i] = 1 THEN
+                pads_out[i] := pads_out[i] + (HMI_prom.UI_extra_tlak_CB); // Correct with B
+            END_IF
+            rising := FALSE;
+        END_IF
+    ELSE
+        IF (pads_state_1[i] = 1) OR (pads_state_1[i] = 0) THEN
+            IF pads_state_1[i] = 1 THEN
+                pads_out[i] := pads_out[i] +( HMI_prom.UI_extra_tlak_CC); // Correct with C
+            END_IF
+            rising := TRUE;
+        END_IF
+    END_IF
+    i := i - 1;
+END_WHILE
+
+
+// Output pad states in Amps
+FOR i := 0 TO PADS_COUNT-1 DO
+	// multiply output with global setting
+	pads_out[i]:= HMI_prom.UI_pritlak_patky * pads_out[i] / 100;
+	// If ouput is below 5% then drop it to zero
+	IF pads_out[i] < 5 THEN
+		pads_out[i]:= 0;
+	END_IF
+	// Convert to amps
+	Machine_outputs.Q_segmenty_patky[i+1]:= DINT_TO_INT(MIN(32767, MAX(0, INT_TO_DINT(pads_out[i]) * 32767 / 100)));
+END_FOR
+
+ ]]></ST>
+    </Implementation>
+    <LineIds Name="patkaMemoryz">
+      <LineId Id="194" Count="4" />
+      <LineId Id="458" Count="0" />
+      <LineId Id="49" Count="0" />
+      <LineId Id="286" Count="0" />
+      <LineId Id="282" Count="2" />
+      <LineId Id="280" Count="0" />
+      <LineId Id="279" Count="0" />
+      <LineId Id="278" Count="0" />
+      <LineId Id="199" Count="0" />
+      <LineId Id="207" Count="0" />
+      <LineId Id="50" Count="9" />
+      <LineId Id="208" Count="1" />
+      <LineId Id="60" Count="14" />
+      <LineId Id="306" Count="0" />
+      <LineId Id="76" Count="7" />
+      <LineId Id="210" Count="0" />
+      <LineId Id="84" Count="7" />
+      <LineId Id="275" Count="0" />
+      <LineId Id="92" Count="7" />
+      <LineId Id="201" Count="0" />
+      <LineId Id="100" Count="33" />
+      <LineId Id="521" Count="0" />
+      <LineId Id="658" Count="0" />
+      <LineId Id="204" Count="0" />
+      <LineId Id="660" Count="0" />
+      <LineId Id="678" Count="0" />
+      <LineId Id="661" Count="1" />
+      <LineId Id="668" Count="0" />
+      <LineId Id="667" Count="0" />
+      <LineId Id="664" Count="0" />
+      <LineId Id="659" Count="0" />
+      <LineId Id="670" Count="5" />
+      <LineId Id="669" Count="0" />
+      <LineId Id="457" Count="0" />
+      <LineId Id="456" Count="0" />
+      <LineId Id="459" Count="1" />
+      <LineId Id="894" Count="0" />
+      <LineId Id="787" Count="0" />
+      <LineId Id="892" Count="0" />
+      <LineId Id="801" Count="0" />
+      <LineId Id="790" Count="1" />
+      <LineId Id="793" Count="7" />
+      <LineId Id="789" Count="0" />
+      <LineId Id="752" Count="0" />
+      <LineId Id="481" Count="0" />
+      <LineId Id="491" Count="0" />
+      <LineId Id="834" Count="0" />
+      <LineId Id="817" Count="0" />
+      <LineId Id="833" Count="0" />
+      <LineId Id="818" Count="6" />
+      <LineId Id="816" Count="0" />
+      <LineId Id="492" Count="4" />
+      <LineId Id="443" Count="0" />
+      <LineId Id="786" Count="0" />
+      <LineId Id="766" Count="17" />
+      <LineId Id="371" Count="0" />
+      <LineId Id="785" Count="0" />
+      <LineId Id="784" Count="0" />
+      <LineId Id="372" Count="0" />
+      <LineId Id="449" Count="0" />
+      <LineId Id="530" Count="1" />
+      <LineId Id="525" Count="4" />
+      <LineId Id="455" Count="0" />
+      <LineId Id="300" Count="1" />
+      <LineId Id="299" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.15">
+  <POU Name="Opotrebeni_pasu" Id="{6bdfd8b0-f07f-4aea-8fd4-be6249727133}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Opotrebeni_pasu
+VAR
+	i				: INT;							// iterable
+	previous_blink	: BOOL;							// To detect rising edge
+	
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+
+IF Machine_Intern.Blink_500ms AND NOT previous_blink THEN
+	FOR i:= 1 TO 54 DO
+		IF (Machine_Inputs.I_Detekce_vst_desky[i] > 0)AND(Machine_outputs.Q_start_agregat1=TRUE)AND(Machine_outputs.Q_agregat1_priskok=TRUE)  THEN
+			HMI_prom.UI_Graph_Belt_usage_Agreg1[i]:= HMI_prom.UI_Graph_Belt_usage_Agreg1[i] + 1;
+		END_IF
+		IF (Machine_Inputs.I_Detekce_vst_desky[i] > 0)AND(Machine_outputs.Q_start_agregat2=TRUE)AND(Machine_outputs.Q_agregat2_priskok=TRUE)  THEN
+			HMI_prom.UI_Graph_Belt_usage_Agreg2[i]:= HMI_prom.UI_Graph_Belt_usage_Agreg2[i] + 1;
+		END_IF
+		IF (Machine_Inputs.I_Detekce_vst_desky[i] > 0)AND(Machine_outputs.Q_start_agregat3=TRUE)AND (Machine_Intern.M_Patka_aktivni>0 OR Machine_outputs.Q_agregat3_priskok=TRUE)  THEN
+			HMI_prom.UI_Graph_Belt_usage_Agreg3[i]:= HMI_prom.UI_Graph_Belt_usage_Agreg3[i] + 1;
+		END_IF
+	END_FOR	
+END_IF
+
+IF HMI_prom.UI_Tlac_Reset_opotrebeni_pasu_Agreg1 THEN
+	FOR i:= 1 TO 54 DO
+		HMI_prom.UI_Graph_Belt_usage_Agreg1[i]:= 0;
+	END_FOR
+END_IF
+
+IF HMI_prom.UI_Tlac_Reset_opotrebeni_pasu_Agreg2 THEN
+	FOR i:= 1 TO 54 DO
+		HMI_prom.UI_Graph_Belt_usage_Agreg2[i]:= 0;
+	END_FOR
+END_IF
+
+IF HMI_prom.UI_Tlac_Reset_opotrebeni_pasu_Agreg3 THEN
+	FOR i:= 1 TO 54 DO
+		HMI_prom.UI_Graph_Belt_usage_Agreg3[i]:= 0;
+	END_FOR
+END_IF
+
+previous_blink:= Machine_Intern.Blink_500ms;]]></ST>
+    </Implementation>
+    <LineIds Name="Opotrebeni_pasu">
+      <LineId Id="5" Count="0" />
+      <LineId Id="9" Count="0" />
+      <LineId Id="8" Count="0" />
+      <LineId Id="11" Count="0" />
+      <LineId Id="19" Count="1" />
+      <LineId Id="13" Count="0" />
+      <LineId Id="37" Count="1" />
+      <LineId Id="36" Count="0" />
+      <LineId Id="40" Count="1" />
+      <LineId Id="39" Count="0" />
+      <LineId Id="14" Count="0" />
+      <LineId Id="12" Count="0" />
+      <LineId Id="24" Count="0" />
+      <LineId Id="23" Count="0" />
+      <LineId Id="27" Count="0" />
+      <LineId Id="29" Count="0" />
+      <LineId Id="25" Count="1" />
+      <LineId Id="55" Count="0" />
+      <LineId Id="44" Count="4" />
+      <LineId Id="54" Count="0" />
+      <LineId Id="49" Count="4" />
+      <LineId Id="18" Count="0" />
+      <LineId Id="17" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

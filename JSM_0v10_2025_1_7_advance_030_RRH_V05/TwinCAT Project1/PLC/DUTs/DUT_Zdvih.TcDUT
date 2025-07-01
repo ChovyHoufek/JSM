@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.13">
+  <DUT Name="DUT_Zdvih" Id="{3bb2ee7a-02ed-41ae-917f-302741ae08f9}">
+    <Declaration><![CDATA[TYPE DUT_Zdvih :
+STRUCT
+	Zdvih_prejeti_pozice:REAL;  // backlash
+	Zdvih_korekce_pozice_zastaveni:REAL; // pro zastaveni motoru
+	Min_hodnota_zdvihu:REAL;
+	Max_hodnota_zdvihu:REAL;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

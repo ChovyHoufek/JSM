@@ -1,0 +1,40 @@
+{
+    "USERS": {
+        "Adjuster": {
+            "ALGORITHM": 1,
+            "ENABLED": true,
+            "PASSWORD": "636724e28cbb3e93c8b8cb18a09029e121806f8c6f61364ed604e488cdf612677648bc6e63fda5dd6d71b12822270935f2135ca13b8179a57cd290c3f6c28e92",
+            "SALT": "svYYUq2JBCEhfdRurUVFvtzzLqnz7kgdPtt2cOlS02jI36OmMy62Iy7uiOavaoyYrtsmc7//K5MFsXtxnDCD4g=="
+        },
+        "Operator": {
+            "ALGORITHM": 1,
+            "ENABLED": true,
+            "PASSWORD": "3201f63be4ebf65c234ff58d596fc47aa483b8b09bd7b876587bd76930b845d9f30e25f7454dda6b15661789753d024a647518a8c34caaa7a221fb99e53f4080",
+            "SALT": "3sp5UszViUrcIPOaFNYRTr5IMY2YK/RcPzgEp9QOnzkahakwnzPXBBQ02RatiMqxCMUJcK7zctCYDl77TKXCzA=="
+        },
+        "Service": {
+            "ALGORITHM": 1,
+            "ENABLED": true,
+            "PASSWORD": "dd8704e4f4e496040a0f5241f790b5408dff8f4e73367b3eba0c5fb5c3d5bddc13fa2efbf9d5972560c137a8725d714d275d4ffe380930a43e997f5c19f01cce",
+            "SALT": "ehDoxLt9EPHKWAos2hdNpSm2FYEa0qX8KnR+C9eo+zaPCDGNBS2gXvucp7EAOwuN/DvvG6+5JDUpYmXcjATudg=="
+        },
+        "__SystemAdministrator": {
+            "ALGORITHM": 1,
+            "ENABLED": true,
+            "PASSWORD": "99ab92feca61a0a95b0adb8fcd5baec37c42ad65025db52c4a33610595a73a67c4e178e48fe910474d47393863140e124220bd59d076af32a89c6ed180be1cf7",
+            "SALT": "747grFtx75mzh8OK3Tszws/9n+XjCQ3wXqIcsIuOyPSI/xs7+otJ7IjRKDCYcT3KWWcl1dbD1NHf9uZ4JPpwNw=="
+        },
+        "__SystemGuest": {
+            "ALGORITHM": 0,
+            "ENABLED": true,
+            "PASSWORD": "",
+            "SALT": ""
+        },
+        "__SystemUser": {
+            "ALGORITHM": 0,
+            "ENABLED": true,
+            "PASSWORD": "",
+            "SALT": ""
+        }
+    }
+}

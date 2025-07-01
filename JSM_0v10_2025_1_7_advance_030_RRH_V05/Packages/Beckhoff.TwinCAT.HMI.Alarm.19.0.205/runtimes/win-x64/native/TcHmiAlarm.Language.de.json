@@ -1,0 +1,53 @@
+{
+  "locale": "de",
+  "localizedText": {
+    "alarmSymbols": "Alarm-Symbole",
+    "limitEventCount": "Maximale Anzahl von Events",
+    "alarmSettings": "Alarm-Einstellungen",
+    "titleAlarmSymbol": "Symbol-Mapping",
+    "enabled": "Aktiv",
+    "onError": "Alarm bei Fehler",
+    "alarmTextKey": "Text (key)",
+    "interval": "Zeitintervall",
+    "severity": "Gewichtung",
+    "condition": "Bedingung",
+    "notificationType": "Meldungsart",
+    "symbolName": "Symbolname",
+    "alarmSetting": "Alarm-Einstellung",
+
+    "connectionState": "Verbindungs-Status",
+    "importedEventsCount": "Importierte Events",
+    "importedMessagesCount": "Importierte Nachrichten",
+    "importedAlarmsCount": "Importierte Alarme",
+    "importedInvalidAlarmsCount": "Importierte ungültige Alarme",
+    "cachedMessagesCount": "Nachrichten in der Datenbank",
+    "cachedAlarmsCount": "Alarme in der Datenbank",
+    "cachedInvalidAlarmsCount": "Ungültige Alarme in der Datenbank",
+    "activeAlarmsCount": "Aktive Alarme",
+    "database": "Datenbank",
+    "databaseSize": "Datenbank-Größe",
+    "numEntries": "Gesamtzahl der Einträge",
+
+    "DESC_ALARM_SYMBOLS": "Diese Liste enthält alle konfigurierten Alarm-Symbole.",
+    "DESC_LIMIT_EVENT_COUNT": "Aktive Alarme werden immer importiert, auch wenn dadurch dieses Limit überschritten wird.",
+    "DESC_ALARM_SYMBOL": "Alarm-Symbol",
+    "DESC_CONDITION": "Ein Alarm oder eine Nachricht wird ausgelöst, wenn der Wert innerhalb des Wertebereichs liegt.",
+    "DESC_ON_ERROR": "Alarm schicken, wenn der aktuelle Symbolwert nicht gelesen werden kann.",
+
+    "ENUM_m1_DIAGNOSTICS": "Diagnose",
+    "ENUM_0_VERBOSE": "Ausführlich",
+    "ENUM_1_INFO": "Informativ",
+    "ENUM_2_WARNING": "Warnungen",
+    "ENUM_3_ERROR": "Fehler",
+    "ENUM_4_CRITICAL": "Kritisch",
+
+    "enum_0_message": "Nachricht",
+    "enum_1_alarm_with_confirmation": "Alarm (mit Bestätigung)",
+    "enum_2_alarm": "Alarm",
+
+    "valueReadError": "Symbol {symbolName} kann nicht gelesen werden. Fehlercode: {error}",
+    "settingMatch": "Alarm-Einstellung {alarmSetting} für Symbol {symbolName} stimmt überein.",
+    "databaseError": "Datenbankfehler: {errorMessage}",
+    "closeDBError": "Schließen der Datenbank mit Fehlercode {0} fehlgeschlagen"
+  }
+}

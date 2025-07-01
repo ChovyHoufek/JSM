@@ -1,0 +1,150 @@
+<div id="Events" data-tchmi-type="TcHmi.Controls.System.TcHmiContent" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="100" data-tchmi-width-unit="%" data-tchmi-height="100" data-tchmi-height-unit="%" data-tchmi-creator-viewport-width="1920" data-tchmi-creator-viewport-height="1080">
+
+  <div id="TcHmiTextblock_Events_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="48" data-tchmi-height-unit="px" data-tchmi-left="32" data-tchmi-left-unit="px" data-tchmi-text="%l%L_Events%/l%" data-tchmi-top="16" data-tchmi-top-unit="px" data-tchmi-width-unit="px" data-tchmi-word-wrap="True" data-tchmi-right="555">
+    <script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+      [
+      "headline-2"
+      ]
+    </script>
+  </div>
+  <div id="TcHmiContainer_Events_1" data-tchmi-type="TcHmi.Controls.System.TcHmiContainer" data-tchmi-height-unit="px" data-tchmi-left="16" data-tchmi-left-unit="px" data-tchmi-top="64" data-tchmi-top-unit="px" data-tchmi-width-unit="px" data-tchmi-right-unit="px" data-tchmi-right="16" data-tchmi-bottom="16">
+
+    <script data-tchmi-target-attribute="data-tchmi-class-names" type="application/json">
+      [
+      "background-container"
+      ]
+    </script>
+
+    <div id="TcHmiEventGrid_Events_1" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiEventGrid" data-tchmi-height-unit="px" data-tchmi-left="16" data-tchmi-left-unit="px" data-tchmi-show-menu-bar="True" data-tchmi-top="15" data-tchmi-top-unit="px" data-tchmi-width-unit="px" data-tchmi-right="16" data-tchmi-bottom="17" data-tchmi-button-height="50" data-tchmi-menu-bar-position="Top">
+      <script data-tchmi-target-attribute="data-tchmi-filter" type="application/json">
+[
+  {
+    "path": "domain",
+    "comparator": "==",
+    "value": "TcHmiAlarm"
+  },
+  {
+    "logic": "AND"
+  },
+  {
+    "path": "isActive",
+    "comparator": "==",
+    "value": true
+  }
+]
+</script>
+      <script data-tchmi-target-attribute="data-tchmi-columns" type="application/json">
+[
+  {
+    "columnName": "type"
+  },
+  {
+    "columnName": "alarmState",
+    "width": 18,
+    "sortable": true
+  },
+  {
+    "columnName": "severity"
+  },
+  {
+    "columnName": "timeAndDateRaised"
+  },
+  {
+    "columnName": "text",
+    "width": 1,
+    "widthUnit": "factor"
+  },
+  {
+    "columnName": "timeAndDateConfirmed",
+    "sortable": true
+  },
+  {
+    "columnName": "timeAndDateCleared",
+    "sortable": true
+  }
+]
+</script>
+      <script data-tchmi-target-attribute="data-tchmi-sorting" type="application/json">
+        [
+        {
+        "name": "timeRaised",
+        "order": "Descending"
+        }
+        ]
+      </script>
+
+
+      <script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
+        {
+        "color": "None"
+        }
+      </script>
+    </div>
+  </div>
+<div id="btnAllAlarms" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left-unit="px" data-tchmi-text="All Alarms" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-right="10">
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "btnAllAlarms.onPressed",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%TcHmiEventGrid_Events_1::Filter%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:server#/definitions/eventFilter",
+          "value": [
+            {
+              "path": "domain",
+              "comparator": "==",
+              "value": "TcHmiAlarm"
+            }
+          ]
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+<div id="btnOnlyActive" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left-unit="px" data-tchmi-text="Only Active" data-tchmi-top="10" data-tchmi-top-unit="px" data-tchmi-width="100" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-right="120">
+
+<script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
+[
+  {
+    "event": "btnOnlyActive.onPressed",
+    "actions": [
+      {
+        "objectType": "WriteToSymbol",
+        "active": true,
+        "symbolExpression": "%ctrl%TcHmiEventGrid_Events_1::Filter%/ctrl%",
+        "value": {
+          "objectType": "StaticValue",
+          "valueType": "tchmi:server#/definitions/eventFilter",
+          "value": [
+            {
+              "path": "domain",
+              "comparator": "==",
+              "value": "TcHmiAlarm"
+            },
+            {
+              "logic": "AND"
+            },
+            {
+              "path": "isActive",
+              "comparator": "==",
+              "value": true
+            }
+          ]
+        },
+        "asyncWait": true
+      }
+    ]
+  }
+]
+</script>
+</div>
+</div>

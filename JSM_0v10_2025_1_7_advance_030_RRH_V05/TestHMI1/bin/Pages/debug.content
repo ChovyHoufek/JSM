@@ -1,0 +1,87 @@
+<div id="Content1" data-tchmi-type="TcHmi.Controls.System.TcHmiContent" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="1052" data-tchmi-height="559" data-tchmi-creator-viewport-width="1920" data-tchmi-creator-viewport-height="1080">
+<div id="TcHmiBarChart_3" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiBarChart" data-tchmi-height="65" data-tchmi-height-unit="px" data-tchmi-left="49" data-tchmi-left-unit="px" data-tchmi-top="32" data-tchmi-top-unit="px" data-tchmi-width="964" data-tchmi-width-unit="px" data-tchmi-x-axis-name="x Axis" data-tchmi-y-axis-name="y Axis 1" data-tchmi-y-axis-unit="s" data-tchmi-y-main-tick-max-value="1" data-tchmi-y-main-tick-min-value="0" data-tchmi-y-sub-tick-steps="4" data-tchmi-show-x-axis="false" data-tchmi-x-show-labels="true" data-tchmi-x-axis-auto-scaling="false" data-tchmi-x-main-tick-min-value="0" data-tchmi-x-main-tick-max-value="53" data-tchmi-x-main-tick-steps="55" data-tchmi-x-axis-decimal-places="0" data-tchmi-y-axis-auto-scaling="false" data-tchmi-show-y-axis="false" data-tchmi-y-show-labels="false" data-tchmi-bar-graph-data="%s%PLC1.Machine_Inputs.I_Detekce_vst_desky%/s%" data-tchmi-y-main-tick-steps="2">
+<script data-tchmi-target-attribute="data-tchmi-bar-graph-descriptions" type="application/json">
+[
+  {
+    "barColor": "%tr%Control::TcHmi.Controls.Beckhoff.TcHmiBarChart::DefaultGraphColor%/tr%",
+    "legendName": "data0"
+  },
+  {
+    "barColor": "%tr%Control::TcHmi.Controls.Beckhoff.TcHmiBarChart::DefaultGraphColor%/tr%",
+    "legendName": "data1"
+  }
+]
+</script>
+
+</div>
+<div id="TcHmiBarChart_4" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiBarChart" data-tchmi-height="65" data-tchmi-height-unit="px" data-tchmi-left="49" data-tchmi-left-unit="px" data-tchmi-top="345" data-tchmi-top-unit="px" data-tchmi-width="964" data-tchmi-width-unit="px" data-tchmi-x-axis-name="x Axis" data-tchmi-y-axis-name="y Axis 1" data-tchmi-y-axis-unit="s" data-tchmi-y-main-tick-max-value="2" data-tchmi-y-main-tick-min-value="0" data-tchmi-y-sub-tick-steps="4" data-tchmi-show-x-axis="false" data-tchmi-x-show-labels="true" data-tchmi-x-axis-auto-scaling="false" data-tchmi-x-main-tick-min-value="0" data-tchmi-x-main-tick-max-value="26" data-tchmi-x-main-tick-steps="28" data-tchmi-x-axis-decimal-places="0" data-tchmi-y-axis-auto-scaling="false" data-tchmi-show-y-axis="false" data-tchmi-y-show-labels="false" data-tchmi-bar-graph-data="%s%PLC1.Machine_outputs.Q_segmenty_patky%/s%" data-tchmi-y-main-tick-steps="2" data-tchmi-show-grid="true" data-tchmi-grid-show-horizontal-lines="true" data-tchmi-grid-show-vertical-lines="true">
+<script data-tchmi-target-attribute="data-tchmi-bar-graph-descriptions" type="application/json">
+[
+  {
+    "barColor": "%tr%Control::TcHmi.Controls.Beckhoff.TcHmiBarChart::DefaultGraphColor%/tr%",
+    "legendName": "data0"
+  },
+  {
+    "barColor": "%tr%Control::TcHmi.Controls.Beckhoff.TcHmiBarChart::DefaultGraphColor%/tr%",
+    "legendName": "data1"
+  }
+]
+</script>
+
+</div>
+<div id="TcHmiBarChart_5" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiBarChart" data-tchmi-height="65" data-tchmi-height-unit="px" data-tchmi-left="49" data-tchmi-left-unit="px" data-tchmi-top="111" data-tchmi-top-unit="px" data-tchmi-width="964" data-tchmi-width-unit="px" data-tchmi-x-axis-name="x Axis" data-tchmi-y-axis-name="y Axis 1" data-tchmi-y-axis-unit="s" data-tchmi-y-main-tick-max-value="1" data-tchmi-y-main-tick-min-value="0" data-tchmi-y-sub-tick-steps="4" data-tchmi-show-x-axis="false" data-tchmi-x-show-labels="true" data-tchmi-x-axis-auto-scaling="false" data-tchmi-x-main-tick-min-value="0" data-tchmi-x-main-tick-max-value="53" data-tchmi-x-main-tick-steps="55" data-tchmi-x-axis-decimal-places="0" data-tchmi-y-axis-auto-scaling="false" data-tchmi-show-y-axis="false" data-tchmi-y-show-labels="false" data-tchmi-bar-graph-data="%s%PLC1.patkaMemory.sensors_state_out_normal%/s%" data-tchmi-y-main-tick-steps="2">
+<script data-tchmi-target-attribute="data-tchmi-bar-graph-descriptions" type="application/json">
+[
+  {
+    "barColor": "%tr%Control::TcHmi.Controls.Beckhoff.TcHmiBarChart::DefaultGraphColor%/tr%",
+    "legendName": "data0"
+  },
+  {
+    "barColor": "%tr%Control::TcHmi.Controls.Beckhoff.TcHmiBarChart::DefaultGraphColor%/tr%",
+    "legendName": "data1"
+  }
+]
+</script>
+
+</div>
+<div id="TcHmiBarChart_6" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiBarChart" data-tchmi-height="65" data-tchmi-height-unit="px" data-tchmi-left="49" data-tchmi-left-unit="px" data-tchmi-top="190" data-tchmi-top-unit="px" data-tchmi-width="964" data-tchmi-width-unit="px" data-tchmi-x-axis-name="x Axis" data-tchmi-y-axis-name="y Axis 1" data-tchmi-y-axis-unit="s" data-tchmi-y-main-tick-max-value="1" data-tchmi-y-main-tick-min-value="-1" data-tchmi-y-sub-tick-steps="4" data-tchmi-show-x-axis="false" data-tchmi-x-show-labels="true" data-tchmi-x-axis-auto-scaling="false" data-tchmi-x-main-tick-min-value="0" data-tchmi-x-main-tick-max-value="53" data-tchmi-x-main-tick-steps="55" data-tchmi-x-axis-decimal-places="0" data-tchmi-y-axis-auto-scaling="false" data-tchmi-show-y-axis="false" data-tchmi-y-show-labels="false" data-tchmi-bar-graph-data="%s%PLC1.patkaMemory.sensors_state_out_extra%/s%" data-tchmi-y-main-tick-steps="3">
+<script data-tchmi-target-attribute="data-tchmi-bar-graph-descriptions" type="application/json">
+[
+  {
+    "barColor": "%tr%Control::TcHmi.Controls.Beckhoff.TcHmiBarChart::DefaultGraphColor%/tr%",
+    "legendName": "data0"
+  },
+  {
+    "barColor": "%tr%Control::TcHmi.Controls.Beckhoff.TcHmiBarChart::DefaultGraphColor%/tr%",
+    "legendName": "data1"
+  }
+]
+</script>
+
+</div>
+<div id="TcHmiTextblock_61" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="14" data-tchmi-left-unit="px" data-tchmi-text="S" data-tchmi-top="40" data-tchmi-top-unit="px" data-tchmi-width="32" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-font-size="30">
+</div>
+<div id="TcHmiTextblock_62" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="14" data-tchmi-left-unit="px" data-tchmi-text="N" data-tchmi-top="126" data-tchmi-top-unit="px" data-tchmi-width="32" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-font-size="30">
+</div>
+<div id="TcHmiTextblock_63" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="14" data-tchmi-left-unit="px" data-tchmi-text="E	" data-tchmi-top="200" data-tchmi-top-unit="px" data-tchmi-width="32" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-font-size="30">
+</div>
+<div id="TcHmiTextblock_64" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="14" data-tchmi-left-unit="px" data-tchmi-text="C	" data-tchmi-top="280" data-tchmi-top-unit="px" data-tchmi-width="32" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-font-size="30">
+</div>
+<div id="TcHmiBarChart_7" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiBarChart" data-tchmi-height="65" data-tchmi-height-unit="px" data-tchmi-left="49" data-tchmi-left-unit="px" data-tchmi-top="270" data-tchmi-top-unit="px" data-tchmi-width="964" data-tchmi-width-unit="px" data-tchmi-x-axis-name="x Axis" data-tchmi-y-axis-name="y Axis 1" data-tchmi-y-axis-unit="s" data-tchmi-y-main-tick-max-value="1" data-tchmi-y-main-tick-min-value="0" data-tchmi-y-sub-tick-steps="4" data-tchmi-show-x-axis="false" data-tchmi-x-show-labels="true" data-tchmi-x-axis-auto-scaling="false" data-tchmi-x-main-tick-min-value="0" data-tchmi-x-main-tick-max-value="53" data-tchmi-x-main-tick-steps="55" data-tchmi-x-axis-decimal-places="0" data-tchmi-y-axis-auto-scaling="false" data-tchmi-show-y-axis="false" data-tchmi-y-show-labels="false" data-tchmi-bar-graph-data="%s%PLC1.patkaMemory.sensors_state_out%/s%" data-tchmi-y-main-tick-steps="2">
+<script data-tchmi-target-attribute="data-tchmi-bar-graph-descriptions" type="application/json">
+[
+  {
+    "barColor": "%tr%Control::TcHmi.Controls.Beckhoff.TcHmiBarChart::DefaultGraphColor%/tr%",
+    "legendName": "data0"
+  },
+  {
+    "barColor": "%tr%Control::TcHmi.Controls.Beckhoff.TcHmiBarChart::DefaultGraphColor%/tr%",
+    "legendName": "data1"
+  }
+]
+</script>
+
+</div>
+<div id="TcHmiTextblock_65" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="14" data-tchmi-left-unit="px" data-tchmi-text="P	" data-tchmi-top="361" data-tchmi-top-unit="px" data-tchmi-width="32" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-font-size="30">
+</div>
+</div>

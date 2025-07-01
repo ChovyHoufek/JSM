@@ -1,0 +1,22 @@
+<div id="Page1" data-tchmi-type="TcHmi.Controls.System.TcHmiContent" data-tchmi-top="0" data-tchmi-left="0" data-tchmi-width="100" data-tchmi-height="100" data-tchmi-width-unit="%" data-tchmi-height-unit="%" data-tchmi-creator-viewport-width="1920" data-tchmi-creator-viewport-height="1080">
+
+<div id="TcHmiRecipeSelect" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiRecipeSelect" data-tchmi-height="100" data-tchmi-height-unit="px" data-tchmi-left="119" data-tchmi-left-unit="px" data-tchmi-server-interval="1000" data-tchmi-top="20" data-tchmi-top-unit="px" data-tchmi-width="350" data-tchmi-width-unit="px">
+</div>
+<div id="TcHmiRecipeEdit" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiRecipeEdit" data-tchmi-height="336" data-tchmi-height-unit="px" data-tchmi-left="119" data-tchmi-left-unit="px" data-tchmi-top="160" data-tchmi-top-unit="px" data-tchmi-width="613" data-tchmi-width-unit="px">
+
+<script data-tchmi-target-attribute="data-tchmi-access-config" type="application/json">
+[
+  {
+    "accessright": "operate",
+    "group": "Op",
+    "permission": "Deny"
+  },
+  {
+    "accessright": "observe",
+    "group": "Op",
+    "permission": "Deny"
+  }
+]
+</script>
+</div>
+</div>

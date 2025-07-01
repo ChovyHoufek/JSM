@@ -1,0 +1,121 @@
+{
+    "recipeList": {},
+    "recipeTypeList": {
+        "Grinding_prg": {
+            "members": {
+                "Blower step no. Agg 3": {
+                    "defaultValue": 0,
+                    "enabled": true,
+                    "group": "",
+                    "order": 3,
+                    "schema": {
+                        "maximum": 5,
+                        "minimum": 0
+                    },
+                    "symbol": "PLC1.HMI_prom.UI_stupen_ofuku_agreg3",
+                    "unit": ""
+                },
+                "Pad Pressure": {
+                    "defaultValue": 100,
+                    "enabled": true,
+                    "group": "",
+                    "order": 6,
+                    "schema": {
+                        "maximum": 100,
+                        "minimum": 0
+                    },
+                    "symbol": "PLC1.HMI_prom.UI_pritlak_patky",
+                    "unit": ""
+                },
+                "Pad small correction at the end": {
+                    "defaultValue": 0,
+                    "enabled": true,
+                    "group": "",
+                    "order": 8,
+                    "schema": {
+                        "maximum": 100,
+                        "minimum": -100
+                    },
+                    "symbol": "PLC1.HMI_prom.HMI_param_stroje.Stp_Patka.Pocet_impulsu_mezi_vst_listou_Apatkou_odpad_jemna_korekce",
+                    "unit": ""
+                },
+                "Pad small correction infront": {
+                    "defaultValue": 0,
+                    "enabled": true,
+                    "group": "",
+                    "order": 7,
+                    "schema": {
+                        "maximum": 100,
+                        "minimum": -100
+                    },
+                    "symbol": "PLC1.HMI_prom.HMI_param_stroje.Stp_Patka.Pocet_impulsu_mezi_vst_listou_Apatkou_jemna_korekce",
+                    "unit": ""
+                },
+                "Speed Aggregate 1": {
+                    "defaultValue": 5.0,
+                    "enabled": true,
+                    "group": "",
+                    "order": 0,
+                    "schema": {
+                        "maximum": 60.0,
+                        "minimum": 3.0
+                    },
+                    "symbol": "PLC1.HMI_prom.UI_rq_rychlost_agreg1",
+                    "unit": ""
+                },
+                "Speed Aggregate 2": {
+                    "defaultValue": 5.0,
+                    "enabled": true,
+                    "group": "",
+                    "order": 1,
+                    "schema": {
+                        "maximum": 60.0,
+                        "minimum": 3.0
+                    },
+                    "symbol": "PLC1.HMI_prom.UI_rq_rychlost_agreg2",
+                    "unit": ""
+                },
+                "Speed Aggregate 3": {
+                    "defaultValue": 5.0,
+                    "enabled": true,
+                    "group": "",
+                    "order": 2,
+                    "schema": {
+                        "maximum": 60.0,
+                        "minimum": 3.0
+                    },
+                    "symbol": "PLC1.HMI_prom.UI_rq_rychlost_agreg3",
+                    "unit": ""
+                },
+                "Speed moving belt": {
+                    "defaultValue": 3.0,
+                    "enabled": true,
+                    "group": "",
+                    "order": 4,
+                    "schema": {
+                        "maximum": 40.0,
+                        "minimum": 3.0
+                    },
+                    "symbol": "PLC1.HMI_prom.UI_rq_rychlost_podav_pas",
+                    "unit": ""
+                },
+                "Workpiece height": {
+                    "defaultValue": 30.0,
+                    "enabled": true,
+                    "group": "",
+                    "order": 5,
+                    "schema": {
+                        "maximum": 160.0,
+                        "minimum": 3.0
+                    },
+                    "symbol": "PLC1.HMI_prom.UI_rq_hodnota_zdvihu",
+                    "unit": ""
+                }
+            },
+            "options": {
+                "enabled": "None"
+            },
+            "recipeTypeNames": []
+        }
+    }
+}

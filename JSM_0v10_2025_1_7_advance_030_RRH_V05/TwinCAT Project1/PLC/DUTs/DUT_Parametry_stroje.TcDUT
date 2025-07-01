@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <DUT Name="DUT_Parametry_stroje" Id="{fe65e949-a1a9-4f59-baad-5b04fef5f891}">
+    <Declaration><![CDATA[TYPE DUT_Parametry_stroje :
+STRUCT
+	Stp_Patka:DUT_patka;
+	Stp_Agregat1:DUT_Agregat;
+	Stp_Agregat2:DUT_Agregat;
+	Stp_Agregat3:DUT_Agregat;	
+	Stp_Zdvih:DUT_Zdvih;
+	Stp_Vyveva:BOOL;
+	Stp_merne_jednotky_stroje:BOOL;  // 0- metricke , 1- palce
+END_STRUCT
+END_TYPE
+
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

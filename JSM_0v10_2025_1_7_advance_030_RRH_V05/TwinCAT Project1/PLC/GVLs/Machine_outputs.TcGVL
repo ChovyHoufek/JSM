@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.15">
+  <GVL Name="Machine_outputs" Id="{8e5d093e-4016-4a21-9300-c042ca299ebc}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	Q_Dvere_agregat1_otevrit AT %Q*:BOOL;
+	
+	// oscialce
+	Q_oscilace_agregat1 AT %Q*:BOOL; (* zapina se s agregatem vypina se po 1 min po dotoceni*)
+	Q_oscilace_agregat2 AT %Q*:BOOL;
+	Q_oscilace_agregat3 AT %Q*:BOOL;
+	
+	// pridani vystupu pro agergat H 
+	Q_agregatH_oscilace AT %Q* : BOOL ;
+	
+	//zdvih
+	Q_zdvih_nahoru AT %Q*:BOOL;
+	Q_zdvih_dolu AT %Q*:BOOL;
+	
+	//cisteni
+	Q_modul_cisteni_agreg1 AT %Q*:BOOL;
+	Q_modul_cisteni_dilce_oscilace AT %Q*:BOOL;
+	Q_modul_cisteni_dilce_ofuk AT %Q*:BOOL;
+	
+	Q_segmenty_patky AT %Q*:ARRAY[1..27] OF INT;
+	
+	//majak
+	Q_majak_red AT %Q*:BOOL;
+	Q_majak_green AT %Q*:BOOL;
+	Q_majak_yellow AT %Q*:BOOL;
+	
+	//agregaty
+	Q_start_agregat1 AT %Q*:BOOL;
+	Q_start_agregat2 AT %Q*:BOOL;
+	Q_start_agregat3 AT %Q*:BOOL;
+	Q_vyveva_start AT %Q*:BOOL;
+	Q_start_agregatu_posuvu AT %Q*:BOOL;
+	
+	//ledky
+	Q_led_stroj_zapnut AT %Q*:BOOL;
+	Q_led_stroj_porucha AT %Q*:BOOL;
+	
+	// priskok
+	Q_agregat1_priskok AT %Q*:BOOL;
+	Q_agregat2_priskok AT %Q*:BOOL;
+	Q_agregat3_priskok AT %Q*:BOOL;
+	Q_patka_priskok AT %Q*:BOOL;
+	
+	//ofuk
+	Q_ofuk_brusu_agregat1 AT %Q*:BOOL;
+	Q_ofuk_brusu_agregat2 AT %Q*:BOOL;
+	Q_ofuk_brusu_agregat2_1 AT %Q*:BOOL;
+	Q_ofuk_brusu_agregat3 AT %Q*:BOOL;
+	Q_ofuk_brusu_agregat3_1 AT %Q*:BOOL;
+	Q_ofuk_oscilace_agregat1 AT %Q*:BOOL;
+	Q_ofuk_oscilace_agregat2 AT %Q*:BOOL;
+	Q_ofuk_oscilace_agregat3 AT %Q*:BOOL;
+	
+	
+	Q_PLC_ok AT %Q*:BOOL;
+	Q_osvetleni_stroje AT %Q*:BOOL;
+	
+	Q_zdvih_stul_setvalue AT %Q*:UDINT;
+	Q_control_word_EL5151 AT %Q*:ARRAY[0..15] OF BOOL;
+	Q_zdvih_stul_writevalue AT %Q*:BOOL;
+	
+	Q_pulsy_pod_pas_writevalue AT %Q*:BOOL;
+	Q_pulsy_pod_pas_stul_setvalue AT %Q*:UDINT;
+	
+	//otacky
+	Q_vystup_otacky_agreg1 AT %Q*:INT;
+	Q_vystup_otacky_agreg2 AT %Q*:INT;
+	Q_vystup_otacky_agreg3 AT %Q*:INT;
+	Q_vystup_otacky_pod_pas AT %Q*:INT;
+	
+	//comandy
+	Q_agreg1_command AT %Q*:UINT;
+	Q_agreg2_command AT %Q*:UINT;
+	Q_agreg3_command AT %Q*:UINT;
+	Q_agregPodPas_command AT %Q*:UINT;
+	
+	Q_patka_enable AT %Q*:BOOL;
+	
+
+	
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

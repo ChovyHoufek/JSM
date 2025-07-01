@@ -1,0 +1,105 @@
+{
+  "$schema": "../../TcHmiSrv/schema/ExtensionSettings.Schema.json",
+  "version": "1.12.762.46",
+  "configVersion": "1.0.0.7",
+  "guid": "70b88086-1715-4568-9c52-70cba2acece0",
+  "visibility": "AlwaysShow",
+  "policies": [
+    "StrictPropertyValidation"
+  ],
+  "symbols": {
+    "ClearLoggedEvents": {
+      "readValue": {
+        "function": true
+      },
+      "description": "Remove the alarms from the event database."
+    },
+    "Diagnostics": {
+      "userGroups": [
+        "__SystemUsers"
+      ],
+      "readValue": {
+        "function": true,
+        "readOnly": true,
+        "type": "object",
+        "properties": {
+          "database": {
+            "type": "object",
+            "properties": {
+              "databaseSize": {
+                "allOf": [
+                  {
+                    "$ref": "tchmi:general#/definitions/INT64"
+                  },
+                  {
+                    "readOnly": true,
+                    "propertyOrder": 1,
+                    "displayClass": "byte"
+                  }
+                ]
+              },
+              "numEntries": {
+                "type": "integer",
+                "readOnly": true,
+                "propertyOrder": 2
+              }
+            },
+            "required": [
+              "databaseSize",
+              "numEntries"
+            ]
+          },
+          "importedEventsCount": {
+            "propertyOrder": 1,
+            "readOnly": true,
+            "type": "integer"
+          },
+          "importedMessagesCount": {
+            "propertyOrder": 2,
+            "readOnly": true,
+            "type": "integer"
+          },
+          "importedInvalidAlarmsCount": {
+            "propertyOrder": 3,
+            "readOnly": true,
+            "type": "integer"
+          },
+          "cachedMessagesCount": {
+            "propertyOrder": 4,
+            "readOnly": true,
+            "type": "integer"
+          },
+          "cachedAlarmsCount": {
+            "propertyOrder": 5,
+            "readOnly": true,
+            "type": "integer"
+          },
+          "cachedInvalidAlarmsCount": {
+            "propertyOrder": 6,
+            "readOnly": true,
+            "type": "integer"
+          },
+          "activeAlarmsCount": {
+            "propertyOrder": 7,
+            "readOnly": true,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "importedEventsCount",
+          "importedMessagesCount",
+          "importedInvalidAlarmsCount",
+          "cachedMessagesCount",
+          "cachedAlarmsCount",
+          "cachedInvalidAlarmsCount",
+          "activeAlarmsCount",
+          "database"
+        ]
+      },
+      "description": "Get information about the alarms that are currently in the event database."
+    }
+  },
+  "packageVersion": "19.0.205",
+  "productVersion": "1.12.762.46",
+  "signature": "HWEnAdd3zgnjiLGYQx6qkmwxs41nb5kbu7ogK3Z/wrWP2pN2QUnpvKPQpTiYwaEiXjHkCZIEsWbMMTDHBeYL/E7qAGMOl+t5CoEL0ZwoR8rU83mcHw25q+2oooFXHKK/Xyc4HDz/B7yOKmSv+6RjmdEnazXE3Kr8/K8921m6ZglknOV/awbWWzhedylj8MiceqmO8I8lQSOxufzdidPfmo1xbfvAD0D6H4P10+ElXGv5toai9/2ofiex7tr5/33BqJGIBKQAeA71Huss93Invmbe7LFexqCRACPLrIjHBmokkqqwLVzplX13BY/RFp2FQkaFy5ppCkLYVQ5c+3o6Ig=="
+}

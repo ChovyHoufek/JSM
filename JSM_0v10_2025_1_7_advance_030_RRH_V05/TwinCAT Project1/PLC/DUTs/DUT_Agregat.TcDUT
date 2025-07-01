@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.13">
+  <DUT Name="DUT_Agregat" Id="{8bcc5118-285a-4a1a-abca-6265ba90fb35}">
+    <Declaration><![CDATA[TYPE DUT_Agregat :
+STRUCT
+	Typ_agregatu:UINT;
+	Min_otacky:UINT;
+	Max_otacky:UINT;
+    Ofuk_agregatu:BOOL;	
+	Pocet_stupnu_ofuku:INT;
+	Pevna_hodnota_otacek:BOOL;
+END_STRUCT
+END_TYPE
+]]></Declaration>
+  </DUT>
+</TcPlcObject>

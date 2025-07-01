@@ -1,0 +1,772 @@
+{
+  "$schema": "./../../Packages/Beckhoff.TwinCAT.HMI.Framework.12.762.46/runtimes/native1.12-tchmi/Schema/TchmiConfig.Schema.json",
+  "basePath": "./framework",
+  "scaleMode": "None",
+  "startupView": "View1.view",
+  "loginPage": "/Pages/LoginPage.html",
+  "tcHmiServer": {
+    "websocketIntervalTime": 500,
+    "websocketTimeout": 20000,
+    "websocketSystemTimeout": 60000,
+    "websocketSubscriptionMode": "Change"
+  },
+  "activeTheme": "Base",
+  "themes": {
+    "Base-Dark": {
+      "resources": [
+        {
+          "name": "Themes/Base-Dark/Base-DarkStyle.css",
+          "description": "",
+          "type": "Stylesheet"
+        },
+        {
+          "name": "Themes/Base-Dark/Base-Dark.theme",
+          "description": "",
+          "type": "ThemedValues"
+        }
+      ],
+      "replacesThemeForControls": [],
+      "replacesThemeForPackageComponents": []
+    },
+    "Base": {
+      "resources": [
+        {
+          "name": "Themes/Base/Base.theme",
+          "description": "",
+          "type": "ThemedValues"
+        },
+        {
+          "name": "Themes/Base/BaseStyle.css",
+          "description": "",
+          "type": "Stylesheet"
+        }
+      ],
+      "replacesThemeForControls": [],
+      "replacesThemeForPackageComponents": []
+    }
+  },
+  "dependencyFiles": [
+    {
+      "name": "Fonts/Fonts.css",
+      "description": "",
+      "type": "Stylesheet"
+    },
+    {
+      "name": "JSfunkce/UnitConversion.js",
+      "description": "",
+      "type": "JavaScript"
+    }
+  ],
+  "userControls": [
+    {
+      "url": "UserControls/ucaxismanual.usercontrol"
+    },
+    {
+      "url": "UserControls/UserControl1.usercontrol"
+    }
+  ],
+  "content": [
+    {
+      "url": "Pages/close_win.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
+      "url": "Pages/debug.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
+      "url": "Pages/EMS.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
+      "url": "Pages/Houfek_Setup.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
+      "url": "Pages/Machine_Monitor.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
+      "url": "Pages/Machine_monitor_Agregat3.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
+      "url": "Pages/Machine_monitor_Agregat2.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
+      "url": "Pages/Machine_monitor_Agregat1.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
+      "url": "Pages/Machine_monitor_new.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
+      "url": "Pages/Page2.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
+      "url": "Pages/Patka.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
+      "url": "Pages/Patka_tab1.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
+      "url": "Pages/Patka_tab2.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
+      "url": "Pages/Patka_tab3.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
+      "url": "Pages/Recipe.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
+      "url": "Pages/Setup.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
+      "url": "Pages/Events.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
+      "url": "Pages/Page1.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
+      "url": "Pages/Settings.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
+      "url": "Pages/StartPage.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    }
+  ],
+  "views": [
+    {
+      "url": "View1.view",
+      "preload": false,
+      "keepAlive": false,
+      "preloadBindings": false
+    },
+    {
+      "url": "Desktop.view",
+      "preload": false,
+      "keepAlive": false,
+      "preloadBindings": false
+    }
+  ],
+  "userFunctions": [
+    {
+      "url": "JSfunkce/UnitConversion.js"
+    }
+  ],
+  "symbols": {
+    "internal": {
+      "MediaQueryList": {
+        "value": [
+          {
+            "name": "Mobile",
+            "maxWidth": 800,
+            "minWidth": 0,
+            "controlBehaviourList": null
+          },
+          {
+            "name": "Tablet",
+            "maxWidth": 1280,
+            "minWidth": 800,
+            "controlBehaviourList": null
+          },
+          {
+            "name": "Desktop",
+            "maxWidth": 1920,
+            "minWidth": 1280,
+            "controlBehaviourList": null
+          }
+        ],
+        "type": "tchmi:framework#/definitions/TcHmi.Functions.BaseTemplate.MediaQueryList",
+        "persist": true,
+        "readonly": true
+      },
+      "AffectedControls": {
+        "value": [
+          {
+            "controlID": "Navigation_Bottom",
+            "position": "Bottom"
+          },
+          {
+            "controlID": "Header_Top",
+            "position": "Top"
+          },
+          {
+            "controlID": "Region_Center",
+            "position": "Center"
+          }
+        ],
+        "type": "tchmi:framework#/definitions/TcHmi.Functions.BaseTemplate.AffectedControlList",
+        "persist": true,
+        "readonly": true
+      },
+      "Intern_RQ_hodnota_zdvihu": {
+        "value": 3.0,
+        "type": "tchmi:general#/definitions/REAL",
+        "persist": true,
+        "readonly": false
+      }
+    },
+    "themedResources": {
+      "TR_Icon_StartPage_normal": {
+        "type": "tchmi:framework#/definitions/Path",
+        "description": "Normal Icon of page: Start Page",
+        "values": {
+          "Base": "Themes/Base/Images/Placeholder/placeholder_normal.svg",
+          "Base-Dark": "Themes/Base-Dark/Images/Placeholder/placeholder_normal.svg"
+        }
+      },
+      "TR_Icon_StartPage_pressed": {
+        "type": "tchmi:framework#/definitions/Path",
+        "description": "Pressed Icon of page: Start Page",
+        "values": {
+          "Base": "Themes/Base/Images/Placeholder/placeholder_pressed.svg",
+          "Base-Dark": "Themes/Base-Dark/Images/Placeholder/placeholder_pressed.svg"
+        }
+      },
+      "TR_Icon_StartPage_active": {
+        "type": "tchmi:framework#/definitions/Path",
+        "description": "Active Icon of page: Start Page",
+        "values": {
+          "Base": "Themes/Base/Images/Placeholder/placeholder_active.svg",
+          "Base-Dark": "Themes/Base-Dark/Images/Placeholder/placeholder_active.svg"
+        }
+      },
+      "TR_Icon_Events_normal": {
+        "type": "tchmi:framework#/definitions/Path",
+        "description": "Normal Icon of page: Events",
+        "values": {
+          "Base": "Themes/Base/Images/Events/message_normal.svg",
+          "Base-Dark": "Themes/Base-Dark/Images/Events/message_normal.svg"
+        }
+      },
+      "TR_Icon_Events_pressed": {
+        "type": "tchmi:framework#/definitions/Path",
+        "description": "Pressed Icon of page: Events",
+        "values": {
+          "Base": "Themes/Base/Images/Events/message_pressed.svg",
+          "Base-Dark": "Themes/Base-Dark/Images/Events/message_pressed.svg"
+        }
+      },
+      "TR_Icon_Events_active": {
+        "type": "tchmi:framework#/definitions/Path",
+        "description": "Active Icon of page: Events",
+        "values": {
+          "Base": "Themes/Base/Images/Events/message_active.svg",
+          "Base-Dark": "Themes/Base-Dark/Images/Events/message_active.svg"
+        }
+      },
+      "TR_Icon_Settings_normal": {
+        "type": "tchmi:framework#/definitions/Path",
+        "description": "Normal Icon of page: Settings",
+        "values": {
+          "Base": "Themes/Base/Images/Settings/settings_normal.svg",
+          "Base-Dark": "Themes/Base-Dark/Images/Settings/settings_normal.svg"
+        }
+      },
+      "TR_Icon_Settings_pressed": {
+        "type": "tchmi:framework#/definitions/Path",
+        "description": "Pressed Icon of page: Settings",
+        "values": {
+          "Base": "Themes/Base/Images/Settings/settings_pressed.svg",
+          "Base-Dark": "Themes/Base-Dark/Images/Settings/settings_pressed.svg"
+        }
+      },
+      "TR_Icon_Settings_active": {
+        "type": "tchmi:framework#/definitions/Path",
+        "description": "Active Icon of page: Settings",
+        "values": {
+          "Base": "Themes/Base/Images/Settings/settings_active.svg",
+          "Base-Dark": "Themes/Base-Dark/Images/Settings/settings_active.svg"
+        }
+      },
+      "TR_Icon_Page1_normal": {
+        "type": "tchmi:framework#/definitions/Path",
+        "description": "Normal Icon of page: Page1",
+        "values": {
+          "Base": "Themes/Base/Images/Placeholder/placeholder_normal.svg",
+          "Base-Dark": "Themes/Base-Dark/Images/Placeholder/placeholder_normal.svg"
+        }
+      },
+      "TR_Icon_Page1_pressed": {
+        "type": "tchmi:framework#/definitions/Path",
+        "description": "Pressed Icon of page: Page1",
+        "values": {
+          "Base": "Themes/Base/Images/Placeholder/placeholder_pressed.svg",
+          "Base-Dark": "Themes/Base-Dark/Images/Placeholder/placeholder_pressed.svg"
+        }
+      },
+      "TR_Icon_Page1_active": {
+        "type": "tchmi:framework#/definitions/Path",
+        "description": "Active Icon of page: Page1",
+        "values": {
+          "Base": "Themes/Base/Images/Placeholder/placeholder_active.svg",
+          "Base-Dark": "Themes/Base-Dark/Images/Placeholder/placeholder_active.svg"
+        }
+      },
+      "TR_Zelena_barva": {
+        "type": "tchmi:framework#/definitions/Color",
+        "description": "",
+        "values": {
+          "Base": {
+            "color": "rgba(27, 200, 89, 1)"
+          },
+          "Base-Dark": {
+            "color": "rgba(27, 200, 89, 1)"
+          }
+        }
+      },
+      "TR_oranzova": {
+        "type": "tchmi:framework#/definitions/Color",
+        "description": "",
+        "values": {
+          "Base": {
+            "angle": 0.0,
+            "stopPoints": [
+              {
+                "color": "rgba(0, 0, 0, 1)",
+                "stop": "0%"
+              },
+              {
+                "color": "rgba(237, 176, 67, 1)",
+                "stop": "100%"
+              }
+            ]
+          },
+          "Base-Dark": {
+            "angle": 0.0,
+            "stopPoints": [
+              {
+                "color": "rgba(0, 0, 0, 1)",
+                "stop": "0%"
+              },
+              {
+                "color": "rgba(244, 185, 81, 1)",
+                "stop": "100%"
+              }
+            ]
+          }
+        }
+      },
+      "TR_ruda": {
+        "type": "tchmi:framework#/definitions/Color",
+        "description": "",
+        "values": {
+          "Base": {
+            "angle": 0.0,
+            "stopPoints": [
+              {
+                "color": "rgba(0, 0, 0, 1)",
+                "stop": "0%"
+              },
+              {
+                "color": "rgba(231, 31, 31, 1)",
+                "stop": "100%"
+              }
+            ]
+          },
+          "Base-Dark": {
+            "angle": 0.0,
+            "stopPoints": [
+              {
+                "color": "rgba(0, 0, 0, 1)",
+                "stop": "0%"
+              },
+              {
+                "color": "rgba(231, 31, 31, 1)",
+                "stop": "100%"
+              }
+            ]
+          }
+        }
+      },
+      "TR_zluta": {
+        "type": "tchmi:framework#/definitions/Color",
+        "description": "",
+        "values": {
+          "Base": {
+            "angle": 0.0,
+            "stopPoints": [
+              {
+                "color": "rgba(0, 0, 0, 1)",
+                "stop": "0%"
+              },
+              {
+                "color": "rgba(249, 241, 0, 1)",
+                "stop": "100%"
+              }
+            ]
+          },
+          "Base-Dark": {
+            "angle": 0.0,
+            "stopPoints": [
+              {
+                "color": "rgba(0, 0, 0, 1)",
+                "stop": "0%"
+              },
+              {
+                "color": "rgba(249, 241, 0, 1)",
+                "stop": "100%"
+              }
+            ]
+          }
+        }
+      },
+      "TR_modra": {
+        "type": "tchmi:framework#/definitions/Color",
+        "description": "",
+        "values": {
+          "Base": {
+            "angle": 0.0,
+            "stopPoints": [
+              {
+                "color": "rgba(0, 0, 0, 1)",
+                "stop": "0%"
+              },
+              {
+                "color": "rgba(30, 150, 223, 1)",
+                "stop": "100%"
+              }
+            ]
+          },
+          "Base-Dark": {
+            "angle": 0.0,
+            "stopPoints": [
+              {
+                "color": "rgba(0, 0, 0, 1)",
+                "stop": "0%"
+              },
+              {
+                "color": "rgba(30, 150, 223, 1)",
+                "stop": "100%"
+              }
+            ]
+          }
+        }
+      },
+      "TR_common": {
+        "type": "tchmi:framework#/definitions/Color",
+        "description": "",
+        "values": {
+          "Base": null,
+          "Base-Dark": null
+        }
+      },
+      "TR_Icon_Home_normal": {
+        "type": "tchmi:framework#/definitions/Path",
+        "description": "",
+        "values": {
+          "Base": "Images/Vlastni/menu_icon_home.png",
+          "Base-Dark": "Images/Vlastni/menu_icon_home.png"
+        }
+      },
+      "TR_Icon_Home_active": {
+        "type": "tchmi:framework#/definitions/Path",
+        "description": "",
+        "values": {
+          "Base": "Images/Vlastni/menu_icon_home_aktiv.png",
+          "Base-Dark": "Images/Vlastni/menu_icon_home_aktiv.png"
+        }
+      },
+      "TR_Icon_Patka_normal": {
+        "type": "tchmi:framework#/definitions/Path",
+        "description": "",
+        "values": {
+          "Base": "Images/Vlastni/menu_icon_druckbalken.png",
+          "Base-Dark": "Images/Vlastni/menu_icon_druckbalken.png"
+        }
+      },
+      "TR_Icon_Patka_active": {
+        "type": "tchmi:framework#/definitions/Path",
+        "description": "",
+        "values": {
+          "Base": "Images/Vlastni/menu_icon_druckbalken_aktiv.png",
+          "Base-Dark": "Images/Vlastni/menu_icon_druckbalken_aktiv.png"
+        }
+      },
+      "TR_Icon_Machine_Monitor_normal": {
+        "type": "tchmi:framework#/definitions/Path",
+        "description": "",
+        "values": {
+          "Base": "Images/Vlastni/menu_icon_betriebsdaten.png",
+          "Base-Dark": "Images/Vlastni/menu_icon_betriebsdaten.png"
+        }
+      },
+      "TR_Icon_Machine_Monitor_active": {
+        "type": "tchmi:framework#/definitions/Path",
+        "description": "",
+        "values": {
+          "Base": "Images/Vlastni/menu_icon_betriebsdaten_aktiv.png",
+          "Base-Dark": "Images/Vlastni/menu_icon_betriebsdaten_aktiv.png"
+        }
+      },
+      "TR_Icon_Adjust_normal": {
+        "type": "tchmi:framework#/definitions/Path",
+        "description": "",
+        "values": {
+          "Base": "Images/Vlastni/menu_icon_service.png",
+          "Base-Dark": "Images/Vlastni/menu_icon_service.png"
+        }
+      },
+      "TR_Icon_Adjust_active": {
+        "type": "tchmi:framework#/definitions/Path",
+        "description": "",
+        "values": {
+          "Base": "Images/Vlastni/menu_icon_service_aktiv.png",
+          "Base-Dark": "Images/Vlastni/menu_icon_service_aktiv.png"
+        }
+      },
+      "TR_Icon_EMS_normal": {
+        "type": "tchmi:framework#/definitions/Path",
+        "description": "",
+        "values": {
+          "Base": "Images/Vlastni/menu_icon_ems.png",
+          "Base-Dark": "Images/Vlastni/menu_icon_ems.png"
+        }
+      },
+      "TR_Icon_EMS_active": {
+        "type": "tchmi:framework#/definitions/Path",
+        "description": "",
+        "values": {
+          "Base": "Images/Vlastni/menu_icon_ems_aktiv.png",
+          "Base-Dark": "Images/Vlastni/menu_icon_ems_aktiv.png"
+        }
+      },
+      "TR_Icon_Service_normal": {
+        "type": "tchmi:framework#/definitions/Path",
+        "description": "",
+        "values": {
+          "Base": "Images/Vlastni/menu_icon_service.png",
+          "Base-Dark": "Images/Vlastni/menu_icon_service.png"
+        }
+      },
+      "TR_Icon_Service_active": {
+        "type": "tchmi:framework#/definitions/Path",
+        "description": "",
+        "values": {
+          "Base": "Images/Vlastni/menu_icon_service_aktiv.png",
+          "Base-Dark": "Images/Vlastni/menu_icon_service_aktiv.png"
+        }
+      },
+      "TR_Icon_Recipe_normal": {
+        "type": "tchmi:framework#/definitions/Path",
+        "description": "",
+        "values": {
+          "Base": "Images/Vlastni/menu_icon_programme.png",
+          "Base-Dark": "Images/Vlastni/menu_icon_programme.png"
+        }
+      },
+      "TR_Icon_Recipe_active": {
+        "type": "tchmi:framework#/definitions/Path",
+        "description": "",
+        "values": {
+          "Base": "Images/Vlastni/menu_icon_programme_aktiv.png",
+          "Base-Dark": "Images/Vlastni/menu_icon_programme_aktiv.png"
+        }
+      },
+      "TR_Icon_Ofuk0": {
+        "type": "tchmi:framework#/definitions/Path",
+        "description": "",
+        "values": {
+          "Base": "Images/Vlastni/Button-Abstrahl 0.png",
+          "Base-Dark": "Images/Vlastni/Button-Abstrahl 0.png"
+        }
+      },
+      "TR_Icon_Ofuk1": {
+        "type": "tchmi:framework#/definitions/Path",
+        "description": "",
+        "values": {
+          "Base": "Images/Vlastni/Button-Abstrahl 1.png",
+          "Base-Dark": "Images/Vlastni/Button-Abstrahl 1.png"
+        }
+      },
+      "TR_Icon_Ofuk2": {
+        "type": "tchmi:framework#/definitions/Path",
+        "description": "",
+        "values": {
+          "Base": "Images/Vlastni/Button-Abstrahl 2.png",
+          "Base-Dark": "Images/Vlastni/Button-Abstrahl 2.png"
+        }
+      },
+      "TR_Icon_Ofuk4": {
+        "type": "tchmi:framework#/definitions/Path",
+        "description": "",
+        "values": {
+          "Base": "Images/Vlastni/Button-Abstrahl 4.png",
+          "Base-Dark": "Images/Vlastni/Button-Abstrahl 4.png"
+        }
+      },
+      "TR_Icon_Ofuk3": {
+        "type": "tchmi:framework#/definitions/Path",
+        "description": "",
+        "values": {
+          "Base": "Images/Vlastni/Button-Abstrahl 3.png",
+          "Base-Dark": "Images/Vlastni/Button-Abstrahl 3.png"
+        }
+      },
+      "TR_Icon_Ofuk5": {
+        "type": "tchmi:framework#/definitions/Path",
+        "description": "",
+        "values": {
+          "Base": "Images/Vlastni/Button-Abstrahl 5.png",
+          "Base-Dark": "Images/Vlastni/Button-Abstrahl 5.png"
+        }
+      }
+    }
+  },
+  "trigger": [],
+  "actionTemplates": [],
+  "languages": {
+    "de": "Localization/de.localization",
+    "en": "Localization/en.localization",
+    "cs-CZ": "Localization/Language1.localization"
+  },
+  "languageFallback": "",
+  "disableLoadingOptimization": false,
+  "creatorSettings": {
+    "viewport": {
+      "defaultWidth": 1920,
+      "defaultHeight": 1080
+    }
+  },
+  "binding": {
+    "symbolError": "Ignore"
+  },
+  "packages": [
+    {
+      "name": "Beckhoff.TwinCAT.HMI.BaseTemplate",
+      "basePath": "/Beckhoff.TwinCAT.HMI.BaseTemplate"
+    },
+    {
+      "name": "Beckhoff.TwinCAT.HMI.Controls",
+      "basePath": "/Beckhoff.TwinCAT.HMI.Controls"
+    },
+    {
+      "name": "Beckhoff.TwinCAT.HMI.EcDiagnosticsControl",
+      "basePath": "/Beckhoff.TwinCAT.HMI.EcDiagnosticsControl"
+    },
+    {
+      "name": "Beckhoff.TwinCAT.HMI.Framework",
+      "basePath": "/framework"
+    },
+    {
+      "name": "Beckhoff.TwinCAT.HMI.Functions",
+      "basePath": "/Beckhoff.TwinCAT.HMI.Functions"
+    }
+  ],
+  "keyboardLayouts": [
+    {
+      "url": "KeyboardLayouts/Czech - indirect with NumPad.keyboard.json"
+    },
+    {
+      "url": "KeyboardLayouts/Czech - with NumPad.keyboard.json"
+    },
+    {
+      "url": "KeyboardLayouts/German - compact.keyboard.json"
+    },
+    {
+      "url": "KeyboardLayouts/Numpad (plusminus) - indirect.keyboard.json"
+    },
+    {
+      "url": "KeyboardLayouts/Numpad (plusminus).keyboard.json"
+    },
+    {
+      "url": "KeyboardLayouts/US - compact.keyboard.json"
+    }
+  ],
+  "systemKeyboard": {
+    "providerName": "Beckhoff.TcHmiKeyboard",
+    "projectKeyboardMapping": {
+      "de": {
+        "text": "KeyboardLayouts/German - compact.keyboard.json",
+        "decimal": "KeyboardLayouts/Numpad (plusminus) - indirect.keyboard.json",
+        "numeric": "KeyboardLayouts/Numpad (plusminus) - indirect.keyboard.json"
+      },
+      "en": {
+        "text": "KeyboardLayouts/US - compact.keyboard.json",
+        "decimal": "KeyboardLayouts/Numpad (plusminus) - indirect.keyboard.json",
+        "numeric": "KeyboardLayouts/Numpad (plusminus) - indirect.keyboard.json"
+      },
+      "cs-CZ": {
+        "text": "KeyboardLayouts/Czech - with NumPad.keyboard.json",
+        "decimal": "KeyboardLayouts/Numpad (plusminus) - indirect.keyboard.json",
+        "numeric": "KeyboardLayouts/Numpad (plusminus) - indirect.keyboard.json"
+      }
+    }
+  },
+  "systemPopups": {
+    "providerName": "Beckhoff.TcHmiPopups"
+  }
+}

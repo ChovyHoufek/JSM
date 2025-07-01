@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.15">
+  <POU Name="MAIN" Id="{67f5f43d-15ff-48c6-a159-49c2ab68e7e9}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	
+	uloz_data: BOOL;
+	Uloz_remanent_data: FB_WritePersistentData;
+	UPS_fall_down:F_TRIG;
+	F_hrana_busy:F_TRIG;
+	
+	Vypni_win:NT_Shutdown;
+	Vypni_HMI: NT_StartProcess;
+	start_save:BOOL;
+	Save_busy:BOOL;
+	Save_finished:BOOL;
+	Busy_bylo: BOOL;
+	Start_vypni_win:BOOL;
+	Start_vypni_hmi : BOOL ;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[Machine_Intern.stTaskInfo := _TaskInfo[GETCURTASKINDEXEX()];
+IF Machine_Intern.stTaskInfo.FirstCycle THEN
+ //HMI_prom.UI_manual_mod:=1;
+ Start_vypni_win:=FALSE;	
+END_IF
+	
+
+
+Start_stroje();
+Zdvih_stolu();
+Blikatko();
+patkaMemoryABCD();
+Agregat1();
+Agregat2();
+Agregat3aH();
+Agregat_Pod_pas();
+Vyveva();
+EMS();
+Provozni_hodiny_new();
+Opotrebeni_pasu();
+Ofuk_brusu();
+
+(* Ulozeni persistentnich dat pri vypadku proudu *)
+UPS_fall_down(CLK:=Machine_Inputs.I_24V_UPS_ok);
+
+IF UPS_fall_down.Q THEN 
+  start_save:=TRUE; 
+END_IF;
+
+Uloz_remanent_data(
+	NETID:= , 
+	PORT:=851 , 
+	START:= start_save, 
+	TMOUT:=T#1S , 
+	MODE:= , 
+	BUSY=>Save_busy , 
+	ERR=> , 
+	ERRID=> );
+	
+F_hrana_busy(CLK:=Save_busy , Q=> );	
+IF F_hrana_busy.Q THEN 
+  start_save:=FALSE;
+  Save_finished:=TRUE;
+END_IF;
+
+	
+	
+(* Vypnuti stroje a windows z HMI obrazovky *)
+
+IF Machine_Intern.M_Stroj_zapnuty THEN
+ HMI_prom.UI_start_vypnuti_stroje:=FALSE;	
+END_IF
+
+IF (HMI_prom.UI_start_vypnuti_stroje AND NOT Machine_Intern.M_Stroj_zapnuty) THEN
+ Start_vypni_win:=TRUE;
+END_IF 
+
+IF (HMI_prom.UI_Start_vypnuti_HMI AND NOT Machine_Intern.M_Stroj_zapnuty) THEN
+ Start_vypni_hmi:=TRUE;
+END_IF 
+
+Vypni_HMI(
+	NETID:= ,
+	PATHSTR:='C:\Windows\System32\cmd.exe',
+	DIRNAME:= 'C:\Windows\System32',
+	COMNDLINE:= '/C taskkill /F /IM chrome.exe /T',
+	START:= Start_vypni_hmi, 
+	);
+	
+IF(HMI_prom.UI_Start_vypnuti_HMI OR Start_vypni_hmi) THEN 
+	
+	Start_vypni_hmi:=FALSE;
+	HMI_prom.UI_Start_vypnuti_HMI := FALSE;
+END_IF
+
+	Vypni_win(
+	NETID:= , 
+	DELAY:=6, 
+	START:= Start_vypni_win, 
+	TMOUT:= , 
+	BUSY=> , 
+	ERR=> , 
+	ERRID=> );]]></ST>
+    </Implementation>
+    <LineIds Name="MAIN">
+      <LineId Id="177" Count="10" />
+      <LineId Id="189" Count="2" />
+      <LineId Id="271" Count="0" />
+      <LineId Id="192" Count="4" />
+      <LineId Id="255" Count="0" />
+      <LineId Id="197" Count="25" />
+      <LineId Id="287" Count="34" />
+      <LineId Id="60" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

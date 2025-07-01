@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.15">
+  <GVL Name="HMI_prom" Id="{19391e0d-1bf5-4967-8307-40d2f3a3756c}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL PERSISTENT
+UI_Start_Agregat1:BOOL;
+UI_Start_agregat2:BOOL;
+UI_Start_agregat3:BOOL;
+UI_Priskok_agregat1:BOOL;
+UI_Priskok_agregat1_ikona:BOOL;
+UI_Odskok_agregat1:BOOL;
+UI_Priskok_agregat2:BOOL;
+UI_Priskok_agregat2_ikona:BOOL;
+UI_Odskok_agregat2:BOOL;
+UI_Priskok_agregat3:BOOL;
+UI_Priskok_agregat3_ikona:BOOL;
+UI_Odskok_agregat3:BOOL;
+UI_Patka_priskok:BOOL;
+UI_Patka_odskok:BOOL;
+UI_pritlak_patky:INT;
+UI_Start_vakuove_pumpy:BOOL;
+UI_Tlac_Zdvih_nahoru:BOOL;
+UI_Tlac_Zdvih_dolu:BOOL;
+UI_Tlac_KalibZdvihu_start:BOOL;
+UI_KalibZdvihu_Hodnota_mm:REAL;
+UI_rq_hodnota_zdvihu_mm:REAL;
+UI_aktualni_hodnota_zdvihu:REAL;
+UI_rq_hodnota_zdvihu:real;
+UI_Start_podav_pasu:BOOL;	
+UI_rq_rychlost_agreg1:REAL; 
+UI_rq_rychlost_agreg2:REAL;
+UI_rq_rychlost_agreg3:REAL;
+UI_rq_rychlost_podav_pas:REAL;
+UI_aktual_rychlost_podav_pas:REAL;
+UI_proud_agreg1:REAL;
+UI_proud_agreg2:REAL;
+UI_proud_agreg3:REAL;
+UI_proud_PodPasu:REAL;
+UI_stupen_ofuku_agreg1:INT;
+UI_stupen_ofuku_agreg2:INT; 
+UI_stupen_ofuku_agreg3:INT;
+HMI_alarms:DUT_alarm;
+HMI_param_stroje:DUT_Parametry_stroje;
+UI_start_vypnuti_stroje:BOOL;
+UI_rq_hodnota_zdvihu_changed:BOOL;
+UI_manual_mod:BOOL;
+UI_Door_open:BOOL;
+UI_Start_osvetleni:BOOL;
+UI_EMS_active:BOOL;
+
+// EMS
+UI_EMS_Time_to_Rest:TIME;
+UI_EMS_Time_to_sleep:TIME;
+UI_EMS_Time_to_Rest_sek:UDINT;
+UI_EMS_Time_to_sleep_sek:UDINT;
+UI_EMS_Agr1_rest_speed:UINT;
+UI_EMS_Agr2_rest_speed:UINT;
+UI_EMS_Agr3_rest_speed:UINT;
+UI_EMS_Agr1_active:BOOL;
+UI_EMS_Agr2_active:BOOL;
+UI_EMS_Agr3_active:BOOL;
+UI_EMS_rest_active:BOOL;
+UI_EMS_sleep_active:BOOL;
+
+// pridane tagy pro EMS pasu
+UI_EMS_Belt_rest_speed : UINT ;
+UI_EMS_Belt_active : BOOL ;
+
+UI_Vyska_zdvihu_stolu_mm:REAL;
+UI_Start_ofuku_dilce:BOOL;
+
+UI_Porovozni_hodiny_stroje_stroj_zapnut_MS_sek,UI_Porovozni_hodiny_stroje_stroj_zapnut_MS_min,UI_Porovozni_hodiny_stroje_stroj_zapnut_MS_hod,UI_Porovozni_hodiny_stroje_stroj_zapnut_MS_dny:INT;
+UI_Porovozni_hodiny_stroje_stroj_zapnut_sek,UI_Porovozni_hodiny_stroje_stroj_zapnut_min,UI_Porovozni_hodiny_stroje_stroj_zapnut_hod,UI_Porovozni_hodiny_stroje_stroj_zapnut_dny:INT;
+UI_Porovozni_hodiny_stroje_stroj_brousi_sek,UI_Porovozni_hodiny_stroje_stroj_brousi_min,UI_Porovozni_hodiny_stroje_stroj_brousi_hod,UI_Porovozni_hodiny_stroje_stroj_brousi_dny:INT;
+UI_Porovozni_hodiny_stroje_stroj_porucha_sek,UI_Porovozni_hodiny_stroje_stroj_porucha_min,UI_Porovozni_hodiny_stroje_stroj_porucha_hod,UI_Porovozni_hodiny_stroje_stroj_porucha_dny:INT;
+
+UI_Porovozni_hodiny_stroje_Agreg1_zapnut_sek,UI_Porovozni_hodiny_stroje_Agreg1_zapnut_min,UI_Porovozni_hodiny_stroje_Agreg1_zapnut_hod,UI_Porovozni_hodiny_stroje_Agreg1_zapnut_dny:INT;
+UI_Porovozni_hodiny_stroje_Agreg1_brousi_sek,UI_Porovozni_hodiny_stroje_Agreg1_brousi_min,UI_Porovozni_hodiny_stroje_Agreg1_brousi_hod,UI_Porovozni_hodiny_stroje_Agreg1_brousi_dny:INT;
+UI_Porovozni_hodiny_stroje_Agreg1_porucha_sek,UI_Porovozni_hodiny_stroje_Agreg1_porucha_min,UI_Porovozni_hodiny_stroje_Agreg1_porucha_hod,UI_Porovozni_hodiny_stroje_Agreg1_porucha_dny:INT;
+
+UI_Porovozni_hodiny_stroje_Agreg2_zapnut_sek,UI_Porovozni_hodiny_stroje_Agreg2_zapnut_min,UI_Porovozni_hodiny_stroje_Agreg2_zapnut_hod,UI_Porovozni_hodiny_stroje_Agreg2_zapnut_dny:INT;
+UI_Porovozni_hodiny_stroje_Agreg2_brousi_sek,UI_Porovozni_hodiny_stroje_Agreg2_brousi_min,UI_Porovozni_hodiny_stroje_Agreg2_brousi_hod,UI_Porovozni_hodiny_stroje_Agreg2_brousi_dny:INT;
+UI_Porovozni_hodiny_stroje_Agreg2_porucha_sek,UI_Porovozni_hodiny_stroje_Agreg2_porucha_min,UI_Porovozni_hodiny_stroje_Agreg2_porucha_hod,UI_Porovozni_hodiny_stroje_Agreg2_porucha_dny:INT;
+
+UI_Porovozni_hodiny_stroje_Agreg3_zapnut_sek,UI_Porovozni_hodiny_stroje_Agreg3_zapnut_min,UI_Porovozni_hodiny_stroje_Agreg3_zapnut_hod,UI_Porovozni_hodiny_stroje_Agreg3_zapnut_dny:INT;
+UI_Porovozni_hodiny_stroje_Agreg3_brousi_sek,UI_Porovozni_hodiny_stroje_Agreg3_brousi_min,UI_Porovozni_hodiny_stroje_Agreg3_brousi_hod,UI_Porovozni_hodiny_stroje_Agreg3_brousi_dny:INT;
+UI_Porovozni_hodiny_stroje_Agreg3_porucha_sek,UI_Porovozni_hodiny_stroje_Agreg3_porucha_min,UI_Porovozni_hodiny_stroje_Agreg3_porucha_hod,UI_Porovozni_hodiny_stroje_Agreg3_porucha_dny:INT;
+
+UI_Zdvih_pamet_zadane_pozice_mm:REAL;
+UI_Drsnost_pasu:STRING[10];
+UI_Drsnost_pasu_agreg2,UI_Drsnost_pasu_agreg3:STRING[10];
+
+
+// Graf opotrebeni pasu
+UI_Tlac_Reset_opotrebeni_pasu_Agreg1:BOOL;
+UI_Tlac_Reset_opotrebeni_pasu_Agreg2:BOOL;
+UI_Tlac_Reset_opotrebeni_pasu_Agreg3:BOOL;
+UI_Graph_Belt_usage_Agreg1: ARRAY[1..54] OF DWORD;		// in seconds
+UI_Graph_Belt_usage_Agreg2: ARRAY[1..54] OF DWORD;		// in seconds
+UI_Graph_Belt_usage_Agreg3: ARRAY[1..54] OF DWORD;		// in seconds
+
+
+// Extra sensory na stranach
+UI_Tlac_extra_sensor_LEFT_PLUS :BOOL;
+UI_Tlac_extra_sensor_LEFT_MINUS :BOOL;
+UI_Tlac_extra_sensor_RIGHT_PLUS :BOOL;
+UI_Tlac_extra_sensor_RIGHT_MINUS :BOOL;
+
+// Extra korekce tlaku segmentu patek
+UI_extra_tlak_CA, UI_extra_tlak_CB, UI_extra_tlak_CC, UI_extra_tlak_CD:INT; 
+
+// Heslo pro HMI 
+UI_password : STRING ;
+
+// pridany tag pro vypnuti HMI 
+UI_Start_vypnuti_HMI: BOOL;
+
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

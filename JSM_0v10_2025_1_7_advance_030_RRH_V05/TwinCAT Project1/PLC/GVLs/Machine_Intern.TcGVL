@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.15">
+  <GVL Name="Machine_Intern" Id="{d7a36716-c758-48c7-b101-a82bcbe11063}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+		
+	M_Stroj_zapnuty:BOOL;
+	M_Stroj_vypnut_6s:BOOL;
+	M_Alarm_aktivni:BOOL;
+	M_vstup_lista_detekce_obrobku_XOR:ARRAY[1..54] OF BOOL;
+	M_tlak_vyst_segmentu_patky:ARRAY[1..27]OF INT; (* 0-netlacit 1-polovicni tlak 2-plny tlak*)
+	M_obrobek_detekovan_ve_stroji: ARRAY[1..27] OF BOOL;
+	M_detekovan_konec_obrobku: ARRAY[1..27] OF BOOL;
+	M_obrobek_detekovan_Vlevo,M_obrobek_detekovan_Vpravo:BOOL;
+	
+	Blink_100ms, Blink_500ms, Blink_1s:BOOL;
+	Blink_4sON_2sOFF:BOOL;
+	one:BOOL:=TRUE;
+    null:BOOL:=FALSE;
+	stTaskInfo: PlcTaskSystemInfo;
+	M_PLC_alarms:DWORD;
+	M_pocitadlo_imp_behu_pod_pasu:UDINT;
+	M_hrana_poc_behu_pasu:R_TRIG;
+	M_pocitadlo_vzdal_k_patce_start: ARRAY[1..27] OF UDINT;
+	M_pocitadlo_vzdal_k_patce_stop: ARRAY[1..27] OF UDINT;
+	M_ofuk_brusu_agreg1_stupen1,M_ofuk_brusu_agreg1_stupen2,M_ofuk_brusu_agreg1_stupen3,M_ofuk_brusu_agreg1_stupen4:BOOL;
+	M_ofuk_brusu_agreg2_stupen1,M_ofuk_brusu_agreg2_stupen2,M_ofuk_brusu_agreg2_stupen3,M_ofuk_brusu_agreg2_stupen4,M_ofuk_brusu_agreg2_stupen5:BOOL;
+	M_ofuk_brusu_agreg3_stupen1,M_ofuk_brusu_agreg3_stupen2,M_ofuk_brusu_agreg3_stupen3,M_ofuk_brusu_agreg3_stupen4,M_ofuk_brusu_agreg3_stupen5:BOOL;
+    M_rq_hodnota_zdvihu_krok1:REAL; // Pri pohybu dolu se prejizdi o hodnotu v parametru
+	M_rq_hodnota_zdvihu_krok2:REAL; // Pri pohybu nahoru se zastavuje drive o hodnotu v parametru
+	M_rq_otacky_agr1, M_rq_otacky_agr2, M_rq_otacky_agr3: REAL;
+	
+	Blink_2s: BOOL;
+	Blink_3sON_2sOFF: BOOL;
+	Blink_1sON_2sOFF: BOOL;
+	M_ofuk_brusu_agreg1_stupen5: BOOL;
+	
+	//alarmy agregatu
+	M_alarm_agreg1:BOOL;
+    M_alarm_agreg2:BOOL;
+    M_alarm_agreg3:BOOL;
+	//pridany alarm pro H 
+	M_alarm_agragH : BOOL ;
+	
+	M_Leve_rolny_sepnuty:INT:=0;
+	M_Prave_rolny_sepnuty:INT:=0;
+	M_Patka_aktivni:INT:=0;
+	
+	//alarm pro agregat H 
+	M_alarm_agregatH : BOOL ;
+END_VAR
+
+VAR_GLOBAL PERSISTENT
+ M_Hodnota_zdvihu_stolu_mm:REAL;	
+ M_KalibZdvihu_provedena:BOOL;
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

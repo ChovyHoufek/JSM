@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.15">
+  <POU Name="patkaMemoryABCD" Id="{7e9a608f-dc9e-428b-a739-0e57d8b2cc01}" SpecialFunc="None">
+    <Declaration><![CDATA[// Ondrej Pistora Ondrej.Pistora@gmail.com 06/2025
+// Program to memorize incoming parts into a belt sander and apply pressure with pads above them.
+// Version with ABCD as number of sensors
+
+PROGRAM patkaMemoryABCD
+VAR CONSTANT
+    SENSOR_COUNT                : INT := 54; (* Adjust as needed *)
+    PADS_COUNT                  : INT := 27; (* Adjust as needed *)
+    MEMORY_LENGTH               : UDINT := 10;
+    CONV_PERCENT_TO_SENSORS     : REAL := 4; (* Conversion factor from percentage to number of sensors *)
+END_VAR
+VAR
+    // INTERNAL
+    sensors_state_out_normal    : ARRAY[0..SENSOR_COUNT-1] OF INT := [0];
+    sensors_state_out_extra     : ARRAY[0..SENSOR_COUNT-1] OF INT := [0];
+    sensors_state_out           : ARRAY[0..SENSOR_COUNT-1] OF BOOL := [FALSE];
+	
+	cor_A_sensors, cor_B_sensors, cor_C_sensors, cor_D_sensors : INT;
+    
+    (* Rising and Falling Edge Detection *)
+    rtrig_sensors               : ARRAY[0..SENSOR_COUNT-1] OF R_TRIG;
+    ftrig_sensors               : ARRAY[0..SENSOR_COUNT-1] OF F_TRIG;
+    (* Ring Buffers *)
+    on_memory                   : ARRAY[0..SENSOR_COUNT-1] OF FB_MemRingBuffer;
+    off_memory                  : ARRAY[0..SENSOR_COUNT-1] OF FB_MemRingBuffer;
+    (* Data Storage for Ring Buffers *)
+    on_buffer                   : ARRAY[0..SENSOR_COUNT-1, 0..MEMORY_LENGTH - 1] OF DWORD;
+    off_buffer                  : ARRAY[0..SENSOR_COUNT-1, 0..MEMORY_LENGTH - 1] OF DWORD;
+    (* Configuration Variables *)
+    buffer_byte_size            : UDINT := SIZEOF(on_buffer[0,0]) * MEMORY_LENGTH; (* Size of a single buffer in bytes *)
+    isInitialized               : BOOL:= FALSE;
+    
+    // OUTPUT
+    pads_state                  : ARRAY[0..PADS_COUNT-1] OF INT;  // number of sensors per pad 0,1 or 2
+    pads_out                    : ARRAY[0..PADS_COUNT-1] OF INT;  // pads in percent of force
+	pads_state_1: ARRAY[0..PADS_COUNT-1] OF INT;
+END_VAR
+
+
+VAR_TEMP
+    i, j                        : INT;  // iterators
+    C                           : DWORD;  // current pulses from belt
+    U                           : DWORD;  // UP - rising edge
+    D                           : DWORD;  // DOWN - falling edge
+    temp                        : DWORD;
+    size                        : UDINT;
+    tail                        : INT; // stop index when searching from left side
+    rising                      : BOOL;              // State flag for edge detection
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[// FUNCTIONALITY
+// 1) Detect rising and falling edges of sensors, and store them in memory with offset
+// 2) Process memory of sensory to get state of sensors at position of pads
+// 3) Add extra sensors from buttons
+// 4) Add extra sensors from ABCD
+// 5) Convert sensors to pads (two sensors for one pad -> value 0, 1, 2)
+// 6) Output pad states in Amps
+
+// Algorithm 4) find edges as this:
+//  A---D
+//  A---B   C---D
+//  A---B   C---B   C---D
+//  A---B   C---B   C---B    C---D
+//  etc...
+
+// Povoleni vysunuti patky
+IF Machine_Intern.M_Stroj_zapnuty THEN
+	Machine_outputs.Q_patka_enable:=TRUE;
+END_IF
+
+// pokud neni zapnuty agregat C, nefuguje patka
+IF HMI_prom.UI_Start_agregat3 = FALSE THEN 
+	Machine_outputs.Q_patka_enable:=FALSE;
+END_IF
+
+
+C:= Machine_Intern.M_pocitadlo_imp_behu_pod_pasu;
+
+(* Initialize Ring Buffers *)
+IF NOT isInitialized THEN
+	FOR i := 0 TO SENSOR_COUNT-1 DO
+		on_memory[i](
+			pBuffer := ADR(on_buffer[i, 0]),
+			cbBuffer := buffer_byte_size
+		);
+		off_memory[i](
+			pBuffer := ADR(off_buffer[i, 0]),
+			cbBuffer := buffer_byte_size
+		);
+	END_FOR
+	isInitialized:= TRUE;
+END_IF
+
+
+// 1) Detect rising and falling edges of sensors, and store them in memory with offset
+FOR i := 0 TO SENSOR_COUNT-1 DO
+    rtrig_sensors[i](CLK := Machine_Inputs.I_Detekce_vst_desky[i+1]);  // starting from 1
+    ftrig_sensors[i](CLK := Machine_Inputs.I_Detekce_vst_desky[i+1]);  // starting from 1
+
+    IF rtrig_sensors[i].Q THEN
+        (* Sensor ON: Write rising edge time to on_memory *)
+        temp := C + HMI_prom.HMI_param_stroje.Stp_Patka.Pocet_impulsu_mezi_vst_listou_Apatkou - HMI_prom.HMI_param_stroje.Stp_Patka.Pocet_impulsu_mezi_vst_listou_Apatkou_jemna_korekce;  // DWORD + INT should be fine
+        on_memory[i].A_AddTail(pWrite := ADR(temp), cbWrite := SIZEOF(temp));
+    END_IF
+
+    IF ftrig_sensors[i].Q THEN
+        (* Sensor OFF: Write falling edge time to off_memory *)
+        temp := C + HMI_prom.HMI_param_stroje.Stp_Patka.Pocet_impulsu_mezi_vst_listou_Apatkou_odpad + HMI_prom.HMI_param_stroje.Stp_Patka.Pocet_impulsu_mezi_vst_listou_Apatkou_odpad_jemna_korekce;  // DWORD + INT should be fine
+        off_memory[i].A_AddTail(pWrite := ADR(temp), cbWrite := SIZEOF(temp));
+    END_IF
+END_FOR
+
+
+// 2) Process memory to get state of sensors at position of pads
+FOR i := 0 TO SENSOR_COUNT-1 DO
+    sensors_state_out_normal[i] := 0;
+
+    (* Check and Remove Expired Pulses from off_memory *)
+	off_memory[i].A_GetHead(pRead := ADR(D), cbRead := SIZEOF(D), nCount => size);
+    IF size > 0 THEN
+        IF D < C THEN
+            off_memory[i].A_RemoveHead();
+            on_memory[i].A_RemoveHead();
+        END_IF
+    END_IF
+
+    (* Check Active Pulses in on_memory *)
+	on_memory[i].A_GetHead(pRead := ADR(U), cbRead := SIZEOF(U), nCount => size);
+    IF size > 0 THEN
+        IF U < C THEN  // If we are 
+            sensors_state_out_normal[i] := 1;
+        END_IF
+    END_IF
+END_FOR
+
+
+// 3) Add extra sensors from buttons
+// Reset 
+FOR i := 0 TO SENSOR_COUNT-1 DO
+    sensors_state_out_extra[i] := 0;
+END_FOR
+
+(* LEFT *)
+FOR i := 0 TO SENSOR_COUNT-2 DO
+    IF (sensors_state_out_normal[i] = 0) AND (sensors_state_out_normal[i+1] = 1) THEN
+        IF HMI_prom.UI_Tlac_extra_sensor_LEFT_PLUS THEN
+            sensors_state_out_extra[i] := sensors_state_out_extra[i] + 1;
+        ELSIF HMI_prom.UI_Tlac_extra_sensor_LEFT_MINUS THEN
+            sensors_state_out_extra[i+1] := sensors_state_out_extra[i+1] - 1;
+        END_IF
+    END_IF
+END_FOR
+
+(* RIGHT *)
+FOR i := SENSOR_COUNT-1 TO 1 BY -1 DO
+    IF (sensors_state_out_normal[i] = 0) AND (sensors_state_out_normal[i-1] = 1) THEN
+        IF HMI_prom.UI_Tlac_extra_sensor_RIGHT_PLUS THEN
+            sensors_state_out_extra[i] := sensors_state_out_extra[i] + 1;
+        ELSIF HMI_prom.UI_Tlac_extra_sensor_RIGHT_MINUS THEN
+            sensors_state_out_extra[i-1] := sensors_state_out_extra[i-1] - 1;
+        END_IF
+    END_IF
+END_FOR
+
+(* Combine Normal and Extra Sensors *)
+FOR i := 0 TO SENSOR_COUNT-1 DO
+    sensors_state_out[i] := (sensors_state_out_normal[i] + sensors_state_out_extra[i]) > 0;
+    // calculations for next step
+    sensors_state_out_normal[i] := sensors_state_out_normal[i] + sensors_state_out_extra[i];
+    sensors_state_out_extra[i] := 0;
+END_FOR
+
+// 4) Add extra sensors from ABCD
+// cap HMI values to -100 to 100
+HMI_prom.UI_extra_tlak_CA := LIMIT(-100, HMI_prom.UI_extra_tlak_CA, 100);
+HMI_prom.UI_extra_tlak_CB := LIMIT(-100, HMI_prom.UI_extra_tlak_CB, 100);
+HMI_prom.UI_extra_tlak_CC := LIMIT(-100, HMI_prom.UI_extra_tlak_CC, 100);
+HMI_prom.UI_extra_tlak_CD := LIMIT(-100, HMI_prom.UI_extra_tlak_CD, 100);
+// convert percentage to number of sensors
+cor_A_sensors := REAL_TO_INT(INT_TO_REAL(HMI_prom.UI_extra_tlak_CA) * CONV_PERCENT_TO_SENSORS / 100.0);
+cor_B_sensors := REAL_TO_INT(INT_TO_REAL(HMI_prom.UI_extra_tlak_CB) * CONV_PERCENT_TO_SENSORS / 100.0);
+cor_C_sensors := REAL_TO_INT(INT_TO_REAL(HMI_prom.UI_extra_tlak_CC) * CONV_PERCENT_TO_SENSORS / 100.0);
+cor_D_sensors := REAL_TO_INT(INT_TO_REAL(HMI_prom.UI_extra_tlak_CD) * CONV_PERCENT_TO_SENSORS / 100.0);
+
+// from left: find first rising edge -> A, then find falling edge -> B
+FOR i := 0 TO SENSOR_COUNT - 1 DO
+    IF sensors_state_out[i] THEN  // found rising edge
+        IF cor_A_sensors > 0 AND i > 0 THEN // add A left
+            FOR j:= i - 1 TO MAX(0, i - cor_A_sensors) BY -1 DO
+                sensors_state_out_extra[j] := sensors_state_out_extra[j] + 1;
+            END_FOR
+        ELSIF cor_A_sensors < 0 THEN // sub A right
+            FOR j:= i TO MIN(i - 1 + ABS(cor_A_sensors), SENSOR_COUNT - 1) DO
+                sensors_state_out_extra[j] := sensors_state_out_extra[j] - 1;
+            END_FOR
+        END_IF
+        EXIT; // Exit the loop after finding the falling edge
+	END_IF
+END_FOR
+
+tail:= i; // Save the position of the last processed element, now search to it from the right side (including tail)
+
+IF tail < SENSOR_COUNT - 1 THEN
+    // from right: find first rising edge -> D
+    FOR i := SENSOR_COUNT - 1 TO tail BY -1 DO  // search including tail
+        IF sensors_state_out[i] THEN 
+            IF cor_D_sensors > 0 AND i < SENSOR_COUNT-1 THEN //  add D right
+                FOR j:= i + 1 TO MIN(i + cor_D_sensors, SENSOR_COUNT-1) DO
+                    sensors_state_out_extra[j] := sensors_state_out_extra[j] + 1;
+                END_FOR
+            ELSIF cor_D_sensors < 0 THEN // sub D left
+                FOR j:= i TO MAX(0, i + 1 - ABS(cor_D_sensors)) BY -1 DO
+                    sensors_state_out_extra[j] := sensors_state_out_extra[j] - 1;
+                END_FOR
+            END_IF;
+            i := i - 1;
+            EXIT; // Exit the loop after finding the rising edge
+        END_IF
+    END_FOR
+
+
+    // from right: process remaining -> C, B, C, B... till tail (including tail)
+    rising := FALSE;
+    WHILE tail <= i DO
+        IF NOT rising THEN
+            IF NOT sensors_state_out[i] THEN  // falling edge
+                IF cor_C_sensors > 0 THEN //  add C left
+                    FOR j:= i TO MAX(0, i + 1 - ABS(cor_C_sensors)) BY -1 DO
+                        sensors_state_out_extra[j] := sensors_state_out_extra[j] + 1;
+                    END_FOR
+                ELSIF cor_C_sensors < 0 THEN // sub C right
+                    FOR j:= i + 1 TO MIN(i + ABS(cor_C_sensors), SENSOR_COUNT-1) DO
+                        sensors_state_out_extra[j] := sensors_state_out_extra[j] - 1;
+                    END_FOR
+                END_IF;
+                rising := TRUE;
+            END_IF
+        ELSE
+            IF sensors_state_out[i] THEN // rising edge
+                IF cor_B_sensors > 0 THEN // add B right
+                    FOR j:= i + 1 TO MIN(i + cor_B_sensors, SENSOR_COUNT-1) DO
+                        sensors_state_out_extra[j] := sensors_state_out_extra[j] + 1;
+                    END_FOR
+                ELSIF cor_B_sensors < 0 THEN // sub B left
+                    FOR j:= i TO MAX(0, i + 1 - ABS(cor_B_sensors)) BY -1 DO
+                        sensors_state_out_extra[j] := sensors_state_out_extra[j] - 1;
+                    END_FOR
+                END_IF;
+                rising := FALSE;
+            END_IF
+        END_IF
+        i := i - 1;
+    END_WHILE
+
+END_IF
+
+(* Combine Normal and Extra Sensors *)
+FOR i := 0 TO SENSOR_COUNT-1 DO
+    sensors_state_out[i] := (sensors_state_out_normal[i] + sensors_state_out_extra[i]) > 0;
+END_FOR
+(*Podminka pro korekci na 50 procent*)
+FOR i := 0 TO PADS_COUNT-1 DO
+	IF (pads_state[i] = 0 AND pads_state[i+1] = 2) THEN
+		pads_state_1[i+1] := 1;   
+	END_IF	
+	pads_out[i] := pads_state_1[i+1] * 50 ;
+END_FOR
+
+FOR i := 0 TO PADS_COUNT-1 DO
+	IF (pads_state[i] = 2 AND pads_state[i+1] = 0) THEN
+		pads_state_1[i] := 1;   
+	END_IF	
+	pads_out[i] := pads_state_1[i] * 50;
+END_FOR
+
+// 5) Convert sensors to pads (two sensors for one pad -> value 0, 1, 2)
+FOR i := 0 TO PADS_COUNT-1 DO
+	pads_state[i] := BOOL_TO_INT(sensors_state_out[i * 2]) + BOOL_TO_INT(sensors_state_out[i * 2 + 1]);
+	pads_out[i] := pads_state[i] * 50;
+END_FOR
+
+
+// 6) Output pad states in Amps
+FOR i := 0 TO PADS_COUNT-1 DO
+	// multiply output with global setting
+	pads_out[i]:= HMI_prom.UI_pritlak_patky * pads_out[i] / 100;
+	// If ouput is below 5% then drop it to zero
+	IF pads_out[i] < 5 THEN
+		pads_out[i]:= 0;
+	END_IF
+	// Convert to amps
+	Machine_outputs.Q_segmenty_patky[i+1]:= DINT_TO_INT(MIN(32767, MAX(0, INT_TO_DINT(pads_out[i]) * 32767 / 100)));
+END_FOR
+
+]]></ST>
+    </Implementation>
+    <LineIds Name="patkaMemoryABCD">
+      <LineId Id="1624" Count="18" />
+      <LineId Id="1902" Count="0" />
+      <LineId Id="1899" Count="0" />
+      <LineId Id="1898" Count="0" />
+      <LineId Id="1900" Count="1" />
+      <LineId Id="1897" Count="0" />
+      <LineId Id="1643" Count="95" />
+      <LineId Id="1740" Count="88" />
+      <LineId Id="1965" Count="12" />
+      <LineId Id="1964" Count="0" />
+      <LineId Id="1830" Count="19" />
+      <LineId Id="299" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

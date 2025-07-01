@@ -1,0 +1,405 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.15">
+  <POU Name="Provozni_hodiny_new" Id="{0ec2b65e-d7ec-424c-948b-f6b517332315}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM Provozni_hodiny_new
+VAR
+	tik_1s:R_trig;
+	pocitadlo:INT;
+	segment_rtrig:ARRAY[1..27] OF R_TRIG;
+	segment_ftrig:ARRAY[1..27] OF F_TRIG;
+	segment_aktivni:ARRAY[1..27]OF BOOL;
+END_VAR
+VAR CONSTANT
+	pocet_segmentu:INT:=27;
+	
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[// Provozni hodiny stroje 
+tik_1s(CLK:=Machine_Intern.Blink_500ms , Q=> );
+
+IF tik_1s.Q=TRUE THEN
+		HMI_prom.UI_Porovozni_hodiny_stroje_stroj_zapnut_MS_sek:= HMI_prom.UI_Porovozni_hodiny_stroje_stroj_zapnut_MS_sek+1;
+END_IF
+
+IF tik_1s.Q=TRUE THEN
+	IF Machine_Intern.M_Stroj_zapnuty THEN
+		HMI_prom.UI_Porovozni_hodiny_stroje_stroj_zapnut_sek:= HMI_prom.UI_Porovozni_hodiny_stroje_stroj_zapnut_sek+1;
+	END_IF
+END_IF
+
+IF tik_1s.Q=TRUE THEN
+	IF (Machine_outputs.Q_start_agregat1)OR(Machine_outputs.Q_start_agregat2) THEN
+		IF (Machine_Intern.M_Leve_rolny_sepnuty>0)OR(Machine_Intern.M_prave_rolny_sepnuty>0) THEN
+		  HMI_prom.UI_Porovozni_hodiny_stroje_stroj_brousi_sek:= HMI_prom.UI_Porovozni_hodiny_stroje_stroj_brousi_sek+1;
+		END_IF  
+	END_IF
+END_IF
+
+IF tik_1s.Q=TRUE THEN
+	IF Machine_Intern.M_Stroj_zapnuty AND Machine_Intern.M_Alarm_aktivni THEN
+		HMI_prom.UI_Porovozni_hodiny_stroje_stroj_porucha_sek:= HMI_prom.UI_Porovozni_hodiny_stroje_stroj_porucha_sek+1;
+	END_IF
+END_IF
+
+IF tik_1s.Q=TRUE THEN
+	IF Machine_outputs.Q_start_agregat1  THEN
+		HMI_prom.UI_Porovozni_hodiny_stroje_Agreg1_zapnut_sek:= HMI_prom.UI_Porovozni_hodiny_stroje_Agreg1_zapnut_sek+1;
+	END_IF
+END_IF
+
+IF tik_1s.Q=TRUE THEN
+	IF Machine_outputs.Q_start_agregat1 AND  Machine_outputs.Q_agregat1_priskok THEN
+	   IF (Machine_Intern.M_Leve_rolny_sepnuty>0)OR(Machine_Intern.M_prave_rolny_sepnuty>0) THEN
+		HMI_prom.UI_Porovozni_hodiny_stroje_Agreg1_brousi_sek:= HMI_prom.UI_Porovozni_hodiny_stroje_Agreg1_brousi_sek+1;
+	   END_IF
+	END_IF
+END_IF
+
+IF tik_1s.Q=TRUE THEN
+	IF Machine_Intern.M_alarm_agreg1 THEN
+		HMI_prom.UI_Porovozni_hodiny_stroje_Agreg1_porucha_sek:= HMI_prom.UI_Porovozni_hodiny_stroje_Agreg1_porucha_sek+1;
+	END_IF
+END_IF
+
+IF tik_1s.Q=TRUE THEN
+	IF Machine_outputs.Q_start_agregat2  THEN
+		HMI_prom.UI_Porovozni_hodiny_stroje_Agreg2_zapnut_sek:= HMI_prom.UI_Porovozni_hodiny_stroje_Agreg2_zapnut_sek+1;
+	END_IF
+END_IF
+
+IF tik_1s.Q=TRUE THEN
+	IF Machine_outputs.Q_start_agregat2 AND  Machine_outputs.Q_agregat2_priskok THEN
+	   IF (Machine_Intern.M_Leve_rolny_sepnuty>0)OR(Machine_Intern.M_prave_rolny_sepnuty>0) THEN
+		HMI_prom.UI_Porovozni_hodiny_stroje_Agreg2_brousi_sek:= HMI_prom.UI_Porovozni_hodiny_stroje_Agreg2_brousi_sek+1;
+	   END_IF
+	END_IF
+END_IF
+
+IF tik_1s.Q=TRUE THEN
+	IF Machine_Intern.M_alarm_agreg2 THEN
+		HMI_prom.UI_Porovozni_hodiny_stroje_Agreg2_porucha_sek:= HMI_prom.UI_Porovozni_hodiny_stroje_Agreg2_porucha_sek+1;
+	END_IF
+END_IF
+
+IF tik_1s.Q=TRUE THEN
+	IF Machine_outputs.Q_start_agregat3  THEN
+		HMI_prom.UI_Porovozni_hodiny_stroje_Agreg3_zapnut_sek:= HMI_prom.UI_Porovozni_hodiny_stroje_Agreg3_zapnut_sek+1;
+	END_IF
+END_IF
+
+IF tik_1s.Q=TRUE THEN
+	IF Machine_outputs.Q_start_agregat3 AND  (Machine_outputs.Q_agregat3_priskok OR Machine_Intern.M_Patka_aktivni>0 ) THEN
+	   IF (Machine_Intern.M_Leve_rolny_sepnuty>0)OR(Machine_Intern.M_prave_rolny_sepnuty>0) THEN
+		HMI_prom.UI_Porovozni_hodiny_stroje_Agreg3_brousi_sek:= HMI_prom.UI_Porovozni_hodiny_stroje_Agreg3_brousi_sek+1;
+	   END_IF
+	END_IF
+END_IF
+
+
+// doplnena podmínka pro agregát H 
+IF tik_1s.Q=TRUE THEN
+	IF Machine_Intern.M_alarm_agreg3 OR Machine_Intern.M_alarm_agregatH THEN
+		HMI_prom.UI_Porovozni_hodiny_stroje_Agreg3_porucha_sek:= HMI_prom.UI_Porovozni_hodiny_stroje_Agreg3_porucha_sek+1;
+	END_IF
+END_IF
+
+// stroj zapnut hlavnim vypinacem
+IF HMI_prom.UI_Porovozni_hodiny_stroje_stroj_zapnut_MS_sek>59 THEN
+	HMI_prom.UI_Porovozni_hodiny_stroje_stroj_zapnut_MS_min:=HMI_prom.UI_Porovozni_hodiny_stroje_stroj_zapnut_MS_min+1;
+	HMI_prom.UI_Porovozni_hodiny_stroje_stroj_zapnut_MS_sek:=0;
+END_IF
+IF HMI_prom.UI_Porovozni_hodiny_stroje_stroj_zapnut_MS_min>59 THEN
+	HMI_prom.UI_Porovozni_hodiny_stroje_stroj_zapnut_MS_hod:=HMI_prom.UI_Porovozni_hodiny_stroje_stroj_zapnut_MS_hod+1;
+	HMI_prom.UI_Porovozni_hodiny_stroje_stroj_zapnut_MS_min:=0;
+END_IF
+IF HMI_prom.UI_Porovozni_hodiny_stroje_stroj_zapnut_MS_hod>23 THEN
+	HMI_prom.UI_Porovozni_hodiny_stroje_stroj_zapnut_MS_dny:=HMI_prom.UI_Porovozni_hodiny_stroje_stroj_zapnut_MS_dny+1;
+	HMI_prom.UI_Porovozni_hodiny_stroje_stroj_zapnut_MS_hod:=0;
+END_IF
+
+// stroj zapnut
+IF HMI_prom.UI_Porovozni_hodiny_stroje_stroj_zapnut_sek>59 THEN
+	HMI_prom.UI_Porovozni_hodiny_stroje_stroj_zapnut_min:=HMI_prom.UI_Porovozni_hodiny_stroje_stroj_zapnut_min+1;
+	HMI_prom.UI_Porovozni_hodiny_stroje_stroj_zapnut_sek:=0;
+END_IF
+IF HMI_prom.UI_Porovozni_hodiny_stroje_stroj_zapnut_min>59 THEN
+	HMI_prom.UI_Porovozni_hodiny_stroje_stroj_zapnut_hod:=HMI_prom.UI_Porovozni_hodiny_stroje_stroj_zapnut_hod+1;
+	HMI_prom.UI_Porovozni_hodiny_stroje_stroj_zapnut_min:=0;
+END_IF
+IF HMI_prom.UI_Porovozni_hodiny_stroje_stroj_zapnut_hod>23 THEN
+	HMI_prom.UI_Porovozni_hodiny_stroje_stroj_zapnut_dny:=HMI_prom.UI_Porovozni_hodiny_stroje_stroj_zapnut_dny+1;
+	HMI_prom.UI_Porovozni_hodiny_stroje_stroj_zapnut_hod:=0;
+END_IF
+
+// stroj brousi
+IF HMI_prom.UI_Porovozni_hodiny_stroje_stroj_brousi_sek>59 THEN
+	HMI_prom.UI_Porovozni_hodiny_stroje_stroj_brousi_min:=HMI_prom.UI_Porovozni_hodiny_stroje_stroj_brousi_min+1;
+	HMI_prom.UI_Porovozni_hodiny_stroje_stroj_brousi_sek:=0;
+END_IF
+IF HMI_prom.UI_Porovozni_hodiny_stroje_stroj_brousi_min>59 THEN
+	HMI_prom.UI_Porovozni_hodiny_stroje_stroj_brousi_hod:=HMI_prom.UI_Porovozni_hodiny_stroje_stroj_brousi_hod+1;
+	HMI_prom.UI_Porovozni_hodiny_stroje_stroj_brousi_min:=0;
+END_IF
+IF HMI_prom.UI_Porovozni_hodiny_stroje_stroj_brousi_hod>23 THEN
+	HMI_prom.UI_Porovozni_hodiny_stroje_stroj_brousi_dny:=HMI_prom.UI_Porovozni_hodiny_stroje_stroj_brousi_dny+1;
+	HMI_prom.UI_Porovozni_hodiny_stroje_stroj_brousi_hod:=0;
+END_IF
+
+// stroj v poruse
+IF HMI_prom.UI_Porovozni_hodiny_stroje_stroj_porucha_sek>59 THEN
+	HMI_prom.UI_Porovozni_hodiny_stroje_stroj_porucha_min:=HMI_prom.UI_Porovozni_hodiny_stroje_stroj_porucha_min+1;
+	HMI_prom.UI_Porovozni_hodiny_stroje_stroj_porucha_sek:=0;
+END_IF
+IF HMI_prom.UI_Porovozni_hodiny_stroje_stroj_porucha_min>59 THEN
+	HMI_prom.UI_Porovozni_hodiny_stroje_stroj_porucha_hod:=HMI_prom.UI_Porovozni_hodiny_stroje_stroj_porucha_hod+1;
+	HMI_prom.UI_Porovozni_hodiny_stroje_stroj_porucha_min:=0;
+END_IF
+IF HMI_prom.UI_Porovozni_hodiny_stroje_stroj_porucha_hod>23 THEN
+	HMI_prom.UI_Porovozni_hodiny_stroje_stroj_porucha_dny:=HMI_prom.UI_Porovozni_hodiny_stroje_stroj_porucha_dny+1;
+	HMI_prom.UI_Porovozni_hodiny_stroje_stroj_porucha_hod:=0;
+END_IF
+
+// Agregat 1 zapnut
+IF HMI_prom.UI_Porovozni_hodiny_stroje_agreg1_zapnut_sek>59 THEN
+	HMI_prom.UI_Porovozni_hodiny_stroje_agreg1_zapnut_min:=HMI_prom.UI_Porovozni_hodiny_stroje_agreg1_zapnut_min+1;
+	HMI_prom.UI_Porovozni_hodiny_stroje_agreg1_zapnut_sek:=0;
+END_IF
+IF HMI_prom.UI_Porovozni_hodiny_stroje_agreg1_zapnut_min>59 THEN
+	HMI_prom.UI_Porovozni_hodiny_stroje_agreg1_zapnut_hod:=HMI_prom.UI_Porovozni_hodiny_stroje_agreg1_zapnut_hod+1;
+	HMI_prom.UI_Porovozni_hodiny_stroje_agreg1_zapnut_min:=0;
+END_IF
+IF HMI_prom.UI_Porovozni_hodiny_stroje_agreg1_zapnut_hod>23 THEN
+	HMI_prom.UI_Porovozni_hodiny_stroje_agreg1_zapnut_dny:=HMI_prom.UI_Porovozni_hodiny_stroje_agreg1_zapnut_dny+1;
+	HMI_prom.UI_Porovozni_hodiny_stroje_agreg1_zapnut_hod:=0;
+END_IF
+
+// Agregat 1 brousi
+IF HMI_prom.UI_Porovozni_hodiny_stroje_agreg1_brousi_sek>59 THEN
+	HMI_prom.UI_Porovozni_hodiny_stroje_agreg1_brousi_min:=HMI_prom.UI_Porovozni_hodiny_stroje_agreg1_brousi_min+1;
+	HMI_prom.UI_Porovozni_hodiny_stroje_agreg1_brousi_sek:=0;
+END_IF
+IF HMI_prom.UI_Porovozni_hodiny_stroje_agreg1_brousi_min>59 THEN
+	HMI_prom.UI_Porovozni_hodiny_stroje_agreg1_brousi_hod:=HMI_prom.UI_Porovozni_hodiny_stroje_agreg1_brousi_hod+1;
+	HMI_prom.UI_Porovozni_hodiny_stroje_agreg1_brousi_min:=0;
+END_IF
+IF HMI_prom.UI_Porovozni_hodiny_stroje_agreg1_brousi_hod>23 THEN
+	HMI_prom.UI_Porovozni_hodiny_stroje_agreg1_brousi_dny:=HMI_prom.UI_Porovozni_hodiny_stroje_agreg1_brousi_dny+1;
+	HMI_prom.UI_Porovozni_hodiny_stroje_agreg1_brousi_hod:=0;
+END_IF
+
+// Agregat 1 v poruse
+IF HMI_prom.UI_Porovozni_hodiny_stroje_agreg1_porucha_sek>59 THEN
+	HMI_prom.UI_Porovozni_hodiny_stroje_agreg1_porucha_min:=HMI_prom.UI_Porovozni_hodiny_stroje_agreg1_porucha_min+1;
+	HMI_prom.UI_Porovozni_hodiny_stroje_agreg1_porucha_sek:=0;
+END_IF
+IF HMI_prom.UI_Porovozni_hodiny_stroje_agreg1_porucha_min>59 THEN
+	HMI_prom.UI_Porovozni_hodiny_stroje_agreg1_porucha_hod:=HMI_prom.UI_Porovozni_hodiny_stroje_agreg1_porucha_hod+1;
+	HMI_prom.UI_Porovozni_hodiny_stroje_agreg1_porucha_min:=0;
+END_IF
+IF HMI_prom.UI_Porovozni_hodiny_stroje_agreg1_porucha_hod>23 THEN
+	HMI_prom.UI_Porovozni_hodiny_stroje_agreg1_porucha_dny:=HMI_prom.UI_Porovozni_hodiny_stroje_agreg1_porucha_dny+1;
+	HMI_prom.UI_Porovozni_hodiny_stroje_agreg1_porucha_hod:=0;
+END_IF
+
+// Agregat 1 reset nabrousenych hodin
+IF HMI_prom.UI_Tlac_Reset_opotrebeni_pasu_Agreg1 THEN
+  HMI_prom.UI_Porovozni_hodiny_stroje_agreg1_brousi_sek:=0;
+  HMI_prom.UI_Porovozni_hodiny_stroje_agreg1_brousi_min:=0;
+  HMI_prom.UI_Porovozni_hodiny_stroje_agreg1_brousi_hod:=0;
+END_IF
+
+// Agregat 2 zapnut
+IF HMI_prom.UI_Porovozni_hodiny_stroje_agreg2_zapnut_sek>59 THEN
+	HMI_prom.UI_Porovozni_hodiny_stroje_agreg2_zapnut_min:=HMI_prom.UI_Porovozni_hodiny_stroje_agreg2_zapnut_min+1;
+	HMI_prom.UI_Porovozni_hodiny_stroje_agreg2_zapnut_sek:=0;
+END_IF
+IF HMI_prom.UI_Porovozni_hodiny_stroje_agreg2_zapnut_min>59 THEN
+	HMI_prom.UI_Porovozni_hodiny_stroje_agreg2_zapnut_hod:=HMI_prom.UI_Porovozni_hodiny_stroje_agreg2_zapnut_hod+1;
+	HMI_prom.UI_Porovozni_hodiny_stroje_agreg2_zapnut_min:=0;
+END_IF
+IF HMI_prom.UI_Porovozni_hodiny_stroje_agreg2_zapnut_hod>23 THEN
+	HMI_prom.UI_Porovozni_hodiny_stroje_agreg2_zapnut_dny:=HMI_prom.UI_Porovozni_hodiny_stroje_agreg2_zapnut_dny+1;
+	HMI_prom.UI_Porovozni_hodiny_stroje_agreg2_zapnut_hod:=0;
+END_IF
+
+// Agregat 2 brousi
+IF HMI_prom.UI_Porovozni_hodiny_stroje_agreg2_brousi_sek>59 THEN
+	HMI_prom.UI_Porovozni_hodiny_stroje_agreg2_brousi_min:=HMI_prom.UI_Porovozni_hodiny_stroje_agreg2_brousi_min+1;
+	HMI_prom.UI_Porovozni_hodiny_stroje_agreg2_brousi_sek:=0;
+END_IF
+IF HMI_prom.UI_Porovozni_hodiny_stroje_agreg2_brousi_min>59 THEN
+	HMI_prom.UI_Porovozni_hodiny_stroje_agreg2_brousi_hod:=HMI_prom.UI_Porovozni_hodiny_stroje_agreg2_brousi_hod+1;
+	HMI_prom.UI_Porovozni_hodiny_stroje_agreg2_brousi_min:=0;
+END_IF
+IF HMI_prom.UI_Porovozni_hodiny_stroje_agreg2_brousi_hod>23 THEN
+	HMI_prom.UI_Porovozni_hodiny_stroje_agreg2_brousi_dny:=HMI_prom.UI_Porovozni_hodiny_stroje_agreg2_brousi_dny+1;
+	HMI_prom.UI_Porovozni_hodiny_stroje_agreg2_brousi_hod:=0;
+END_IF
+
+// Agregat 2 v poruse
+IF HMI_prom.UI_Porovozni_hodiny_stroje_agreg2_porucha_sek>59 THEN
+	HMI_prom.UI_Porovozni_hodiny_stroje_agreg2_porucha_min:=HMI_prom.UI_Porovozni_hodiny_stroje_agreg2_porucha_min+1;
+	HMI_prom.UI_Porovozni_hodiny_stroje_agreg2_porucha_sek:=0;
+END_IF
+IF HMI_prom.UI_Porovozni_hodiny_stroje_agreg2_porucha_min>59 THEN
+	HMI_prom.UI_Porovozni_hodiny_stroje_agreg2_porucha_hod:=HMI_prom.UI_Porovozni_hodiny_stroje_agreg2_porucha_hod+1;
+	HMI_prom.UI_Porovozni_hodiny_stroje_agreg2_porucha_min:=0;
+END_IF
+IF HMI_prom.UI_Porovozni_hodiny_stroje_agreg2_porucha_hod>23 THEN
+	HMI_prom.UI_Porovozni_hodiny_stroje_agreg2_porucha_dny:=HMI_prom.UI_Porovozni_hodiny_stroje_agreg2_porucha_dny+1;
+	HMI_prom.UI_Porovozni_hodiny_stroje_agreg2_porucha_hod:=0;
+END_IF
+
+// Agregat 2 reset nabrousenych hodin
+IF HMI_prom.UI_Tlac_Reset_opotrebeni_pasu_Agreg2 THEN
+  HMI_prom.UI_Porovozni_hodiny_stroje_agreg2_brousi_sek:=0;
+  HMI_prom.UI_Porovozni_hodiny_stroje_agreg2_brousi_min:=0;
+  HMI_prom.UI_Porovozni_hodiny_stroje_agreg2_brousi_hod:=0;
+END_IF
+
+// Agregat 3 zapnut
+IF HMI_prom.UI_Porovozni_hodiny_stroje_agreg3_zapnut_sek>59 THEN
+	HMI_prom.UI_Porovozni_hodiny_stroje_agreg3_zapnut_min:=HMI_prom.UI_Porovozni_hodiny_stroje_agreg3_zapnut_min+1;
+	HMI_prom.UI_Porovozni_hodiny_stroje_agreg3_zapnut_sek:=0;
+END_IF
+IF HMI_prom.UI_Porovozni_hodiny_stroje_agreg3_zapnut_min>59 THEN
+	HMI_prom.UI_Porovozni_hodiny_stroje_agreg3_zapnut_hod:=HMI_prom.UI_Porovozni_hodiny_stroje_agreg3_zapnut_hod+1;
+	HMI_prom.UI_Porovozni_hodiny_stroje_agreg3_zapnut_min:=0;
+END_IF
+IF HMI_prom.UI_Porovozni_hodiny_stroje_agreg3_zapnut_hod>23 THEN
+	HMI_prom.UI_Porovozni_hodiny_stroje_agreg3_zapnut_dny:=HMI_prom.UI_Porovozni_hodiny_stroje_agreg3_zapnut_dny+1;
+	HMI_prom.UI_Porovozni_hodiny_stroje_agreg3_zapnut_hod:=0;
+END_IF
+
+// Agregat 3 brousi
+IF HMI_prom.UI_Porovozni_hodiny_stroje_agreg3_brousi_sek>59 THEN
+	HMI_prom.UI_Porovozni_hodiny_stroje_agreg3_brousi_min:=HMI_prom.UI_Porovozni_hodiny_stroje_agreg3_brousi_min+1;
+	HMI_prom.UI_Porovozni_hodiny_stroje_agreg3_brousi_sek:=0;
+END_IF
+IF HMI_prom.UI_Porovozni_hodiny_stroje_agreg3_brousi_min>59 THEN
+	HMI_prom.UI_Porovozni_hodiny_stroje_agreg3_brousi_hod:=HMI_prom.UI_Porovozni_hodiny_stroje_agreg3_brousi_hod+1;
+	HMI_prom.UI_Porovozni_hodiny_stroje_agreg3_brousi_min:=0;
+END_IF
+IF HMI_prom.UI_Porovozni_hodiny_stroje_agreg3_brousi_hod>23 THEN
+	HMI_prom.UI_Porovozni_hodiny_stroje_agreg3_brousi_dny:=HMI_prom.UI_Porovozni_hodiny_stroje_agreg3_brousi_dny+1;
+	HMI_prom.UI_Porovozni_hodiny_stroje_agreg3_brousi_hod:=0;
+END_IF
+
+// Agregat 3 v poruse
+IF HMI_prom.UI_Porovozni_hodiny_stroje_agreg3_porucha_sek>59 THEN
+	HMI_prom.UI_Porovozni_hodiny_stroje_agreg3_porucha_min:=HMI_prom.UI_Porovozni_hodiny_stroje_agreg3_porucha_min+1;
+	HMI_prom.UI_Porovozni_hodiny_stroje_agreg3_porucha_sek:=0;
+END_IF
+IF HMI_prom.UI_Porovozni_hodiny_stroje_agreg3_porucha_min>59 THEN
+	HMI_prom.UI_Porovozni_hodiny_stroje_agreg3_porucha_hod:=HMI_prom.UI_Porovozni_hodiny_stroje_agreg3_porucha_hod+1;
+	HMI_prom.UI_Porovozni_hodiny_stroje_agreg3_porucha_min:=0;
+END_IF
+IF HMI_prom.UI_Porovozni_hodiny_stroje_agreg3_porucha_hod>23 THEN
+	HMI_prom.UI_Porovozni_hodiny_stroje_agreg3_porucha_dny:=HMI_prom.UI_Porovozni_hodiny_stroje_agreg3_porucha_dny+1;
+	HMI_prom.UI_Porovozni_hodiny_stroje_agreg3_porucha_hod:=0;
+END_IF
+
+// Agregat 1 reset nabrousenych hodin
+IF HMI_prom.UI_Tlac_Reset_opotrebeni_pasu_Agreg3 THEN
+  HMI_prom.UI_Porovozni_hodiny_stroje_agreg3_brousi_sek:=0;
+  HMI_prom.UI_Porovozni_hodiny_stroje_agreg3_brousi_min:=0;
+  HMI_prom.UI_Porovozni_hodiny_stroje_agreg3_brousi_hod:=0;
+END_IF
+
+FOR pocitadlo := 1 TO pocet_segmentu  DO 
+   IF Machine_outputs.Q_segmenty_patky[pocitadlo]>0 THEN
+	  segment_aktivni[pocitadlo]:=TRUE;
+     ELSE
+      segment_aktivni[pocitadlo]:=FALSE;
+   END_IF
+	
+   segment_rtrig[pocitadlo](CLK := segment_aktivni[pocitadlo]);  // starting from 1
+   segment_ftrig[pocitadlo](CLK := segment_aktivni[pocitadlo]);  // starting from 1
+
+    IF segment_rtrig[pocitadlo].Q THEN
+        (* Sensor ON: Pripocitani do pocitadla sepnutych rolen *)
+     Machine_Intern.M_Patka_aktivni:=Machine_Intern.M_Patka_aktivni+1;
+    END_IF
+
+    IF segment_ftrig[pocitadlo].Q THEN
+        (* Sensor OFF: Write falling edge time to off_memory *)
+        IF Machine_Intern.M_Patka_aktivni>0 THEN
+			Machine_Intern.M_Patka_aktivni:= Machine_Intern.M_Patka_aktivni-1;
+		END_IF
+		
+    END_IF
+END_FOR]]></ST>
+    </Implementation>
+    <LineIds Name="Provozni_hodiny_new">
+      <LineId Id="5" Count="0" />
+      <LineId Id="7" Count="0" />
+      <LineId Id="292" Count="0" />
+      <LineId Id="30" Count="0" />
+      <LineId Id="32" Count="0" />
+      <LineId Id="34" Count="0" />
+      <LineId Id="10" Count="0" />
+      <LineId Id="6" Count="0" />
+      <LineId Id="11" Count="0" />
+      <LineId Id="13" Count="1" />
+      <LineId Id="12" Count="0" />
+      <LineId Id="36" Count="2" />
+      <LineId Id="42" Count="0" />
+      <LineId Id="39" Count="0" />
+      <LineId Id="43" Count="0" />
+      <LineId Id="40" Count="1" />
+      <LineId Id="44" Count="0" />
+      <LineId Id="53" Count="0" />
+      <LineId Id="57" Count="0" />
+      <LineId Id="55" Count="1" />
+      <LineId Id="52" Count="0" />
+      <LineId Id="61" Count="0" />
+      <LineId Id="63" Count="7" />
+      <LineId Id="74" Count="0" />
+      <LineId Id="71" Count="0" />
+      <LineId Id="75" Count="0" />
+      <LineId Id="72" Count="1" />
+      <LineId Id="77" Count="2" />
+      <LineId Id="81" Count="0" />
+      <LineId Id="83" Count="0" />
+      <LineId Id="76" Count="0" />
+      <LineId Id="125" Count="33" />
+      <LineId Id="362" Count="1" />
+      <LineId Id="159" Count="5" />
+      <LineId Id="124" Count="0" />
+      <LineId Id="84" Count="12" />
+      <LineId Id="62" Count="0" />
+      <LineId Id="35" Count="0" />
+      <LineId Id="15" Count="1" />
+      <LineId Id="18" Count="0" />
+      <LineId Id="17" Count="0" />
+      <LineId Id="20" Count="2" />
+      <LineId Id="19" Count="0" />
+      <LineId Id="24" Count="3" />
+      <LineId Id="123" Count="0" />
+      <LineId Id="97" Count="11" />
+      <LineId Id="23" Count="0" />
+      <LineId Id="122" Count="0" />
+      <LineId Id="110" Count="11" />
+      <LineId Id="109" Count="0" />
+      <LineId Id="166" Count="41" />
+      <LineId Id="302" Count="0" />
+      <LineId Id="297" Count="0" />
+      <LineId Id="299" Count="0" />
+      <LineId Id="298" Count="0" />
+      <LineId Id="300" Count="1" />
+      <LineId Id="208" Count="0" />
+      <LineId Id="303" Count="0" />
+      <LineId Id="209" Count="40" />
+      <LineId Id="304" Count="6" />
+      <LineId Id="250" Count="41" />
+      <LineId Id="311" Count="6" />
+      <LineId Id="322" Count="1" />
+      <LineId Id="345" Count="1" />
+      <LineId Id="349" Count="1" />
+      <LineId Id="347" Count="0" />
+      <LineId Id="344" Count="0" />
+      <LineId Id="324" Count="14" />
+      <LineId Id="165" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

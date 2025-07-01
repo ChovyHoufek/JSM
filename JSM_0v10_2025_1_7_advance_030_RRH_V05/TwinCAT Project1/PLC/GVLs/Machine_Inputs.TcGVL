@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.15">
+  <GVL Name="Machine_Inputs" Id="{4c3bd203-578c-49d7-ab5f-812451799b88}">
+    <Declaration><![CDATA[{attribute 'qualified_only'}
+VAR_GLOBAL
+	
+//kontrola pro alarmy
+	I_Nouzove_zastaveni_ok AT %I*:BOOL;
+	I_Dvere_prost_brusu AT %I*:BOOL;
+	I_Vstupni_Lista_ok AT %I*:BOOL;
+	I_Vzduch_ok AT %I*:BOOL;
+	I_Frekv_menic_agreg1_ok AT %I*:BOOL;
+	I_Frekv_menic_agreg2_ok AT %I*:BOOL;
+	I_Frekv_menic_agreg3_ok AT %I*:BOOL;
+	I_Zdvih_horni_limit AT %I*:BOOL;
+	I_Zdvih_dolni_limit AT %I*:BOOL;
+	I_Zdvih_hodnota_pozice_nastavena AT %I*:BOOL;
+	
+	// Tlacitka
+	I_Tl_start_stroje AT %I*:BOOL;
+	I_Tl_Stop_Reset_stroje AT %I*:BOOL;
+	I_stroj_zapnut AT %I*:BOOL;
+	
+	//Encodery
+	Encoder_agregat1_stopaA AT %I*:BOOL;
+	Encoder_agregat1_stopaB AT %I*:BOOL;
+	Encoder_agregat2_stopaA AT %I*:BOOL;
+	Encoder_agregat2_stopaB AT %I*:BOOL;
+	
+	//EMS senzor
+	I_Detekce_vst_desky AT %I*: ARRAY[1..54] OF BOOL;
+	
+	//Pojezd
+	I_Tlac_zdvih_nahoru AT %I*:BOOL;
+    I_Tlac_zdvih_dolu AT %I*:BOOL;
+	
+	//Tagy pro motor
+	I_Jistic_motoru_zdvihu_ok AT %I*:BOOL;
+	I_Frekv_menic_posuv_pas_ok AT %I*:BOOL;
+	
+	//napinani pasu
+	I_Napnuti_pasu_agreg1 AT %I*:BOOL;
+	I_Napnuti_pasu_agreg2 AT %I*:BOOL;
+	I_Napnuti_pasu_agreg3 AT %I*:BOOL;
+	
+	// napinani agregatu H 
+	I_Napnuti_pasu_agregatuH AT %I* : BOOL;
+	
+	//krajni poloha
+	I_Krajni_poloha_pasu1_vlevo AT %I*:BOOL;
+	I_Krajni_poloha_pasu1_vpravo AT %I*:BOOL;
+	I_Krajni_poloha_pasu2_vlevo AT %I*:BOOL;
+	I_Krajni_poloha_pasu2_vpravo AT %I*:BOOL;
+	I_Krajni_poloha_pasu3_vlevo AT %I*:BOOL;
+	I_Krajni_poloha_pasu3_vpravo AT %I*:BOOL;
+	
+	//krajni poloha agregatu H
+	I_Krajni_poloha_pasuH_vpravo AT %I* : BOOL;
+	I_Krajni_poloha_pasuH_vlevo AT %I* : BOOL;
+	
+	// Jistice
+	I_Jistic_chlazeni_rozvadece_ok AT %I*:BOOL;
+	I_Jistic_chlazeni_rozvadece2_ok AT %I*:BOOL;
+	I_Sled_fazi_vst_stroje_ok AT %I*:BOOL;
+	I_Jistic_vyvevy_ok AT %I*:BOOL;
+	I_Ofuk_spinac AT %I*:BOOL;
+	I_Snimac_otacek_pod_pasu AT %I*:BOOL;
+	I_jistic_napajeni_patky AT %I*:BOOL;
+	I_prekrocena_max_vyska_obrobku AT %I*:BOOL;
+	
+	// Impulsy
+	I_zdvih_stul_impulsy AT %I*:DINT;
+	I_imp_otacek_pod_pasu AT %I*:UDINT;
+	I_obrobek_ve_stroji AT %I*:BOOL;
+	
+	//JIstice / Pojistky
+	I_pojistka_chlazeni_rozvadece1_ok AT %I*:BOOL;
+	I_pojistka_chlazeni_rozvadece2_ok AT %I*:BOOL;
+	I_jistic_osvetleni_ok AT %I*:BOOL;
+	I_jistic_napajeni_PLC_ok AT %I*:BOOL;
+	I_24V_UPS_ok AT %I*:BOOL;
+	I_detekce_obrobku_EMS AT %I*:BOOL;
+	I_vysoka_teplota_rozvadece  AT %I*:BOOL;
+	
+	//cidla agregatu
+	I_Agreg1_aktualni_proud AT %I*:INT;
+	I_Agreg2_aktualni_proud AT %I*:INT;
+	I_Agreg3_aktualni_proud AT %I*:INT;
+	I_PodPas_aktualni_proud AT %I*:INT;
+	I_aktual_otacky_motoru_podPasu AT %I*:INT;
+	
+	//frekvencni menice
+	I_agreg1_frekv_menic_status_word AT %I*:UINT;
+	I_agreg2_frekv_menic_status_word AT %I*:UINT;
+	I_agreg3_frekv_menic_status_word AT %I*:UINT;
+	I_Posuv_pas_frekv_menic_status_word AT %I*:UINT;
+END_VAR]]></Declaration>
+  </GVL>
+</TcPlcObject>

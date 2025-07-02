@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.15">
+  <POU Name="FbScale" Id="{a2b4028f-95ff-41e7-9fa1-6fa5c50014a9}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FbScale
+VAR_INPUT
+	EN : BOOL;
+	Raw_In : REAL ; 
+	Raw_Min : REAL ;
+	Raw_Max  : REAL ;
+	Eng_Min : REAL ;
+	Eng_max : REAL ;
+END_VAR
+VAR_OUTPUT
+	ENO : BOOL ;
+	Eng_out : REAL ;
+END_VAR
+VAR
+	
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[Eng_out := (Raw_In - Raw_Min) * ((Eng_Max - Eng_Min) / (Raw_Max - Raw_Min)) + Eng_Min ;
+
+EN := ENO ;
+
+
+
+]]></ST>
+    </Implementation>
+    <LineIds Name="FbScale">
+      <LineId Id="9" Count="0" />
+      <LineId Id="39" Count="0" />
+      <LineId Id="38" Count="0" />
+      <LineId Id="40" Count="0" />
+      <LineId Id="37" Count="0" />
+      <LineId Id="32" Count="0" />
+      <LineId Id="34" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

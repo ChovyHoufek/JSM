@@ -41,6 +41,7 @@ EMS();
 Provozni_hodiny_new();
 Opotrebeni_pasu();
 Ofuk_brusu();
+AutomaticMessurment();
 
 (* Ulozeni persistentnich dat pri vypadku proudu *)
 UPS_fall_down(CLK:=Machine_Inputs.I_24V_UPS_ok);
@@ -110,6 +111,7 @@ END_IF
       <LineId Id="271" Count="0" />
       <LineId Id="192" Count="4" />
       <LineId Id="255" Count="0" />
+      <LineId Id="339" Count="0" />
       <LineId Id="197" Count="25" />
       <LineId Id="287" Count="34" />
       <LineId Id="60" Count="0" />

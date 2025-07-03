@@ -50,6 +50,10 @@
     "L_patka_priskok": "Distance pins/pad beginning",
     "L_vzdal_rolna_patka_odskok": "Distance pins/pad end",
     "L_help_typ_patky": "0-No pad, 1- elektromag, 2-fixed, 3-pneumatic",
-    "L_pass": "Geben Sie das Passwort für den Service ein"
+    "L_pass": "Geben Sie das Passwort für den Service ein",
+    "L_zdvih_min": "Mindesthöhe",
+    "L_max_zdvih": "maximale Höhe",
+    "L_zdvih_prejeti": "Überquerung des Tisches",
+    "L_korekce_prejeti_zdvihu": "Korrektur der Überfahrt"
   }
 }

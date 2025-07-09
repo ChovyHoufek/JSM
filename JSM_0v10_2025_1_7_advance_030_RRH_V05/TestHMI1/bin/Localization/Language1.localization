@@ -51,6 +51,14 @@
     "L_zdvih_min": "Minimální zdvih",
     "L_max_zdvih": "Maximální zdvih",
     "L_zdvih_prejeti": "Prejeti zdvihu",
-    "L_korekce_pozice_zdvihu": "Korekce přejetí"
+    "L_korekce_pozice_zdvihu": "Korekce přejetí",
+    "L_test_patky": "Start test segmentů",
+    "L_vsechny_patky": "Všechny patky",
+    "L_jednotlive_patky": "Jednotlivé patky",
+    "L_Page1": "Strana 1",
+    "L_Page2": "Strana 2",
+    "L_pocet_rolen": "Pocet rolen",
+    "L_korekce_prejeti_zdvihu": "Korekce prejeti",
+    "L_Menu_Patky": "Test Patek"
   }
 }

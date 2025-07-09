@@ -58,6 +58,7 @@
     "L_test_patky": "Testsegmente",
     "L_jednotlive_patky": "einzelne Füße",
     "L_vsechny_patky": "alle Füße",
-    "L_korekce_pozice_zdvihu": "Korektur der Überfahrt"
+    "L_korekce_pozice_zdvihu": "Korektur der Überfahrt",
+    "L_Menu_Patky": "Test Segment"
   }
 }

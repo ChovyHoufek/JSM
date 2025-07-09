@@ -30,8 +30,8 @@
     "Alm24": "Aggregate 3 right limit",
     "Alm25": "Aggregate 3 alarm belt pressure",
     "Alm26": "Aggregate 3 frequency changer error",
-    "Aml27": "Aggregate H left limit",
-    "Aml28": "Aggregate H right limit",
+    "Alm27": "Aggregate H left limit",
+    "Alm28": "Aggregate H right limit",
     "Alm29": "Aggregate H alarm belt pressure"
   }
 }

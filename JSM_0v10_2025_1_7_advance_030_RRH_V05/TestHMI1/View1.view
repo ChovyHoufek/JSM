@@ -984,7 +984,7 @@
     ]
   },
   {
-    "name": "Test Patek",
+    "name": "%l%L_Menu_Patky%/l%",
     "content": "Pages/Test_patek.content",
     "icon_a": "Images/Vlastni/icon_druckbalken_tabelle_2.png",
     "icon_n": "Images/Vlastni/icon_druckbalken_tabelle_2.png",

@@ -47,6 +47,24 @@
       "DesignAreaPosition": "Left",
       "CodeAreaPosition": "Right",
       "SplitPercentage": 0.5
+    },
+    {
+      "Path": "Pages\\Test_patek.content",
+      "DesignAreaSplitSize": "Full",
+      "CodeAreaSplitSize": "Minimized",
+      "Orientation": "Horizontal",
+      "DesignAreaPosition": "Left",
+      "CodeAreaPosition": "Right",
+      "SplitPercentage": 1.0024896265560166
+    },
+    {
+      "Path": "Pages\\StartPage.content",
+      "DesignAreaSplitSize": "Full",
+      "CodeAreaSplitSize": "Minimized",
+      "Orientation": "Horizontal",
+      "DesignAreaPosition": "Left",
+      "CodeAreaPosition": "Right",
+      "SplitPercentage": 0.5
     }
   ]
 }</TcHmiEditor_SplitAreaStates>
@@ -72,7 +90,10 @@
   65.0
 ]</TcHmiEditor_SelectBindingWindowColumnWidths_m_SymbolInternalTree>
     <TcHmiEditor_SelectBindingWindowColumnWidths_m_symbolLocalizedTree>[
-  300.0
+  300.0,
+  100.0,
+  100.0,
+  100.0
 ]</TcHmiEditor_SelectBindingWindowColumnWidths_m_symbolLocalizedTree>
     <TcHmiEditor_SelectBindingWindowColumnWidths_m_extensionLocalizationsTree>[
   300.0

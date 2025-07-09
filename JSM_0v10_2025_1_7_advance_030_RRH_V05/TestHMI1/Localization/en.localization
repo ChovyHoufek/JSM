@@ -58,6 +58,7 @@
     "L_test_patky": "Pads test",
     "L_vsechny_patky": "All pads",
     "L_jednotlive_patky": "Single pad",
-    "L_korekce_prejeti_zdvihu": "Correction of height"
+    "L_korekce_prejeti_zdvihu": "Correction of height",
+    "L_Menu_Patky": "Test segments"
   }
 }

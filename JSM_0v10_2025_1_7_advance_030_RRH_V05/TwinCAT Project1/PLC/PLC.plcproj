@@ -72,6 +72,9 @@
     <Compile Include="POUs\AutomaticMessurment.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\AutomaticMessurmentV1.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\Blikatko.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -105,6 +108,9 @@
     <Compile Include="POUs\Start_stroje.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\VsechnyPatkyVen.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\Vycitani_behu_pasu.TcPOU">
       <SubType>Code</SubType>
     </Compile>
@@ -112,6 +118,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\Zdvih_stolu.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\ZkouskaPatek.TcPOU">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

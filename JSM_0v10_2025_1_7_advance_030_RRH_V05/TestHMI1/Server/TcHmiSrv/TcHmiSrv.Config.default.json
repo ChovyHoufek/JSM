@@ -4688,6 +4688,16 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.HMI_prom.UI_Start_patky_ven": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::HMI_prom::UI_Start_patky_ven",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.HMI_prom.UI_Start_podav_pasu": {
             "ACCESS": 3,
             "DOMAIN": "ADS",
@@ -4695,6 +4705,23 @@
             "MAPPING": "PLC1::HMI_prom::UI_Start_podav_pasu",
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.HMI_prom.UI_Start_test_segment": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::HMI_prom::UI_Start_test_segment",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/BOOL"
+                    },
+                    {
+                        "comment": "Test patek"
+                    }
+                ]
             },
             "USEMAPPING": true
         },
@@ -4722,6 +4749,16 @@
                         "comment": "pridany tag pro vypnuti HMI"
                     }
                 ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.HMI_prom.UI_Test_patek": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::HMI_prom::UI_Test_patek",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
             },
             "USEMAPPING": true
         },
@@ -4846,6 +4883,16 @@
             "MAPPING": "PLC1::HMI_prom::UI_Tlac_extra_sensor_RIGHT_PLUS",
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/BOOL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.HMI_prom.UI_Tlak_test": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::HMI_prom::UI_Tlak_test",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/INT"
             },
             "USEMAPPING": true
         },
@@ -7775,9 +7822,12 @@
                 "PLC1.HMI_prom.UI_Start_agregat3": 3,
                 "PLC1.HMI_prom.UI_Start_ofuku_dilce": 3,
                 "PLC1.HMI_prom.UI_Start_osvetleni": 3,
+                "PLC1.HMI_prom.UI_Start_patky_ven": 3,
                 "PLC1.HMI_prom.UI_Start_podav_pasu": 3,
+                "PLC1.HMI_prom.UI_Start_test_segment": 3,
                 "PLC1.HMI_prom.UI_Start_vakuove_pumpy": 3,
                 "PLC1.HMI_prom.UI_Start_vypnuti_HMI": 3,
+                "PLC1.HMI_prom.UI_Test_patek": 3,
                 "PLC1.HMI_prom.UI_Tlac_KalibZdvihu_start": 3,
                 "PLC1.HMI_prom.UI_Tlac_Reset_opotrebeni_pasu": 3,
                 "PLC1.HMI_prom.UI_Tlac_Reset_opotrebeni_pasu_Agreg1": 3,
@@ -7789,6 +7839,7 @@
                 "PLC1.HMI_prom.UI_Tlac_extra_sensor_LEFT_PLUS": 3,
                 "PLC1.HMI_prom.UI_Tlac_extra_sensor_RIGHT_MINUS": 3,
                 "PLC1.HMI_prom.UI_Tlac_extra_sensor_RIGHT_PLUS": 3,
+                "PLC1.HMI_prom.UI_Tlak_test": 3,
                 "PLC1.HMI_prom.UI_aktual_rychlost_podav_pas": 3,
                 "PLC1.HMI_prom.UI_aktualni_hodnota_zdvihu": 3,
                 "PLC1.HMI_prom.UI_extra_tlak_CA": 3,

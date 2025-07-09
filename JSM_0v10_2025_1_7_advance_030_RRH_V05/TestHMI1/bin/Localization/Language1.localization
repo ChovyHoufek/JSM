@@ -47,6 +47,10 @@
     "L_patka_priskok": "Vzdálenost rolen a patky",
     "L_vzdal_rolna_patka_odskok": "Vzdálenost rolna patka odskok",
     "L_help_typ_patky": "0- bez patky, 1-elektromag, 2-pevná, 3-pneumatická",
-    "L_pass": "Zadej heslo pro servis"
+    "L_pass": "Zadej heslo pro servis",
+    "L_zdvih_min": "Minimální zdvih",
+    "L_max_zdvih": "Maximální zdvih",
+    "L_zdvih_prejeti": "Prejeti zdvihu",
+    "L_korekce_pozice_zdvihu": "Korekce přejetí"
   }
 }

@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.15">
+  <POU Name="ZkouskaPatek" Id="{b9e7249d-2d11-4c05-98b8-1bd4741dab44}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM ZkouskaPatek
+VAR CONSTANT
+    SENSOR_COUNT : INT := 54; (* Adjust as needed *)
+    PADS_COUNT : INT := 27; (* Adjust as needed *)
+	MEMORY_LENGTH : UDINT := 10; 
+END_VAR
+
+VAR
+    casovac : TON;
+    stepCounter : INT := 0;
+    enableTimers : BOOL;
+	
+	
+END_VAR
+
+
+VAR_TEMP
+    i, j                        : INT;  // iterators
+	reset : BOOL;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[IF  HMI_prom.UI_Start_test_segment= FALSE THEN 
+	 HMI_prom.UI_Test_patek  := FALSE ;
+END_IF
+
+IF NOT HMI_prom.UI_Start_patky_ven AND HMI_prom.UI_Test_patek AND HMI_prom.UI_Start_test_segment  THEN 
+
+// Aktivace podle HMI a bez RESETu
+enableTimers := HMI_prom.UI_Test_patek AND HMI_prom.UI_Start_test_segment AND NOT RESET AND NOT HMI_prom.UI_Start_patky_ven;
+
+// Spuštění časovače
+casovac(IN := enableTimers, PT := T#1S);
+
+	
+// Po doběhnutí časovače
+
+	
+// Povoleni patek
+
+	IF NOT Machine_Intern.M_Stroj_zapnuty THEN 
+		Machine_outputs.Q_patka_enable:=TRUE;
+	END_IF
+	
+	IF casovac.Q THEN
+		casovac(IN := FALSE); // Zastavení, aby se znovu restartoval
+		stepCounter := stepCounter + 1;
+	END_IF
+
+	// Výstupy segmentů
+	FOR i := 1 TO HMI_prom.HMI_param_stroje.Stp_Patka.Pocet_segmentu_patky   DO
+		IF i = stepCounter THEN
+			Machine_outputs.Q_segmenty_patky[i] := 32767;
+		ELSIF i = stepCounter - 2 THEN // o 2 kroky zpět, protože aktivace je se zpožděním
+			Machine_outputs.Q_segmenty_patky[i] := 0;
+		END_IF
+	END_FOR
+	
+	// Pokud stepCounter překročí 28, ukončíme a resetujeme
+	IF stepCounter > HMI_prom.HMI_param_stroje.Stp_Patka.Pocet_segmentu_patky THEN
+		FOR i := 1 TO HMI_prom.HMI_param_stroje.Stp_Patka.Pocet_segmentu_patky DO
+			Machine_outputs.Q_segmenty_patky[i] := 0;
+		END_FOR
+	
+		stepCounter := 0;
+		RESET := TRUE;
+	END_IF
+	
+
+
+END_IF
+
+	IF HMI_prom.UI_Test_patek = FALSE THEN 
+		stepCounter := 0;
+		RESET := TRUE;
+	END_IF]]></ST>
+    </Implementation>
+    <LineIds Name="ZkouskaPatek">
+      <LineId Id="458" Count="0" />
+      <LineId Id="460" Count="1" />
+      <LineId Id="459" Count="0" />
+      <LineId Id="432" Count="1" />
+      <LineId Id="381" Count="5" />
+      <LineId Id="415" Count="0" />
+      <LineId Id="387" Count="0" />
+      <LineId Id="410" Count="0" />
+      <LineId Id="426" Count="0" />
+      <LineId Id="428" Count="3" />
+      <LineId Id="427" Count="0" />
+      <LineId Id="425" Count="0" />
+      <LineId Id="388" Count="21" />
+      <LineId Id="293" Count="0" />
+      <LineId Id="418" Count="0" />
+      <LineId Id="420" Count="0" />
+      <LineId Id="424" Count="0" />
+      <LineId Id="423" Count="0" />
+      <LineId Id="435" Count="3" />
+      <LineId Id="434" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

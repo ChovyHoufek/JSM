@@ -110,8 +110,8 @@
 			<Licenses CacheOrCheckLicensesOnStartup="true">
 				<Target>
 					<ManualSelect>{796D380F-D49E-4C0C-A05F-500052FAC883}</ManualSelect>
-					<TargetSelect TargetId="2">{66689887-CCBD-452C-AC9A-039D997C6E66}</TargetSelect>
 					<TargetSelect TargetId="2">{796D380F-D49E-4C0C-A05F-500052FAC883}</TargetSelect>
+					<TargetSelect TargetId="2">{66689887-CCBD-452C-AC9A-039D997C6E66}</TargetSelect>
 					<LicenseDevice Disabled="true" DongleHardwareId="2" DongleDevice="#x03020002" DongleLevel="90" DongleSerialNumber="000bsssd"/>
 				</Target>
 			</Licenses>
@@ -123,25 +123,11 @@
 		</System>
 		<Plc>
 			<Project GUID="{BD882BC8-1962-4ABA-A609-947E1695B440}" Name="PLC" PrjFilePath="PLC\PLC.plcproj" TmcFilePath="PLC\PLC.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="PLC\PLC.tmc" TmcHash="{DA12EB8E-4110-7A33-8172-E5C0DB4FB2E1}">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="PLC\PLC.tmc" TmcHash="{F331A07A-AF5C-ACE2-E041-80E5E35D8679}">
 					<Name>PLC Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="1">
 						<Name>PlcTask Inputs</Name>
-						<Var>
-							<Name>Machine_Inputs.I_Napnuti_pasu_agregatuH</Name>
-							<Comment><![CDATA[ napinani agregatu H ]]></Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>Machine_Inputs.I_Krajni_poloha_pasuH_vpravo</Name>
-							<Comment><![CDATA[krajni poloha agregatu H]]></Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>Machine_Inputs.I_Krajni_poloha_pasuH_vlevo</Name>
-							<Type>BOOL</Type>
-						</Var>
 						<Var>
 							<Name>Machine_Inputs.I_Nouzove_zastaveni_ok</Name>
 							<Comment><![CDATA[kontrola pro alarmy]]></Comment>
@@ -250,6 +236,11 @@
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
+							<Name>Machine_Inputs.I_Napnuti_pasu_agregatuH</Name>
+							<Comment><![CDATA[ napinani agregatu H ]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
 							<Name>Machine_Inputs.I_Krajni_poloha_pasu1_vlevo</Name>
 							<Comment><![CDATA[krajni poloha]]></Comment>
 							<Type>BOOL</Type>
@@ -272,6 +263,15 @@
 						</Var>
 						<Var>
 							<Name>Machine_Inputs.I_Krajni_poloha_pasu3_vpravo</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>Machine_Inputs.I_Krajni_poloha_pasuH_vpravo</Name>
+							<Comment><![CDATA[krajni poloha agregatu H]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>Machine_Inputs.I_Krajni_poloha_pasuH_vlevo</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
@@ -391,11 +391,6 @@
 					<Vars VarGrpType="2" AreaNo="1">
 						<Name>PlcTask Outputs</Name>
 						<Var>
-							<Name>Machine_outputs.Q_agregatH_oscilace</Name>
-							<Comment><![CDATA[ pridani vystupu pro agergat H ]]></Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
 							<Name>Machine_outputs.Q_Dvere_agregat1_otevrit</Name>
 							<Type>BOOL</Type>
 						</Var>
@@ -410,6 +405,11 @@
 						</Var>
 						<Var>
 							<Name>Machine_outputs.Q_oscilace_agregat3</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>Machine_outputs.Q_agregatH_oscilace</Name>
+							<Comment><![CDATA[ pridani vystupu pro agergat H ]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
@@ -435,13 +435,13 @@
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>Machine_outputs.Q_segmenty_patky</Name>
-							<Type GUID="{08224C19-9828-C3D2-A728-14626B7FED65}">ARRAY [1..27] OF INT</Type>
-						</Var>
-						<Var>
 							<Name>Machine_outputs.Q_majak_red</Name>
 							<Comment><![CDATA[majak]]></Comment>
 							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>Machine_outputs.Q_segmenty_patky</Name>
+							<Type GUID="{08224C19-9828-C3D2-A728-14626B7FED65}">ARRAY [1..27] OF INT</Type>
 						</Var>
 						<Var>
 							<Name>Machine_outputs.Q_majak_green</Name>
@@ -548,6 +548,10 @@
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
+							<Name>Machine_outputs.Q_patka_enable</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
 							<Name>Machine_outputs.Q_zdvih_stul_setvalue</Name>
 							<Type>UDINT</Type>
 						</Var>
@@ -592,10 +596,6 @@
 						<Var>
 							<Name>Machine_outputs.Q_agregPodPas_command</Name>
 							<Type>UINT</Type>
-						</Var>
-						<Var>
-							<Name>Machine_outputs.Q_patka_enable</Name>
-							<Type>BOOL</Type>
 						</Var>
 					</Vars>
 					<UnrestoredVarLinks ImportTime="2025-01-21T15:00:06">

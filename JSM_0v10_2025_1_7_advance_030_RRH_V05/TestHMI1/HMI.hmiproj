@@ -444,6 +444,9 @@
     <Content Include="Pages\Setup.content">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Pages\Test_patek.content">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Server\TcHmiAlarm\TcHmiAlarm.Config.default.json">
       <SubType>Content</SubType>
     </Content>

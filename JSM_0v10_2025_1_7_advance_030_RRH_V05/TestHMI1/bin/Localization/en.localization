@@ -50,6 +50,10 @@
     "L_patka_priskok": "Distance input pins to pad begin",
     "L_vzdal_rolna_patka_odskok": "Distance input pins to pad end",
     "L_help_typ_patky": "0-No pad, 1- elektromag, 2-fixed, 3-pneumatic",
-    "L_pass": "Typre servis password"
+    "L_pass": "Typre servis password",
+    "L_zdvih_min": "Minimal height",
+    "L_max_zdvih": "Maximal height",
+    "L_zdvih_prejeti": "Overshoot",
+    "L_korekce_pozice_zdvihu": "Overshoot corection"
   }
 }

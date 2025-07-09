@@ -54,6 +54,10 @@
     "L_zdvih_min": "Minimal height",
     "L_max_zdvih": "Maximal height",
     "L_zdvih_prejeti": "Overshoot",
-    "L_korekce_pozice_zdvihu": "Overshoot corection"
+    "L_korekce_pozice_zdvihu": "Overshoot corection",
+    "L_test_patky": "Pads test",
+    "L_vsechny_patky": "All pads",
+    "L_jednotlive_patky": "Single pad",
+    "L_korekce_prejeti_zdvihu": "Correction of height"
   }
 }

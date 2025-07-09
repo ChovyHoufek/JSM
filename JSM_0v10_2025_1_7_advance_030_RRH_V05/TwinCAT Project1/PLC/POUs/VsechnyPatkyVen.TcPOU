@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.15">
+  <POU Name="VsechnyPatkyVen" Id="{72be618b-bba9-4ef9-bd18-d49b5e8f3a5f}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM VsechnyPatkyVen
+
+VAR CONSTANT
+    SENSOR_COUNT : INT := 54; (* Adjust as needed *)
+    PADS_COUNT : INT := 27; (* Adjust as needed *)
+	MEMORY_LENGTH : UDINT := 10; 
+END_VAR
+
+VAR
+	bPatkyVen : BOOL ;
+	
+	// INTERNAL
+    sensors_state_out_normal : ARRAY[0..SENSOR_COUNT-1] OF INT := [0];
+	sensors_state_out_extra : ARRAY[0..SENSOR_COUNT-1] OF INT := [0];
+    sensors_state_out : ARRAY[0..SENSOR_COUNT-1] OF BOOL := [FALSE];
+	
+	
+	// OUTPUT
+	pads_state : ARRAY[0..PADS_COUNT-1] OF INT;  // number of sensors per pad 0,1 or 2
+	pads_out : ARRAY[0..PADS_COUNT-1] OF INT;	 // pads in percent of force
+	pads_state_1 : ARRAY [0..PADS_COUNT-1] OF INT;  // pole pro odebrani jedne rolny / vyrovnani tlaku na 50 procent
+	
+	// casovac
+	
+	CasovacPatka : TOF ;
+	CasovacBlok : TOF ;
+	bRtrig : R_TRIG ;
+	bFtrig : F_TRIG ;
+	
+	// konstantz pro test
+	iTlakProTest : INT ;
+	
+	
+	
+END_VAR
+
+VAR_TEMP
+    i, j                        : INT;  // iterators
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+IF HMI_prom.UI_Start_test_segment = FALSE THEN
+	HMI_prom.UI_Start_patky_ven := FALSE ;
+END_IF
+
+IF HMI_prom.UI_Start_test_segment AND NOT Machine_Intern.M_Stroj_zapnuty  THEN
+	
+
+
+		// detekce naběžné hrany
+		bRtrig (CLK := HMI_prom.UI_Start_patky_ven AND HMI_prom.UI_Start_test_segment);
+	// casovace
+	CasovacPatka(IN:=bRtrig.Q AND NOT CasovacBlok.Q, PT:= T#10S, Q=> , ET=> );
+	
+CasovacBlok(IN:= bRtrig.Q = TRUE, PT := T#20S, Q=> , ET=> );
+	
+			// nastaveni tlaku pro test
+			
+		IF HMI_prom.UI_Start_patky_ven = TRUE THEN
+			iTlakProTest :=HMI_prom.UI_Tlak_test ;
+			ELSE
+			iTlakProTest :=0;
+		END_IF
+		
+
+			// povoleni bo zakazani patky
+			IF CasovacPatka.Q = FALSE THEN 
+				HMI_prom.UI_Start_patky_ven := FALSE ;
+			END_IF
+		
+
+	IF HMI_prom.UI_Start_test_segment = TRUE AND HMI_prom.UI_Start_patky_ven = TRUE AND  CasovacPatka.Q = TRUE AND CasovacBlok.Q = TRUE AND NOT Machine_Intern.M_Stroj_zapnuty AND NOT HMI_prom.UI_Test_patek THEN 
+			IF NOT Machine_Intern.M_Stroj_zapnuty THEN
+			Machine_outputs.Q_patka_enable:=TRUE;
+			END_IF
+			
+
+		// vyhodnoceni pole
+		FOR i := 0 TO PADS_COUNT-1 DO
+			IF (pads_state[i] = 0) THEN
+				pads_state [i] := 2;   
+			END_IF	
+			pads_out [i] := pads_state[i] *50 ;
+		END_FOR
+
+		// prevedeni rolen do patek
+		FOR i := 0 TO PADS_COUNT-1 DO
+			pads_state[i] := BOOL_TO_INT(sensors_state_out[i * 2]) + BOOL_TO_INT(sensors_state_out[i * 2 + 1]);
+			pads_state[i] := pads_state[i];
+		END_FOR
+
+
+
+
+		// Output pad states in Amps
+		
+		FOR i := 0 TO PADS_COUNT-1 DO
+			pads_out[i]:= iTlakProTest * pads_out[i] / 100;
+			
+			// Convert to amps
+			Machine_outputs.Q_segmenty_patky[i+1]:= DINT_TO_INT(MIN(32767, MAX(0, INT_TO_DINT(pads_out[i]) * 32767 / 100)));
+		END_FOR
+
+	END_IF
+			
+
+END_IF
+]]></ST>
+    </Implementation>
+    <LineIds Name="VsechnyPatkyVen">
+      <LineId Id="103" Count="0" />
+      <LineId Id="299" Count="0" />
+      <LineId Id="330" Count="1" />
+      <LineId Id="221" Count="0" />
+      <LineId Id="184" Count="0" />
+      <LineId Id="319" Count="1" />
+      <LineId Id="303" Count="0" />
+      <LineId Id="309" Count="4" />
+      <LineId Id="304" Count="0" />
+      <LineId Id="222" Count="0" />
+      <LineId Id="322" Count="7" />
+      <LineId Id="332" Count="3" />
+      <LineId Id="321" Count="0" />
+      <LineId Id="336" Count="0" />
+      <LineId Id="42" Count="1" />
+      <LineId Id="133" Count="1" />
+      <LineId Id="131" Count="0" />
+      <LineId Id="234" Count="0" />
+      <LineId Id="45" Count="7" />
+      <LineId Id="136" Count="4" />
+      <LineId Id="126" Count="0" />
+      <LineId Id="121" Count="0" />
+      <LineId Id="125" Count="0" />
+      <LineId Id="120" Count="0" />
+      <LineId Id="69" Count="1" />
+      <LineId Id="250" Count="0" />
+      <LineId Id="72" Count="7" />
+      <LineId Id="230" Count="0" />
+      <LineId Id="223" Count="0" />
+      <LineId Id="99" Count="0" />
+      <LineId Id="81" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

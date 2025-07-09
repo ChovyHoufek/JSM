@@ -69,6 +69,14 @@ UI_EMS_Belt_active : BOOL ;
 UI_Vyska_zdvihu_stolu_mm:REAL;
 UI_Start_ofuku_dilce:BOOL;
 
+// Test patek 
+
+UI_Start_test_segment : BOOL ;
+UI_Start_patky_ven : BOOL ;
+UI_Tlak_test : INT ;
+
+UI_Test_patek : BOOL ;
+
 UI_Porovozni_hodiny_stroje_stroj_zapnut_MS_sek,UI_Porovozni_hodiny_stroje_stroj_zapnut_MS_min,UI_Porovozni_hodiny_stroje_stroj_zapnut_MS_hod,UI_Porovozni_hodiny_stroje_stroj_zapnut_MS_dny:INT;
 UI_Porovozni_hodiny_stroje_stroj_zapnut_sek,UI_Porovozni_hodiny_stroje_stroj_zapnut_min,UI_Porovozni_hodiny_stroje_stroj_zapnut_hod,UI_Porovozni_hodiny_stroje_stroj_zapnut_dny:INT;
 UI_Porovozni_hodiny_stroje_stroj_brousi_sek,UI_Porovozni_hodiny_stroje_stroj_brousi_min,UI_Porovozni_hodiny_stroje_stroj_brousi_hod,UI_Porovozni_hodiny_stroje_stroj_brousi_dny:INT;

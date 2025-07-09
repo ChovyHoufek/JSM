@@ -982,6 +982,30 @@
         "permission": "Allow"
       }
     ]
+  },
+  {
+    "name": "Test Patek",
+    "content": "Pages/Test_patek.content",
+    "icon_a": "Images/Vlastni/icon_druckbalken_tabelle_2.png",
+    "icon_n": "Images/Vlastni/icon_druckbalken_tabelle_2.png",
+    "icon_p": "Images/Vlastni/icon_druckbalken_tabelle_2.png",
+    "accessRights": [
+      {
+        "accessright": "observe",
+        "group": "Srv",
+        "permission": "Allow"
+      },
+      {
+        "accessright": "observe",
+        "group": "Adjuster",
+        "permission": "Allow"
+      },
+      {
+        "accessright": "observe",
+        "group": "op",
+        "permission": "Deny"
+      }
+    ]
   }
 ]
 </script>

@@ -59,6 +59,7 @@
     "L_jednotlive_patky": "einzelne Füße",
     "L_vsechny_patky": "alle Füße",
     "L_korekce_pozice_zdvihu": "Korektur der Überfahrt",
-    "L_Menu_Patky": "Test Segment"
+    "L_Menu_Patky": "Test Segment",
+    "L_HMI_off": "HMI schließen"
   }
 }

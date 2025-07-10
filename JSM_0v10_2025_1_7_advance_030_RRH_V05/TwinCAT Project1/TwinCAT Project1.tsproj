@@ -123,7 +123,7 @@
 		</System>
 		<Plc>
 			<Project GUID="{BD882BC8-1962-4ABA-A609-947E1695B440}" Name="PLC" PrjFilePath="PLC\PLC.plcproj" TmcFilePath="PLC\PLC.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="PLC\PLC.tmc" TmcHash="{44BEF151-B7D1-A375-D955-FC8BCCE3A1FD}">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="PLC\PLC.tmc" TmcHash="{98523507-D8EE-A3F9-EF0B-73941893556C}">
 					<Name>PLC Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="1">
@@ -236,11 +236,6 @@
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>Machine_Inputs.I_Napnuti_pasu_agregatuH</Name>
-							<Comment><![CDATA[ napinani agregatu H ]]></Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
 							<Name>Machine_Inputs.I_Krajni_poloha_pasu1_vlevo</Name>
 							<Comment><![CDATA[krajni poloha]]></Comment>
 							<Type>BOOL</Type>
@@ -263,15 +258,6 @@
 						</Var>
 						<Var>
 							<Name>Machine_Inputs.I_Krajni_poloha_pasu3_vpravo</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>Machine_Inputs.I_Krajni_poloha_pasuH_vpravo</Name>
-							<Comment><![CDATA[krajni poloha agregatu H]]></Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>Machine_Inputs.I_Krajni_poloha_pasuH_vlevo</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
@@ -308,15 +294,6 @@
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>Machine_Inputs.I_zdvih_stul_impulsy</Name>
-							<Comment><![CDATA[ Impulsy]]></Comment>
-							<Type>DINT</Type>
-						</Var>
-						<Var>
-							<Name>Machine_Inputs.I_imp_otacek_pod_pasu</Name>
-							<Type>UDINT</Type>
-						</Var>
-						<Var>
 							<Name>Machine_Inputs.I_obrobek_ve_stroji</Name>
 							<Type>BOOL</Type>
 						</Var>
@@ -324,6 +301,15 @@
 							<Name>Machine_Inputs.I_pojistka_chlazeni_rozvadece1_ok</Name>
 							<Comment><![CDATA[JIstice / Pojistky]]></Comment>
 							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>Machine_Inputs.I_zdvih_stul_impulsy</Name>
+							<Comment><![CDATA[ Impulsy]]></Comment>
+							<Type>DINT</Type>
+						</Var>
+						<Var>
+							<Name>Machine_Inputs.I_imp_otacek_pod_pasu</Name>
+							<Type>UDINT</Type>
 						</Var>
 						<Var>
 							<Name>Machine_Inputs.I_pojistka_chlazeni_rozvadece2_ok</Name>
@@ -387,6 +373,20 @@
 							<Name>Machine_Inputs.I_Posuv_pas_frekv_menic_status_word</Name>
 							<Type>UINT</Type>
 						</Var>
+						<Var>
+							<Name>Machine_Inputs.I_Napnuti_pasu_agregatuH</Name>
+							<Comment><![CDATA[ napinani agregatu H ]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>Machine_Inputs.I_Krajni_poloha_pasuH_vpravo</Name>
+							<Comment><![CDATA[krajni poloha agregatu H]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>Machine_Inputs.I_Krajni_poloha_pasuH_vlevo</Name>
+							<Type>BOOL</Type>
+						</Var>
 					</Vars>
 					<Vars VarGrpType="2" AreaNo="1">
 						<Name>PlcTask Outputs</Name>
@@ -405,11 +405,6 @@
 						</Var>
 						<Var>
 							<Name>Machine_outputs.Q_oscilace_agregat3</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>Machine_outputs.Q_agregatH_oscilace</Name>
-							<Comment><![CDATA[ pridani vystupu pro agergat H ]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
@@ -544,14 +539,6 @@
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>Machine_outputs.Q_pulsy_pod_pas_writevalue</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>Machine_outputs.Q_patka_enable</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
 							<Name>Machine_outputs.Q_zdvih_stul_setvalue</Name>
 							<Type>UDINT</Type>
 						</Var>
@@ -560,13 +547,21 @@
 							<Type GUID="{37DF1FA7-25A9-2180-5625-C9B3B7C20643}">ARRAY [0..15] OF BOOL</Type>
 						</Var>
 						<Var>
-							<Name>Machine_outputs.Q_pulsy_pod_pas_stul_setvalue</Name>
-							<Type>UDINT</Type>
+							<Name>Machine_outputs.Q_pulsy_pod_pas_writevalue</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>Machine_outputs.Q_patka_enable</Name>
+							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>Machine_outputs.Q_vystup_otacky_agreg1</Name>
 							<Comment><![CDATA[otacky]]></Comment>
 							<Type>INT</Type>
+						</Var>
+						<Var>
+							<Name>Machine_outputs.Q_pulsy_pod_pas_stul_setvalue</Name>
+							<Type>UDINT</Type>
 						</Var>
 						<Var>
 							<Name>Machine_outputs.Q_vystup_otacky_agreg2</Name>
@@ -596,6 +591,11 @@
 						<Var>
 							<Name>Machine_outputs.Q_agregPodPas_command</Name>
 							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>Machine_outputs.Q_agregatH_oscilace</Name>
+							<Comment><![CDATA[ pridani vystupu pro agergat H ]]></Comment>
+							<Type>BOOL</Type>
 						</Var>
 					</Vars>
 					<UnrestoredVarLinks ImportTime="2025-01-21T15:00:06">

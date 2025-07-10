@@ -10,7 +10,7 @@
       "Orientation": "Horizontal",
       "DesignAreaPosition": "Left",
       "CodeAreaPosition": "Right",
-      "SplitPercentage": 0.5
+      "SplitPercentage": 1.0029585798816567
     },
     {
       "Path": "Pages\\Houfek_Setup.content",
@@ -50,15 +50,6 @@
     },
     {
       "Path": "Pages\\Test_patek.content",
-      "DesignAreaSplitSize": "Full",
-      "CodeAreaSplitSize": "Minimized",
-      "Orientation": "Horizontal",
-      "DesignAreaPosition": "Left",
-      "CodeAreaPosition": "Right",
-      "SplitPercentage": 1.0024896265560166
-    },
-    {
-      "Path": "Pages\\StartPage.content",
       "DesignAreaSplitSize": "Full",
       "CodeAreaSplitSize": "Minimized",
       "Orientation": "Horizontal",

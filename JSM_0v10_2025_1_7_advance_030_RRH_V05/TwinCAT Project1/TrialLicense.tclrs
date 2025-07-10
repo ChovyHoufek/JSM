@@ -2,14 +2,9 @@
 <TcLicenseInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2011/11/TcLicenseInfo">
 	<LicenseInfo>
 		<SystemId>{4B7E3774-D351-6BB3-2CD0-1F93B019B744}</SystemId>
-		<IssueTime>2025-07-02T06:02:00</IssueTime>
-		<ExpireTime>2025-07-10T00:00:00</ExpireTime>
-		<LicenseKey>28449fea31e9203b43ebef6951c27fb83ddb274edd432d72e5ae208f33e7b1f9ca6acf7eaf5731e56e42a8239b6f63d6ce33cd3fb9d586a8288ea7fde646ddca55d26151f944bc103e3be26b64ee724c30d87505d4bd7d78d935b1030ee4909006c4300d4c372215f03da9c361a2f9c725f3b2bec04b2219529521d9e009df4a382573fa73936c92ea7f7ea0f2ac117637874e6faa254c7e2603f36bac6f810bc0220343580342720d557faeb4eb4d1a19333f83b595363b8ee9f0c9e66014b782d7c15d717929f8b2402313ede60d0e4d5f434c0f51492c94948c55083a7cc0e6438602b8035935648b558fe156a59e06dbdcecb0ad07c16db3039d24364822</LicenseKey>
-		<License>
-			<LicenseId>{461F547B-9F81-4C4D-8BE6-01F8B3B14C86}</LicenseId>
-			<Name>TC3 Building Automation Basic</Name>
-			<OrderNo>TF8010</OrderNo>
-		</License>
+		<IssueTime>2025-07-10T05:16:00</IssueTime>
+		<ExpireTime>2025-07-18T00:00:00</ExpireTime>
+		<LicenseKey>f7fbaf5689a07acfc800263433943c389482baed3d20c9d6dd37cba333886edff6047f9b372f2f7831469da861bb94d9729be39e8cc9efff7976888ba7dafb980a4afb86bc77b4e2f7cbb3953f85b214f5b1c6555a728a5eb9ca2ae11c68fc0ab590d86c02990db9f8e5739f367a46a942f9e9f21c1ea0233730a19f80f1852e3102704746de13f1c34fb097ae6e4f495c4eabcfe381bdae0291947c2220e9c01a3e923ec5d5924ae3f7ec7f36c191f57d4d280a1398bbf4e690e86448cb0ab25f0d1533c19651cbf071065c7468db364d8cb6a6482ccc2bf2520507685d028fa78859888a8efd8dc3d1babd972870bfa144c166d2ea80f69c963d0271163721</LicenseKey>
 		<License>
 			<LicenseId>{4C256767-E6E6-4AF5-BD68-9F7ABAD0C200}</LicenseId>
 			<Name>TC3 ADS</Name>
@@ -24,6 +19,11 @@
 			<LicenseId>{66689887-CCBD-452C-AC9A-039D997C6E66}</LicenseId>
 			<Name>TC3 PLC</Name>
 			<OrderNo>TC1200</OrderNo>
+		</License>
+		<License>
+			<LicenseId>{461F547B-9F81-4C4D-8BE6-01F8B3B14C86}</LicenseId>
+			<Name>TC3 Building Automation Basic</Name>
+			<OrderNo>TF8010</OrderNo>
 		</License>
 		<License>
 			<LicenseId>{37E5160D-987B-4640-888D-0F97727B53E2}</LicenseId>

@@ -47,16 +47,16 @@ IF HMI_prom.UI_Start_test_segment = FALSE THEN
 	HMI_prom.UI_Start_patky_ven := FALSE ;
 END_IF
 
-IF HMI_prom.UI_Start_test_segment AND NOT Machine_Intern.M_Stroj_zapnuty  THEN
+IF HMI_prom.UI_Start_test_segment AND Machine_Intern.M_Stroj_zapnuty  AND NOT HMI_prom.UI_Start_podav_pasu AND NOT HMI_prom.UI_Start_agregat2  THEN
 	
 
 
 		// detekce naběžné hrany
 		bRtrig (CLK := HMI_prom.UI_Start_patky_ven AND HMI_prom.UI_Start_test_segment);
 	// casovace
-	CasovacPatka(IN:=bRtrig.Q AND NOT CasovacBlok.Q, PT:= T#10S, Q=> , ET=> );
+	CasovacPatka(IN:=bRtrig.Q AND NOT CasovacBlok.Q, PT:= T#300S, Q=> , ET=> );
 	
-CasovacBlok(IN:= bRtrig.Q = TRUE, PT := T#20S, Q=> , ET=> );
+CasovacBlok(IN:= bRtrig.Q = TRUE, PT := T#600S, Q=> , ET=> );
 	
 			// nastaveni tlaku pro test
 			
@@ -73,8 +73,8 @@ CasovacBlok(IN:= bRtrig.Q = TRUE, PT := T#20S, Q=> , ET=> );
 			END_IF
 		
 
-	IF HMI_prom.UI_Start_test_segment = TRUE AND HMI_prom.UI_Start_patky_ven = TRUE AND  CasovacPatka.Q = TRUE AND CasovacBlok.Q = TRUE AND NOT Machine_Intern.M_Stroj_zapnuty AND NOT HMI_prom.UI_Test_patek THEN 
-			IF NOT Machine_Intern.M_Stroj_zapnuty THEN
+	IF HMI_prom.UI_Start_test_segment = TRUE AND HMI_prom.UI_Start_patky_ven = TRUE AND  CasovacPatka.Q = TRUE AND CasovacBlok.Q = TRUE AND Machine_Intern.M_Stroj_zapnuty AND NOT HMI_prom.UI_Test_patek THEN 
+			IF NOT Machine_Intern.M_Stroj_zapnuty AND HMI_prom.UI_Start_patky_ven THEN
 			Machine_outputs.Q_patka_enable:=TRUE;
 			END_IF
 			
@@ -112,36 +112,7 @@ END_IF
 ]]></ST>
     </Implementation>
     <LineIds Name="VsechnyPatkyVen">
-      <LineId Id="103" Count="0" />
-      <LineId Id="299" Count="0" />
-      <LineId Id="330" Count="1" />
-      <LineId Id="221" Count="0" />
-      <LineId Id="184" Count="0" />
-      <LineId Id="319" Count="1" />
-      <LineId Id="303" Count="0" />
-      <LineId Id="309" Count="4" />
-      <LineId Id="304" Count="0" />
-      <LineId Id="222" Count="0" />
-      <LineId Id="322" Count="7" />
-      <LineId Id="332" Count="3" />
-      <LineId Id="321" Count="0" />
-      <LineId Id="336" Count="0" />
-      <LineId Id="42" Count="1" />
-      <LineId Id="133" Count="1" />
-      <LineId Id="131" Count="0" />
-      <LineId Id="234" Count="0" />
-      <LineId Id="45" Count="7" />
-      <LineId Id="136" Count="4" />
-      <LineId Id="126" Count="0" />
-      <LineId Id="121" Count="0" />
-      <LineId Id="125" Count="0" />
-      <LineId Id="120" Count="0" />
-      <LineId Id="69" Count="1" />
-      <LineId Id="250" Count="0" />
-      <LineId Id="72" Count="7" />
-      <LineId Id="230" Count="0" />
-      <LineId Id="223" Count="0" />
-      <LineId Id="99" Count="0" />
+      <LineId Id="415" Count="66" />
       <LineId Id="81" Count="0" />
     </LineIds>
   </POU>

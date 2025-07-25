@@ -6,6 +6,7 @@ VAR CONSTANT
     SENSOR_COUNT : INT := 54; (* Adjust as needed *)
     PADS_COUNT : INT := 27; (* Adjust as needed *)
 	MEMORY_LENGTH : UDINT := 10; 
+	
 END_VAR
 
 VAR
@@ -13,7 +14,7 @@ VAR
     stepCounter : INT := 0;
     enableTimers : BOOL;
 	
-	
+	    pads_out                    : ARRAY[0..PADS_COUNT-1] OF INT;  // pads in percent of force
 END_VAR
 
 
@@ -22,11 +23,13 @@ VAR_TEMP
 	reset : BOOL;
 END_VAR]]></Declaration>
     <Implementation>
-      <ST><![CDATA[IF  HMI_prom.UI_Start_test_segment= FALSE THEN 
+      <ST><![CDATA[
+IF  HMI_prom.UI_Start_test_segment= FALSE THEN 
 	 HMI_prom.UI_Test_patek  := FALSE ;
 END_IF
 
-IF NOT HMI_prom.UI_Start_patky_ven AND HMI_prom.UI_Test_patek AND HMI_prom.UI_Start_test_segment  THEN 
+IF NOT HMI_prom.UI_Start_patky_ven AND HMI_prom.UI_Test_patek AND HMI_prom.UI_Start_test_segment AND NOT HMI_prom.UI_Start_podav_pasu AND NOT HMI_prom.UI_Start_agregat2  THEN 
+	
 
 // Aktivace podle HMI a bez RESETu
 enableTimers := HMI_prom.UI_Test_patek AND HMI_prom.UI_Start_test_segment AND NOT RESET AND NOT HMI_prom.UI_Start_patky_ven;
@@ -40,7 +43,7 @@ casovac(IN := enableTimers, PT := T#1S);
 	
 // Povoleni patek
 
-	IF NOT Machine_Intern.M_Stroj_zapnuty THEN 
+	IF  Machine_Intern.M_Stroj_zapnuty THEN 
 		Machine_outputs.Q_patka_enable:=TRUE;
 	END_IF
 	
@@ -68,8 +71,6 @@ casovac(IN := enableTimers, PT := T#1S);
 		RESET := TRUE;
 	END_IF
 	
-
-
 END_IF
 
 	IF HMI_prom.UI_Test_patek = FALSE THEN 
@@ -78,25 +79,7 @@ END_IF
 	END_IF]]></ST>
     </Implementation>
     <LineIds Name="ZkouskaPatek">
-      <LineId Id="458" Count="0" />
-      <LineId Id="460" Count="1" />
-      <LineId Id="459" Count="0" />
-      <LineId Id="432" Count="1" />
-      <LineId Id="381" Count="5" />
-      <LineId Id="415" Count="0" />
-      <LineId Id="387" Count="0" />
-      <LineId Id="410" Count="0" />
-      <LineId Id="426" Count="0" />
-      <LineId Id="428" Count="3" />
-      <LineId Id="427" Count="0" />
-      <LineId Id="425" Count="0" />
-      <LineId Id="388" Count="21" />
-      <LineId Id="293" Count="0" />
-      <LineId Id="418" Count="0" />
-      <LineId Id="420" Count="0" />
-      <LineId Id="424" Count="0" />
-      <LineId Id="423" Count="0" />
-      <LineId Id="435" Count="3" />
+      <LineId Id="694" Count="52" />
       <LineId Id="434" Count="0" />
     </LineIds>
   </POU>

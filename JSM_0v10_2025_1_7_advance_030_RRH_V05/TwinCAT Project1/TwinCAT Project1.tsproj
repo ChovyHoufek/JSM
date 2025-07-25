@@ -110,8 +110,8 @@
 			<Licenses CacheOrCheckLicensesOnStartup="true">
 				<Target>
 					<ManualSelect>{796D380F-D49E-4C0C-A05F-500052FAC883}</ManualSelect>
-					<TargetSelect TargetId="2">{796D380F-D49E-4C0C-A05F-500052FAC883}</TargetSelect>
 					<TargetSelect TargetId="2">{66689887-CCBD-452C-AC9A-039D997C6E66}</TargetSelect>
+					<TargetSelect TargetId="2">{796D380F-D49E-4C0C-A05F-500052FAC883}</TargetSelect>
 					<LicenseDevice Disabled="true" DongleHardwareId="2" DongleDevice="#x03020002" DongleLevel="90" DongleSerialNumber="000bsssd"/>
 				</Target>
 			</Licenses>
@@ -123,7 +123,7 @@
 		</System>
 		<Plc>
 			<Project GUID="{BD882BC8-1962-4ABA-A609-947E1695B440}" Name="PLC" PrjFilePath="PLC\PLC.plcproj" TmcFilePath="PLC\PLC.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="PLC\PLC.tmc" TmcHash="{98523507-D8EE-A3F9-EF0B-73941893556C}">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="PLC\PLC.tmc" TmcHash="{6488BB44-9DBB-BF20-39C3-D7872C7EECA9}">
 					<Name>PLC Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="1">
@@ -236,6 +236,11 @@
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
+							<Name>Machine_Inputs.I_Napnuti_pasu_agregatuH</Name>
+							<Comment><![CDATA[ napinani agregatu H ]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
 							<Name>Machine_Inputs.I_Krajni_poloha_pasu1_vlevo</Name>
 							<Comment><![CDATA[krajni poloha]]></Comment>
 							<Type>BOOL</Type>
@@ -258,6 +263,15 @@
 						</Var>
 						<Var>
 							<Name>Machine_Inputs.I_Krajni_poloha_pasu3_vpravo</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>Machine_Inputs.I_Krajni_poloha_pasuH_vpravo</Name>
+							<Comment><![CDATA[krajni poloha agregatu H]]></Comment>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>Machine_Inputs.I_Krajni_poloha_pasuH_vlevo</Name>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
@@ -373,20 +387,6 @@
 							<Name>Machine_Inputs.I_Posuv_pas_frekv_menic_status_word</Name>
 							<Type>UINT</Type>
 						</Var>
-						<Var>
-							<Name>Machine_Inputs.I_Napnuti_pasu_agregatuH</Name>
-							<Comment><![CDATA[ napinani agregatu H ]]></Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>Machine_Inputs.I_Krajni_poloha_pasuH_vpravo</Name>
-							<Comment><![CDATA[krajni poloha agregatu H]]></Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>Machine_Inputs.I_Krajni_poloha_pasuH_vlevo</Name>
-							<Type>BOOL</Type>
-						</Var>
 					</Vars>
 					<Vars VarGrpType="2" AreaNo="1">
 						<Name>PlcTask Outputs</Name>
@@ -405,6 +405,11 @@
 						</Var>
 						<Var>
 							<Name>Machine_outputs.Q_oscilace_agregat3</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>Machine_outputs.Q_agregatH_oscilace</Name>
+							<Comment><![CDATA[ pridani vystupu pro agergat H ]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
@@ -592,11 +597,6 @@
 							<Name>Machine_outputs.Q_agregPodPas_command</Name>
 							<Type>UINT</Type>
 						</Var>
-						<Var>
-							<Name>Machine_outputs.Q_agregatH_oscilace</Name>
-							<Comment><![CDATA[ pridani vystupu pro agergat H ]]></Comment>
-							<Type>BOOL</Type>
-						</Var>
 					</Vars>
 					<UnrestoredVarLinks ImportTime="2025-01-21T15:00:06">
 						<OwnerA Name="InputDst" Prefix="TIPC^PLC^PLC Instance" Type="1">
@@ -623,7 +623,7 @@
 			</Project>
 		</Plc>
 		<Io>
-			<Device Id="2" Disabled="true" DevType="111" DevFlags="#x0003" AmsPort="28674" AmsNetId="169.254.220.35.3.1" RemoteName="Device 2 (EtherCAT)" InfoImageId="2">
+			<Device Id="2" DevType="111" DevFlags="#x0003" AmsPort="28674" AmsNetId="169.254.220.35.3.1" RemoteName="Device 2 (EtherCAT)" InfoImageId="2">
 				<Name>Device 2 (EtherCAT)</Name>
 				<AddressInfo>
 					<Pnp>
@@ -4081,6 +4081,7 @@
 		</SymbolWatch>
 	</Project>
 	<Mappings>
+		<MappingInfo Identifier="{00000000-2001-0850-0020-500810000403}" Id="#x02030010"/>
 		<OwnerA Name="TIPC^PLC^PLC Instance">
 			<OwnerB Name="TIID^Device 2 (EtherCAT)^Box 19 (Inverter i550 Cabinet)">
 				<Link VarA="PlcTask Inputs^Machine_Inputs.I_Agreg1_aktualni_proud" VarB="TPDO (A) user config^Motor current"/>

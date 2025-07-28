@@ -17,6 +17,7 @@
     <Implicit_Jitter_Distribution>{dd66dd3a-596d-4e2f-8c7f-3094bff70bd8}</Implicit_Jitter_Distribution>
     <LibraryReferences>{3b66a18a-411b-417c-8ecf-ca450d325f13}</LibraryReferences>
     <CompilerDefines>VISU_USEWSTRING</CompilerDefines>
+    <Released>false</Released>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="DUTs\DUT_Agregat.TcDUT">

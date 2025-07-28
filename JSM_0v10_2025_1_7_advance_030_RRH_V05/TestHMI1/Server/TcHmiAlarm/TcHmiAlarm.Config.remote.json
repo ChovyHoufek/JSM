@@ -532,6 +532,72 @@
             "enabled": true,
             "interval": "PT0.1S",
             "onError": false
+        },
+        "PLC1.HMI_prom.HMI_alarms.Alm27_agregH_krajni_poloha_pasu_vlevo": {
+            "alarmSettings": {
+                "ALARMSETTING": {
+                    "alarmTextKey": "Alm27",
+                    "condition": [
+                        {
+                            "comparator": "==",
+                            "path": "",
+                            "value": true
+                        }
+                    ],
+                    "enabled": true,
+                    "notificationType": 2,
+                    "severity": 3
+                }
+            },
+            "enabled": true,
+            "interval": "PT0.1S",
+            "onError": false
+        },
+        "PLC1.HMI_prom.HMI_alarms.Alm28_agregH_krajni_poloha_pasu_vpravo": {
+            "alarmSettings": {
+                "ALARMSETTING": {
+                    "alarmTextKey": "Alm28",
+                    "condition": [
+                        {
+                            "comparator": "==",
+                            "path": "",
+                            "value": true
+                        }
+                    ],
+                    "enabled": true,
+                    "notificationType": 2,
+                    "severity": 3
+                }
+            },
+            "enabled": true,
+            "interval": "PT1S",
+            "onError": false
+        },
+        "PLC1.HMI_prom.HMI_alarms.Alm29_agregH_napnuti_pasu": {
+            "alarmSettings": {
+                "ALARMSETTING": {
+                    "alarmTextKey": "Alm29",
+                    "condition": [
+                        {
+                            "comparator": "==",
+                            "path": "",
+                            "value": true
+                        }
+                    ],
+                    "enabled": true,
+                    "notificationType": 2,
+                    "severity": 3
+                }
+            },
+            "enabled": true,
+            "interval": "PT0.1S",
+            "onError": false
+        },
+        "agregat": {
+            "alarmSettings": {},
+            "enabled": true,
+            "interval": "PT1S",
+            "onError": false
         }
     }
 }

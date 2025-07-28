@@ -5208,7 +5208,7 @@ Kdyz je EMS aktivni hlida se pritomnost obrobku ve stroji, kdyz neni detekovan p
                   <v n="OutCommented">false</v>
                   <l2 n="NetworkItems">
                     <o t="BoxTreeDemux">
-                      <v n="VarId">178</v>
+                      <v n="VarId">259</v>
                       <o n="Input" t="BoxTreeTerminator">
                         <n n="Input" />
                         <o n="Flags" t="Flags">
@@ -5221,7 +5221,16 @@ Kdyz je EMS aktivni hlida se pritomnost obrobku ve stroji, kdyz neni detekovan p
                       <v n="Id">307L</v>
                     </o>
                     <o t="BoxTreeDemux">
-                      <v n="VarId">179</v>
+                      <v n="VarId">260</v>
+                      <o n="Input" t="BoxTreeDemux">
+                        <v n="VarId">259</v>
+                        <n n="Input" />
+                        <v n="Id">311L</v>
+                      </o>
+                      <v n="Id">1063L</v>
+                    </o>
+                    <o t="BoxTreeDemux">
+                      <v n="VarId">261</v>
                       <o n="Input" t="BoxTreeBox">
                         <v n="BoxType">"AND"</v>
                         <o n="Instance" t="Operand">
@@ -5251,9 +5260,9 @@ Kdyz je EMS aktivni hlida se pritomnost obrobku ve stroji, kdyz neni detekovan p
                         <n n="InputFlags" />
                         <l2 n="InputItems">
                           <o t="BoxTreeDemux">
-                            <v n="VarId">178</v>
+                            <v n="VarId">260</v>
                             <n n="Input" />
-                            <v n="Id">311L</v>
+                            <v n="Id">1064L</v>
                           </o>
                           <o t="BoxTreeOperand">
                             <o n="Operand" t="Operand">
@@ -5291,15 +5300,6 @@ Kdyz je EMS aktivni hlida se pritomnost obrobku ve stroji, kdyz neni detekovan p
                         <v n="ProvidesSTSnippet">false</v>
                         <v n="Id">942L</v>
                       </o>
-                      <v n="Id">940L</v>
-                    </o>
-                    <o t="BoxTreeDemux">
-                      <v n="VarId">180</v>
-                      <o n="Input" t="BoxTreeDemux">
-                        <v n="VarId">179</v>
-                        <n n="Input" />
-                        <v n="Id">943L</v>
-                      </o>
                       <v n="Id">80L</v>
                     </o>
                     <o t="BoxTreeAssign">
@@ -5329,7 +5329,7 @@ Kdyz je EMS aktivni hlida se pritomnost obrobku ve stroji, kdyz neni detekovan p
                         <v n="Extensible">false</v>
                       </o>
                       <o n="RValue" t="BoxTreeDemux">
-                        <v n="VarId">180</v>
+                        <v n="VarId">261</v>
                         <n n="Input" />
                         <v n="Id">81L</v>
                       </o>
@@ -5362,7 +5362,7 @@ Kdyz je EMS aktivni hlida se pritomnost obrobku ve stroji, kdyz neni detekovan p
                         <v n="Extensible">false</v>
                       </o>
                       <o n="RValue" t="BoxTreeDemux">
-                        <v n="VarId">180</v>
+                        <v n="VarId">261</v>
                         <n n="Input" />
                         <v n="Id">82L</v>
                       </o>
@@ -5385,7 +5385,7 @@ Kdyz je EMS aktivni hlida se pritomnost obrobku ve stroji, kdyz neni detekovan p
                             <v n="LValue">true</v>
                             <v n="Boolean">true</v>
                             <v n="IsInstance">false</v>
-                            <v n="Id">945L</v>
+                            <v n="Id">1070L</v>
                           </o>
                         </l2>
                       </o>
@@ -5394,15 +5394,79 @@ Kdyz je EMS aktivni hlida se pritomnost obrobku ve stroji, kdyz neni detekovan p
                         <v n="Fixed">false</v>
                         <v n="Extensible">false</v>
                       </o>
-                      <o n="RValue" t="BoxTreeDemux">
-                        <v n="VarId">179</v>
-                        <n n="Input" />
-                        <v n="Id">944L</v>
+                      <o n="RValue" t="BoxTreeBox">
+                        <v n="BoxType">"AND"</v>
+                        <o n="Instance" t="Operand">
+                          <n n="Operand" />
+                          <v n="Type">""</v>
+                          <v n="Comment">""</v>
+                          <v n="SymbolComment">""</v>
+                          <v n="Address">""</v>
+                          <o n="Flags" t="Flags">
+                            <v n="Flags">0</v>
+                            <v n="Fixed">false</v>
+                            <v n="Extensible">false</v>
+                          </o>
+                          <v n="LValue">false</v>
+                          <v n="Boolean">false</v>
+                          <v n="IsInstance">true</v>
+                          <v n="Id">1066L</v>
+                        </o>
+                        <o n="OutputItems" t="OutputItemList">
+                          <l2 n="OutputItems" />
+                        </o>
+                        <o n="Flags" t="Flags">
+                          <v n="Flags">0</v>
+                          <v n="Fixed">false</v>
+                          <v n="Extensible">false</v>
+                        </o>
+                        <n n="InputFlags" />
+                        <l2 n="InputItems">
+                          <o t="BoxTreeDemux">
+                            <v n="VarId">260</v>
+                            <n n="Input" />
+                            <v n="Id">1065L</v>
+                          </o>
+                          <o t="BoxTreeOperand">
+                            <o n="Operand" t="Operand">
+                              <v n="Operand">"Machine_Inputs.I_Krajni_poloha_pasuH_vlevo"</v>
+                              <v n="Type">"BOOL"</v>
+                              <v n="Comment">""</v>
+                              <v n="SymbolComment">""</v>
+                              <v n="Address">""</v>
+                              <o n="Flags" t="Flags">
+                                <v n="Flags">1</v>
+                                <v n="Fixed">true</v>
+                                <v n="Extensible">false</v>
+                              </o>
+                              <v n="LValue">false</v>
+                              <v n="Boolean">true</v>
+                              <v n="IsInstance">false</v>
+                              <v n="Id">1069L</v>
+                            </o>
+                            <v n="Id">1068L</v>
+                          </o>
+                        </l2>
+                        <o n="InputParam" t="ParamList">
+                          <l2 n="Names" />
+                          <l2 n="Types" />
+                        </o>
+                        <o n="OutputParam" t="ParamList">
+                          <l2 n="Names" />
+                          <l2 n="Types" />
+                        </o>
+                        <v n="CallType" t="Operator">And</v>
+                        <n n="EN" />
+                        <n n="ENO" />
+                        <n n="STSnippet" />
+                        <v n="ContainsExtensibleInputs">false</v>
+                        <v n="ProvidesSTSnippet">false</v>
+                        <v n="Id">1067L</v>
                       </o>
-                      <v n="Id">946L</v>
+                      <v n="Id">1071L</v>
                     </o>
                     <o t="BoxTreeDemux">
-                      <v n="VarId">181</v>
+                      <v n="VarId">262</v>
                       <o n="Input" t="BoxTreeBox">
                         <v n="BoxType">"AND"</v>
                         <o n="Instance" t="Operand">
@@ -5432,7 +5496,7 @@ Kdyz je EMS aktivni hlida se pritomnost obrobku ve stroji, kdyz neni detekovan p
                         <n n="InputFlags" />
                         <l2 n="InputItems">
                           <o t="BoxTreeDemux">
-                            <v n="VarId">178</v>
+                            <v n="VarId">259</v>
                             <n n="Input" />
                             <v n="Id">312L</v>
                           </o>
@@ -5517,7 +5581,7 @@ Kdyz je EMS aktivni hlida se pritomnost obrobku ve stroji, kdyz neni detekovan p
                         <v n="Extensible">false</v>
                       </o>
                       <o n="RValue" t="BoxTreeDemux">
-                        <v n="VarId">181</v>
+                        <v n="VarId">262</v>
                         <n n="Input" />
                         <v n="Id">948L</v>
                       </o>
@@ -5550,7 +5614,7 @@ Kdyz je EMS aktivni hlida se pritomnost obrobku ve stroji, kdyz neni detekovan p
                         <v n="Extensible">false</v>
                       </o>
                       <o n="RValue" t="BoxTreeDemux">
-                        <v n="VarId">181</v>
+                        <v n="VarId">262</v>
                         <n n="Input" />
                         <v n="Id">949L</v>
                       </o>
@@ -6273,7 +6337,7 @@ Kdyz je EMS aktivni hlida se pritomnost obrobku ve stroji, kdyz neni detekovan p
                   <l2 n="ILLines" />
                   <v n="Comment">""</v>
                   <v n="Title">"ALM16 Porucha napnuti brusneho pasu"</v>
-                  <v n="Label">""</v>
+                  <v n="Label">"// Doplneni Alarmu pro agregat H "</v>
                   <v n="OutCommented">false</v>
                   <l2 n="NetworkItems">
                     <o t="BoxTreeDemux">
@@ -7069,7 +7133,7 @@ Kdyz je EMS aktivni hlida se pritomnost obrobku ve stroji, kdyz neni detekovan p
                   <v n="Id">300L</v>
                 </o>
               </l2>
-              <v n="BranchCounter">235</v>
+              <v n="BranchCounter">259</v>
               <v n="ValidIds">true</v>
             </o>
           </Data>

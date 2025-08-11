@@ -55,7 +55,7 @@
       "Orientation": "Horizontal",
       "DesignAreaPosition": "Left",
       "CodeAreaPosition": "Right",
-      "SplitPercentage": 0.5
+      "SplitPercentage": 1.0221343873517788
     }
   ]
 }</TcHmiEditor_SplitAreaStates>

@@ -1,5 +1,22 @@
 {
-    "recipeList": {},
+    "recipeList": {
+        "New folder": {
+            "test": {
+                "recipeTypeName": "Grinding_prg",
+                "values": {
+                    "Blower step no. Agg 3": 0,
+                    "Pad Pressure": 100,
+                    "Pad small correction at the end": 0,
+                    "Pad small correction infront": 0,
+                    "Speed Aggregate 1": 5.0,
+                    "Speed Aggregate 2": 5.0,
+                    "Speed Aggregate 3": 5.0,
+                    "Speed moving belt": 3.0,
+                    "Workpiece height": 30.0
+                }
+            }
+        }
+    },
     "recipeTypeList": {
         "Grinding_prg": {
             "members": {

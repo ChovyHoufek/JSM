@@ -26,7 +26,7 @@
     <HmiCommunicationRouterPort>10119</HmiCommunicationRouterPort>
     <HmiCommunicationServerAuthPort>13003</HmiCommunicationServerAuthPort>
     <HmiInitial>1.12.762.44</HmiInitial>
-    <HmiRecent>1.12.762.46</HmiRecent>
+    <HmiRecent>1.12.762.48</HmiRecent>
     <HmiServerNodeAdvancedView>False</HmiServerNodeAdvancedView>
     <HmiCfgWindowBringIntoViewAutomatically>True</HmiCfgWindowBringIntoViewAutomatically>
     <NuGetPackageImportStamp>

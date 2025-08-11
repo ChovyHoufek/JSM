@@ -103,15 +103,15 @@
 	</ImageDatas>
 	<Project ProjectGUID="{92E7A9E3-B5CE-4600-96D0-C399663E7515}" TargetNetId="172.30.230.100.1.1" Target64Bit="true" ShowHideConfigurations="#x6">
 		<System>
-			<Settings MaxCpus="2">
-				<Cpu/>
-				<Cpu CpuId="1"/>
+			<Settings MaxCpus="7" NonWinCpus="2">
+				<Cpu CpuId="5"/>
+				<Cpu CpuId="6"/>
 			</Settings>
 			<Licenses CacheOrCheckLicensesOnStartup="true">
 				<Target>
 					<ManualSelect>{796D380F-D49E-4C0C-A05F-500052FAC883}</ManualSelect>
-					<TargetSelect TargetId="2">{796D380F-D49E-4C0C-A05F-500052FAC883}</TargetSelect>
 					<TargetSelect TargetId="2">{66689887-CCBD-452C-AC9A-039D997C6E66}</TargetSelect>
+					<TargetSelect TargetId="2">{796D380F-D49E-4C0C-A05F-500052FAC883}</TargetSelect>
 					<LicenseDevice Disabled="true" DongleHardwareId="2" DongleDevice="#x03020002" DongleLevel="90" DongleSerialNumber="000bsssd"/>
 				</Target>
 			</Licenses>
@@ -123,7 +123,7 @@
 		</System>
 		<Plc>
 			<Project GUID="{BD882BC8-1962-4ABA-A609-947E1695B440}" Name="PLC" PrjFilePath="PLC\PLC.plcproj" TmcFilePath="PLC\PLC.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="PLC\PLC.tmc" TmcHash="{4463F9E2-7F55-DCC3-D987-39986E727DCB}">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="PLC\PLC.tmc" TmcHash="{37C7D06D-A35C-26E7-5577-6C6A5494D654}">
 					<Name>PLC Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="1">
@@ -308,15 +308,6 @@
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>Machine_Inputs.I_obrobek_ve_stroji</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>Machine_Inputs.I_pojistka_chlazeni_rozvadece1_ok</Name>
-							<Comment><![CDATA[JIstice / Pojistky]]></Comment>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
 							<Name>Machine_Inputs.I_zdvih_stul_impulsy</Name>
 							<Comment><![CDATA[ Impulsy]]></Comment>
 							<Type>DINT</Type>
@@ -324,6 +315,15 @@
 						<Var>
 							<Name>Machine_Inputs.I_imp_otacek_pod_pasu</Name>
 							<Type>UDINT</Type>
+						</Var>
+						<Var>
+							<Name>Machine_Inputs.I_obrobek_ve_stroji</Name>
+							<Type>BOOL</Type>
+						</Var>
+						<Var>
+							<Name>Machine_Inputs.I_pojistka_chlazeni_rozvadece1_ok</Name>
+							<Comment><![CDATA[JIstice / Pojistky]]></Comment>
+							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>Machine_Inputs.I_pojistka_chlazeni_rozvadece2_ok</Name>
@@ -544,14 +544,6 @@
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>Machine_outputs.Q_zdvih_stul_setvalue</Name>
-							<Type>UDINT</Type>
-						</Var>
-						<Var>
-							<Name>Machine_outputs.Q_control_word_EL5151</Name>
-							<Type GUID="{37DF1FA7-25A9-2180-5625-C9B3B7C20643}">ARRAY [0..15] OF BOOL</Type>
-						</Var>
-						<Var>
 							<Name>Machine_outputs.Q_pulsy_pod_pas_writevalue</Name>
 							<Type>BOOL</Type>
 						</Var>
@@ -560,13 +552,21 @@
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>Machine_outputs.Q_vystup_otacky_agreg1</Name>
-							<Comment><![CDATA[otacky]]></Comment>
-							<Type>INT</Type>
+							<Name>Machine_outputs.Q_zdvih_stul_setvalue</Name>
+							<Type>UDINT</Type>
+						</Var>
+						<Var>
+							<Name>Machine_outputs.Q_control_word_EL5151</Name>
+							<Type GUID="{37DF1FA7-25A9-2180-5625-C9B3B7C20643}">ARRAY [0..15] OF BOOL</Type>
 						</Var>
 						<Var>
 							<Name>Machine_outputs.Q_pulsy_pod_pas_stul_setvalue</Name>
 							<Type>UDINT</Type>
+						</Var>
+						<Var>
+							<Name>Machine_outputs.Q_vystup_otacky_agreg1</Name>
+							<Comment><![CDATA[otacky]]></Comment>
+							<Type>INT</Type>
 						</Var>
 						<Var>
 							<Name>Machine_outputs.Q_vystup_otacky_agreg2</Name>

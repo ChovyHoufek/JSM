@@ -56,10 +56,19 @@
       "DesignAreaPosition": "Left",
       "CodeAreaPosition": "Right",
       "SplitPercentage": 1.0221343873517788
+    },
+    {
+      "Path": "UserControls\\UserControl1.usercontrol",
+      "DesignAreaSplitSize": "Full",
+      "CodeAreaSplitSize": "Minimized",
+      "Orientation": "Horizontal",
+      "DesignAreaPosition": "Left",
+      "CodeAreaPosition": "Right",
+      "SplitPercentage": 0.5
     }
   ]
 }</TcHmiEditor_SplitAreaStates>
-    <TcHmiEditor_SelectBindingWindowDimension>437;265;958;672</TcHmiEditor_SelectBindingWindowDimension>
+    <TcHmiEditor_SelectBindingWindowDimension>512;368;958;672</TcHmiEditor_SelectBindingWindowDimension>
     <TcHmiEditor_SelectBindingWindowColumnWidths_m_SymbolMappedTree>[
   656.0,
   50.0,
@@ -81,10 +90,7 @@
   65.0
 ]</TcHmiEditor_SelectBindingWindowColumnWidths_m_SymbolInternalTree>
     <TcHmiEditor_SelectBindingWindowColumnWidths_m_symbolLocalizedTree>[
-  300.0,
-  100.0,
-  100.0,
-  100.0
+  300.0
 ]</TcHmiEditor_SelectBindingWindowColumnWidths_m_symbolLocalizedTree>
     <TcHmiEditor_SelectBindingWindowColumnWidths_m_extensionLocalizationsTree>[
   300.0
@@ -128,9 +134,7 @@
 ]</TcHmiEditor_SelectBindingWindowColumnWidths_m_ControlTypeAttributesTree>
     <TcHmiEditor_SelectBindingWindowColumnWidths_m_ThemedResourceTree>[
   200.0,
-  300.0,
-  100.0,
-  100.0
+  300.0
 ]</TcHmiEditor_SelectBindingWindowColumnWidths_m_ThemedResourceTree>
     <RecentColors>[
   {

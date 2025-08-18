@@ -35,15 +35,16 @@ patkaMemoryABCD();
 Agregat1();
 Agregat2();
 Agregat3aH();
-Agregat_Pod_pas();
+//Agregat_Pod_pas();
 Vyveva();
 EMS();
 Provozni_hodiny_new();
 Opotrebeni_pasu();
 Ofuk_brusu();
-AutomaticMessurment();
+//AutomaticMessurment();
 ZkouskaPatek ();
 VsechnyPatkyVen ();
+MetryPalce () ;
 
 (* Ulozeni persistentnich dat pri vypadku proudu *)
 UPS_fall_down(CLK:=Machine_Inputs.I_24V_UPS_ok);
@@ -115,6 +116,7 @@ END_IF
       <LineId Id="255" Count="0" />
       <LineId Id="339" Count="0" />
       <LineId Id="357" Count="1" />
+      <LineId Id="376" Count="0" />
       <LineId Id="197" Count="25" />
       <LineId Id="287" Count="34" />
       <LineId Id="60" Count="0" />

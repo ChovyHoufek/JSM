@@ -1,10 +1,15 @@
 <?xml version="1.0"?>
 <TcLicenseInfo xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.beckhoff.com/schemas/2011/11/TcLicenseInfo">
 	<LicenseInfo>
-		<SystemId>{4B7E3774-D351-6BB3-2CD0-1F93B019B744}</SystemId>
-		<IssueTime>2025-07-29T06:36:00</IssueTime>
-		<ExpireTime>2025-08-06T00:00:00</ExpireTime>
-		<LicenseKey>ff8c37bd934c9ef8d8d8a7578d17eaed635cce10ff61950a082bbe474cabdf3f801a819b4016cb50a868da0e39a82f777083f853071e2cc70d4b2dd8d424ec9847335db9e19815033a15183a6e633269e2e4a4041cfa3f8f51794ee0fa3fb8708342a4c4cd7ae8679cbce83b9d19d301389f4312015a33f2e136e992244ae55954966eee231f2706ea388b094eff0fa97387a52f645737f65a5dd1da9f0aa1adad7cbe9124b1a03c27c7bd3ea4f85af70e17d2b04c27112d575613eee40aac457aa12421fb8b8992bc3a2a486dda3d49aa735bb62c874c39bd3c5861ca920807eaf677607a997ead492da91ebc8b441bf88b97f2b2c5ec005f60c42c64cc8877</LicenseKey>
+		<SystemId>{1D51BDD5-E529-72AF-2CC1-95F98B0ABAC5}</SystemId>
+		<IssueTime>2025-08-18T10:12:00</IssueTime>
+		<ExpireTime>2025-08-26T00:00:00</ExpireTime>
+		<LicenseKey>7df90fee054605cbb145609dc54b8a97ba8c92f2242357ec4c2370fc1148f582464c55a16af567a598b4e3eba8aa95bab827aca379e7ab44a9c1a3896119c9ee21941bbca111d7a24f7351401be5bee74dcc7b999d9f33a44b08650ab96cd0b5ffe784a9d78dc839f96686bb246448737899ba5d0cc09ab059b45cef741ec1eb3712193cc2a23e7342f36a26eb4383fc75c21e610db6589ba462b2ab64412ae8efeaa20e26d621db8087d9a56b1b1e9b107befb09efef7f74e86cbd2ef4bf08eab40cb3ac9a292ce771ab76aa432595a5fcc01d8f36e42ccff641933232448505401f933c63ef76121f4c5f44b8525c76858411b3939a5dcf0098cca9eac7105</LicenseKey>
+		<License>
+			<LicenseId>{461F547B-9F81-4C4D-8BE6-01F8B3B14C86}</LicenseId>
+			<Name>TC3 Building Automation Basic</Name>
+			<OrderNo>TF8010</OrderNo>
+		</License>
 		<License>
 			<LicenseId>{4C256767-E6E6-4AF5-BD68-9F7ABAD0C200}</LicenseId>
 			<Name>TC3 ADS</Name>
@@ -19,11 +24,6 @@
 			<LicenseId>{66689887-CCBD-452C-AC9A-039D997C6E66}</LicenseId>
 			<Name>TC3 PLC</Name>
 			<OrderNo>TC1200</OrderNo>
-		</License>
-		<License>
-			<LicenseId>{461F547B-9F81-4C4D-8BE6-01F8B3B14C86}</LicenseId>
-			<Name>TC3 Building Automation Basic</Name>
-			<OrderNo>TF8010</OrderNo>
 		</License>
 		<License>
 			<LicenseId>{37E5160D-987B-4640-888D-0F97727B53E2}</LicenseId>

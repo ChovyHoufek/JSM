@@ -88,6 +88,9 @@
     <Compile Include="POUs\MAIN.TcPOU">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="POUs\MetryPalce.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="POUs\Ofuk_brusu.TcPOU">
       <SubType>Code</SubType>
     </Compile>

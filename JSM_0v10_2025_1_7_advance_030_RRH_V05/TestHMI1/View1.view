@@ -62,7 +62,7 @@
 </script>
 <div id="TcHmiRectangle_4" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiRectangle" data-tchmi-height="190" data-tchmi-height-unit="px" data-tchmi-left-unit="px" data-tchmi-top="18" data-tchmi-top-unit="px" data-tchmi-width="320" data-tchmi-width-unit="px" data-tchmi-zindex="0" data-tchmi-left="6">
 </div>
-<div id="Pozadovana_rychlost_podPasu" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiNumericInput" data-tchmi-auto-focus-out="true" data-tchmi-decimal-digits="1" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="105" data-tchmi-left-unit="px" data-tchmi-reset-to-last-valid-value="true" data-tchmi-top="164" data-tchmi-top-unit="px" data-tchmi-value="%s%PLC1.HMI_prom.UI_rq_rychlost_podav_pas|BindingMode=TwoWay%/s%" data-tchmi-width="130" data-tchmi-width-unit="px" data-tchmi-value-font-size="%ctrl%Pozadovana_rychlost_podPasu::RenderedHeight%/ctrl%" data-tchmi-value-horizontal-alignment="Right" data-tchmi-zindex="2" data-tchmi-auto-select-text="true" data-tchmi-ignore-invalid-values="true">
+<div id="Pozadovana_rychlost_podPasu" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiNumericInput" data-tchmi-auto-focus-out="true" data-tchmi-decimal-digits="%s%PLC1.HMI_prom.DecDigit%/s%" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="105" data-tchmi-left-unit="px" data-tchmi-reset-to-last-valid-value="true" data-tchmi-top="164" data-tchmi-top-unit="px" data-tchmi-value="%s%PLC1.HMI_prom.UI_rq_rychlost_podav_pas|BindingMode=TwoWay%/s%" data-tchmi-width="130" data-tchmi-width-unit="px" data-tchmi-value-font-size="%ctrl%Pozadovana_rychlost_podPasu::RenderedHeight%/ctrl%" data-tchmi-value-horizontal-alignment="Right" data-tchmi-zindex="2" data-tchmi-auto-select-text="true" data-tchmi-ignore-invalid-values="true">
 <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
 {
   "top": 3,
@@ -307,7 +307,7 @@
 </div>
 <div id="TcHmiImage_5" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="70" data-tchmi-height-unit="px" data-tchmi-left="20" data-tchmi-left-unit="px" data-tchmi-top="114" data-tchmi-top-unit="px" data-tchmi-width="70" data-tchmi-width-unit="px" data-tchmi-width-mode="Value" data-tchmi-src="Images/Vlastni/icon_vorschub.png" data-tchmi-zindex="2">
 </div>
-<div id="TcHmiTextblock_14" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="105" data-tchmi-left-unit="px" data-tchmi-text="%f%Number(%s%PLC1.HMI_prom.UI_aktual_rychlost_podav_pas%/s%).toFixed(1);%/f%" data-tchmi-top="104" data-tchmi-top-unit="px" data-tchmi-width="130" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-zindex="1" data-tchmi-text-horizontal-alignment="Right" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%ctrl%TcHmiTextblock_14::RenderedHeight%/ctrl%">
+<div id="TcHmiTextblock_14" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="105" data-tchmi-left-unit="px" data-tchmi-text="%f%Number(%s%PLC1.HMI_prom.UI_aktual_rychlost_podav_pas%/s%).toFixed(%s%PLC1.HMI_prom.DecDigit%/s%);%/f%" data-tchmi-top="104" data-tchmi-top-unit="px" data-tchmi-width="130" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-zindex="1" data-tchmi-text-horizontal-alignment="Right" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%ctrl%TcHmiTextblock_14::RenderedHeight%/ctrl%">
 
 
 </div>
@@ -444,7 +444,7 @@
 ]
 </script>
 </div>
-<div id="Txt_aktualni_vyska_zdvihu" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="100" data-tchmi-left-unit="px" data-tchmi-top="306" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-zindex="1" data-tchmi-text-horizontal-alignment="Right" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%ctrl%Txt_aktualni_vyska_zdvihu::RenderedHeight%/ctrl%">
+<div id="Txt_aktualni_vyska_zdvihu" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="100" data-tchmi-left-unit="px" data-tchmi-top="306" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-zindex="1" data-tchmi-text-horizontal-alignment="Right" data-tchmi-text-vertical-alignment="Center" data-tchmi-text-font-size="%ctrl%Txt_aktualni_vyska_zdvihu::RenderedHeight%/ctrl%" data-tchmi-text="%f%TcHmi.Functions.Beckhoff.GaugeValueFormatter(%s%PLC1.HMI_prom.UI_aktualni_hodnota_zdvihu%/s%, %s%PLC1.HMI_prom.DecDigit%/s%)%/f%">
 
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
@@ -640,7 +640,7 @@
 ]
 </script>
 </div>
-<div id="NI_Kalibrace_vyska_zdvihu" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiNumericInput" data-tchmi-auto-focus-out="true" data-tchmi-decimal-digits="2" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="96" data-tchmi-left-unit="px" data-tchmi-max-value="160" data-tchmi-min-value="0" data-tchmi-reset-to-last-valid-value="true" data-tchmi-top="497" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-value-horizontal-alignment="Right" data-tchmi-zindex="2" data-tchmi-value="%s%PLC1.HMI_prom.UI_KalibZdvihu_Hodnota_mm|BindingMode=TwoWay%/s%" data-tchmi-value-font-size="%ctrl%NI_Kalibrace_vyska_zdvihu::RenderedHeight%/ctrl%" data-tchmi-auto-select-text="true" data-tchmi-ignore-invalid-values="true">
+<div id="NI_Kalibrace_vyska_zdvihu" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiNumericInput" data-tchmi-auto-focus-out="true" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="100" data-tchmi-left-unit="px" data-tchmi-max-value="160" data-tchmi-min-value="0" data-tchmi-reset-to-last-valid-value="true" data-tchmi-top="492" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-value-horizontal-alignment="Right" data-tchmi-zindex="2" data-tchmi-value="%s%PLC1.HMI_prom.UI_KalibZdvihu_Hodnota_mm|BindingMode=TwoWay%/s%" data-tchmi-value-font-size="%ctrl%NI_Kalibrace_vyska_zdvihu::RenderedHeight%/ctrl%" data-tchmi-auto-select-text="true" data-tchmi-ignore-invalid-values="true" data-tchmi-decimal-digits="%s%PLC1.HMI_prom.DecDigit%/s%">
 <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
 {
   "top": 3,
@@ -678,7 +678,7 @@
 </div>
 <div id="TcHmiButton_8" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiButton" data-tchmi-height="50" data-tchmi-height-unit="px" data-tchmi-left="256" data-tchmi-left-unit="px" data-tchmi-text="" data-tchmi-top="491" data-tchmi-top-unit="px" data-tchmi-width="60" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-state-symbol="%s%PLC1.HMI_prom.UI_Tlac_Zdvih_dolu%/s%" data-tchmi-icon="Images/Vlastni/Sipka_dolu.png">
 </div>
-<div id="TcHmiSpinboxInput" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiSpinboxInput" data-tchmi-auto-focus-out="true" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="100" data-tchmi-left-unit="px" data-tchmi-reset-to-last-valid-value="true" data-tchmi-top="356" data-tchmi-top-unit="px" data-tchmi-value="%s%PLC1.HMI_prom.UI_rq_hodnota_zdvihu%/s%" data-tchmi-value-horizontal-alignment="Center" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-value-font-size="%ctrl%TcHmiSpinboxInput::RenderedHeight%/ctrl%" data-tchmi-step="0.1" data-tchmi-ignore-invalid-values="true" data-tchmi-auto-select-text="true">
+<div id="TcHmiSpinboxInput" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiSpinboxInput" data-tchmi-auto-focus-out="true" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="100" data-tchmi-left-unit="px" data-tchmi-reset-to-last-valid-value="true" data-tchmi-top="356" data-tchmi-top-unit="px" data-tchmi-value="%s%PLC1.HMI_prom.UI_rq_hodnota_zdvihu%/s%" data-tchmi-value-horizontal-alignment="Center" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-value-font-size="%ctrl%TcHmiSpinboxInput::RenderedHeight%/ctrl%" data-tchmi-step="%s%PLC1.HMI_prom.DesMisto%/s%" data-tchmi-ignore-invalid-values="true" data-tchmi-auto-select-text="true">
 <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
 {
   "top": 3,
@@ -873,80 +873,94 @@
 </script><script data-tchmi-target-attribute="data-tchmi-navigation-structure" type="application/json">
 [
   {
-    "name": "%l%L_StartPage%/l%",
     "content": "Pages/StartPage.content",
     "icon_a": "%tr%TR_Icon_Home_active%/tr%",
     "icon_n": "%tr%TR_Icon_Home_normal%/tr%",
-    "icon_p": "%tr%TR_Icon_Home_active%/tr%"
+    "icon_p": "%tr%TR_Icon_Home_active%/tr%",
+    "name": "%l%L_StartPage%/l%"
   },
   {
-    "name": "%l%L_patka%/l%",
     "content": "Pages/Patka.content",
     "icon_a": "%tr%TR_Icon_Patka_active%/tr%",
     "icon_n": "%tr%TR_Icon_Patka_normal%/tr%",
-    "icon_p": "%tr%TR_Icon_Patka_active%/tr%"
+    "icon_p": "%tr%TR_Icon_Patka_active%/tr%",
+    "name": "%l%L_patka%/l%"
   },
   {
-    "name": "%l%L_Recipe%/l%",
     "content": "Pages/Page1.content",
     "icon_a": "%tr%TR_Icon_Recipe_active%/tr%",
     "icon_n": "%tr%TR_Icon_Recipe_normal%/tr%",
-    "icon_p": "%tr%TR_Icon_Recipe_active%/tr%"
+    "icon_p": "%tr%TR_Icon_Recipe_active%/tr%",
+    "name": "%l%L_Recipe%/l%"
   },
   {
-    "name": "%l%L_Machine_monitor%/l%",
     "content": "Pages/Machine_monitor_new.content",
     "icon_a": "%tr%TR_Icon_Machine_Monitor_active%/tr%",
     "icon_n": "%tr%TR_Icon_Machine_Monitor_normal%/tr%",
-    "icon_p": "%tr%TR_Icon_Machine_Monitor_active%/tr%"
+    "icon_p": "%tr%TR_Icon_Machine_Monitor_active%/tr%",
+    "name": "%l%L_Machine_monitor%/l%"
   },
   {
-    "name": "%l%L_Debug%/l%",
     "content": "Pages/debug.content",
     "icon_a": "%tr%TR_Icon_Patka_active%/tr%",
     "icon_n": "%tr%TR_Icon_Patka_normal%/tr%",
-    "icon_p": "%tr%TR_Icon_Patka_active%/tr%"
+    "icon_p": "%tr%TR_Icon_Patka_active%/tr%",
+    "name": "%l%L_Debug%/l%"
   },
   {
-    "name": "%l%L_Settings%/l%",
     "content": "Pages/Settings.content",
     "icon_a": "%tr%TR_Icon_Settings_active%/tr%",
     "icon_n": "%tr%TR_Icon_Settings_normal%/tr%",
-    "icon_p": "%tr%TR_Icon_Settings_pressed%/tr%"
+    "icon_p": "%tr%TR_Icon_Settings_pressed%/tr%",
+    "name": "%l%L_Settings%/l%"
   },
   {
-    "name": "%l%L_Events%/l%",
     "content": "Pages/Events.content",
     "icon_a": "%tr%TR_Icon_Events_active%/tr%",
     "icon_n": "%tr%TR_Icon_Events_normal%/tr%",
-    "icon_p": "%tr%TR_Icon_Events_pressed%/tr%"
+    "icon_p": "%tr%TR_Icon_Events_pressed%/tr%",
+    "name": "%l%L_Events%/l%"
   },
   {
-    "name": "%l%L_Diagnost%/l%",
     "content": "Pages/Page2.content",
     "icon_a": "%tr%TR_Icon_Service_active%/tr%",
     "icon_n": "%tr%TR_Icon_Service_normal%/tr%",
-    "icon_p": "%tr%TR_Icon_Service_active%/tr%"
+    "icon_p": "%tr%TR_Icon_Service_active%/tr%",
+    "name": "%l%L_Diagnost%/l%"
   },
   {
-    "name": "%l%L_EMS%/l%",
     "content": "Pages/EMS.content",
     "icon_a": "%tr%TR_Icon_EMS_active%/tr%",
     "icon_n": "%tr%TR_Icon_EMS_normal%/tr%",
-    "icon_p": "%tr%TR_Icon_EMS_active%/tr%"
+    "icon_p": "%tr%TR_Icon_EMS_active%/tr%",
+    "name": "%l%L_EMS%/l%"
   },
   {
-    "name": "%l%L_test_segmentu%/l%",
+    "accessRights": [
+      {
+        "accessright": "observe",
+        "group": "Srv",
+        "permission": "Allow"
+      },
+      {
+        "accessright": "observe",
+        "group": "Op",
+        "permission": "Deny"
+      },
+      {
+        "accessright": "observe",
+        "group": "Adjuster",
+        "permission": "Allow"
+      }
+    ],
     "content": "Pages/Recipe.content",
     "icon_a": "%tr%TR_Icon_Patka_active%/tr%",
     "icon_n": "%tr%TR_Icon_Patka_normal%/tr%",
     "icon_p": "%tr%TR_Icon_Patka_active%/tr%",
+    "name": "%l%L_test_segmentu%/l%"
+  },
+  {
     "accessRights": [
-      {
-        "accessright": "observe",
-        "group": "Srv",
-        "permission": "Allow"
-      },
       {
         "accessright": "observe",
         "group": "Op",
@@ -955,40 +969,21 @@
       {
         "accessright": "observe",
         "group": "Adjuster",
+        "permission": "Deny"
+      },
+      {
+        "accessright": "observe",
+        "group": "Srv",
         "permission": "Allow"
       }
-    ]
-  },
-  {
-    "name": "%l%L_Setup%/l%",
+    ],
     "content": "Pages/Houfek_Setup.content",
     "icon_a": "%tr%TR_Icon_Settings_active%/tr%",
     "icon_n": "%tr%TR_Icon_Settings_normal%/tr%",
     "icon_p": "%tr%TR_Icon_Settings_pressed%/tr%",
-    "accessRights": [
-      {
-        "accessright": "observe",
-        "group": "Op",
-        "permission": "Deny"
-      },
-      {
-        "accessright": "observe",
-        "group": "Adjuster",
-        "permission": "Deny"
-      },
-      {
-        "accessright": "observe",
-        "group": "Srv",
-        "permission": "Allow"
-      }
-    ]
+    "name": "%l%L_Setup%/l%"
   },
   {
-    "name": "%l%L_Menu_Patky%/l%",
-    "content": "Pages/Test_patek.content",
-    "icon_a": "Images/Vlastni/icon_druckbalken_tabelle_2.png",
-    "icon_n": "Images/Vlastni/icon_druckbalken_tabelle_2.png",
-    "icon_p": "Images/Vlastni/icon_druckbalken_tabelle_2.png",
     "accessRights": [
       {
         "accessright": "observe",
@@ -1005,7 +1000,20 @@
         "group": "op",
         "permission": "Deny"
       }
-    ]
+    ],
+    "content": "Pages/Test_patek.content",
+    "icon_a": "Images/Vlastni/icon_druckbalken_tabelle_2.png",
+    "icon_n": "Images/Vlastni/icon_druckbalken_tabelle_2.png",
+    "icon_p": "Images/Vlastni/icon_druckbalken_tabelle_2.png",
+    "name": "%l%L_Menu_Patky%/l%"
+  },
+  {
+    "accessRights": "[",
+    "content": "Pages/HeightMessurment.content",
+    "icon_a": "Images/Vlastni/Sipka_dolu.png",
+    "icon_n": "Images/Vlastni/Sipka_dolu.png",
+    "icon_p": "Images/Vlastni/Sipka_dolu.png",
+    "name": "Pozicioner"
   }
 ]
 </script>

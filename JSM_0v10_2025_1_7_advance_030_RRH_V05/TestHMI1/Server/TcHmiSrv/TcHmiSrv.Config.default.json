@@ -2733,6 +2733,26 @@
             "SUBSYMBOL_MAPPING": "",
             "USEMAPPING": false
         },
+        "PLC1.HMI_prom.DecDigit": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::HMI_prom::DecDigit",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.HMI_prom.DesMisto": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::HMI_prom::DesMisto",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.HMI_prom.HMI_alarms.ALM12_Agreg1_napnuti_pasu": {
             "ACCESS": 3,
             "DOMAIN": "ADS",
@@ -3742,6 +3762,26 @@
             },
             "USEMAPPING": true
         },
+        "PLC1.HMI_prom.UI_AktualniHodnotaCidla": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::HMI_prom::UI_AktualniHodnotaCidla",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/INT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.HMI_prom.UI_AktualniHodnotaPozicioneru": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::HMI_prom::UI_AktualniHodnotaPozicioneru",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
         "PLC1.HMI_prom.UI_Door_open": {
             "ACCESS": 3,
             "DOMAIN": "ADS",
@@ -4033,6 +4073,63 @@
             "DOMAIN": "ADS",
             "DYNAMIC": true,
             "MAPPING": "PLC1::HMI_prom::UI_KalibZdvihu_Hodnota_mm",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.HMI_prom.UI_KalibraceUberu": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::HMI_prom::UI_KalibraceUberu",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.HMI_prom.UI_MaxHodCidla": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::HMI_prom::UI_MaxHodCidla",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/INT"
+                    },
+                    {
+                        "comment": "Parametry pro pozicionér"
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.HMI_prom.UI_MaxHodPozicioneru": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::HMI_prom::UI_MaxHodPozicioneru",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/REAL"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.HMI_prom.UI_MinHodCidla": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::HMI_prom::UI_MinHodCidla",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/INT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.HMI_prom.UI_MinHodPozicioneru": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::HMI_prom::UI_MinHodPozicioneru",
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/REAL"
             },
@@ -4575,6 +4672,33 @@
             "MAPPING": "PLC1::HMI_prom::UI_Porovozni_hodiny_stroje_stroj_zapnut_sek",
             "SCHEMA": {
                 "$ref": "tchmi:general#/definitions/INT"
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.HMI_prom.UI_PozicePracPlochy": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::HMI_prom::UI_PozicePracPlochy",
+            "SCHEMA": {
+                "allOf": [
+                    {
+                        "$ref": "tchmi:general#/definitions/REAL"
+                    },
+                    {
+                        "comment": "pozice v mm kde je pracovní pozice od 0 senzoru"
+                    }
+                ]
+            },
+            "USEMAPPING": true
+        },
+        "PLC1.HMI_prom.UI_PozicionerDolu": {
+            "ACCESS": 3,
+            "DOMAIN": "ADS",
+            "DYNAMIC": true,
+            "MAPPING": "PLC1::HMI_prom::UI_PozicionerDolu",
+            "SCHEMA": {
+                "$ref": "tchmi:general#/definitions/BOOL"
             },
             "USEMAPPING": true
         },
@@ -7674,6 +7798,8 @@
                 "PLC1.GVL_HMI.nImgNumber": 3,
                 "PLC1.GVL_HMI.s_axisname01": 3,
                 "PLC1.GVL_HMI.s_axisname02": 3,
+                "PLC1.HMI_prom.DecDigit": 3,
+                "PLC1.HMI_prom.DesMisto": 3,
                 "PLC1.HMI_prom.HMI_alarms.ALM12_Agreg1_napnuti_pasu": 3,
                 "PLC1.HMI_prom.HMI_alarms.ALM16_Agreg2_napnuti_pasu": 3,
                 "PLC1.HMI_prom.HMI_alarms.ALM17_Pod_pas_Frekv_menic": 3,
@@ -7733,6 +7859,8 @@
                 "PLC1.HMI_prom.HMI_param_stroje.Stp_Zdvih.Zdvih_korekce_pozice_zastaveni": 3,
                 "PLC1.HMI_prom.HMI_param_stroje.Stp_Zdvih.Zdvih_prejeti_pozice": 3,
                 "PLC1.HMI_prom.HMI_param_stroje.Stp_merne_jednotky_stroje": 3,
+                "PLC1.HMI_prom.UI_AktualniHodnotaCidla": 3,
+                "PLC1.HMI_prom.UI_AktualniHodnotaPozicioneru": 3,
                 "PLC1.HMI_prom.UI_Door_open": 3,
                 "PLC1.HMI_prom.UI_Drsnost_pasu": 3,
                 "PLC1.HMI_prom.UI_Drsnost_pasu_agreg2": 3,
@@ -7757,6 +7885,11 @@
                 "PLC1.HMI_prom.UI_Graph_Belt_usage_Agreg2": 3,
                 "PLC1.HMI_prom.UI_Graph_Belt_usage_Agreg3": 3,
                 "PLC1.HMI_prom.UI_KalibZdvihu_Hodnota_mm": 3,
+                "PLC1.HMI_prom.UI_KalibraceUberu": 3,
+                "PLC1.HMI_prom.UI_MaxHodCidla": 3,
+                "PLC1.HMI_prom.UI_MaxHodPozicioneru": 3,
+                "PLC1.HMI_prom.UI_MinHodCidla": 3,
+                "PLC1.HMI_prom.UI_MinHodPozicioneru": 3,
                 "PLC1.HMI_prom.UI_Patka_odskok": 3,
                 "PLC1.HMI_prom.UI_Patka_priskok": 3,
                 "PLC1.HMI_prom.UI_Porovozni_hodiny_stroje_Agreg1_brousi_dny": 3,
@@ -7811,6 +7944,8 @@
                 "PLC1.HMI_prom.UI_Porovozni_hodiny_stroje_stroj_zapnut_hod": 3,
                 "PLC1.HMI_prom.UI_Porovozni_hodiny_stroje_stroj_zapnut_min": 3,
                 "PLC1.HMI_prom.UI_Porovozni_hodiny_stroje_stroj_zapnut_sek": 3,
+                "PLC1.HMI_prom.UI_PozicePracPlochy": 3,
+                "PLC1.HMI_prom.UI_PozicionerDolu": 3,
                 "PLC1.HMI_prom.UI_Priskok_agregat1": 3,
                 "PLC1.HMI_prom.UI_Priskok_agregat1_ikona": 3,
                 "PLC1.HMI_prom.UI_Priskok_agregat2": 3,
@@ -7869,6 +8004,7 @@
                 "PLC1.Machine_Intern.M_Hodnota_zdvihu_stolu_mm": 3,
                 "PLC1.Machine_Intern.M_zdvih_stul_mm": 3,
                 "PLC1.Machine_outputs.Q_Dvere_agregat1_otevrit": 3,
+                "PLC1.Machine_outputs.Q_Pozicioner_dolu": 3,
                 "PLC1.Machine_outputs.Q_osvetleni_stroje": 3,
                 "PLC1.Machine_outputs.Q_segmenty_patky": 3,
                 "PLC1.Machine_outputs.Q_segmenty_patky.0": 3,

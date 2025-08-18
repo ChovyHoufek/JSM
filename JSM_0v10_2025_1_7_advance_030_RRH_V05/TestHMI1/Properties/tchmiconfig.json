@@ -74,6 +74,13 @@
       "preloadBindings": false
     },
     {
+      "url": "Pages/HeightMessurment.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
       "url": "Pages/debug.content",
       "preload": false,
       "keepAlive": false,

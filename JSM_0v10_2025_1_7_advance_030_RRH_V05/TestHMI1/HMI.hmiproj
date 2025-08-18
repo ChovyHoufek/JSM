@@ -23,7 +23,7 @@
     <TargetFramework>native1.12-tchmi</TargetFramework>
     <AzureFunctionsVersion>v2</AzureFunctionsVersion>
     <Name>HMI</Name>
-    <HmiCommunicationRouterPort>10119</HmiCommunicationRouterPort>
+    <HmiCommunicationRouterPort>10120</HmiCommunicationRouterPort>
     <HmiCommunicationServerAuthPort>13003</HmiCommunicationServerAuthPort>
     <HmiInitial>1.12.762.44</HmiInitial>
     <HmiRecent>1.12.762.48</HmiRecent>
@@ -397,6 +397,9 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="Pages\close_win.content">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Pages\HeightMessurment.content">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Pages\debug.content">

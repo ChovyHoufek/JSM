@@ -47,6 +47,7 @@ VAR
 	Scale_proud :FbScale ;
 	TON_0: TON;
 	TON_1: TON;
+	rChtenaPozice: REAL;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -314,7 +315,7 @@ END_VAR
                           </o>
                           <o t="BoxTreeOperand">
                             <o n="Operand" t="Operand">
-                              <v n="Operand">"bKoncak"</v>
+                              <v n="Operand">"Machine_Inputs.I_koncakPozicioner"</v>
                               <v n="Type">"BOOL"</v>
                               <v n="Comment">""</v>
                               <v n="SymbolComment">""</v>
@@ -411,7 +412,7 @@ END_VAR
                           </o>
                           <o t="BoxTreeOperand">
                             <o n="Operand" t="Operand">
-                              <v n="Operand">"bKoncak"</v>
+                              <v n="Operand">"Machine_Inputs.I_koncakPozicioner"</v>
                               <v n="Type">"BOOL"</v>
                               <v n="Comment">""</v>
                               <v n="SymbolComment">""</v>
@@ -582,7 +583,7 @@ END_VAR
                               </o>
                               <o>
                                 <o n="Operand" t="Operand">
-                                  <v n="Operand">"bKoncak"</v>
+                                  <v n="Operand">"Machine_Inputs.I_koncakPozicioner"</v>
                                   <v n="Type">"BOOL"</v>
                                   <v n="Comment">""</v>
                                   <v n="SymbolComment">""</v>
@@ -787,14 +788,106 @@ END_VAR
                       </o>
                       <n n="InputFlags" />
                       <l2 n="InputItems">
-                        <o t="BoxTreeTerminator">
-                          <n n="Input" />
+                        <o t="BoxTreeBox">
+                          <v n="BoxType">"INT_TO_REAL"</v>
+                          <o n="Instance" t="Operand">
+                            <n n="Operand" />
+                            <v n="Type">""</v>
+                            <v n="Comment">""</v>
+                            <v n="SymbolComment">""</v>
+                            <v n="Address">""</v>
+                            <o n="Flags" t="Flags">
+                              <v n="Flags">0</v>
+                              <v n="Fixed">false</v>
+                              <v n="Extensible">false</v>
+                            </o>
+                            <v n="LValue">false</v>
+                            <v n="Boolean">false</v>
+                            <v n="IsInstance">true</v>
+                            <v n="Id">783L</v>
+                          </o>
+                          <o n="OutputItems" t="OutputItemList">
+                            <l2 n="OutputItems" cet="Operand">
+                              <n />
+                              <o>
+                                <v n="Operand">"rProudCidla"</v>
+                                <v n="Type">"REAL"</v>
+                                <v n="Comment">""</v>
+                                <v n="SymbolComment">""</v>
+                                <v n="Address">""</v>
+                                <o n="Flags" t="Flags">
+                                  <v n="Flags">0</v>
+                                  <v n="Fixed">false</v>
+                                  <v n="Extensible">false</v>
+                                </o>
+                                <v n="LValue">true</v>
+                                <v n="Boolean">false</v>
+                                <v n="IsInstance">false</v>
+                                <v n="Id">785L</v>
+                              </o>
+                            </l2>
+                          </o>
                           <o n="Flags" t="Flags">
                             <v n="Flags">0</v>
                             <v n="Fixed">false</v>
                             <v n="Extensible">false</v>
                           </o>
-                          <v n="Id">463L</v>
+                          <n n="InputFlags" />
+                          <l2 n="InputItems">
+                            <o t="BoxTreeTerminator">
+                              <n n="Input" />
+                              <o n="Flags" t="Flags">
+                                <v n="Flags">0</v>
+                                <v n="Fixed">false</v>
+                                <v n="Extensible">false</v>
+                              </o>
+                              <v n="Id">790L</v>
+                            </o>
+                            <o t="BoxTreeOperand">
+                              <o n="Operand" t="Operand">
+                                <v n="Operand">"Machine_Inputs.I_HodnotaCidla"</v>
+                                <v n="Type">"INT"</v>
+                                <v n="Comment">""</v>
+                                <v n="SymbolComment">""</v>
+                                <v n="Address">""</v>
+                                <o n="Flags" t="Flags">
+                                  <v n="Flags">0</v>
+                                  <v n="Fixed">false</v>
+                                  <v n="Extensible">false</v>
+                                </o>
+                                <v n="LValue">false</v>
+                                <v n="Boolean">false</v>
+                                <v n="IsInstance">false</v>
+                                <v n="Id">789L</v>
+                              </o>
+                              <v n="Id">788L</v>
+                            </o>
+                          </l2>
+                          <o n="InputParam" t="ParamList">
+                            <l2 n="Names" cet="String">
+                              <v>EN</v>
+                            </l2>
+                            <l2 n="Types" cet="String">
+                              <v>BOOL</v>
+                            </l2>
+                          </o>
+                          <o n="OutputParam" t="ParamList">
+                            <l2 n="Names" cet="String">
+                              <v>ENO</v>
+                              <v></v>
+                            </l2>
+                            <l2 n="Types" cet="String">
+                              <v>BOOL</v>
+                              <v>REAL</v>
+                            </l2>
+                          </o>
+                          <v n="CallType" t="Operator">Conversion</v>
+                          <v n="EN">true</v>
+                          <v n="ENO">true</v>
+                          <n n="STSnippet" />
+                          <v n="ContainsExtensibleInputs">false</v>
+                          <v n="ProvidesSTSnippet">false</v>
+                          <v n="Id">784L</v>
                         </o>
                         <o t="BoxTreeOperand">
                           <o n="Operand" t="Operand">
@@ -817,7 +910,7 @@ END_VAR
                         </o>
                         <o t="BoxTreeOperand">
                           <o n="Operand" t="Operand">
-                            <v n="Operand">"4"</v>
+                            <v n="Operand">"HMI_prom.UI_MinHodCidla"</v>
                             <v n="Type">"INT"</v>
                             <v n="Comment">""</v>
                             <v n="SymbolComment">""</v>
@@ -836,7 +929,7 @@ END_VAR
                         </o>
                         <o t="BoxTreeOperand">
                           <o n="Operand" t="Operand">
-                            <v n="Operand">"20"</v>
+                            <v n="Operand">"HMI_prom.UI_MaxHodCidla"</v>
                             <v n="Type">"INT"</v>
                             <v n="Comment">""</v>
                             <v n="SymbolComment">""</v>
@@ -855,8 +948,8 @@ END_VAR
                         </o>
                         <o t="BoxTreeOperand">
                           <o n="Operand" t="Operand">
-                            <v n="Operand">"0"</v>
-                            <v n="Type">"INT"</v>
+                            <v n="Operand">"HMI_prom.UI_MinHodPozicioneru"</v>
+                            <v n="Type">"REAL"</v>
                             <v n="Comment">""</v>
                             <v n="SymbolComment">""</v>
                             <v n="Address">""</v>
@@ -874,8 +967,8 @@ END_VAR
                         </o>
                         <o t="BoxTreeOperand">
                           <o n="Operand" t="Operand">
-                            <v n="Operand">"50"</v>
-                            <v n="Type">"INT"</v>
+                            <v n="Operand">"HMI_prom.UI_MaxHodPozicioneru"</v>
+                            <v n="Type">"REAL"</v>
                             <v n="Comment">""</v>
                             <v n="SymbolComment">""</v>
                             <v n="Address">""</v>
@@ -940,7 +1033,7 @@ END_VAR
                   <v n="Comment">""</v>
                   <v n="Title">""</v>
                   <v n="Label">""</v>
-                  <v n="OutCommented">false</v>
+                  <v n="OutCommented">true</v>
                   <l2 n="NetworkItems" cet="BoxTreeAssign">
                     <o>
                       <o n="OutputItems" t="OutputItemList">
@@ -1188,7 +1281,7 @@ END_VAR
                   <v n="Comment">""</v>
                   <v n="Title">""</v>
                   <v n="Label">""</v>
-                  <v n="OutCommented">false</v>
+                  <v n="OutCommented">true</v>
                   <l2 n="NetworkItems" cet="BoxTreeAssign">
                     <o>
                       <o n="OutputItems" t="OutputItemList">
@@ -1661,7 +1754,7 @@ END_VAR
                             <l2 n="OutputItems" cet="Operand">
                               <n />
                               <o>
-                                <v n="Operand">"rVysledek"</v>
+                                <v n="Operand">"rChtenaPozice"</v>
                                 <v n="Type">"REAL"</v>
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
@@ -1789,7 +1882,7 @@ END_VAR
                             </o>
                             <o t="BoxTreeOperand">
                               <o n="Operand" t="Operand">
-                                <v n="Operand">"Machine_Intern.M_Hodnota_zdvihu_stolu_mm"</v>
+                                <v n="Operand">"HMI_prom.UI_PozicePracPlochy"</v>
                                 <v n="Type">"REAL"</v>
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
@@ -1808,7 +1901,7 @@ END_VAR
                             </o>
                             <o t="BoxTreeOperand">
                               <o n="Operand" t="Operand">
-                                <v n="Operand">"rPoziceCidla"</v>
+                                <v n="Operand">"HMI_prom.UI_KalibraceUberu"</v>
                                 <v n="Type">"REAL"</v>
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
@@ -1854,7 +1947,7 @@ END_VAR
                         </o>
                         <o t="BoxTreeOperand">
                           <o n="Operand" t="Operand">
-                            <v n="Operand">"rVysledek"</v>
+                            <v n="Operand">"rChtenaPozice"</v>
                             <v n="Type">"REAL"</v>
                             <v n="Comment">""</v>
                             <v n="SymbolComment">""</v>
@@ -2255,7 +2348,7 @@ END_VAR
                           </o>
                           <o t="BoxTreeOperand">
                             <o n="Operand" t="Operand">
-                              <v n="Operand">"T#1s"</v>
+                              <v n="Operand">"T#5s"</v>
                               <v n="Type">"TIME"</v>
                               <v n="Comment">""</v>
                               <v n="SymbolComment">""</v>

@@ -81,7 +81,9 @@ VAR_GLOBAL
 	
 	Q_patka_enable AT %Q*:BOOL;
 	
-
+	// pozicioner 
+	Q_Pozicioner_dolu AT %Q* : BOOL; 
+	
 	
 END_VAR]]></Declaration>
   </GVL>

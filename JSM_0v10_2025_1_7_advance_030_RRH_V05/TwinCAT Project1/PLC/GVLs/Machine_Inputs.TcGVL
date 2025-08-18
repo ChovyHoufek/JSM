@@ -94,6 +94,10 @@ VAR_GLOBAL
 	I_agreg2_frekv_menic_status_word AT %I*:UINT;
 	I_agreg3_frekv_menic_status_word AT %I*:UINT;
 	I_Posuv_pas_frekv_menic_status_word AT %I*:UINT;
+	
+	// Hodnota cidla pro Pozicioner
+		I_koncakPozicioner AT %I* : BOOL;
+	I_HodnotaCidla AT %I* : INT;
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

@@ -125,6 +125,27 @@ UI_password : STRING ;
 // pridany tag pro vypnuti HMI 
 UI_Start_vypnuti_HMI: BOOL;
 
+
+// Parametry pro pozicionér
+
+UI_MaxHodCidla : INT;
+UI_MinHodCidla : INT;
+UI_AktualniHodnotaCidla : INT;
+UI_MaxHodPozicioneru : REAL; 
+UI_MinHodPozicioneru : REAL;
+UI_AktualniHodnotaPozicioneru : REAL;
+UI_PozicePracPlochy : REAL ; // pozice v mm kde je pracovní pozice od 0 senzoru
+UI_PozicionerDolu : BOOL ;
+UI_KalibraceUberu : REAL ; 
+
+
+// Metry / Palce
+
+MaxHodPrep : REAL ;
+MinHodPrep : REAL ;
+DesMisto : REAL ;
+DecDigit : REAL ;
+
 END_VAR]]></Declaration>
   </GVL>
 </TcPlcObject>

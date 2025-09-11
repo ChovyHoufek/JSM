@@ -34,6 +34,7 @@ STRUCT
 	Alm27_agregH_krajni_poloha_pasu_vlevo : BIT;
 	Alm28_agregH_krajni_poloha_pasu_vpravo : BIT;
 	Alm29_agregH_napnuti_pasu : BIT;
+	Alm30_jistic_vyvevy: BIT;
 END_STRUCT
 END_TYPE
 ]]></Declaration>

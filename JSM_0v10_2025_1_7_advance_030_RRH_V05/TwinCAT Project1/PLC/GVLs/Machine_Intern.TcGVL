@@ -48,6 +48,15 @@ VAR_GLOBAL
 	
 	//alarm pro agregat H 
 	M_alarm_agregatH : BOOL ;
+	
+	// pomocnz tag pro napinani pasu 
+	M_napnuti_pasu_agerg3 : BOOL;
+	M_napnuti_pasu_ageregH : BOOL;
+	
+	// pozicioner stul nahoru 
+	M_pozicioner_rq_stul_up : BOOL ;
+	
+
 END_VAR
 
 VAR_GLOBAL PERSISTENT

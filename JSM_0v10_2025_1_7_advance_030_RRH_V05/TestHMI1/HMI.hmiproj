@@ -352,6 +352,13 @@
     <Content Include="Images\Vlastni\United-Kingdom.png">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="JSfunkce\obrobekAnimation.function.json">
+      <SubType>Content</SubType>
+      <DependentUpon>JSfunkce\obrobekAnimation.js</DependentUpon>
+    </Content>
+    <Content Include="JSfunkce\obrobekAnimation.js">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="JSfunkce\UnitConversion.function.json">
       <SubType>Content</SubType>
       <DependentUpon>JSfunkce\UnitConversion.js</DependentUpon>

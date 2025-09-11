@@ -72,7 +72,7 @@ IF Machine_Intern.M_Stroj_zapnuty THEN
 END_IF
 
 // pokud neni zapnuty agregat C, nefuguje patka
-IF HMI_prom.UI_Start_agregat3 = FALSE THEN 
+IF HMI_prom.UI_Start_AgregatH = FALSE THEN 
 	Machine_outputs.Q_patka_enable:=FALSE;
 END_IF
 

@@ -41,10 +41,12 @@ VAR_GLOBAL
 	//napinani pasu
 	I_Napnuti_pasu_agreg1 AT %I*:BOOL;
 	I_Napnuti_pasu_agreg2 AT %I*:BOOL;
-	I_Napnuti_pasu_agreg3 AT %I*:BOOL;
-	
+	I_Napnuti_pasu_agreg3_horni_limit AT %I*:BOOL;
+	I_Napnuti_pasu_agreg3_dolni_limit AT %I*:BOOL;
 	// napinani agregatu H 
-	I_Napnuti_pasu_agregatuH AT %I* : BOOL;
+	I_Napnuti_pasu_agregatuH_dolni_limit AT %I* : BOOL;
+	I_Napnuti_pasu_agregatuH_horni_limit AT %I* : BOOL;
+	
 	
 	//krajni poloha
 	I_Krajni_poloha_pasu1_vlevo AT %I*:BOOL;
@@ -96,7 +98,7 @@ VAR_GLOBAL
 	I_Posuv_pas_frekv_menic_status_word AT %I*:UINT;
 	
 	// Hodnota cidla pro Pozicioner
-		I_koncakPozicioner AT %I* : BOOL;
+	I_koncakPozicioner AT %I* : BOOL;
 	I_HodnotaCidla AT %I* : INT;
 END_VAR]]></Declaration>
   </GVL>

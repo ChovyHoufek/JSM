@@ -5,7 +5,12 @@
     "module": "none",
     "target": "ES2020",
     "skipLibCheck": true,
-    "lib": [ "DOM", "DOM.Iterable", "ES2019", "ES2020.BigInt" ],
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ES2019",
+      "ES2020.BigInt"
+    ],
     "types": [],
     "declaration": true,
     "sourceMap": true,

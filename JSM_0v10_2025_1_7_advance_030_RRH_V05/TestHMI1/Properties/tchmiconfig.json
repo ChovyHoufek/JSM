@@ -55,6 +55,11 @@
       "name": "JSfunkce/UnitConversion.js",
       "description": "",
       "type": "JavaScript"
+    },
+    {
+      "name": "JSfunkce/obrobekAnimation.js",
+      "description": "",
+      "type": "JavaScript"
     }
   ],
   "userControls": [
@@ -237,6 +242,9 @@
   ],
   "userFunctions": [
     {
+      "url": "JSfunkce/obrobekAnimation.js"
+    },
+    {
       "url": "JSfunkce/UnitConversion.js"
     }
   ],
@@ -290,6 +298,18 @@
         "value": 3.0,
         "type": "tchmi:general#/definitions/REAL",
         "persist": true,
+        "readonly": false
+      },
+      "isAnimationPlayed": {
+        "value": false,
+        "type": "tchmi:general#/definitions/BOOL",
+        "persist": false,
+        "readonly": false
+      },
+      "animStopped": {
+        "value": false,
+        "type": "tchmi:general#/definitions/BOOL",
+        "persist": false,
         "readonly": false
       }
     },

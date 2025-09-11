@@ -32,6 +32,7 @@
     "Alm26": "Aggregate 3 frequency drive error",
     "Alm27": "Aggregate H left limit",
     "Alm28": "Aggregate H right limit",
-    "Alm29": "Aggregate H alarm belt pressure"
+    "Alm29": "Aggregate H alarm belt pressure",
+    "Alm30": "Vaccum pump breaker fall down"
   }
 }

@@ -1,0 +1,45 @@
+{
+  "function": {
+    "name": "obrobekAnimation",
+    "namespace": "TcHmi.Functions.TestHMI1",
+    "displayName": "obrobekAnimation",
+    "description": "",
+    "waitMode": "Synchronous",
+    "category": "Other",
+    "returnValue": {
+      "type": "tchmi:general#/definitions/VOID"
+    },
+    "visible": true,
+    "injectContextObject": false,
+    "arguments": [
+      {
+        "name": "speed",
+        "displayName": "speed",
+        "type": "tchmi:general#/definitions/Number",
+        "description": "Speed of aggregate",
+        "defaultValue": 0.0,
+        "required": true,
+        "bindable": true,
+        "restParameter": false,
+        "asReference": false,
+        "allowControlAttributeBindingOptions": false
+      }
+    ]
+  },
+  "$schema": "./../../Packages/Beckhoff.TwinCAT.HMI.Framework.12.762.46/runtimes/native1.12-tchmi/Schema/FunctionDescription.Schema.json",
+  "apiVersion": 1,
+  "version": {
+    "full": "0.0.0.0",
+    "major": 0,
+    "minor": 0,
+    "revision": 0,
+    "build": 0
+  },
+  "dependencyFiles": [
+    {
+      "name": "obrobekAnimation.js",
+      "type": "JavaScript",
+      "description": ""
+    }
+  ]
+}

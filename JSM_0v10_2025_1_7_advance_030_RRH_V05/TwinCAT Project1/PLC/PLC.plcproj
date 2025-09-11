@@ -61,7 +61,7 @@
     <Compile Include="POUs\Agregat1.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="POUs\Agregat3aH.TcPOU">
+    <Compile Include="POUs\Agregat3aH_1.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\Agregat_Pod_pas.TcPOU">
@@ -74,6 +74,39 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\AutomaticMessurmentV1.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\AutomaticMessurmentV1_1.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\AutomatNew.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\AutomatNew_1.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\AutomatNew_2.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\AutomatNew_3.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\AutomatNew_3_1.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\FB_RefTable.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\FB_RefTable_1.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\FB_RefTable_2.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\shutdownHMI.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\testAutomat.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\Blikatko.TcPOU">
@@ -137,9 +170,6 @@
     <Folder Include="POUs" />
   </ItemGroup>
   <ItemGroup>
-    <PlaceholderReference Include="Tc2_BABasic">
-      <DefaultResolution>Tc2_BABasic, * (Beckhoff Automation GmbH)</DefaultResolution>
-    </PlaceholderReference>
     <PlaceholderReference Include="Tc2_Standard">
       <DefaultResolution>Tc2_Standard, * (Beckhoff Automation GmbH)</DefaultResolution>
       <Namespace>Tc2_Standard</Namespace>

@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.15">
+  <POU Name="FB_RefTable" Id="{151d466c-329d-4dfe-9c06-5ff981ceb3c9}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_RefTable
+VAR_INPUT
+	EN: BOOL;
+	pozValue: REAL;
+END_VAR
+VAR_OUTPUT
+	ENO: BOOL;
+	
+END_VAR
+VAR
+	start: BOOL;
+	Keys : ARRAY[1..9] OF REAL := [10.0,15.0,20.0,25.0,30.0,35.0,40.0,45.0,50.0];
+	Offsets : ARRAY[1..9] OF REAL := [7188.0,10168.0,13063.0,16135.0,19060.0,21906.0,24816.0,27825.0,30540.0];
+	Diffs : ARRAY[1..9] OF REAL;
+	zdvihValue: REAL := Machine_Intern.M_Hodnota_zdvihu_stolu_mm;
+
+	nearestKey: REAL;
+	nearestOffset: REAL;
+	
+		bestDiff: REAL;
+	diff: REAL;
+	
+END_VAR
+
+VAR_TEMP
+	i, bestIndex: INT := 1;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+FOR i := 1 TO 9 DO
+    diff := ABS(pozValue - Offsets[i]);
+    IF diff<bestDiff THEN
+        bestDiff := diff;
+        bestIndex := i;
+    END_IF
+END_FOR
+
+nearestOffset := Offsets[bestIndex];
+nearestKey := Keys[bestIndex];
+HMI_prom.UI_MaxHodCidla:= REAL_TO_INT(nearestOffset);
+
+HMI_prom.UI_MaxHodPozicioneru := nearestKey ;
+
+EN := ENO;]]></ST>
+    </Implementation>
+    <LineIds Name="FB_RefTable">
+      <LineId Id="80" Count="9" />
+      <LineId Id="25" Count="0" />
+      <LineId Id="79" Count="0" />
+      <LineId Id="92" Count="0" />
+      <LineId Id="91" Count="0" />
+      <LineId Id="90" Count="0" />
+      <LineId Id="28" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

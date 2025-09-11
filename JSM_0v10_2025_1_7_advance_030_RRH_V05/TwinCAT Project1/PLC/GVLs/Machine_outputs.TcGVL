@@ -10,6 +10,8 @@ VAR_GLOBAL
 	Q_oscilace_agregat2 AT %Q*:BOOL;
 	Q_oscilace_agregat3 AT %Q*:BOOL;
 	
+	Q_oscilace_reverz_agregat3 AT %Q*:BOOL;
+	
 	// pridani vystupu pro agergat H 
 	Q_agregatH_oscilace AT %Q* : BOOL ;
 	
@@ -83,6 +85,7 @@ VAR_GLOBAL
 	
 	// pozicioner 
 	Q_Pozicioner_dolu AT %Q* : BOOL; 
+	Q_uceni_pozicioneru AT %Q* : BOOL;
 	
 	
 END_VAR]]></Declaration>

@@ -570,7 +570,7 @@
                 }
             },
             "enabled": true,
-            "interval": "PT1S",
+            "interval": "PT0.1S",
             "onError": false
         },
         "PLC1.HMI_prom.HMI_alarms.Alm29_agregH_napnuti_pasu": {
@@ -593,8 +593,22 @@
             "interval": "PT0.1S",
             "onError": false
         },
-        "agregat": {
-            "alarmSettings": {},
+        "PLC1.HMI_prom.HMI_alarms.Alm30_jistic_vyvevy": {
+            "alarmSettings": {
+                "ALARMSETTING": {
+                    "alarmTextKey": "Alm30",
+                    "condition": [
+                        {
+                            "comparator": "==",
+                            "path": "",
+                            "value": true
+                        }
+                    ],
+                    "enabled": true,
+                    "notificationType": 2,
+                    "severity": 3
+                }
+            },
             "enabled": true,
             "interval": "PT1S",
             "onError": false

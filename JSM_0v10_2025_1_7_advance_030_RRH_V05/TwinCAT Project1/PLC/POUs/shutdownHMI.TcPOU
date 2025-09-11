@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.15">
+  <POU Name="shutdownHMI" Id="{ff936dd6-6c66-4da4-881a-0d7a9d4766dc}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM shutdownHMI
+VAR
+	i : INT := 0;
+	Vypni_HMI: NT_Startprocess;
+	HMI_off: BOOL := FALSE;
+	ton: TON;
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[ton(IN:= NOT Machine_Inputs.I_Tl_Stop_Reset_stroje, PT:= T#10S);
+Vypni_HMI(
+	NETID:= ,
+	PATHSTR:='C:\Windows\System32\cmd.exe',
+	DIRNAME:= 'C:\Windows\System32',
+	COMNDLINE:= '/C taskkill /F /IM chrome.exe /T',
+	START:=ton.Q, 
+	);]]></ST>
+    </Implementation>
+    <LineIds Name="shutdownHMI">
+      <LineId Id="9" Count="0" />
+      <LineId Id="38" Count="5" />
+      <LineId Id="12" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.15">
+  <POU Name="FB_RefTable_1" Id="{38d785f5-e557-4b1c-a563-9ad4448ed4ff}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_RefTable_1
+VAR_INPUT
+	EN: BOOL;
+	pozValue: REAL;
+	Pozadavek : BOOL ;
+END_VAR
+VAR_OUTPUT
+	ENO: BOOL;
+	Vystup : REAL ;
+	cislo : REAL ;
+END_VAR
+VAR
+	start: BOOL;
+	Keys : ARRAY[1..10] OF REAL :=           [5.0,10.0,15.0,20.0,25.0,30.0,35.0,40.0,45.0,50.0];
+	Offsets : ARRAY[1..10] OF REAL := [3000.0,7188.0,10168.0,13063.0,16135.0,19060.0,21906.0,24816.0,27825.0,30540.0];
+	Diffs : ARRAY[1..9] OF REAL;
+	zdvihValue: REAL := Machine_Intern.M_Hodnota_zdvihu_stolu_mm;
+
+	nearestKey: REAL;
+	nearestOffset: REAL;
+	
+		bestDiff: REAL;
+	diff: REAL;
+	
+END_VAR
+
+VAR_TEMP
+	i, bestIndex: INT := 1;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+IF Pozadavek THEN
+	
+
+(*		IF  pozValue > 3000 AND pozValue  <= 5000 THEN 
+			Vystup := 7188 ; 
+		END_IF
+		
+		IF  pozValue > 5000 AND pozValue  <= 8660 THEN 
+			Vystup := 7188 ; 
+		END_IF  *)
+		
+		IF  pozValue >  8660 AND pozValue  <= 11600 THEN 
+			Vystup := 10168 ; 
+			cislo := 15 ;
+		END_IF
+		
+		IF  pozValue > 11600 AND pozValue  <= 14520 THEN 
+			Vystup := 13069 ; 
+			cislo := 20 ;
+		END_IF
+		
+		IF  pozValue > 14520 AND pozValue  <= 17620 THEN 
+			Vystup := 16135 ; 
+				cislo := 25 ;
+		END_IF
+		
+		IF  pozValue > 17620 AND pozValue  <= 20460 THEN 
+			Vystup := 19060 ; 
+			cislo := 30 ;
+		END_IF
+		
+		IF  pozValue > 20460 AND pozValue  <= 23340 THEN 
+			Vystup := 21906 ; 
+			cislo :=35 ;
+		END_IF
+		
+		IF  pozValue > 23340 AND pozValue  <= 26270 THEN 
+			Vystup := 24816; 
+				cislo :=40 ;
+		END_IF
+		
+		IF  pozValue > 26270 AND pozValue  <= 29220 THEN 
+			Vystup := 27825 ; 
+				cislo :=45 ;
+		END_IF
+		
+		IF  pozValue > 29220 AND pozValue  <= 30540 THEN 
+			Vystup := 30540 ; 
+				cislo :=50 ;
+		END_IF
+
+END_IF]]></ST>
+    </Implementation>
+    <LineIds Name="FB_RefTable_1">
+      <LineId Id="80" Count="0" />
+      <LineId Id="168" Count="0" />
+      <LineId Id="174" Count="0" />
+      <LineId Id="169" Count="0" />
+      <LineId Id="28" Count="0" />
+      <LineId Id="127" Count="0" />
+      <LineId Id="124" Count="0" />
+      <LineId Id="129" Count="2" />
+      <LineId Id="128" Count="0" />
+      <LineId Id="133" Count="2" />
+      <LineId Id="186" Count="0" />
+      <LineId Id="132" Count="0" />
+      <LineId Id="137" Count="2" />
+      <LineId Id="189" Count="0" />
+      <LineId Id="136" Count="0" />
+      <LineId Id="141" Count="2" />
+      <LineId Id="190" Count="0" />
+      <LineId Id="140" Count="0" />
+      <LineId Id="145" Count="2" />
+      <LineId Id="191" Count="0" />
+      <LineId Id="144" Count="0" />
+      <LineId Id="149" Count="2" />
+      <LineId Id="192" Count="0" />
+      <LineId Id="148" Count="0" />
+      <LineId Id="164" Count="0" />
+      <LineId Id="153" Count="1" />
+      <LineId Id="193" Count="0" />
+      <LineId Id="152" Count="0" />
+      <LineId Id="165" Count="0" />
+      <LineId Id="156" Count="1" />
+      <LineId Id="194" Count="0" />
+      <LineId Id="155" Count="0" />
+      <LineId Id="166" Count="0" />
+      <LineId Id="159" Count="1" />
+      <LineId Id="195" Count="0" />
+      <LineId Id="158" Count="0" />
+      <LineId Id="171" Count="0" />
+      <LineId Id="161" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

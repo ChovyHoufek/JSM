@@ -6,6 +6,7 @@ VAR_GLOBAL PERSISTENT
 UI_Start_Agregat1:BOOL;
 UI_Start_agregat2:BOOL;
 UI_Start_agregat3:BOOL;
+UI_Start_AgregatH : BOOL;
 UI_Priskok_agregat1:BOOL;
 UI_Priskok_agregat1_ikona:BOOL;
 UI_Odskok_agregat1:BOOL;
@@ -131,12 +132,13 @@ UI_Start_vypnuti_HMI: BOOL;
 UI_MaxHodCidla : INT;
 UI_MinHodCidla : INT;
 UI_AktualniHodnotaCidla : INT;
-UI_MaxHodPozicioneru : REAL; 
+UI_MaxHodPozicioneru : REAL := 50; 
 UI_MinHodPozicioneru : REAL;
 UI_AktualniHodnotaPozicioneru : REAL;
 UI_PozicePracPlochy : REAL ; // pozice v mm kde je pracovní pozice od 0 senzoru
 UI_PozicionerDolu : BOOL ;
 UI_KalibraceUberu : REAL ; 
+UI_vysledek : REAL ;
 
 
 // Metry / Palce
@@ -145,6 +147,9 @@ MaxHodPrep : REAL ;
 MinHodPrep : REAL ;
 DesMisto : REAL ;
 DecDigit : REAL ;
+
+//Reverzni otaceni
+StartReverse: BOOL;
 
 END_VAR]]></Declaration>
   </GVL>

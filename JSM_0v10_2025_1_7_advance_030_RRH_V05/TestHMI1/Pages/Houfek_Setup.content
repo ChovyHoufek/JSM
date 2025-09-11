@@ -164,7 +164,7 @@
 </script>
 
 </div>
-<div id="TcHmiNumericInput_31" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiNumericInput" data-tchmi-auto-focus-out="true" data-tchmi-decimal-digits="0" data-tchmi-height="29" data-tchmi-height-unit="px" data-tchmi-left="628" data-tchmi-left-unit="px" data-tchmi-max-value="3" data-tchmi-min-value="0" data-tchmi-reset-to-last-valid-value="true" data-tchmi-top="88" data-tchmi-top-unit="px" data-tchmi-value="%s%PLC1.HMI_prom.HMI_param_stroje.Stp_Agregat3.Typ_agregatu|BindingMode=TwoWay%/s%" data-tchmi-width="80" data-tchmi-width-unit="px" data-tchmi-auto-select-text="true" data-tchmi-ignore-invalid-values="true" data-tchmi-value-font-size="%ctrl%TcHmiNumericInput_31::RenderedHeight%/ctrl%" data-tchmi-value-horizontal-alignment="Left">
+<div id="TcHmiNumericInput_31" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiNumericInput" data-tchmi-auto-focus-out="true" data-tchmi-decimal-digits="0" data-tchmi-height="29" data-tchmi-height-unit="px" data-tchmi-left="628" data-tchmi-left-unit="px" data-tchmi-max-value="4" data-tchmi-min-value="0" data-tchmi-reset-to-last-valid-value="true" data-tchmi-top="88" data-tchmi-top-unit="px" data-tchmi-value="%s%PLC1.HMI_prom.HMI_param_stroje.Stp_Agregat3.Typ_agregatu|BindingMode=TwoWay%/s%" data-tchmi-width="80" data-tchmi-width-unit="px" data-tchmi-auto-select-text="true" data-tchmi-ignore-invalid-values="true" data-tchmi-value-font-size="%ctrl%TcHmiNumericInput_31::RenderedHeight%/ctrl%" data-tchmi-value-horizontal-alignment="Left">
 <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">
 {
   "top": 3,
@@ -175,7 +175,7 @@
 </script>
 
 </div>
-<div id="TcHmiTextblock_249" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="29" data-tchmi-height-unit="px" data-tchmi-left="753" data-tchmi-left-unit="px" data-tchmi-text="1-2 = R, 3=C" data-tchmi-top="88" data-tchmi-top-unit="px" data-tchmi-width="131" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-font-size="%f%%ctrl%TcHmiTextblock_235::RenderedHeight%/ctrl%/1.2%/f%" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center">
+<div id="TcHmiTextblock_249" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="29" data-tchmi-height-unit="px" data-tchmi-left="753" data-tchmi-left-unit="px" data-tchmi-text="1-2 = R, 3 = C, 4 = H" data-tchmi-top="88" data-tchmi-top-unit="px" data-tchmi-width="131" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-font-size="%f%%ctrl%TcHmiTextblock_235::RenderedHeight%/ctrl%/1.2%/f%" data-tchmi-text-horizontal-alignment="Left" data-tchmi-text-vertical-alignment="Center">
 </div>
 <div id="TcHmiTextblock_250" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiTextblock" data-tchmi-height="52" data-tchmi-height-unit="px" data-tchmi-left="423" data-tchmi-left-unit="px" data-tchmi-text="%l%L_patka%/l%" data-tchmi-top="290" data-tchmi-top-unit="px" data-tchmi-width="277" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-text-font-size="%f%%ctrl%TcHmiTextblock_234::RenderedHeight%/ctrl%/1.2%/f%" data-tchmi-text-horizontal-alignment="Center" data-tchmi-text-vertical-alignment="Center">
 </div>

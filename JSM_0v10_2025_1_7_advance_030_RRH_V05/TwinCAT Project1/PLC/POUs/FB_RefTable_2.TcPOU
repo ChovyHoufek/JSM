@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.15">
+  <POU Name="FB_RefTable_2" Id="{19e50745-7194-4c6c-8749-4e3f09754f0f}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK FB_RefTable_2
+VAR_INPUT
+	EN: BOOL;
+	pozValue: REAL;
+	Pozadavek : BOOL ;
+END_VAR
+VAR_OUTPUT
+	ENO: BOOL;
+	Vystup : REAL ;
+	cislo : REAL ;
+END_VAR
+VAR
+	start: BOOL;
+	Keys : ARRAY[1..10] OF REAL :=           [5.0,10.0,15.0,20.0,25.0,30.0,35.0,40.0,45.0,50.0];
+	Offsets : ARRAY[1..10] OF REAL := [3000.0,7188.0,10168.0,13063.0,16135.0,19060.0,21906.0,24816.0,27825.0,30540.0];
+	Diffs : ARRAY[1..9] OF REAL;
+	zdvihValue: REAL := Machine_Intern.M_Hodnota_zdvihu_stolu_mm;
+
+	nearestKey: REAL;
+	nearestOffset: REAL;
+	
+		bestDiff: REAL;
+	diff: REAL;
+	
+END_VAR
+
+VAR_TEMP
+	i, bestIndex: INT := 1;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[
+IF Pozadavek THEN
+	
+
+(*		IF  pozValue > 3000 AND pozValue  <= 5000 THEN 
+			Vystup := 7188 ; 
+		END_IF
+		
+		IF  pozValue > 5000 AND pozValue  <= 8660 THEN 
+			Vystup := 7188 ; 
+		END_IF  *)
+		IF  pozValue >  6991 AND pozValue  <= 7001 THEN 
+			Vystup := 7000 ; 
+			cislo := 10 ;
+		END_IF
+		IF  pozValue >  7578 AND pozValue  <= 7594 THEN 
+			Vystup := 7585 ; 
+			cislo := 11 ;
+		END_IF
+		
+		IF  pozValue >  8185 AND pozValue  <= 8200 THEN 
+			Vystup := 8190 ; 
+			cislo := 12 ;
+		END_IF
+		IF  pozValue >  8775 AND pozValue  <= 8790 THEN 
+			Vystup := 8785 ; 
+			cislo := 13 ;
+		END_IF
+		IF  pozValue >  9375 AND pozValue  <= 9390 THEN 
+			Vystup := 9385 ; 
+			cislo := 14 ;
+		END_IF
+		
+		IF  pozValue >  9950 AND pozValue  <= 9963 THEN 
+			Vystup := 9958 ; 
+			cislo := 15 ;
+		END_IF
+		
+		IF  pozValue >  10545 AND pozValue  <= 10565 THEN 
+			Vystup := 10555 ; 
+			cislo := 16 ;
+		END_IF
+		
+		IF  pozValue >  11125 AND pozValue  <= 11135 THEN 
+			Vystup := 11130 ; 
+			cislo := 17 ;
+		END_IF
+		IF  pozValue >  11685 AND pozValue  <= 11700 THEN 
+			Vystup := 11690 ; 
+			cislo := 18 ;
+		END_IF
+		IF  pozValue >  12260 AND pozValue  <= 12680 THEN 
+			Vystup :=  12670;
+			cislo := 19 ;
+		END_IF
+		
+		IF  pozValue > 12845 AND pozValue  <= 12865 THEN 
+			Vystup := 12860 ; 
+			cislo := 20 ;
+		END_IF
+		
+		IF  pozValue >  13435 AND pozValue  <= 13440 THEN 
+			Vystup := 13435 ; 
+			cislo := 21 ;
+		END_IF
+		
+		IF  pozValue >  14010 AND pozValue  <= 14020 THEN 
+			Vystup :=14015 ; 
+			cislo := 22 ;
+		END_IF
+		IF  pozValue >  14615 AND pozValue  <= 14630 THEN 
+			Vystup := 14625 ; 
+			cislo := 23 ;
+		END_IF
+		IF  pozValue >  15265 AND pozValue  <= 15285 THEN 
+			Vystup := 15275 ; 
+			cislo := 24 ;
+		END_IF
+		
+		IF  pozValue > 15915 AND pozValue  <= 15930 THEN 
+			Vystup := 15925 ; 
+				cislo := 25 ;
+		END_IF
+		IF  pozValue >  16535 AND pozValue  <= 16550 THEN 
+			Vystup := 16545 ; 
+			cislo := 26 ;
+		END_IF
+		
+		IF  pozValue >  17110 AND pozValue  <= 17130 THEN 
+			Vystup := 17120 ; 
+			cislo := 27 ;
+		END_IF
+		IF  pozValue >  17715 AND pozValue  <= 17730 THEN 
+			Vystup := 17725 ; 
+			cislo := 28 ;
+		END_IF
+		IF  pozValue > 18305 AND pozValue  <= 18325 THEN 
+			Vystup := 18320 ; 
+			cislo := 29 ;
+		END_IF
+		IF  pozValue > 18855 AND pozValue  <= 18870 THEN 
+			Vystup := 18865 ; 
+			cislo := 30 ;
+		END_IF
+		IF  pozValue >  19435 AND pozValue  <= 19450 THEN 
+			Vystup := 19445 ; 
+			cislo := 31 ;
+		END_IF
+		
+		IF  pozValue >  20000 AND pozValue  <= 20020 THEN 
+			Vystup := 20010 ; 
+			cislo := 32 ;
+		END_IF
+		IF  pozValue >  20565 AND pozValue  <= 20585 THEN 
+			Vystup := 20575 ; 
+			cislo := 33 ;
+		END_IF
+		IF  pozValue >  21145 AND pozValue  <= 21165 THEN 
+			Vystup := 21155 ; 
+			cislo := 34 ;
+		END_IF
+		
+		IF  pozValue > 21725 AND pozValue  <= 21745 THEN 
+			Vystup := 21735 ; 
+			cislo :=35 ;
+		END_IF
+		
+		IF  pozValue >  22285 AND pozValue  <= 22305 THEN 
+			Vystup := 22295 ; 
+			cislo := 36 ;
+		END_IF
+		
+		IF  pozValue >  22870 AND pozValue  <= 22890 THEN 
+			Vystup := 22880 ; 
+			cislo := 37 ;
+		END_IF
+		IF  pozValue >  23470 AND pozValue  <= 23490 THEN 
+			Vystup := 23480 ; 
+			cislo := 38 ;
+		END_IF
+		IF  pozValue >  24055 AND pozValue  <= 24075 THEN 
+			Vystup := 24065 ; 
+			cislo := 39 ;
+		END_IF
+		
+		IF  pozValue > 24640 AND pozValue  <= 24660 THEN 
+			Vystup := 24650; 
+				cislo :=40 ;
+		END_IF
+		
+		IF  pozValue >  25230 AND pozValue  <= 25250 THEN 
+			Vystup := 20240 ; 
+			cislo := 41 ;
+		END_IF
+		
+		IF  pozValue >  25840 AND pozValue  <= 25860 THEN 
+			Vystup := 25850 ; 
+			cislo := 42 ;
+		END_IF
+		IF  pozValue >  26430 AND pozValue  <= 26450 THEN 
+			Vystup := 26440 ; 
+			cislo := 43 ;
+		END_IF
+		IF  pozValue >  27035 AND pozValue  <= 27055 THEN 
+			Vystup := 27045 ; 
+			cislo := 44 ;
+		END_IF
+		
+		IF  pozValue > 27675 AND pozValue  <= 27695 THEN 
+			Vystup := 27685 ; 
+				cislo :=45 ;
+		END_IF
+		
+		IF  pozValue >  28310 AND pozValue  <= 28330 THEN 
+			Vystup := 28320 ; 
+			cislo := 46 ;
+		END_IF
+		
+		IF  pozValue >  28900 AND pozValue  <= 28920 THEN 
+			Vystup := 28910 ; 
+			cislo := 47 ;
+		END_IF
+		IF  pozValue > 29530  AND pozValue  <= 29550 THEN 
+			Vystup := 29540 ; 
+			cislo := 48 ;
+		END_IF
+		IF  pozValue >  30145 AND pozValue  <= 30165 THEN 
+			Vystup := 30155 ; 
+			cislo := 49 ;
+		END_IF
+		
+		IF  pozValue > 30470 AND pozValue  <= 30510 THEN 
+			Vystup := 30495 ; 
+				cislo :=50 ;
+		END_IF
+
+END_IF]]></ST>
+    </Implementation>
+    <LineIds Name="FB_RefTable_2">
+      <LineId Id="80" Count="0" />
+      <LineId Id="168" Count="0" />
+      <LineId Id="174" Count="0" />
+      <LineId Id="169" Count="0" />
+      <LineId Id="28" Count="0" />
+      <LineId Id="127" Count="0" />
+      <LineId Id="124" Count="0" />
+      <LineId Id="129" Count="2" />
+      <LineId Id="128" Count="0" />
+      <LineId Id="225" Count="2" />
+      <LineId Id="224" Count="0" />
+      <LineId Id="229" Count="2" />
+      <LineId Id="228" Count="0" />
+      <LineId Id="232" Count="0" />
+      <LineId Id="234" Count="6" />
+      <LineId Id="233" Count="0" />
+      <LineId Id="242" Count="2" />
+      <LineId Id="241" Count="0" />
+      <LineId Id="133" Count="2" />
+      <LineId Id="186" Count="0" />
+      <LineId Id="132" Count="0" />
+      <LineId Id="245" Count="0" />
+      <LineId Id="247" Count="15" />
+      <LineId Id="246" Count="0" />
+      <LineId Id="137" Count="2" />
+      <LineId Id="189" Count="0" />
+      <LineId Id="136" Count="0" />
+      <LineId Id="263" Count="0" />
+      <LineId Id="265" Count="15" />
+      <LineId Id="264" Count="0" />
+      <LineId Id="141" Count="2" />
+      <LineId Id="190" Count="0" />
+      <LineId Id="140" Count="0" />
+      <LineId Id="281" Count="15" />
+      <LineId Id="145" Count="2" />
+      <LineId Id="191" Count="0" />
+      <LineId Id="144" Count="0" />
+      <LineId Id="298" Count="15" />
+      <LineId Id="297" Count="0" />
+      <LineId Id="149" Count="2" />
+      <LineId Id="192" Count="0" />
+      <LineId Id="148" Count="0" />
+      <LineId Id="314" Count="0" />
+      <LineId Id="316" Count="15" />
+      <LineId Id="315" Count="0" />
+      <LineId Id="164" Count="0" />
+      <LineId Id="153" Count="1" />
+      <LineId Id="193" Count="0" />
+      <LineId Id="152" Count="0" />
+      <LineId Id="332" Count="0" />
+      <LineId Id="334" Count="15" />
+      <LineId Id="333" Count="0" />
+      <LineId Id="165" Count="0" />
+      <LineId Id="156" Count="1" />
+      <LineId Id="194" Count="0" />
+      <LineId Id="155" Count="0" />
+      <LineId Id="350" Count="0" />
+      <LineId Id="352" Count="15" />
+      <LineId Id="351" Count="0" />
+      <LineId Id="166" Count="0" />
+      <LineId Id="159" Count="1" />
+      <LineId Id="195" Count="0" />
+      <LineId Id="158" Count="0" />
+      <LineId Id="171" Count="0" />
+      <LineId Id="161" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>

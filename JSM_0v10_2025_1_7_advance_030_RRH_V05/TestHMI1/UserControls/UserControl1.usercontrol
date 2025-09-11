@@ -129,6 +129,10 @@
     "stateIcon": "Images/Vlastni/9a__icon_aggregat_k250.png"
   },
   {
+    "state": 4,
+    "stateIcon": "Images/Vlastni/14a__icon_aggregat_ld.png"
+  },
+  {
     "state": 3,
     "stateIcon": "Images/Vlastni/17a__icon_aggregat_lk laenger.png"
   }
@@ -341,7 +345,7 @@
             "caseValue": {
               "objectType": "StaticValue",
               "valueType": "tchmi:general#/definitions/Any",
-              "value": "3"
+              "value": "4"
             },
             "actions": [
               {
@@ -462,7 +466,7 @@
             "caseValue": {
               "objectType": "StaticValue",
               "valueType": "tchmi:general#/definitions/Any",
-              "value": "3"
+              "value": "4"
             },
             "actions": [
               {
@@ -521,7 +525,7 @@
             "caseValue": {
               "objectType": "StaticValue",
               "valueType": "tchmi:general#/definitions/Any",
-              "value": 3
+              "value": 4
             },
             "actions": [
               {
@@ -823,7 +827,7 @@
               {
                 "compare1": {
                   "objectType": "Symbol",
-                  "valueType": "tchmi:framework#/definitions/TcHmi.Controls.Beckhoff.TcHmiButton.StateSymbol",
+                  "valueType": "tchmi:general#/definitions/BOOL",
                   "symbolExpression": "%pp%start_agregatu%/pp%"
                 },
                 "compare2": {
@@ -900,13 +904,13 @@
               {
                 "compare1": {
                   "objectType": "Symbol",
-                  "valueType": "tchmi:general#/definitions/String",
-                  "symbolExpression": "%pp%Priskok_agregatu_ikona%/pp%"
+                  "valueType": "tchmi:general#/definitions/BOOL",
+                  "symbolExpression": "%pp%Priskok_Ikona%/pp%"
                 },
                 "compare2": {
                   "objectType": "StaticValue",
                   "valueType": "tchmi:general#/definitions/BOOL",
-                  "value": false
+                  "value": true
                 },
                 "compareOperator": "==",
                 "logic": null
@@ -914,14 +918,56 @@
             ],
             "then": [
               {
-                "objectType": "WriteToSymbol",
+                "objectType": "Condition",
                 "active": true,
-                "symbolExpression": "%ctrl%TG_Button_priskok_agregatu::Icon%/ctrl%",
-                "value": {
-                  "objectType": "StaticValue",
-                  "valueType": "tchmi:framework#/definitions/Path",
-                  "value": "Images/Vlastni/icon_hoehe_servo_rot.png"
-                },
+                "parts": [
+                  {
+                    "if": [
+                      {
+                        "compare1": {
+                          "objectType": "Symbol",
+                          "valueType": "tchmi:general#/definitions/BOOL",
+                          "symbolExpression": "%pp%Priskok_agregatu_ikona%/pp%"
+                        },
+                        "compare2": {
+                          "objectType": "StaticValue",
+                          "valueType": "tchmi:general#/definitions/BOOL",
+                          "value": false
+                        },
+                        "compareOperator": "==",
+                        "logic": null
+                      }
+                    ],
+                    "then": [
+                      {
+                        "objectType": "WriteToSymbol",
+                        "active": true,
+                        "symbolExpression": "%ctrl%TG_Button_priskok_agregatu::Icon%/ctrl%",
+                        "value": {
+                          "objectType": "StaticValue",
+                          "valueType": "tchmi:framework#/definitions/Path",
+                          "value": "Images/Vlastni/icon_hoehe_servo_rot.png"
+                        },
+                        "asyncWait": true
+                      }
+                    ]
+                  },
+                  {
+                    "else": [
+                      {
+                        "objectType": "WriteToSymbol",
+                        "active": true,
+                        "symbolExpression": "%ctrl%TG_Button_priskok_agregatu::Icon%/ctrl%",
+                        "value": {
+                          "objectType": "StaticValue",
+                          "valueType": "tchmi:framework#/definitions/Path",
+                          "value": "Images/Vlastni/icon_hoehe_servo_gruen.png"
+                        },
+                        "asyncWait": true
+                      }
+                    ]
+                  }
+                ],
                 "asyncWait": true
               }
             ]
@@ -931,11 +977,11 @@
               {
                 "objectType": "WriteToSymbol",
                 "active": true,
-                "symbolExpression": "%ctrl%TG_Button_priskok_agregatu::Icon%/ctrl%",
+                "symbolExpression": "%ctrl%TG_Button_priskok_agregatu::Visibility%/ctrl%",
                 "value": {
                   "objectType": "StaticValue",
-                  "valueType": "tchmi:framework#/definitions/Path",
-                  "value": "Images/Vlastni/icon_hoehe_servo_gruen.png"
+                  "valueType": "tchmi:framework#/definitions/Visibility",
+                  "value": "Hidden"
                 },
                 "asyncWait": true
               }

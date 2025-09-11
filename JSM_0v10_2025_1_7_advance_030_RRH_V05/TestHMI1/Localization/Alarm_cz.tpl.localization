@@ -32,6 +32,7 @@
     "Alm26": "Agregát3 porucha frekvenčního měniče",
     "Alm27": "Agregát H krajní poloha brusného pásu vlevo",
     "Alm28": "Agregát H krajní poloha brusného pásu vpravo",
-    "Alm29": "Agregát H porucha napnutí pásu"
+    "Alm29": "Agregát H porucha napnutí pásu",
+    "Alm30": " Vypadlý jistič vývěvy"
   }
 }

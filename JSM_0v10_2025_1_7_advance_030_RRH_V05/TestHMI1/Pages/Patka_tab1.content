@@ -50,7 +50,7 @@
 ]
 </script>
 </div>
-<div id="Tc_Tgl_Start_agreg2" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiToggleButton" data-tchmi-height="44" data-tchmi-height-unit="px" data-tchmi-left="88" data-tchmi-left-unit="px" data-tchmi-top="199" data-tchmi-top-unit="px" data-tchmi-width="60" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-icon="Images/Vlastni/icon_aggregat_on.png" data-tchmi-zindex="2" data-tchmi-state-symbol="%s%PLC1.HMI_prom.UI_Start_agregat3%/s%">
+<div id="Tc_Tgl_Start_agreg2" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiToggleButton" data-tchmi-height="44" data-tchmi-height-unit="px" data-tchmi-left="88" data-tchmi-left-unit="px" data-tchmi-top="199" data-tchmi-top-unit="px" data-tchmi-width="60" data-tchmi-width-unit="px" data-tchmi-word-wrap="true" data-tchmi-icon="Images/Vlastni/icon_aggregat_on.png" data-tchmi-zindex="2" data-tchmi-state-symbol="%s%PLC1.HMI_prom.UI_Start_AgregatH%/s%">
 <script data-tchmi-target-attribute="data-tchmi-background-color" type="application/json">
 {
   "color": "rgba(110, 110, 110, 1)"
@@ -81,7 +81,7 @@
 <script data-tchmi-target-attribute="data-tchmi-trigger" type="application/json">
 [
   {
-    "event": "%s%PLC1.HMI_prom.UI_Start_agregat3%/s%",
+    "event": "%s%PLC1.HMI_prom.UI_Start_AgregatH%/s%",
     "actions": [
       {
         "objectType": "Condition",
@@ -93,7 +93,7 @@
                 "compare1": {
                   "objectType": "Symbol",
                   "valueType": "tchmi:general#/definitions/BOOL",
-                  "symbolExpression": "%s%PLC1.HMI_prom.UI_Start_agregat3%/s%"
+                  "symbolExpression": "%s%PLC1.HMI_prom.UI_Start_AgregatH%/s%"
                 },
                 "compare2": {
                   "objectType": "StaticValue",

@@ -224,6 +224,23 @@
       "propertySetterName": "setDrsnost_pasu",
       "propertyGetterName": "getDrsnost_pasu",
       "refTo": ""
+    },
+    {
+      "name": "data-tchmi-priskok_ikona",
+      "displayName": "Priskok_Ikona",
+      "allowSymbolExpressionsInObject": false,
+      "visible": true,
+      "type": "tchmi:general#/definitions/BOOL",
+      "category": "",
+      "description": "",
+      "requiredOnCompile": false,
+      "readOnly": false,
+      "bindable": true,
+      "heritable": true,
+      "propertyName": "Priskok_Ikona",
+      "propertySetterName": "setPriskok_Ikona",
+      "propertyGetterName": "getPriskok_Ikona",
+      "refTo": ""
     }
   ],
   "virtualRights": [],

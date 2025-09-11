@@ -43,10 +43,10 @@ HMI_prom.DesMisto := 0.001 ;
 		 
 		 END_IF
  
- 
+ (*
  Rising := HMI_prom.HMI_param_stroje.Stp_merne_jednotky_stroje AND NOT State ;
  State := HMI_prom.HMI_param_stroje.Stp_merne_jednotky_stroje ;
- (*
+ 
  IF Rising THEN 
 	 HMI_prom.UI_rq_rychlost_podav_pas := HMI_prom.UI_rq_rychlost_podav_pas / 3.28084 ;	 
  END_IF

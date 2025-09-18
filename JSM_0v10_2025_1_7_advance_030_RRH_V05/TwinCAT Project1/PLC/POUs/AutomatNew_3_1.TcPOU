@@ -1628,7 +1628,7 @@ END_VAR
                       <v n="BoxType">"FB_RefTable_2"</v>
                       <o n="Instance" t="Operand">
                         <v n="Operand">"fbRefTab"</v>
-                        <v n="Type">"FB_refTable_2"</v>
+                        <v n="Type">"FB_RefTable_2"</v>
                         <v n="Comment">""</v>
                         <v n="SymbolComment">""</v>
                         <v n="Address">""</v>
@@ -1709,7 +1709,7 @@ END_VAR
                               <n />
                               <o>
                                 <v n="Operand">"rProudCidla"</v>
-                                <v n="Type">"REAL"</v>
+                                <v n="Type">"BOOL"</v>
                                 <v n="Comment">""</v>
                                 <v n="SymbolComment">""</v>
                                 <v n="Address">""</v>

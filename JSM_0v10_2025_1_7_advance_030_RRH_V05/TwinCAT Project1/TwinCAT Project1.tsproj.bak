@@ -121,8 +121,8 @@
 			<Licenses CacheOrCheckLicensesOnStartup="true">
 				<Target>
 					<ManualSelect>{796D380F-D49E-4C0C-A05F-500052FAC883}</ManualSelect>
-					<TargetSelect TargetId="2">{796D380F-D49E-4C0C-A05F-500052FAC883}</TargetSelect>
 					<TargetSelect TargetId="2">{66689887-CCBD-452C-AC9A-039D997C6E66}</TargetSelect>
+					<TargetSelect TargetId="2">{796D380F-D49E-4C0C-A05F-500052FAC883}</TargetSelect>
 					<LicenseDevice Disabled="true" DongleHardwareId="2" DongleDevice="#x03020002" DongleLevel="90" DongleSerialNumber="000bsssd"/>
 				</Target>
 			</Licenses>
@@ -134,7 +134,7 @@
 		</System>
 		<Plc>
 			<Project GUID="{BD882BC8-1962-4ABA-A609-947E1695B440}" Name="PLC" PrjFilePath="PLC\PLC.plcproj" TmcFilePath="PLC\PLC.tmc" ReloadTmc="true" AmsPort="851" FileArchiveSettings="#x000e" SymbolicMapping="true">
-				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="PLC\PLC.tmc" TmcHash="{ECC1FCAA-A898-24D8-88ED-10BC92CA0163}">
+				<Instance Id="#x08502000" TcSmClass="TComPlcObjDef" KeepUnrestoredLinks="2" TmcPath="PLC\PLC.tmc" TmcHash="{4B0A1E4E-266A-D6DF-35B4-B0B3A2362C80}">
 					<Name>PLC Instance</Name>
 					<CLSID ClassFactory="TcPlc30">{08500001-0000-0000-F000-000000000064}</CLSID>
 					<Vars VarGrpType="1">
@@ -336,10 +336,6 @@
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>Machine_Inputs.I_pojistka_chlazeni_rozvadece2_ok</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
 							<Name>Machine_Inputs.I_zdvih_stul_impulsy</Name>
 							<Comment><![CDATA[ Impulsy]]></Comment>
 							<Type>DINT</Type>
@@ -347,6 +343,10 @@
 						<Var>
 							<Name>Machine_Inputs.I_imp_otacek_pod_pasu</Name>
 							<Type>UDINT</Type>
+						</Var>
+						<Var>
+							<Name>Machine_Inputs.I_pojistka_chlazeni_rozvadece2_ok</Name>
+							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>Machine_Inputs.I_jistic_osvetleni_ok</Name>
@@ -366,11 +366,6 @@
 						</Var>
 						<Var>
 							<Name>Machine_Inputs.I_vysoka_teplota_rozvadece</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>Machine_Inputs.I_koncakPozicioner</Name>
-							<Comment><![CDATA[ Hodnota cidla pro Pozicioner]]></Comment>
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
@@ -410,6 +405,11 @@
 						<Var>
 							<Name>Machine_Inputs.I_Posuv_pas_frekv_menic_status_word</Name>
 							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>Machine_Inputs.I_koncakPozicioner</Name>
+							<Comment><![CDATA[ Hodnota cidla pro Pozicioner]]></Comment>
+							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>Machine_Inputs.I_HodnotaCidla</Name>
@@ -467,13 +467,13 @@
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
+							<Name>Machine_outputs.Q_segmenty_patky</Name>
+							<Type GUID="{08224C19-9828-C3D2-A728-14626B7FED65}">ARRAY [1..27] OF INT</Type>
+						</Var>
+						<Var>
 							<Name>Machine_outputs.Q_majak_red</Name>
 							<Comment><![CDATA[majak]]></Comment>
 							<Type>BOOL</Type>
-						</Var>
-						<Var>
-							<Name>Machine_outputs.Q_segmenty_patky</Name>
-							<Type GUID="{08224C19-9828-C3D2-A728-14626B7FED65}">ARRAY [1..27] OF INT</Type>
 						</Var>
 						<Var>
 							<Name>Machine_outputs.Q_majak_green</Name>
@@ -580,10 +580,6 @@
 							<Type>BOOL</Type>
 						</Var>
 						<Var>
-							<Name>Machine_outputs.Q_patka_enable</Name>
-							<Type>BOOL</Type>
-						</Var>
-						<Var>
 							<Name>Machine_outputs.Q_zdvih_stul_setvalue</Name>
 							<Type>UDINT</Type>
 						</Var>
@@ -628,6 +624,10 @@
 						<Var>
 							<Name>Machine_outputs.Q_agregPodPas_command</Name>
 							<Type>UINT</Type>
+						</Var>
+						<Var>
+							<Name>Machine_outputs.Q_patka_enable</Name>
+							<Type>BOOL</Type>
 						</Var>
 						<Var>
 							<Name>Machine_outputs.Q_Pozicioner_dolu</Name>

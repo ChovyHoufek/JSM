@@ -12,6 +12,7 @@ VAR
 	L_otacky_stopy_metry:REAL;
 	S_R_oscilace_H: SR;
 	bStartReverse: BOOL;
+	F_TRIG_1: F_TRIG;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -3791,8 +3792,8 @@ Kdyz je EMS aktivni hlida se pritomnost obrobku ve stroji, kdyz neni detekovan p
                           <v n="Extensible">false</v>
                         </o>
                         <n n="InputFlags" />
-                        <l2 n="InputItems" cet="BoxTreeOperand">
-                          <o>
+                        <l2 n="InputItems">
+                          <o t="BoxTreeOperand">
                             <o n="Operand" t="Operand">
                               <v n="Operand">"Machine_outputs.Q_start_agregat3"</v>
                               <v n="Type">"BOOL"</v>
@@ -3811,10 +3812,11 @@ Kdyz je EMS aktivni hlida se pritomnost obrobku ve stroji, kdyz neni detekovan p
                             </o>
                             <v n="Id">1008L</v>
                           </o>
-                          <o>
-                            <o n="Operand" t="Operand">
-                              <v n="Operand">"Timer_vypnuti_oscilace.Q"</v>
-                              <v n="Type">"BOOL"</v>
+                          <o t="BoxTreeBox">
+                            <v n="BoxType">"F_TRIG"</v>
+                            <o n="Instance" t="Operand">
+                              <v n="Operand">"F_TRIG_1"</v>
+                              <v n="Type">"F_TRIG"</v>
                               <v n="Comment">""</v>
                               <v n="SymbolComment">""</v>
                               <v n="Address">""</v>
@@ -3824,11 +3826,61 @@ Kdyz je EMS aktivni hlida se pritomnost obrobku ve stroji, kdyz neni detekovan p
                                 <v n="Extensible">false</v>
                               </o>
                               <v n="LValue">false</v>
-                              <v n="Boolean">true</v>
-                              <v n="IsInstance">false</v>
-                              <v n="Id">1031L</v>
+                              <v n="Boolean">false</v>
+                              <v n="IsInstance">true</v>
+                              <v n="Id">1146L</v>
                             </o>
-                            <v n="Id">1030L</v>
+                            <o n="OutputItems" t="OutputItemList">
+                              <l2 n="OutputItems">
+                                <n />
+                              </l2>
+                            </o>
+                            <o n="Flags" t="Flags">
+                              <v n="Flags">0</v>
+                              <v n="Fixed">false</v>
+                              <v n="Extensible">false</v>
+                            </o>
+                            <n n="InputFlags" />
+                            <l2 n="InputItems" cet="BoxTreeOperand">
+                              <o>
+                                <o n="Operand" t="Operand">
+                                  <v n="Operand">"Timer_vypnuti_oscilace.Q"</v>
+                                  <v n="Type">"BOOL"</v>
+                                  <v n="Comment">""</v>
+                                  <v n="SymbolComment">""</v>
+                                  <v n="Address">""</v>
+                                  <o n="Flags" t="Flags">
+                                    <v n="Flags">0</v>
+                                    <v n="Fixed">false</v>
+                                    <v n="Extensible">false</v>
+                                  </o>
+                                  <v n="LValue">false</v>
+                                  <v n="Boolean">true</v>
+                                  <v n="IsInstance">false</v>
+                                  <v n="Id">1149L</v>
+                                </o>
+                                <v n="Id">1148L</v>
+                              </o>
+                            </l2>
+                            <o n="InputParam" t="ParamList">
+                              <l2 n="Names" />
+                              <l2 n="Types" />
+                            </o>
+                            <o n="OutputParam" t="ParamList">
+                              <l2 n="Names" cet="String">
+                                <v>Q</v>
+                              </l2>
+                              <l2 n="Types" cet="String">
+                                <v>BOOL</v>
+                              </l2>
+                            </o>
+                            <v n="CallType" t="Operator">FunctionBlock</v>
+                            <v n="EN">false</v>
+                            <v n="ENO">false</v>
+                            <n n="STSnippet" />
+                            <v n="ContainsExtensibleInputs">false</v>
+                            <v n="ProvidesSTSnippet">false</v>
+                            <v n="Id">1147L</v>
                           </o>
                         </l2>
                         <o n="InputParam" t="ParamList">

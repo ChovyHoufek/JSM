@@ -4,6 +4,8 @@
     <Declaration><![CDATA[PROGRAM EMS
 VAR
 	EMS_Timer_Rest, EMS_Timer_Rest_Agr1,EMS_Timer_Rest_Agr2,EMS_Timer_Rest_Agr3, EMS_Timer_Sleep,EMS_Timer_Rest_belt :TON;
+	// Tagy pro reset timeru
+	bResetAgg1, bResetAgg2, bResetAgg3,bResetBelt, bResetTimerSleep, bResetTimerRest : BOOL;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -15,13 +17,39 @@ EMS_Timer_Rest(IN:=NOT Machine_Inputs.I_detekce_obrobku_EMS AND HMI_prom.UI_EMS_
  
 EMS_Timer_Sleep(IN:=NOT Machine_Inputs.I_detekce_obrobku_EMS AND HMI_prom.UI_EMS_active AND HMI_prom.UI_EMS_sleep_active  , PT:=  HMI_prom.UI_EMS_Time_to_sleep , Q=> , ET=> );		
 
-EMS_Timer_Rest_Agr1(IN:=NOT Machine_Inputs.I_detekce_obrobku_EMS AND HMI_prom.UI_EMS_active AND HMI_prom.UI_EMS_rest_active AND HMI_prom.UI_EMS_Agr1_active , PT:= HMI_prom.UI_EMS_Time_to_Rest, Q=> , ET=> );
-EMS_Timer_Rest_Agr2(IN:=NOT Machine_Inputs.I_detekce_obrobku_EMS AND HMI_prom.UI_EMS_active AND HMI_prom.UI_EMS_rest_active AND HMI_prom.UI_EMS_Agr2_active , PT:= HMI_prom.UI_EMS_Time_to_Rest, Q=> , ET=> );
-EMS_Timer_Rest_Agr3(IN:=NOT Machine_Inputs.I_detekce_obrobku_EMS AND HMI_prom.UI_EMS_active AND HMI_prom.UI_EMS_rest_active AND HMI_prom.UI_EMS_Agr3_active , PT:= HMI_prom.UI_EMS_Time_to_Rest, Q=> , ET=> );
+EMS_Timer_Rest_Agr1(IN:=NOT Machine_Inputs.I_detekce_obrobku_EMS AND HMI_prom.UI_EMS_active AND HMI_prom.UI_EMS_rest_active AND HMI_prom.UI_EMS_Agr1_active AND bResetAgg1 , PT:= HMI_prom.UI_EMS_Time_to_Rest, Q=> , ET=> );
+EMS_Timer_Rest_Agr2(IN:=NOT Machine_Inputs.I_detekce_obrobku_EMS AND HMI_prom.UI_EMS_active AND HMI_prom.UI_EMS_rest_active AND HMI_prom.UI_EMS_Agr2_active AND bResetAgg2 , PT:= HMI_prom.UI_EMS_Time_to_Rest, Q=> , ET=> );
+EMS_Timer_Rest_Agr3(IN:=NOT Machine_Inputs.I_detekce_obrobku_EMS AND HMI_prom.UI_EMS_active AND HMI_prom.UI_EMS_rest_active AND HMI_prom.UI_EMS_Agr3_active AND bResetAgg3 , PT:= HMI_prom.UI_EMS_Time_to_Rest, Q=> , ET=> );
 
 // EMS pro pas 
 
-EMS_Timer_Rest_belt(IN:=NOT Machine_Inputs.I_detekce_obrobku_EMS AND HMI_prom.UI_EMS_active AND HMI_prom.UI_EMS_rest_active AND HMI_prom.UI_EMS_belt_active , PT:= HMI_prom.UI_EMS_Time_to_Rest, Q=> , ET=> );]]></ST>
+EMS_Timer_Rest_belt(IN:=NOT Machine_Inputs.I_detekce_obrobku_EMS AND HMI_prom.UI_EMS_active AND HMI_prom.UI_EMS_rest_active AND HMI_prom.UI_EMS_belt_active AND bResetBelt , PT:= HMI_prom.UI_EMS_Time_to_Rest, Q=> , ET=> );
+
+//Reset timeru
+
+IF EMS_Timer_Rest_Agr1.Q = TRUE AND HMI_prom.UI_Start_Agregat1 = TRUE THEN 
+	bResetAgg1 := TRUE ;
+	ELSE
+	bResetAgg1 := FALSE ;
+END_IF
+
+IF EMS_Timer_Rest_Agr2.Q = TRUE AND HMI_prom.UI_Start_Agregat2 = TRUE THEN 
+	bResetAgg2 := TRUE ;
+	ELSE
+	bResetAgg2 := FALSE ;
+END_IF
+
+IF EMS_Timer_Rest_Agr3.Q = TRUE AND HMI_prom.UI_Start_AgregatH = TRUE THEN 
+	bResetAgg3 := TRUE ;
+	ELSE
+	bResetAgg3 := FALSE ;
+END_IF
+
+IF EMS_Timer_Rest_belt.Q = TRUE AND HMI_prom.UI_Start_podav_pasu = TRUE THEN 
+	bResetBelt := TRUE ;
+	ELSE
+	bResetBelt := FALSE ;
+END_IF]]></ST>
     </Implementation>
     <LineIds Name="EMS">
       <LineId Id="15" Count="2" />
@@ -34,6 +62,17 @@ EMS_Timer_Rest_belt(IN:=NOT Machine_Inputs.I_detekce_obrobku_EMS AND HMI_prom.UI
       <LineId Id="42" Count="0" />
       <LineId Id="48" Count="2" />
       <LineId Id="47" Count="0" />
+      <LineId Id="62" Count="0" />
+      <LineId Id="56" Count="1" />
+      <LineId Id="55" Count="0" />
+      <LineId Id="64" Count="2" />
+      <LineId Id="59" Count="0" />
+      <LineId Id="70" Count="4" />
+      <LineId Id="69" Count="0" />
+      <LineId Id="76" Count="4" />
+      <LineId Id="75" Count="0" />
+      <LineId Id="82" Count="4" />
+      <LineId Id="81" Count="0" />
     </LineIds>
   </POU>
 </TcPlcObject>

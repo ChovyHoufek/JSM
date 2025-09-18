@@ -448,7 +448,7 @@
     <Content Include="Pages\Patka_tab3.content">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Pages\Recipe.content">
+    <Content Include="Pages\PadsValue.content">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Pages\Setup.content">
@@ -540,7 +540,7 @@
     <Content Include="Pages\Events.content">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Pages\Page1.content">
+    <Content Include="Pages\ProgramRecipe.content">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Pages\Settings.content">

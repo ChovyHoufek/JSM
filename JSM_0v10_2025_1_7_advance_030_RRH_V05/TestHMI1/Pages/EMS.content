@@ -842,7 +842,7 @@
 ]
 </script>
 </div>
-<div id="TcHmiImage_75" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="540" data-tchmi-left-unit="px" data-tchmi-top="487" data-tchmi-top-unit="px" data-tchmi-width="66" data-tchmi-width-unit="px" data-tchmi-src="Images/Vlastni/icon_druckbalken_tabelle_1.png">
+<div id="TcHmiImage_75" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiImage" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="540" data-tchmi-left-unit="px" data-tchmi-top="487" data-tchmi-top-unit="px" data-tchmi-width="66" data-tchmi-width-unit="px" data-tchmi-src="Images/Vlastni/icon_vorschub.png">
 </div>
 <div id="TcNI_rest_speed_belt" data-tchmi-type="TcHmi.Controls.Beckhoff.TcHmiNumericInput" data-tchmi-auto-focus-out="true" data-tchmi-decimal-digits="0" data-tchmi-height="40" data-tchmi-height-unit="px" data-tchmi-left="632" data-tchmi-left-unit="px" data-tchmi-max-value="18" data-tchmi-min-value="0" data-tchmi-reset-to-last-valid-value="true" data-tchmi-top="487" data-tchmi-top-unit="px" data-tchmi-width="150" data-tchmi-width-unit="px" data-tchmi-value-horizontal-alignment="Center" data-tchmi-value-font-size="28" data-tchmi-value-font-weight="Bold" data-tchmi-value="%s%PLC1.HMI_prom.UI_EMS_Belt_rest_speed%/s%">
 <script data-tchmi-target-attribute="data-tchmi-content-padding" type="application/json">

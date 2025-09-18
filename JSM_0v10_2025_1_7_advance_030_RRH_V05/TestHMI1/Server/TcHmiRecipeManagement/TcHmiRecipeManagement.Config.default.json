@@ -18,6 +18,25 @@
                     "Workpiece height": 30.0
                 }
             }
+        },
+        "slo6ka": {
+            "test": {
+                "recipeTypeName": "Grinding_prg",
+                "values": {
+                    "Belt roughness of aggregate 1": "150",
+                    "Belt roughness of aggregate 2": "kjk",
+                    "Belt roughness of aggregate 3": "820",
+                    "Blower step no. Agg 3": 3,
+                    "Pad Pressure": 100,
+                    "Pad small correction at the end": 0,
+                    "Pad small correction infront": 0,
+                    "Speed Aggregate 1": 15.0,
+                    "Speed Aggregate 2": 12.0,
+                    "Speed Aggregate 3": 8.0,
+                    "Speed moving belt": 5.0,
+                    "Workpiece height": 5.0
+                }
+            }
         }
     },
     "recipeTypeList": {
@@ -27,7 +46,7 @@
                     "defaultValue": null,
                     "enabled": true,
                     "group": "",
-                    "order": 3,
+                    "order": 4,
                     "schema": {},
                     "symbol": "PLC1.HMI_prom.UI_Drsnost_pasu",
                     "unit": ""
@@ -36,7 +55,7 @@
                     "defaultValue": null,
                     "enabled": true,
                     "group": "",
-                    "order": 2,
+                    "order": 5,
                     "schema": {},
                     "symbol": "PLC1.HMI_prom.UI_Drsnost_pasu_agreg2",
                     "unit": ""
@@ -45,7 +64,7 @@
                     "defaultValue": null,
                     "enabled": true,
                     "group": "",
-                    "order": 1,
+                    "order": 6,
                     "schema": {},
                     "symbol": "PLC1.HMI_prom.UI_Drsnost_pasu_agreg3",
                     "unit": ""
@@ -54,7 +73,7 @@
                     "defaultValue": 0,
                     "enabled": true,
                     "group": "",
-                    "order": 6,
+                    "order": 3,
                     "schema": {
                         "maximum": 5,
                         "minimum": 0
@@ -114,7 +133,7 @@
                     "defaultValue": 5.0,
                     "enabled": true,
                     "group": "",
-                    "order": 4,
+                    "order": 1,
                     "schema": {
                         "maximum": 60.0,
                         "minimum": 3.0
@@ -126,7 +145,7 @@
                     "defaultValue": 5.0,
                     "enabled": true,
                     "group": "",
-                    "order": 5,
+                    "order": 2,
                     "schema": {
                         "maximum": 60.0,
                         "minimum": 3.0
@@ -159,13 +178,6 @@
                     "unit": ""
                 }
             },
-            "options": {
-                "enabled": "None"
-            },
-            "recipeTypeNames": []
-        },
-        "New_grinding_prg": {
-            "members": {},
             "options": {
                 "enabled": "None"
             },

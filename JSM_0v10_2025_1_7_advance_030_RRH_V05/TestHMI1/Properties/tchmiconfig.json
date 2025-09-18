@@ -177,13 +177,6 @@
       "preloadBindings": false
     },
     {
-      "url": "Pages/Recipe.content",
-      "preload": false,
-      "keepAlive": false,
-      "loadSync": false,
-      "preloadBindings": false
-    },
-    {
       "url": "Pages/Setup.content",
       "preload": false,
       "keepAlive": false,
@@ -205,13 +198,6 @@
       "preloadBindings": false
     },
     {
-      "url": "Pages/Page1.content",
-      "preload": false,
-      "keepAlive": false,
-      "loadSync": false,
-      "preloadBindings": false
-    },
-    {
       "url": "Pages/Settings.content",
       "preload": false,
       "keepAlive": false,
@@ -220,6 +206,20 @@
     },
     {
       "url": "Pages/StartPage.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
+      "url": "Pages/PadsValue.content",
+      "preload": false,
+      "keepAlive": false,
+      "loadSync": false,
+      "preloadBindings": false
+    },
+    {
+      "url": "Pages/ProgramRecipe.content",
       "preload": false,
       "keepAlive": false,
       "loadSync": false,

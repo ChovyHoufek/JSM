@@ -17,9 +17,9 @@ EMS_Timer_Rest(IN:=NOT Machine_Inputs.I_detekce_obrobku_EMS AND HMI_prom.UI_EMS_
  
 EMS_Timer_Sleep(IN:=NOT Machine_Inputs.I_detekce_obrobku_EMS AND HMI_prom.UI_EMS_active AND HMI_prom.UI_EMS_sleep_active  , PT:=  HMI_prom.UI_EMS_Time_to_sleep , Q=> , ET=> );		
 
-EMS_Timer_Rest_Agr1(IN:=NOT Machine_Inputs.I_detekce_obrobku_EMS AND HMI_prom.UI_EMS_active AND HMI_prom.UI_EMS_rest_active AND HMI_prom.UI_EMS_Agr1_active AND bResetAgg1 , PT:= HMI_prom.UI_EMS_Time_to_Rest, Q=> , ET=> );
-EMS_Timer_Rest_Agr2(IN:=NOT Machine_Inputs.I_detekce_obrobku_EMS AND HMI_prom.UI_EMS_active AND HMI_prom.UI_EMS_rest_active AND HMI_prom.UI_EMS_Agr2_active AND bResetAgg2 , PT:= HMI_prom.UI_EMS_Time_to_Rest, Q=> , ET=> );
-EMS_Timer_Rest_Agr3(IN:=NOT Machine_Inputs.I_detekce_obrobku_EMS AND HMI_prom.UI_EMS_active AND HMI_prom.UI_EMS_rest_active AND HMI_prom.UI_EMS_Agr3_active AND bResetAgg3 , PT:= HMI_prom.UI_EMS_Time_to_Rest, Q=> , ET=> );
+EMS_Timer_Rest_Agr1(IN:=NOT Machine_Inputs.I_detekce_obrobku_EMS AND HMI_prom.UI_EMS_active AND HMI_prom.UI_EMS_rest_active AND HMI_prom.UI_EMS_Agr1_active AND NOT bResetAgg1 , PT:= HMI_prom.UI_EMS_Time_to_Rest, Q=> , ET=> );
+EMS_Timer_Rest_Agr2(IN:=NOT Machine_Inputs.I_detekce_obrobku_EMS AND HMI_prom.UI_EMS_active AND HMI_prom.UI_EMS_rest_active AND HMI_prom.UI_EMS_Agr2_active AND NOT bResetAgg2 , PT:= HMI_prom.UI_EMS_Time_to_Rest, Q=> , ET=> );
+EMS_Timer_Rest_Agr3(IN:=NOT Machine_Inputs.I_detekce_obrobku_EMS AND HMI_prom.UI_EMS_active AND HMI_prom.UI_EMS_rest_active AND HMI_prom.UI_EMS_Agr3_active AND NOT bResetAgg3 , PT:= HMI_prom.UI_EMS_Time_to_Rest, Q=> , ET=> );
 
 // EMS pro pas 
 

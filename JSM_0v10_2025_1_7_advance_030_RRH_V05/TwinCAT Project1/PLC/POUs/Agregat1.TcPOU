@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.15">
   <POU Name="Agregat1" Id="{d38681f0-3ff8-4708-9c47-26408d877290}" SpecialFunc="None">
     <Declaration><![CDATA[PROGRAM Agregat1
 VAR
@@ -11,6 +11,7 @@ VAR
 	T_enable_off:tof;
 	Stop_agr1: BOOL;
 	L_otacky_stopy_metry:REAL;
+	R_TRIG_ZELENE: R_TRIG;
 END_VAR
 ]]></Declaration>
     <Implementation>
@@ -764,7 +765,7 @@ END_VAR
                   <l2 n="ILLines" />
                   <v n="Comment">"bit8. Halt"</v>
                   <v n="Title">"Zastaveni agregatu"</v>
-                  <v n="Label">""</v>
+                  <v n="Label">"//Pridan R trig kvuli funkci aktivace agregatu pred spustenim p5es zelene tlacitko"</v>
                   <v n="OutCommented">false</v>
                   <l2 n="NetworkItems" cet="BoxTreeAssign">
                     <o>
@@ -836,8 +837,8 @@ END_VAR
                           <v n="Extensible">false</v>
                         </o>
                         <n n="InputFlags" />
-                        <l2 n="InputItems" cet="BoxTreeOperand">
-                          <o>
+                        <l2 n="InputItems">
+                          <o t="BoxTreeOperand">
                             <o n="Operand" t="Operand">
                               <v n="Operand">"Machine_Inputs.I_Tl_Stop_Reset_stroje"</v>
                               <v n="Type">"BOOL"</v>
@@ -856,26 +857,81 @@ END_VAR
                             </o>
                             <v n="Id">110L</v>
                           </o>
-                          <o>
-                            <o n="Operand" t="Operand">
-                              <v n="Operand">"Machine_Intern.M_Stroj_zapnuty"</v>
-                              <v n="Type">"BOOL"</v>
+                          <o t="BoxTreeBox">
+                            <v n="BoxType">"R_TRIG"</v>
+                            <o n="Instance" t="Operand">
+                              <v n="Operand">"R_TRIG_ZELENE"</v>
+                              <v n="Type">"R_TRIG"</v>
                               <v n="Comment">""</v>
                               <v n="SymbolComment">""</v>
                               <v n="Address">""</v>
                               <o n="Flags" t="Flags">
-                                <v n="Flags">1</v>
-                                <v n="Fixed">true</v>
+                                <v n="Flags">0</v>
+                                <v n="Fixed">false</v>
                                 <v n="Extensible">false</v>
                               </o>
                               <v n="LValue">false</v>
-                              <v n="Boolean">true</v>
-                              <v n="IsInstance">false</v>
-                              <v n="Id">412L</v>
+                              <v n="Boolean">false</v>
+                              <v n="IsInstance">true</v>
+                              <v n="Id">741L</v>
                             </o>
-                            <v n="Id">411L</v>
+                            <o n="OutputItems" t="OutputItemList">
+                              <l2 n="OutputItems">
+                                <n />
+                              </l2>
+                            </o>
+                            <o n="Flags" t="Flags">
+                              <v n="Flags">0</v>
+                              <v n="Fixed">false</v>
+                              <v n="Extensible">false</v>
+                            </o>
+                            <n n="InputFlags" />
+                            <l2 n="InputItems" cet="BoxTreeOperand">
+                              <o>
+                                <o n="Operand" t="Operand">
+                                  <v n="Operand">"Machine_Intern.M_Stroj_zapnuty"</v>
+                                  <v n="Type">"BOOL"</v>
+                                  <v n="Comment">""</v>
+                                  <v n="SymbolComment">""</v>
+                                  <v n="Address">""</v>
+                                  <o n="Flags" t="Flags">
+                                    <v n="Flags">1</v>
+                                    <v n="Fixed">true</v>
+                                    <v n="Extensible">false</v>
+                                  </o>
+                                  <v n="LValue">false</v>
+                                  <v n="Boolean">true</v>
+                                  <v n="IsInstance">false</v>
+                                  <v n="Id">412L</v>
+                                </o>
+                                <v n="Id">411L</v>
+                              </o>
+                            </l2>
+                            <o n="InputParam" t="ParamList">
+                              <l2 n="Names" cet="String">
+                                <v>CLK</v>
+                              </l2>
+                              <l2 n="Types" cet="String">
+                                <v>BOOL</v>
+                              </l2>
+                            </o>
+                            <o n="OutputParam" t="ParamList">
+                              <l2 n="Names" cet="String">
+                                <v>Q</v>
+                              </l2>
+                              <l2 n="Types" cet="String">
+                                <v>BOOL</v>
+                              </l2>
+                            </o>
+                            <v n="CallType" t="Operator">FunctionBlock</v>
+                            <v n="EN">false</v>
+                            <v n="ENO">false</v>
+                            <n n="STSnippet" />
+                            <v n="ContainsExtensibleInputs">false</v>
+                            <v n="ProvidesSTSnippet">false</v>
+                            <v n="Id">742L</v>
                           </o>
-                          <o>
+                          <o t="BoxTreeOperand">
                             <o n="Operand" t="Operand">
                               <v n="Operand">"HMI_prom.UI_Start_agregat1"</v>
                               <v n="Type">"BOOL"</v>
@@ -894,7 +950,7 @@ END_VAR
                             </o>
                             <v n="Id">472L</v>
                           </o>
-                          <o>
+                          <o t="BoxTreeOperand">
                             <o n="Operand" t="Operand">
                               <v n="Operand">"Machine_Inputs.I_Krajni_poloha_pasu1_vpravo"</v>
                               <v n="Type">"BOOL"</v>
@@ -913,7 +969,7 @@ END_VAR
                             </o>
                             <v n="Id">484L</v>
                           </o>
-                          <o>
+                          <o t="BoxTreeOperand">
                             <o n="Operand" t="Operand">
                               <v n="Operand">"Machine_Inputs.I_Krajni_poloha_pasu1_vlevo"</v>
                               <v n="Type">"BOOL"</v>
@@ -932,7 +988,7 @@ END_VAR
                             </o>
                             <v n="Id">486L</v>
                           </o>
-                          <o>
+                          <o t="BoxTreeOperand">
                             <o n="Operand" t="Operand">
                               <v n="Operand">"Stop_agr1"</v>
                               <v n="Type">"BOOL"</v>
@@ -951,7 +1007,7 @@ END_VAR
                             </o>
                             <v n="Id">575L</v>
                           </o>
-                          <o>
+                          <o t="BoxTreeOperand">
                             <o n="Operand" t="Operand">
                               <v n="Operand">"Machine_Inputs.I_agreg1_frekv_menic_status_word.3"</v>
                               <v n="Type">"BOOL"</v>
@@ -970,7 +1026,7 @@ END_VAR
                             </o>
                             <v n="Id">593L</v>
                           </o>
-                          <o>
+                          <o t="BoxTreeOperand">
                             <o n="Operand" t="Operand">
                               <v n="Operand">"Machine_Inputs.I_Napnuti_pasu_agreg1"</v>
                               <v n="Type">"BOOL"</v>
@@ -6204,7 +6260,7 @@ Kdyz je EMS aktivni hlida se pritomnost obrobku ve stroji, kdyz neni detekovan p
                   <v n="Id">337L</v>
                 </o>
               </l2>
-              <v n="BranchCounter">47</v>
+              <v n="BranchCounter">48</v>
               <v n="ValidIds">true</v>
             </o>
           </Data>
